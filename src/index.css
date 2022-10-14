@@ -223,3 +223,20 @@ button {
     gap: 5%;
     padding: 0 5% 0 2%;
 }
+
+.project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-name {
+    font-size: 1.25vw;
+    background-color: #EBF5EE;
+    border: none;
+    outline: none;
+}
+
+.project-name:hover {
+    color:#7c4d6d;
+}
