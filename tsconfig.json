@@ -4,8 +4,21 @@
         "noImplicitAny": true,
         "module": "es6",
         "target": "es5",
-        "jsx": "react",
+        //"jsx": "react",
         "allowJs": true,
-        "moduleResolution": "node"
-    }
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true
+    },
+    "include": ["src", "index.d.ts"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "webpack.config.js"
+    ]
 }
