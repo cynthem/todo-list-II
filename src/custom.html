@@ -31,7 +31,9 @@
     <div class="main">
         <div class="main-header">
             <div class="header-title">
-                <a href="https://github.com/doozles411" target="_blank"><i class="fa-solid fa-thumbtack fa-xl"></i></a>
+                <a href="https://github.com/doozles411" target="_blank">
+                    <i class="fa-solid fa-thumbtack fa-xl"></i>
+                </a>
                 <h1>To-Doing</h1>
             </div>
             <div class="header-hamburger-menu">
@@ -42,11 +44,33 @@
         <div class="main-content">
             <div class="main-dashboard">
                 <div class="dashboard-filters">
-                    <div class="filters-all"></div>
-                    <div class="filters-today"></div>
-                    <div class="filters-week"></div>
+                    <div class="filters-all">
+                        <button>All</button>
+                        <p></p>
+                    </div>
+                    <div class="filters-today">
+                        <button>Today</button>
+                        <p></p>
+                    </div>
+                    <div class="filters-week">
+                        <button>This Week</button>
+                        <p></p>
+                    </div>
                 </div>
-                <div class="dashboard-projects"></div>
+                <div class="dashboard-projects">
+                    <div class="projects-header">
+                        <h2>Projects</h2>
+                        <button class="projects-btn">+</button>
+                    </div>
+                    <div class="projects-list">
+                    <!-- Sample custom project title and count:
+                        <div class="projects-item">
+                            <button class="projects-name">Kitchen renovation</button>
+                            <p class="projects-counter"></p>
+                        </div>
+                    -->
+                    </div>
+                </div>
             </div>
             <div class="main-list"></div>
         </div>
