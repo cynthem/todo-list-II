@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',
     entry: './src/index.ts',
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin(),
+        new CssMinimizerPlugin(),
     ],
     module: {
         rules: [
