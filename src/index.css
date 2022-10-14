@@ -244,3 +244,36 @@ button {
 
 /* TO-DO LIST SECTION */
 
+.main-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4%;
+    padding: 5% 5% 2%;
+    overflow-y: scroll;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e8e6e7;
+    padding: 1.25% 1.5%;
+    border-radius: 5px;
+}
+
+.list-item:hover {
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+}
+
+.low-priority {
+    border-left: 8px solid #cfbdc9;
+}
+
+.medium-priority {
+    border-left: 8px solid #99728c;
+}
+
+.high-priority {
+    border-left: 8px solid #542344;
+}
