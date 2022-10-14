@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/doozles411/todo-list-II#readme",
   "devDependencies": {
+    "css-minimizer-webpack-plugin": "^4.2.2",
     "html-webpack-plugin": "^5.5.0",
     "ts-loader": "^9.4.1",
     "typescript": "^4.8.4"
