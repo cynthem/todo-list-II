@@ -82,7 +82,8 @@ button {
     cursor: pointer;
 }
 
-.fa-thumbtack:hover {
+.fa-thumbtack:hover,
+.filters-btn:hover {
     transform: scale(1.1);
 }
 
@@ -129,4 +130,15 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.filters-btn {
+    border: none;
+    outline: none;
+    background-color: #EBF5EE;
+    font-size: 1.5vw;
+}
+
+.filters-btn:active {
+    transform: translate(-1px, 1px);
 }
