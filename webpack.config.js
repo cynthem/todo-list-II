@@ -7,8 +7,13 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: './src/index.ts',
     plugins: [
-        new HtmlWebpackPlugin(),
-        new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'To-doing',
+            template: 'src/custom.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: "bundle.css"
+        }),
         new CssMinimizerPlugin()
     ],
     module: {
