@@ -142,3 +142,16 @@ button {
 .filters-btn:active {
     transform: translate(-1px, 1px);
 }
+
+.filters-counter,
+.projects-counter {
+    background-color: #808080;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+}
