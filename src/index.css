@@ -96,7 +96,8 @@ button {
 }
 
 .fa-thumbtack:hover,
-.filters-btn:hover {
+.filters-btn:hover,
+.projects-btn:hover {
     transform: scale(1.1);
 }
 
@@ -183,4 +184,27 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.projects-header > h2 {
+    font-size: 2rem;
+}
+
+.projects-btn {
+    position: relative;
+    background-color: #542344;
+    border-radius: 50%;
+    width: 15%;
+    padding-bottom: 15%;
+    box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+    color: #EBF5EE;
+    font-size: 3vw;
+}
+
+.projects-btn p {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
 }
