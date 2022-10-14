@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
@@ -7,7 +8,8 @@ module.exports = {
     entry: './src/index.ts',
     plugins: [
         new HtmlWebpackPlugin(),
-        new CssMinimizerPlugin(),
+        new MiniCssExtractPlugin(),
+        new CssMinimizerPlugin()
     ],
     module: {
         rules: [
@@ -19,7 +21,25 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+              test: /\.txt$/,
+              loader: 'raw-loader',
+            },
+            {
+              test: /.s?css$/,
+              use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+            },
+            {
+              test: /\.(png|svg|jpg|jpeg|gif)$/i,
+              type: 'asset/resource',
             }
+        ]
+    },
+    optimization: {
+        minimizer: [
+            `...`,
+            new CssMinimizerPlugin()
         ]
     },
     resolve: {
