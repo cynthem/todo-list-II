@@ -150,7 +150,7 @@ button {
     border: none;
     outline: none;
     background-color: #EBF5EE;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .filters-btn:active {
@@ -187,7 +187,7 @@ button {
 }
 
 .projects-header > h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .projects-btn {
@@ -231,7 +231,7 @@ button {
 }
 
 .project-name {
-    font-size: 1.25vw;
+    font-size: 1.1rem;
     background-color: #EBF5EE;
     border: none;
     outline: none;
