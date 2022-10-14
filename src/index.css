@@ -2,13 +2,26 @@
     font-family: 'Overpass';
     font-style: normal;
     font-weight: 400;
-    src: url('./resources/overpass/overpass-v12-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../dist/assets/font-overpass/overpass-v12-latin-regular.eot'); /* IE9 Compat Modes */
     src: local(''),
-         url('./resources/overpass/overpass-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('./resources/overpass/overpass-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('./resources/overpass/overpass-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('./resources/overpass/overpass-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('./resources/overpass/overpass-v12-latin-regular.svg#Overpass') format('svg'); /* Legacy iOS */
+         url('../dist/assets/font-overpass/overpass-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../dist/assets/font-overpass/overpass-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../dist/assets/font-overpass/overpass-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../dist/assets/font-overpass/overpass-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../dist/assets/font-overpass/overpass-v12-latin-regular.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../dist/assets/font-fraunces/fraunces-v23-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-700.svg#Fraunces') format('svg'); /* Legacy iOS */
 }
 
 *,
@@ -32,8 +45,27 @@ body {
     font-family: 'Overpass', serif;
 }
 
+/* MAIN SECTION */
+
 .main {
     display: grid;
     grid-template-rows: 12% 88%;
     height: 100vh;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 3%;
+    color: #ebf5ee;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.75vw;
 }
