@@ -212,3 +212,14 @@ button {
     padding-top: 2.5px;
     padding-left: 1px;
 }
+
+.projects-btn:active {
+    transform: translate(-2px, 3px);
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    padding: 0 5% 0 2%;
+}
