@@ -86,7 +86,7 @@ button {
     color: #ebf5ee;
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 1.75vw;
+    font-size: 1.65rem;
 }
 
 .fa-thumbtack,
@@ -103,7 +103,7 @@ button {
 .header-hamburger-menu {
     display: none;
     padding-right: 3%;
-    font-size: 3vw;
+    font-size: 3rem;
 }
 
 .main-content {
@@ -149,7 +149,7 @@ button {
     border: none;
     outline: none;
     background-color: #EBF5EE;
-    font-size: 1.5vw;
+    font-size: 1.5rem;
 }
 
 .filters-btn:active {
@@ -159,12 +159,28 @@ button {
 .filters-counter,
 .projects-counter {
     background-color: #808080;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 1.9rem;
+    height: 1.9rem;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-weight: 800;
+    padding-top: 2.5px;
+    padding-left: 1px;
+}
+
+.dashboard-projects {
+    display: grid;
+    grid-template-rows: 10% 82%;
+    row-gap: 8%;
+    padding: 7% 5% 4%;
+    overflow-y: scroll;
+}
+
+.projects-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
