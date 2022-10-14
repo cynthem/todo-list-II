@@ -45,6 +45,7 @@ body {
     font-family: 'Overpass', serif;
 }
 
+
 /* MAIN SECTION */
 
 .main {
@@ -68,4 +69,39 @@ body {
     font-family: 'Fraunces', serif;
     font-weight: 700;
     font-size: 1.75vw;
+}
+
+.fa-thumbtack,
+.header-hamburger-menu {
+    color: #EBF5EE;
+    cursor: pointer;
+}
+
+.fa-thumbtack:hover {
+    transform: scale(1.1);
+}
+
+.header-hamburger-menu {
+    display: none;
+    padding-right: 3%;
+    font-size: 3vw;
+}
+
+.main-content {
+    background-color: #EBF5EE;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    display: grid;
+    grid-template-columns: 25% 72%;
+    column-gap: 3%;
+    padding: 2% 2% 1%;
+}
+
+
+/* DASHBOARD SECTION */
+
+.main-dashboard {
+    display: grid;
+    grid-template-rows: 25% 72%;
+    row-gap: 3%;
 }
