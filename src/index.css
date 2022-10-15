@@ -336,3 +336,12 @@ button {
 .selected {
     color: #808080;
 }
+
+.strike {
+    text-decoration: line-through;
+}
+
+.done {
+    color: #99728c;
+    border: 1px solid #99728c;
+}
