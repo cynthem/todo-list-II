@@ -676,10 +676,13 @@ input[type="radio"] {
     font-size: 1.5rem;
 }
 
-.notes-info {
+/*.notes-info {
     display: flex;
     gap: 5%;
     padding-bottom: 4%;
     font-size: 1.1rem;
-}
+}*/
 
+.notes-info > div {
+    display: flex;
+}
