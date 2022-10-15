@@ -27,6 +27,19 @@
 @font-face {
     font-family: 'Fraunces';
     font-style: normal;
+    font-weight: 400;
+    src: url('../dist/assets/font-fraunces/fraunces-v23-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../dist/assets/font-fraunces/fraunces-v23-latin-regular.svg#Fraunces') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
     font-weight: 700;
     src: url('../dist/assets/font-fraunces/fraunces-v23-latin-700.eot'); /* IE9 Compat Modes */
     src: local(''),
@@ -57,6 +70,11 @@ body {
 button {
     font-family: 'Overpass', serif;
     cursor: pointer;
+}
+
+.clicked {
+    font-weight: 800;
+    text-decoration: underline;
 }
 
 
@@ -614,9 +632,18 @@ input[type="radio"] {
     align-self: center;
 }
 
-
-
-
 .add-project-form {
+    display: grid;
+    grid-template-rows: 70% 20%;
+    row-gap: 10%;
     display: none;
+}
+
+#add-project {
+    width: 60%;
+}
+
+.add-project-submit {
+    text-align: center;
+    align-self: center;
 }

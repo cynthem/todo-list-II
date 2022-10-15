@@ -45,16 +45,16 @@
             <div class="main-dashboard">
                 <div class="dashboard-filters">
                     <div class="filters-all">
-                        <button class="filters-btn">All</button>
-                        <p class="filters-counter">1</p>
+                        <button class="filters-btn all-btn clicked">All</button>
+                        <p class="filters-counter all">1</p>
                     </div>
                     <div class="filters-today">
-                        <button class="filters-btn">Today</button>
-                        <p class="filters-counter">10</p>
+                        <button class="filters-btn today-btn">Today</button>
+                        <p class="filters-counter today">10</p>
                     </div>
                     <div class="filters-week">
-                        <button class="filters-btn">This Week</button>
-                        <p class="filters-counter">20</p>
+                        <button class="filters-btn week-btn">This Week</button>
+                        <p class="filters-counter week">20</p>
                     </div>
                 </div>
                 <div class="dashboard-projects">
@@ -85,11 +85,11 @@
             <div class="main-list">
             <!-- Sample unchecked todo item:
                 <div class="list-item high-priority" data-index="0" data-project="Kitchen renovation">
-                    <div class="item-left">
+                    <div class="list-item-left">
                         <i class="fa-regular fa-square"></i>
                         <p class="item-description">Remove vinyl floor</p>
                     </div>
-                    <div class="item-right">
+                    <div class="list-item-right">
                         <button class="item-notes">NOTES</button>
                         <p class="item-date"></p>
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -100,11 +100,11 @@
 
             <!-- Sample checked todo item:
                 <div class="list-item low-priority" data-index="1" data-project="Kitchen renovation">
-                    <div class="item-left">
+                    <div class="list-item-left">
                         <i class="fa-solid fa-square-check"></i>
                         <p class="item-description selected strike">Build cabinets</p>
                     </div>
-                    <div class="item-right">
+                    <div class="list-item-right">
                         <button class="item-notes done">NOTES</button>
                         <p class="item-date selected">Aug 26</p>
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -195,8 +195,7 @@
         </div>
     </div>
     
-    <div class="popup-add-new">
-    <!-- <div class="popup-add-new invisible-add-new"> -->
+   <div class="popup-add-new ">
         <div class="add-new-container">
             <div class="add-new-close">
                 <i class="fa-solid fa-xmark fa-lg" id="add-exit"></i>
