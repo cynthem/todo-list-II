@@ -283,7 +283,47 @@
         </div>
     </div>
     
-    <div class="popup-edit"></div>
+    <div class="popup-edit">
+        <div class="edit-container">
+            <div class="edit-close">
+                <i class="fa-solid fa-xmark fa-lg" id="edit-exit"></i>
+            </div>
+            <form class="edit-form">
+                <div class="edit-form-fields">
+                    <div class="edit-form-text">
+                        <textarea class="edit-name-textarea" name="edit-todo" maxlength="30" required>Build cabinets</textarea>
+                        <textarea class="edit-details-textarea" name="edit-todo">details shmetails</textarea>
+                    </div>
+                    <div class="edit-form-details">
+                        <div class="edit-form-date">
+                            <label class="edit-date-label" for="edit-date">Due date:</label>
+                            <input class="edit-date-input" id="edit-date" type="date" name="edit-todo" value="2022-08-20" required>
+                        </div>
+                        <div class="edit-form-priority">
+                            <p class="edit-priority-header">Priority:</p>
+                            <div class="edit-priority-radios">
+                                <div class="edit-radios-low">
+                                    <input id="edit-low" type="radio" name="edit-todo-priority" value="low" required>
+                                    <label class="priority-label low" id="edit-low-label" for="edit-low">Low</label>
+                                </div>
+                                <div class="edit-radios-medium">
+                                    <input id="edit-medium" type="radio" name="edit-todo-priority" value="medium">
+                                    <label class="priority-label medium" id="edit-medium-label" for="edit-medium">Medium</label>
+                                </div>
+                                <div class="edit-radios-high">
+                                    <input id="edit-high" type="radio" name="edit-todo-priority" value="high">
+                                    <label class="priority-label high" id="edit-high-label" for="edit-high">High</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-form-submit">
+                    <input type="submit" value="Confirm" id="submit-edit">
+                </div>
+            </form>
+        </div>
+    </div>
     
     <div class="popup-empty-project"></div>
 
