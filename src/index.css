@@ -131,7 +131,6 @@ button {
     padding: 2% 2% 1%;
 }
 
-
 /* DASHBOARD SECTION */
 
 .main-dashboard {
@@ -152,6 +151,7 @@ button {
     flex-direction: column;
     justify-content: space-around;
     padding: 0 20%;
+    background-color: #EBF5EE;
 }
 
 .dashboard-filters > div {
@@ -192,6 +192,7 @@ button {
     row-gap: 8%;
     padding: 7% 5% 4%;
     overflow-y: scroll;
+    background-color: #EBF5EE;
 }
 
 .projects-header {
@@ -801,12 +802,12 @@ textarea {
     flex-direction: column;
     align-items: center;
     padding: 4% 5% 3%;
+    text-align: center;
 }
 
 .empty-project-text > p {
     font-size: 1.3rem;
-    width: 60%;
-    cursor: default;
+    width: 80%;
     padding-top: 8%;
 }
 
@@ -824,7 +825,6 @@ textarea {
     font-size: 1.2rem;
     border-radius: 3px;
     padding: 0.4rem 0.6rem 0.1rem;
-    cursor: pointer;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -904,9 +904,107 @@ textarea {
     }
 }
 
+@media (max-width: 790px) {
+    .header-hamburger-menu {
+        display: block;
+    }
+    .main-content {
+        display: block;
+    }
+    .main-dashboard {
+        position: absolute;
+        top: 15%;
+        right: 2%;
+        width: 300px;
+        height: 84vh;
+        visibility: hidden;
+    }
+    .main-list {
+        height: 100%;
+    }
+    .list-item-right {
+        gap: 20px;
+    }
+    .item-description {
+        font-size: 1rem;
+    }
+    .item-notes {
+        font-size: 0.8rem;
+    }
+    .item-date {
+        font-size: 0.8rem;
+        width: 5.5vw;
+    }
+    .add-date-label,
+    .edit-date-label,
+    .add-priority-header,
+    .edit-priority-header {
+        font-size: 1rem;
+    }
+    .add-priority-radios,
+    .edit-priority-radios {
+        width: 170px;
+    }
+    input[type="radio"] {
+        left: 2rem;
+    }
+    .priority-label {
+        font-size: 0.8rem;
+    }
+    .add-new-container {
+        width: 550px;
+        height: 350px;
+    }
+    .add-new-header {
+        font-size: 1.8rem;
+    }
+    .add-todo-btn,
+    .add-project-btn {
+        font-size: 1.4rem;
+    }
+    input[type="submit"] {
+        font-size: 1.1rem;
+        padding: 8px 23px 7px;
+    }
+    .notes-container {
+        width: 550px;
+    }
+    .notes-header {
+        font-size: 1.3rem;
+    }
+    .notes-info > div {
+        font-size: 0.9rem;
+    }
+    .notes-date {
+        margin-left: 14px;
+    }
+    .notes-details {
+        margin-left: 27px;
+    }
+    .edit-container {
+        width: 550px;
+        height: 350px;
+    }
+    .edit-title-textarea {
+        font-size: 1.3rem;
+    }
+    .edit-details-textarea {
+        font-size: 0.9rem;
+    }
+    .empty-project-container {
+        width: 550px;
+    }
+    .empty-project-text > p {
+        font-size: 1.1rem;
+    }
+    .empty-project-btns {
+        padding-top: 30px;
+    }
+    .empty-project-add-btn,
+    .empty-project-delete-btn {
+        font-size: 1.1rem;
+    }
+}
+
 
 /* MOBILE STYLES */
-
-@media (max-width: 790px) {
-    
-}
