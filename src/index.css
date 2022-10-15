@@ -369,7 +369,8 @@ button {
 
 .popup-add-new,
 .popup-notes,
-.popup-edit {
+.popup-edit,
+.popup-empty-project {
     z-index: 2;
     position: fixed;
     top: 0;
@@ -396,7 +397,8 @@ button {
 @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
     .popup-add-new,
     .popup-notes,
-    .popup-edit {
+    .popup-edit,
+    .popup-empty-project {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         background-color: rgba(0, 0, 0, 0.3);
@@ -405,14 +407,16 @@ button {
 
 .invisible-add-new,
 .invisible-notes,
-.invisible-edit {
+.invisible-edit,
+.invisible-empty-project {
     visibility: hidden;
     opacity: 0;
 }
 
 .add-new-container,
 .notes-container,
-.edit-container {
+.edit-container,
+.empty-project-container {
     background-color: #EBF5EE;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
@@ -422,7 +426,8 @@ button {
 
 .add-new-close,
 .notes-close,
-.edit-close {
+.edit-close,
+.empty-project-close {
     display: flex;
     justify-content: flex-end;
     padding: 22px 18px 0 0;
@@ -431,7 +436,8 @@ button {
 
 .add-new-close > .fa-xmark,
 .notes-close > .fa-xmark,
-.edit-close > .fa-xmark {
+.edit-close > .fa-xmark,
+.empty-project-close > .fa-xmark {
     height: 100%;
     color: #542344;
     cursor: pointer;
@@ -779,3 +785,6 @@ textarea {
     justify-content: center;
     align-items: center;
 }
+
+
+/* POP-UP: EMPTY PROJECT */
