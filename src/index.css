@@ -659,15 +659,15 @@ input[type="radio"] {
 
 .notes-container {
     width: 600px;
-    min-height: 300px;
+    height: auto;
 }
 
 .notes-content {
-    display: grid;
-    min-height: 240px;
-    grid-template-rows: 30% 60%;
-    row-gap: 10%;
-    padding: 0 6% 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    height: auto;
+    padding: 10px 30px 20px;
 }
 
 .notes-header {
@@ -679,7 +679,15 @@ input[type="radio"] {
 .notes-info > div {
     display: flex;
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 5px;
+}
+
+.notes-project {
+    margin-left: 19px;
+}
+
+.notes-date {
+    margin-left: 6px;
 }
 
 .notes-details {
