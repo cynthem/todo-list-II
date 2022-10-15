@@ -445,6 +445,82 @@ button {
     color: yellow;
 }
 
+.add-date-label,
+.edit-date-label,
+.add-priority-header,
+.edit-priority-header {
+    font-size: 1.2rem;
+}
+
+.add-date-input,
+.edit-date-input {
+    width: 150px;
+    padding: 3% 6%;
+    font-size: 0.9rem;
+    background-color: #EBF5EE;
+    border: 1px solid #542344;
+    color: #542344;
+    border-radius: 4px;
+}
+
+.add-priority-radios,
+.edit-priority-radios {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="radio"] {
+    position: relative;
+    left: 2.2rem;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+.priority-label {
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 5px 10px 2px;
+    border-radius: 4px;
+    background-color: #EBF5EE;
+}
+
+.low {
+    border: 1px solid #c4a9bb;
+    color: #c4a9bb;
+}
+
+.medium {
+    padding: 5px 4px 2px;
+    border: 1px solid #99728c;
+    color: #99728c;
+}
+
+.high {
+    border: 1px solid #542344;
+    color: #542344;
+}
+
+.low-checked {
+    background-color: #c4a9bb;
+    color: #EBF5EE;
+}
+
+.medium-checked {
+    padding: 5px 4px 2px;
+    background-color: #99728c;
+    color: #EBF5EE;
+}
+
+.high-checked {
+    background-color: #542344;
+    color: #EBF5EE;
+}
+
 
 /* POP-UP: ADD NEW */
 
@@ -566,78 +642,6 @@ textarea {
     align-items: center;
 }
 
-.add-date-label,
-.add-priority-header {
-    font-size: 1.2rem;
-}
-
-.add-date-input {
-    width: 150px;
-    padding: 3% 6%;
-    font-size: 0.9rem;
-    background-color: #EBF5EE;
-    border: 1px solid #542344;
-    color: #542344;
-    border-radius: 4px;
-}
-
-.add-priority-radios {
-    display: flex;
-    width: 200px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-input[type="radio"] {
-    position: relative;
-    left: 2.2rem;
-    height: 1px;
-    width: 1px;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-}
-
-.priority-label {
-    display: inline-block;
-    font-size: 0.9rem;
-    padding: 5px 10px 2px;
-    border-radius: 4px;
-    background-color: #EBF5EE;
-}
-
-.low {
-    border: 1px solid #c4a9bb;
-    color: #c4a9bb;
-}
-
-.medium {
-    padding: 5px 4px 2px;
-    border: 1px solid #99728c;
-    color: #99728c;
-}
-
-.high {
-    border: 1px solid #542344;
-    color: #542344;
-}
-
-.low-checked {
-    background-color: #c4a9bb;
-    color: #EBF5EE;
-}
-
-.medium-checked {
-    padding: 5px 4px 2px;
-    background-color: #99728c;
-    color: #EBF5EE;
-}
-
-.high-checked {
-    background-color: #542344;
-    color: #EBF5EE;
-}
-
 .add-todo-submit {
     grid-column: span 2;
     text-align: center;
@@ -730,14 +734,14 @@ input[type="radio"] {
 
 .edit-form-text {
     display: grid;
-    grid-template-rows: 20% 50%;
-    row-gap: 30%;
+    grid-template-rows: 20% 60%;
+    row-gap: 20%;
 }
 
 .edit-title-textarea {
     font-family: 'Fraunces', serif;
     color: #542344;
-    font-size: 1.75vw;
+    font-size: 1.5rem;
     height: 4rem;
     border-bottom: 1px solid grey;
 }
@@ -745,4 +749,33 @@ input[type="radio"] {
 .edit-title-textarea,
 .edit-details-textarea {
     resize: none;
+}
+
+.edit-title-textarea:hover {
+    color: #7c4d6d;
+}
+
+.edit-details-textarea:hover {
+    color:#696969;
+}
+
+.edit-form-details {
+    display: grid;
+    padding-top: 10%;
+    grid-template-rows: 40% 40%;
+    row-gap: 20%;
+}
+
+.edit-form-date,
+.edit-form-priority {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+    align-items: center;
+}
+
+.edit-form-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
