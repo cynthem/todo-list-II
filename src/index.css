@@ -464,16 +464,18 @@ button {
 
 .add-todo-btn:hover,
 .add-project-btn:hover,
-input[type="date"]:hover,
 .priority-label:hover,
 input[type="submit"]:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
+input[type="date"]:hover {
+    cursor: text;
+}
+
 .add-todo-btn:active,
 .add-project-btn:active,
-input[type="date"]:active,
 .priority-label:active,
 input[type="submit"]:active {
     transform: translate(-1px, 1px);
@@ -590,7 +592,27 @@ input[type="radio"] {
     color: #542344;
 }
 
+.low-checked {
+    background-color: #c4a9bb;
+    color: #EBF5EE;
+}
 
+.medium-checked {
+    padding: 5px 4px 2px;
+    background-color: #99728c;
+    color: #EBF5EE;
+}
+
+.high-checked {
+    background-color: #542344;
+    color: #EBF5EE;
+}
+
+.add-todo-submit {
+    grid-column: span 2;
+    text-align: center;
+    align-self: center;
+}
 
 
 
