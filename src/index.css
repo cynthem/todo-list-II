@@ -409,8 +409,6 @@ button {
 
 .add-new-container,
 .notes-container {
-    width: 700px;
-    height: 450px;
     background-color: #EBF5EE;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
@@ -422,6 +420,8 @@ button {
 .notes-close {
     display: flex;
     justify-content: flex-end;
+    padding: 22px 18px 0 0;
+    height: 10%;
 }
 
 .add-new-close > .fa-xmark,
@@ -442,9 +442,9 @@ button {
 
 /* POP-UP: ADD NEW */
 
-.add-new-close {
-    padding: 22px 18px 0 0;
-    height: 10%;
+.add-new-container {
+    width: 700px;
+    height: 450px;
 }
 
 .add-new-content {
@@ -653,3 +653,33 @@ input[type="radio"] {
     text-align: center;
     align-self: center;
 }
+
+
+/* POP-UP: NOTES */
+
+.notes-container {
+    width: 600px;
+    height: 350px;
+}
+
+.notes-content {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 30% 50%;
+    row-gap: 20%;
+    padding: 0 6% 1%;
+}
+
+.notes-header {
+    font-family: 'Fraunces', serif;
+    color: #542344;
+    font-size: 1.5rem;
+}
+
+.notes-info {
+    display: flex;
+    gap: 5%;
+    padding-bottom: 4%;
+    font-size: 1.1rem;
+}
+
