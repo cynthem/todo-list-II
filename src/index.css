@@ -277,3 +277,19 @@ button {
 .high-priority {
     border-left: 8px solid #542344;
 }
+
+.list-item-left,
+.list-item-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.list-item-right {
+    gap: 25px;
+}
+
+.fa-pen-to-square,
+.fa-trash-can {
+    font-size: 1.25vw;
+}
