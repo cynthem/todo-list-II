@@ -707,3 +707,42 @@ input[type="radio"] {
 
 
 /* POP-UP: EDIT */
+
+.edit-container {
+    width: 700px;
+    height: 450px;
+}
+
+.edit-form {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    height: 100%;
+    row-gap: 10%;
+    padding: 2% 5% 2% 2%;
+}
+
+.edit-form-fields {
+    display: grid;
+    grid-template-columns: 56% 40%;
+    column-gap: 4%;
+    padding: 0 2% 0 5%;
+}
+
+.edit-form-text {
+    display: grid;
+    grid-template-rows: 20% 50%;
+    row-gap: 30%;
+}
+
+.edit-title-textarea {
+    font-family: 'Fraunces', serif;
+    color: #542344;
+    font-size: 1.75vw;
+    height: 4rem;
+    border-bottom: 1px solid grey;
+}
+
+.edit-title-textarea,
+.edit-details-textarea {
+    resize: none;
+}
