@@ -293,3 +293,21 @@ button {
 .fa-trash-can {
     font-size: 1.05rem;
 }
+
+.fa-square,
+.fa-square-check,
+.fa-trash-can {
+    color: #696969;
+}
+
+.fa-square:hover,
+.fa-square-check:hover,
+.fa-pen-to-square:hover,
+.fa-trash-can:hover {
+    color: #99728c;
+    cursor: pointer;
+}
+
+.item-description {
+    font-size: 1.25vw;
+}
