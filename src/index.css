@@ -506,6 +506,93 @@ input[type="submit"] {
     row-gap: 10%;
 }
 
+input[type="text"],
+textarea {
+    font-family: 'Overpass', serif;
+    font-size: 1.1rem;
+    background-color: #EBF5EE;
+    border: none;
+    outline: none;
+}
+
+.add-todo-textarea {
+    font-size: 0.9rem;
+    resize: none;
+}
+
+.add-todo-details {
+    display: grid;
+    grid-template-rows: 40% 40%;
+    row-gap: 20%;
+}
+
+.add-todo-date,
+.add-todo-priority {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+    align-items: center;
+}
+
+.add-date-label,
+.add-priority-header {
+    font-size: 1.2rem;
+}
+
+.add-date-input {
+    width: 150px;
+    padding: 3% 6%;
+    font-size: 0.9rem;
+    background-color: #EBF5EE;
+    border: 1px solid #542344;
+    color: #542344;
+    border-radius: 4px;
+}
+
+.add-priority-radios {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="radio"] {
+    position: relative;
+    left: 2.2rem;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+.priority-label {
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 5px 10px 2px;
+    border-radius: 4px;
+    background-color: #EBF5EE;
+}
+
+.low {
+    border: 1px solid #c4a9bb;
+    color: #c4a9bb;
+}
+
+.medium {
+    padding: 5px 4px 2px;
+    border: 1px solid #99728c;
+    color: #99728c;
+}
+
+.high {
+    border: 1px solid #542344;
+    color: #542344;
+}
+
+
+
+
 
 
 .add-project-form {
