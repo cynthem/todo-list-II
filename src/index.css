@@ -788,3 +788,61 @@ textarea {
 
 
 /* POP-UP: EMPTY PROJECT */
+
+.empty-project-container {
+    width: 600px;
+    height: 350px;
+}
+
+.empty-project-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4% 5% 3%;
+}
+
+.empty-project-text > p {
+    font-size: 1.3rem;
+    width: 60%;
+    cursor: default;
+    padding-top: 8%;
+}
+
+.empty-project-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    gap: 20px;
+}
+
+.empty-project-add-btn,
+.empty-project-delete-btn {
+    border: 1px solid #542344;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    padding: 0.4rem 0.6rem 0.1rem;
+    cursor: pointer;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.empty-project-add-btn {
+    background-color: #542344;
+    color: #e8e6e7;
+}
+
+.empty-project-delete-btn {
+    background-color: #EBF5EE;
+    color: #542344;
+}
+
+.empty-project-add-btn:hover,
+.empty-project-delete-btn:hover {
+    background-color: #c4a9bb;
+    color: #542344;
+}
+
+.empty-project-add-btn:active,
+.empty-project-delete-btn:active {
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
