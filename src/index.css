@@ -1008,21 +1008,17 @@ textarea {
 }
 
 @media (max-width: 570px) {
-    .notes-container {
+    .edit-container {
         width: 550px;
+        height: 350px;
     }
-    .notes-header {
+    .edit-title-textarea {
         font-size: 1.3rem;
     }
-    .notes-info > div {
+    .edit-details-textarea {
         font-size: 0.9rem;
     }
-    .notes-date {
-        margin-left: 14px;
-    }
-    .notes-details {
-        margin-left: 27px;
-    }
+
     
 }
 
@@ -1140,5 +1136,11 @@ textarea {
     input[type="submit"] {
         font-size: 0.9rem;
         padding: 6px 18px 5px;
+    }
+    .notes-container {
+        width: 350px;
+    }
+    .notes-header {
+        font-size: 1rem;
     }
 }
