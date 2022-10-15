@@ -659,14 +659,14 @@ input[type="radio"] {
 
 .notes-container {
     width: 600px;
-    height: 350px;
+    min-height: 300px;
 }
 
 .notes-content {
     display: grid;
-    height: 100%;
-    grid-template-rows: 30% 50%;
-    row-gap: 20%;
+    min-height: 240px;
+    grid-template-rows: 30% 60%;
+    row-gap: 10%;
     padding: 0 6% 1%;
 }
 
@@ -676,13 +676,12 @@ input[type="radio"] {
     font-size: 1.5rem;
 }
 
-/*.notes-info {
-    display: flex;
-    gap: 5%;
-    padding-bottom: 4%;
-    font-size: 1.1rem;
-}*/
-
 .notes-info > div {
     display: flex;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.notes-details {
+    flex: 1;
 }
