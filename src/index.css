@@ -380,3 +380,33 @@ button {
         background-color: rgba(0, 0, 0, 0.3);
     }
 }
+
+.invisible-add-new {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.add-new-container {
+    width: 50vw;
+    height: 60vh;
+    background-color: #EBF5EE;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-new-close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-new-close > .fa-xmark {
+    height: 100%;
+    color: #542344;
+    cursor: pointer;
+}
+
+.fa-xmark:active {
+    color: yellow;
+}
