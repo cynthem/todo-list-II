@@ -98,47 +98,6 @@
                 </div>
             -->
 
-                <div class="list-item low-priority">
-                    <div class="list-item-left">
-                        <i class="fa-regular fa-square"></i>
-                        <p class="item-description">Remove vinyl floor</p>
-                    </div>
-                    <div class="list-item-right">
-                        <button class="item-notes">NOTES</button>
-                        <p class="item-date">Aug 2</p>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                </div>
-
-                <div class="list-item medium-priority">
-                    <div class="list-item-left">
-                        <i class="fa-regular fa-square"></i>
-                        <p class="item-description">Cleanup on aisle 3</p>
-                    </div>
-                    <div class="list-item-right">
-                        <button class="item-notes">NOTES</button>
-                        <p class="item-date">Dec 26</p>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                </div>
-
-                <div class="list-item high-priority">
-                    <div class="list-item-left">
-                        <i class="fa-regular fa-square"></i>
-                        <p class="item-description">Get jiggy with it</p>
-                    </div>
-                    <div class="list-item-right">
-                        <button class="item-notes">NOTES</button>
-                        <p class="item-date">Oct 31</p>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                </div>
-
-                
-
             <!-- Sample checked todo item:
                 <div class="list-item low-priority" data-index="1" data-project="Kitchen renovation">
                     <div class="item-left">
@@ -192,17 +151,112 @@
                         <i class="fa-solid fa-trash-can"></i>
                     </div>
                 </div>
+
+                <div class="list-item low-priority">
+                    <div class="list-item-left">
+                        <i class="fa-regular fa-square"></i>
+                        <p class="item-description">Remove vinyl floor</p>
+                    </div>
+                    <div class="list-item-right">
+                        <button class="item-notes">NOTES</button>
+                        <p class="item-date">Aug 2</p>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                </div>
+
+                <div class="list-item medium-priority">
+                    <div class="list-item-left">
+                        <i class="fa-regular fa-square"></i>
+                        <p class="item-description">Cleanup on aisle 3</p>
+                    </div>
+                    <div class="list-item-right">
+                        <button class="item-notes">NOTES</button>
+                        <p class="item-date">Dec 26</p>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                </div>
+
+                <div class="list-item high-priority">
+                    <div class="list-item-left">
+                        <i class="fa-regular fa-square"></i>
+                        <p class="item-description">Get jiggy with it</p>
+                    </div>
+                    <div class="list-item-right">
+                        <button class="item-notes">NOTES</button>
+                        <p class="item-date">Oct 31</p>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
     
-    <div class="card-add-new"></div>
+    <div class="popup-add-new">
+        <div class="add-new-container">
+            <div class="add-new-close">
+                <i class="fa-solid fa-xmark fa-lg" id="add-exit"></i>
+            </div>
+            <div class="add-new-content">
+                <div class="add-new-type">
+                    <h3 class="add-new-header">Create new...</h3>
+                    <div class="add-new-btns">
+                        <button class="add-todo-btn clicked">To-Do</button>
+                        <button class="add-project-btn">Project</button>
+                    </div>
+                </div>
+                <form class="add-todo-form">
+                    <div class="add-todo-text">
+                        <input class="add-todo-input" type="text" name="new-todo" placeholder="Title: e.g. Reading homework" maxlength="40" required>
+                        <textarea class="add-todo-textarea" name="new-todo" placeholder="Details: e.g. Read Spanish chapter 2."></textarea>
+                    </div>
+                    <div class="add-todo-details">
+                        <div class="add-todo-date">
+                            <label class="add-date-label" for="new-date">Due date:</label>
+                            <input class="add-date-input" id="new-date" type="date" name="new-todo" required>
+                        </div>
+                        <div class="add-todo-priority">
+                            <p class="add-priority-header">Priority:</p>
+                            <div class="add-priority-radios">
+                                <div class="add-radios-low">
+                                    <input id="new-low" type="radio" name="new-priority" value="low" required>
+                                    <label class="priority-label low" id="add-priority" for="new-low">Low</label>
+                                </div>
+                                <div class="add-radios-medium">
+                                    <input id="new-medium" type="radio" name="new-priority" value="medium">
+                                    <label class="priority-label medium" id="add-priority" for="new-medium">Medium</label>
+                                </div>
+                                <div class="add-radios-high">
+                                    <input id="new-high" type="radio" name="new-priority" value="high">
+                                    <label class="priority-label high" id="add-priority" for="new-high">High</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-todo-submit">
+                        <input class="add-todo-submit-btn" type="submit" value="Add">
+                    </div>
+                </form>
+                <form class="add-project-form">
+                    <div class="add-project-header">
+                        <input id="add-project" type="text" name="new-project" placeholder="Title: e.g. Reading homework" maxlength="30" required>
+                    </div>
+                    <div class="add-project-submit">
+                        <input class="add-project-submit-btn" type="submit" value="Add">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
-    <div class="card-notes"></div>
+    <div class="popup-notes"></div>
     
-    <div class="card-edit"></div>
+    <div class="popup-edit"></div>
     
-    <div class="card-empty-project"></div>
+    <div class="popup-empty-project"></div>
 
 </body>
 </html>

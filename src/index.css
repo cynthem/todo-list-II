@@ -45,17 +45,13 @@
   margin: 0;
 }
 
-html {
-  min-height: 100%;
-  /*position: relative;*/
-}
-
 body {
     background-color: #542344;
     overscroll-behavior-x: none;
     overscroll-behavior-y: none;
     cursor: default;
     font-family: 'Overpass', serif;
+    position: relative;
 }
 
 button {
@@ -345,3 +341,6 @@ button {
     color: #99728c;
     border: 1px solid #99728c;
 }
+
+
+/* POP-UP CARDS */
