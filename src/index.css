@@ -367,7 +367,8 @@ button {
 
 /* ALL POP-UP CARDS */
 
-.popup-add-new {
+.popup-add-new,
+.popup-notes {
     z-index: 2;
     position: fixed;
     top: 0;
@@ -392,19 +393,22 @@ button {
 }
 
 @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-    .popup-add-new {
+    .popup-add-new,
+    .popup-notes {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         background-color: rgba(0, 0, 0, 0.3);
     }
 }
 
-.invisible-add-new {
+.invisible-add-new,
+.invisible-notes {
     visibility: hidden;
     opacity: 0;
 }
 
-.add-new-container {
+.add-new-container,
+.notes-container {
     width: 700px;
     height: 450px;
     background-color: #EBF5EE;
@@ -414,12 +418,14 @@ button {
     flex-direction: column;
 }
 
-.add-new-close {
+.add-new-close,
+.notes-close {
     display: flex;
     justify-content: flex-end;
 }
 
-.add-new-close > .fa-xmark {
+.add-new-close > .fa-xmark,
+.notes-close > .fa-xmark {
     height: 100%;
     color: #542344;
     cursor: pointer;
