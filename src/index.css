@@ -667,7 +667,7 @@ input[type="radio"] {
     flex-direction: column;
     gap: 50px;
     height: auto;
-    padding: 10px 30px 20px;
+    padding: 10px 30px 30px;
 }
 
 .notes-header {
@@ -683,13 +683,18 @@ input[type="radio"] {
 }
 
 .notes-project {
-    margin-left: 19px;
+    margin-left: 25px;
 }
 
 .notes-date {
-    margin-left: 6px;
+    margin-left: 12px;
+}
+
+.notes-priority {
+    margin-left: 23px;
 }
 
 .notes-details {
+    margin-left: 28px;
     flex: 1;
 }
