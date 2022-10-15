@@ -347,7 +347,7 @@ button {
 }
 
 
-/* POP-UP CARDS */
+/* ALL POP-UP CARDS */
 
 .popup-add-new {
     z-index: 2;
@@ -387,8 +387,8 @@ button {
 }
 
 .add-new-container {
-    width: 50vw;
-    height: 60vh;
+    width: 700px;
+    height: 450px;
     background-color: #EBF5EE;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
@@ -407,6 +407,107 @@ button {
     cursor: pointer;
 }
 
+.fa-xmark:hover {
+    color: red;
+}
+
 .fa-xmark:active {
     color: yellow;
+}
+
+
+/* POP-UP: ADD NEW */
+
+.add-new-close {
+    padding: 22px 18px 0 0;
+    height: 10%;
+}
+
+.add-new-content {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    height: 100%;
+    row-gap: 10%;
+    padding: 0 5% 3%;
+}
+
+.add-new-type {
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+    gap: 10%;
+    border-bottom: 1px solid #808080;
+}
+
+.add-new-header {
+    font-family: 'Fraunces', serif;
+    color: #542344;
+    font-size: 2.3rem;
+}
+
+.add-new-btns {
+    display: flex;
+    align-items: flex-end;
+    gap: 15%;
+    width: 40%;
+}
+
+.add-todo-btn,
+.add-project-btn {
+    border: none;
+    outline: none;
+    background-color: #EBF5EE;
+    font-size: 1.7rem;
+    color:#542344;
+    font-family: 'Fraunces', serif;
+}
+
+.add-todo-btn:hover,
+.add-project-btn:hover,
+input[type="date"]:hover,
+.priority-label:hover,
+input[type="submit"]:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.add-todo-btn:active,
+.add-project-btn:active,
+input[type="date"]:active,
+.priority-label:active,
+input[type="submit"]:active {
+    transform: translate(-1px, 1px);
+}
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    background-color: #542344;
+    color: #EBF5EE;
+    font-size: 1.3rem;
+    padding: 8px 23px 7px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.add-todo-form {
+    display: grid;
+    grid-template: 70% 20% / 57% 40%;
+    column-gap: 3%;
+    row-gap: 10%;
+    padding: 0 2% 0 5%;
+    transform: scale(1);
+    transition: all .3s;
+}
+
+.add-todo-text {
+    display: grid;
+    grid-template-rows: 15% 75%;
+    row-gap: 10%;
+}
+
+
+
+.add-project-form {
+    display: none;
 }
