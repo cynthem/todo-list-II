@@ -630,6 +630,7 @@ textarea {
     background-color: #EBF5EE;
     border: none;
     outline: none;
+    overflow: scroll;
 }
 
 .add-todo-textarea {
@@ -1006,5 +1007,138 @@ textarea {
     }
 }
 
+@media (max-width: 570px) {
+    .notes-container {
+        width: 550px;
+    }
+    .notes-header {
+        font-size: 1.3rem;
+    }
+    .notes-info > div {
+        font-size: 0.9rem;
+    }
+    .notes-date {
+        margin-left: 14px;
+    }
+    .notes-details {
+        margin-left: 27px;
+    }
+    
+}
+
+@media (max-width: 715px) {
+    .list-item-right {
+        gap: 15px;
+    }
+    .item-description {
+        font-size: 0.9rem;
+    }
+    .item-notes {
+        font-size: 0.7rem;
+    }
+    .item-date {
+        font-size: 0.7rem;
+        width: 5vw;
+    }
+}
+
+@media (max-width: 640px) {
+    .list-item-right {
+        gap: 10px;
+    }
+    .item-description {
+        font-size: 0.8rem;
+    }
+}
+
 
 /* MOBILE STYLES */
+
+@media (max-width: 570px) {
+    .main {
+        grid-template-rows: 10% 90%;
+    }
+    .header-title {
+        padding-left: 4%;
+        font-size: 1.3rem;
+    }
+    .header-hamburger-menu {
+        padding-right: 5%;
+        font-size: 1.8rem;
+    }
+    .fa-pen-to-square,
+    .fa-trash-can {
+        font-size: 0.9rem;
+    }
+    .item-description {
+        width: 220px;
+        overflow: scroll;
+    }
+    .item-notes {
+        padding: 0.3rem 0.4rem 0.1rem;
+    }
+    .item-date {
+        width: 6vw;
+    }
+    .add-new-close,
+    .notes-close,
+    .edit-close,
+    .empty-project-close {
+        padding: 20px 16px 0 0;
+        font-size: 0.8rem;
+    }
+    .add-date-label,
+    .edit-date-label,
+    .add-priority-header,
+    .edit-priority-header {
+        font-size: 0.8rem;
+    }
+    .add-date-input,
+    .edit-date-input {
+        width: 110px;
+        font-size: 0.7rem;
+    }
+    .add-priority-radios,
+    .edit-priority-radios {
+        width: 110px;
+    }
+    input[type="radio"] {
+        left: 1.4rem;
+    }
+    .priority-label {
+        font-size: 0.6rem;
+        padding: 3px 4px 2px;
+    }
+    .add-new-container {
+        width: 350px;
+        height: 250px;
+    }
+    .add-new-content {
+        row-gap: 8%;
+        padding: 0 3% 3% 2%;
+    }
+    .add-new-header {
+        font-size: 1.4rem;
+    }
+    .add-todo-btn,
+    .add-project-btn {
+        font-size: 1rem;
+    }
+    .add-todo-form {
+        grid-template: 70% 20% / 53% 44%;
+        padding: 0 2%;
+    }
+    input[type="text"] {
+        font-size: 0.8rem;
+    }
+    .add-todo-textarea {
+        font-size: 0.7rem;
+    }
+    .add-todo-priority{
+        gap: 0;
+    }
+    input[type="submit"] {
+        font-size: 0.9rem;
+        padding: 6px 18px 5px;
+    }
+}
