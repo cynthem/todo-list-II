@@ -117,7 +117,8 @@ button {
 
 .header-hamburger-menu {
     display: none;
-    padding-right: 3%;
+    padding-right: 4%;
+    padding-top: 15px;
     font-size: 3rem;
 }
 
@@ -504,7 +505,6 @@ input[type="radio"] {
 }
 
 .medium {
-    padding: 5px 4px 2px;
     border: 1px solid #99728c;
     color: #99728c;
 }
@@ -520,7 +520,6 @@ input[type="radio"] {
 }
 
 .medium-checked {
-    padding: 5px 4px 2px;
     background-color: #99728c;
     color: #EBF5EE;
 }
@@ -895,7 +894,6 @@ textarea {
     }
     .item-date {
         font-size: 0.7rem;
-        width: 4vw;
     }
 }
 
@@ -940,7 +938,7 @@ textarea {
     }
     .item-date {
         font-size: 0.8rem;
-        width: 5.5vw;
+        width: 6vw;
     }
     .add-date-label,
     .edit-date-label,
@@ -1025,7 +1023,6 @@ textarea {
     }
     .item-date {
         font-size: 0.7rem;
-        width: 5vw;
     }
 }
 
@@ -1035,6 +1032,9 @@ textarea {
     }
     .item-description {
         font-size: 0.8rem;
+    }
+    .item-date {
+        width: 7vw;
     }
 }
 
@@ -1067,10 +1067,10 @@ textarea {
         overflow: scroll;
     }
     .item-notes {
-        padding: 0.3rem 0.4rem 0.1rem;
+        padding: 0.2rem 0.2rem 0.1rem;
     }
     .item-date {
-        width: 6vw;
+        width: 8vw;
     }
     .add-new-close,
     .notes-close,
@@ -1126,9 +1126,6 @@ textarea {
     .add-todo-textarea {
         font-size: 0.7rem;
     }
-    .add-todo-priority{
-        gap: 0;
-    }
     input[type="submit"] {
         font-size: 0.9rem;
         padding: 6px 18px 5px;
@@ -1170,24 +1167,30 @@ textarea {
 }
 
 @media (max-width: 470px) {
-    .item-description {
-        width: 180px;
-    }
     .main-dashboard {
         top: 10%;
         height: 89vh;
     }
+    .item-description {
+        width: 180px;
+    }
+    .item-date {
+        width: 9vw;
+    }
 }
 
 @media (max-width: 415px) {
-    .item-description {
-        width: 120px;
-    }
     .main {
         grid-template-rows: 8% 92%;
     }
     .header-title {
         font-size: 1rem;
+    }
+    .item-description {
+        width: 120px;
+    }
+    .item-date {
+        width: 10.5vw;
     }
     .add-new-close,
     .notes-close,
@@ -1208,7 +1211,7 @@ textarea {
     }
     .add-priority-radios,
     .edit-priority-radios {
-        width: 100px;
+        width: 90px;
     }
     input[type="radio"] {
         left: 1rem;
@@ -1217,18 +1220,23 @@ textarea {
         padding: 2px 4px 1px;
     }
     .add-new-container,
-    .notes-container,
     .edit-container,
     .empty-project-container {
         width: 270px;
         height: 270px;
     }
+    .notes-container {
+        width: 270px;
+        height: auto;
+    }
     .add-new-header {
         font-size: 1.1rem;
     }
+    .add-new-type {
+        gap: 6%;
+    }
     .add-new-btns {
         gap: 10%;
-        width: 45%;
     }
     .add-todo-btn,
     .add-project-btn {
@@ -1239,6 +1247,9 @@ textarea {
     }
     .add-todo-textarea {
         font-size: 0.5rem;
+    }
+    .add-todo-priority {
+        gap: 0;
     }
     input[type="submit"] {
         font-size: 0.8rem;
@@ -1258,6 +1269,9 @@ textarea {
     .notes-details {
         margin-left: 24px;
     }
+    .edit-details-textarea {
+        padding-top: 15px;
+    }
     .empty-project-text > h2 {
         padding-bottom: 20px;
         width: 250px;
@@ -1271,25 +1285,34 @@ textarea {
 }
 
 @media (max-width: 350px) {
-    .item-description {
-        width: 90px;
-    }
     .main-dashboard {
         width: 200px;
     }
     .project-name {
         font-size: 0.8rem;
     }
+    .item-description {
+        width: 90px;
+    }
+    .item-notes {
+        padding: 0.1rem 0.1rem 0rem;
+    }
+    .item-date {
+        width: 11.5vw;
+    }
 }
 
 @media (max-width: 310px) {
-    .item-description {
-        width: 70px;
-    }
     .header-title {
         font-size: 0.9rem;
     }
     .header-hamburger-menu {
         font-size: 1.5rem;
+    }
+    .item-description {
+        width: 70px;
+    }
+    .item-date {
+        width: 12.5vw;
     }
 }
