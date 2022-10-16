@@ -1207,7 +1207,9 @@ textarea {
         padding: 2px 4px 1px;
     }
     .add-new-container,
-    .notes-container {
+    .notes-container,
+    .edit-container,
+    .empty-project-container {
         width: 270px;
         height: 270px;
     }
@@ -1245,6 +1247,16 @@ textarea {
     }
     .notes-details {
         margin-left: 24px;
+    }
+    .empty-project-text > h2 {
+        padding-bottom: 20px;
+        width: 250px;
+    }
+    .empty-project-text > p {
+        width: 90%;
+    }
+    .empty-project-btns {
+        padding-top: 30px;
     }
 }
 
