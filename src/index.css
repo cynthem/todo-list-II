@@ -1007,24 +1007,6 @@ textarea {
     }
 }
 
-@media (max-width: 570px) {
-    .empty-project-container {
-        width: 550px;
-    }
-    .empty-project-text > p {
-        font-size: 1.1rem;
-    }
-    .empty-project-btns {
-        padding-top: 30px;
-    }
-    .empty-project-add-btn,
-    .empty-project-delete-btn {
-        font-size: 1.1rem;
-    }
-
-    
-}
-
 @media (max-width: 715px) {
     .list-item-right {
         gap: 15px;
@@ -1155,5 +1137,23 @@ textarea {
     }
     .edit-details-textarea {
         font-size: 0.8rem;
+    }
+    .empty-project-container {
+        width: 350px;
+        height: 250px;
+    }
+    .empty-project-text > h2 {
+        font-size: 1.1rem;
+    }
+    .empty-project-text > p {
+        font-size: 0.9rem;
+    }
+    .empty-project-btns {
+        padding-top: 20px;
+        gap: 15px;
+    }
+    .empty-project-add-btn,
+    .empty-project-delete-btn {
+        font-size: 0.9rem;
     }
 }
