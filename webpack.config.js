@@ -10,7 +10,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'To-doing',
-            template: 'src/custom.html'
+            template: path.join(__dirname, './src/custom.html')
         }),
         new MiniCssExtractPlugin({
             filename: "bundle.css"
