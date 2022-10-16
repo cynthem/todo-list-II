@@ -1206,7 +1206,8 @@ textarea {
     .priority-label {
         padding: 2px 4px 1px;
     }
-    .add-new-container {
+    .add-new-container,
+    .notes-container {
         width: 270px;
         height: 270px;
     }
@@ -1229,6 +1230,21 @@ textarea {
     }
     input[type="submit"] {
         font-size: 0.8rem;
+    }
+    .notes-header {
+        font-size: 0.9rem;
+    }
+    .notes-info > div {
+        font-size: 0.7rem;
+    }
+    .notes-project {
+        margin-left: 23px;
+    }
+    .notes-priority {
+        margin-left: 21px;
+    }
+    .notes-details {
+        margin-left: 24px;
     }
 }
 
