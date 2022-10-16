@@ -918,7 +918,7 @@ textarea {
         right: 2%;
         width: 300px;
         height: 84vh;
-        visibility: hidden;
+        
     }
     .main-list {
         height: 100%;
@@ -1166,6 +1166,10 @@ textarea {
 @media (max-width: 470px) {
     .item-description {
         width: 180px;
+    }
+    .main-dashboard {
+        top: 10%;
+        height: 89vh;
     }
 }
 
