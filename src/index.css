@@ -918,7 +918,7 @@ textarea {
         right: 2%;
         width: 300px;
         height: 84vh;
-        visibility: hidden;
+        /*visibility: hidden;*/
     }
     .main-list {
         height: 100%;
@@ -1046,6 +1046,11 @@ textarea {
     .header-hamburger-menu {
         padding-right: 5%;
         font-size: 1.8rem;
+    }
+    .main-dashboard {
+        top: 11.5%;
+        width: 240px;
+        height: 88vh;
     }
     .fa-pen-to-square,
     .fa-trash-can {
