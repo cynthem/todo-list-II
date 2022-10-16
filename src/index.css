@@ -1008,15 +1008,18 @@ textarea {
 }
 
 @media (max-width: 570px) {
-    .edit-container {
+    .empty-project-container {
         width: 550px;
-        height: 350px;
     }
-    .edit-title-textarea {
-        font-size: 1.3rem;
+    .empty-project-text > p {
+        font-size: 1.1rem;
     }
-    .edit-details-textarea {
-        font-size: 0.9rem;
+    .empty-project-btns {
+        padding-top: 30px;
+    }
+    .empty-project-add-btn,
+    .empty-project-delete-btn {
+        font-size: 1.1rem;
     }
 
     
@@ -1142,5 +1145,15 @@ textarea {
     }
     .notes-header {
         font-size: 1rem;
+    }
+    .edit-container {
+        width: 350px;
+        height: 250px;
+    }
+    .edit-title-textarea {
+        font-size: 1rem;
+    }
+    .edit-details-textarea {
+        font-size: 0.8rem;
     }
 }
