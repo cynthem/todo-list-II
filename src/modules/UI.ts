@@ -8,6 +8,7 @@ export default (function UI() {
         loadHeader();
         loadDashboard();
         loadTodoList();
+        console.log('hello there');
     };
 
     function loadHeader() {
@@ -16,6 +17,7 @@ export default (function UI() {
         const el2 = document.querySelector('.fa-bars');
         const hamburgerMenu: Element = el2!;
         hamburgerMenu.addEventListener('click', () => {
+            console.log('hello');
             (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
         });
         
@@ -39,6 +41,7 @@ export default (function UI() {
     function loadTodoItems() {};
 
     return {
-        loadPage
+        loadPage,
+        loadHeader
     };
 })();
