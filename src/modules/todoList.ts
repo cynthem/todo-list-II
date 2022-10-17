@@ -1,5 +1,5 @@
 import manageData from './manageData';
-import { format } from 'date-fns';
+import { today, weekAgo, weekNext, monthNext } from '../util/dates';
 
 /**
  * 
@@ -26,28 +26,6 @@ function getTodos() {
     let todoList: ProjectsObject;
 
     const stored = localStorage.getItem('todos');
-
-    /*Formatted dates for default todo list*/
-    const dateObject = new Date();
-    const month = format(dateObject, 'MM');
-    const day = format(dateObject, 'dd');
-    const year = format(dateObject, 'yyyy');
-    const today = `${month}-${day}-${year}`;
-    const weekPast = new Date(dateObject.getFullYear(), dateObject.getMonth(), dateObject.getDate() - 7);
-    const weekAgoMonth = format(weekPast, 'MM');
-    const weekAgoDay = format(weekPast, 'dd');
-    const weekAgoYear = format(weekPast, 'yyyy');
-    const weekAgo = `${weekAgoMonth}-${weekAgoDay}-${weekAgoYear}`;
-    const weekFuture = new Date(dateObject.getFullYear(), dateObject.getMonth(), dateObject.getDate() + 5);
-    const weekFutureMonth = format(weekFuture, 'MM');
-    const weekFutureDay = format(weekFuture, 'dd');
-    const weekFutureYear = format(weekFuture, 'yyyy');
-    const weekNext = `${weekFutureMonth}-${weekFutureDay}-${weekFutureYear}`;
-    const monthFuture = new Date(dateObject.getFullYear(), dateObject.getMonth(), dateObject.getDate() + 32);
-    const monthFutureMonth = format(monthFuture, 'MM');
-    const monthFutureDay = format(monthFuture, 'dd');
-    const monthFutureYear = format(monthFuture, 'yyyy');
-    const monthNext = `${monthFutureMonth}-${monthFutureDay}-${monthFutureYear}`;
 
     if (typeof stored === 'string') {
         todoList = JSON.parse(stored);
