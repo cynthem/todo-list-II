@@ -1,4 +1,4 @@
-export function manageData() {
+export default (function manageData() {
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
         return {
             title,
@@ -12,4 +12,4 @@ export function manageData() {
     return {
         createTodo
     }
-};
+})();
