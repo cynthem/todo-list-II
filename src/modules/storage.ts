@@ -7,11 +7,25 @@ import { format } from 'date-fns';
  * 
  */
 function getTodos() {
+    type TodoObject = {
+        'title': string,
+        'details': string,
+        'dueDate': string,
+        'priority': string,
+        'project': string,
+        'checked': boolean
+    };
+
+    interface ProjectsObject {
+        'all': TodoObject[],
+        'today': TodoObject[],
+        'week': TodoObject[],
+        'Kitchen renovation': TodoObject[]
+    };
+
+    let todoList: ProjectsObject;
+
     const stored = localStorage.getItem('todos');
-
-    
-
-    let todoList: todoType;
 
     /*Formatted dates for default todo list*/
     const dateObject = new Date();
@@ -43,7 +57,8 @@ function getTodos() {
             'today': [],
             'week': [],
             'Kitchen renovation': []
-        }
+        };
+        
         todoList['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', weekNext, 'high', 'Kitchen renovation'));
         todoList['Kitchen renovation'].push(manageData.createTodo('Build cabinets', 'pre-painted cabinets only', weekAgo, 'low', 'Kitchen renovation', true));
         todoList['Kitchen renovation'].push(manageData.createTodo('Install countertop', 'leave room for butcher block', monthNext, 'medium', 'Kitchen renovation'));
