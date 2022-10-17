@@ -5,8 +5,20 @@ export default (function UI() {
     function loadPage() {
         /*displayData.renderAllTodos(todos, listContainer);
         displayData.renderProjectList(todos, listContainer); */
+        loadHeader();
         loadDashboard();
         loadTodoList();
+    };
+
+    function loadHeader() {
+        const el1 = document.querySelector('.main-dashboard');
+        const dashboard: Element = el1!;
+        const el2 = document.querySelector('.fa-bars');
+        const hamburgerMenu: Element = el2!;
+        hamburgerMenu.addEventListener('click', () => {
+            (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
+        });
+        
     };
 
     function loadDashboard() {
@@ -18,7 +30,9 @@ export default (function UI() {
         loadTodoItems();
     };
 
-    function loadFilters() {};
+    function loadFilters() {
+        const filterBtns = document.querySelectorAll('.filters-btn');
+    };
 
     function loadProjects() {};
 
