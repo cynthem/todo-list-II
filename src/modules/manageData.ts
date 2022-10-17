@@ -9,7 +9,6 @@ export default (function manageData() {
             'project': string,
             'checked': boolean
         }
-
         const todoItem: todoItemType = {
             title,
             details,
@@ -18,9 +17,9 @@ export default (function manageData() {
             project,
             checked
         }
-
         return todoItem;
     }
+
     return {
         createTodo
     }
