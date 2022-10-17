@@ -1,3 +1,4 @@
+import { manageData } from './manageData';
 import { format } from 'date-fns';
 
 /**
@@ -6,8 +7,16 @@ import { format } from 'date-fns';
  * 
  */
 function getTodos() {
-    let stored = localStorage.getItem('todos');
-    let todoList;
+    const stored = localStorage.getItem('todos');
+
+    interface todoType {
+        'all': (string|boolean)[],
+        'today': (string|boolean)[],
+        'week': (string|boolean)[],
+        'Kitchen renovation': (string|boolean)[]
+    };
+
+    let todoList: todoType;
 
     /*Formatted dates for default todo list*/
     const dateObject = new Date();
