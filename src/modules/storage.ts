@@ -1,4 +1,4 @@
-import { manageData } from './manageData';
+import manageData from './manageData';
 import { format } from 'date-fns';
 
 /**
@@ -9,12 +9,7 @@ import { format } from 'date-fns';
 function getTodos() {
     const stored = localStorage.getItem('todos');
 
-    interface todoType {
-        'all': (string|boolean)[],
-        'today': (string|boolean)[],
-        'week': (string|boolean)[],
-        'Kitchen renovation': (string|boolean)[]
-    };
+    
 
     let todoList: todoType;
 
@@ -52,7 +47,7 @@ function getTodos() {
         todoList['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', weekNext, 'high', 'Kitchen renovation'));
         todoList['Kitchen renovation'].push(manageData.createTodo('Build cabinets', 'pre-painted cabinets only', weekAgo, 'low', 'Kitchen renovation', true));
         todoList['Kitchen renovation'].push(manageData.createTodo('Install countertop', 'leave room for butcher block', monthNext, 'medium', 'Kitchen renovation'));
-        todoList.all.push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', today, 'high', 'all'));
+        todoList['all'].push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', today, 'high', 'all'));
     }
     return todoList;
 }
