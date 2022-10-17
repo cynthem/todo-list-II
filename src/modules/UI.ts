@@ -1,4 +1,5 @@
 import { todos } from './todoList';
+import { currentDay } from '../util/dates';
 
 export default (function UI() {
 
@@ -32,6 +33,9 @@ export default (function UI() {
 
     function loadFilters() {
         const filterBtns = document.querySelectorAll('.filters-btn');
+        /* filterBtns.forEach(btn => {
+    btn.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
+}); */
     };
 
     function loadProjects() {};
