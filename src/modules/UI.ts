@@ -8,7 +8,6 @@ export default (function UI() {
         loadHeader();
         loadDashboard();
         loadTodoList();
-        console.log('hello there');
     };
 
     function loadHeader() {
@@ -20,7 +19,6 @@ export default (function UI() {
             console.log('hello');
             (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
         });
-        
     };
 
     function loadDashboard() {
