@@ -58,7 +58,7 @@ function getTodos() {
             'week': [],
             'Kitchen renovation': []
         };
-        
+
         todoList['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', weekNext, 'high', 'Kitchen renovation'));
         todoList['Kitchen renovation'].push(manageData.createTodo('Build cabinets', 'pre-painted cabinets only', weekAgo, 'low', 'Kitchen renovation', true));
         todoList['Kitchen renovation'].push(manageData.createTodo('Install countertop', 'leave room for butcher block', monthNext, 'medium', 'Kitchen renovation'));
@@ -67,4 +67,4 @@ function getTodos() {
     return todoList;
 }
 
-let todos = getTodos();
+export const todos = getTodos();
