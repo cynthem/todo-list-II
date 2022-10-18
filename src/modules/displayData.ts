@@ -184,7 +184,24 @@ export default (function displayData() {
         localStorage.setItem('todos', JSON.stringify(todos));
     };
 
-    function renderCheckedTodo(todoDiv: Element) {};
+    function renderCheckedTodo(todoDiv: Element) {
+        const todoItems = todoDiv.children;
+        const itemsLeft = todoItems[0];
+        const itemsRight = todoItems[1];
+        const checkbox = itemsLeft.children[0];
+        const itemTitle = itemsLeft.children[1];
+        const itemNotes = itemsRight.children[0];
+        const itemDate = itemsRight.children[1];
+        const itemEdit = itemsRight.children[2]; 
+       
+        checkbox.classList.remove('fa-square');
+        checkbox.classList.add('fa-square-check');
+        itemTitle.classList.toggle('selected');
+        itemTitle.classList.toggle('strike');
+        itemNotes.classList.toggle('done');
+        itemDate.classList.toggle('selected');
+        itemEdit.classList.toggle('selected');
+    };
 
     return {
         renderFilters,
