@@ -113,10 +113,13 @@ export default (function displayData() {
         };
     };
 
-    
+    function renderHighlightedFilters(e: Event) {
+
+    };
 
     return {
         renderFilters,
-        renderProjectList
+        renderProjectList,
+        renderHighlightedFilters
     };
 })();

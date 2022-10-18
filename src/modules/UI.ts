@@ -159,8 +159,14 @@ export default (function UI() {
     };
 
     function toggleProjects() {
-        /* projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
-        projectTitle.addEventListener('click', e => highlightSelectedFilter(e)); */
+        const projectEl = document.querySelectorAll('.project-name');
+        const projectTitle: NodeListOf<Element> = projectEl!;
+        projectTitle.forEach(project => {
+            project.addEventListener('click', e => manageData.manageTodosRender(e, todos, listContainer));
+        });
+        /* projectTitle.forEach(project => {
+            project.addEventListener('click', e => highlightSelectedFilter(e));
+        }); */
         handleEmptyProject();
     };
 
