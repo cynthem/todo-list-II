@@ -40,9 +40,6 @@ export default (function UI() {
 
     function loadProjects() {
         displayData.renderProjectList(todos, listContainer);
-        /* projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
-        projectTitle.addEventListener('click', e => highlightSelectedFilter(e)); */
-
         handleAddBtn();
         toggleProjects();
         handleEmptyProject();
@@ -166,7 +163,10 @@ export default (function UI() {
         }); */
     };
 
-    function toggleProjects() {};
+    function toggleProjects() {
+        /* projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
+        projectTitle.addEventListener('click', e => highlightSelectedFilter(e)); */
+    };
 
     function handleEmptyProject() {};
 
