@@ -1,3 +1,5 @@
+import { ProjectsObject } from "../util/storageTypes";
+
 export default (function manageData() {
     let selectedProject = 'all';
 
@@ -29,7 +31,7 @@ export default (function manageData() {
         return todoItem;
     };
 
-    function addProject(e: Event, todos, listContainer: Element) {
+    function addProject(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
     };
 
