@@ -188,7 +188,7 @@ export default (function UI() {
         const checkboxEl = document.querySelectorAll('fa-square');
         const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
         checkboxIcon.forEach(box => {
-            //box.addEventListener('click', e => toggleCheckedTodo(e, todos, listContainer));
+            box.addEventListener('click', e => displayData.toggleCheckedTodo(e, todos, listContainer));
         });
     };
 
