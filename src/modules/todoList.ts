@@ -12,7 +12,7 @@ function getTodos() {
 
     const stored = localStorage.getItem('todos');
 
-    if (typeof stored === 'string') {
+    if (stored !== null) {
         todoList = JSON.parse(stored);
     } else {
         todoList = {
