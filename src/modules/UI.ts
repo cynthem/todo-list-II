@@ -173,27 +173,38 @@ export default (function UI() {
     function handleEmptyProject() {};
 
     function loadTodoList() {
-        /* displayData.renderAllTodos(todos, listContainer); */
+        displayData.renderAllTodos(todos, listContainer);
         loadTodoItems();
     };
 
     function loadTodoItems() {
-        handleCheckbox();
+        toggleCheckbox();
         handleNotesBtn();
         handleEditBtn();
         handleDeleteBtn();
     };
 
-    function handleCheckbox() {};
+    function toggleCheckbox() {
+        const checkboxEl = document.querySelectorAll('fa-square');
+        const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
+        checkboxIcon.forEach(box => {
+            //box.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+        });
+    };
 
     function handleNotesBtn() {
-        /* const notesCard = document.querySelector('.notes-card');
-        const notesExit = document.querySelector('#notes-exit'); */
+        const notesEl = document.querySelector('.popup-notes');
+        const notesCard: Element = notesEl!;
+        const notesCloseEl = document.querySelector('.notes-close');
+        const notesClose: Element = notesCloseEl!;
+        const notesBtnEl = document.querySelectorAll('.item-notes');
+        const notesBtn: NodeListOf<Element> = notesBtnEl!;
 
-        /* notesExit.addEventListener('click', () => {
-            notesCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-        }); */
+        notesBtn.forEach(btn => {
+            btn.addEventListener('click', () => notesCard.classList.remove('invisible-notes'));
+        });
+
+        notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
     };
 
     function handleEditBtn() {

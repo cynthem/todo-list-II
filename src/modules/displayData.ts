@@ -129,7 +129,66 @@ export default (function displayData() {
         };
     };
 
-    function renderAllTodos(todos: ProjectsObject, listContainer: Element) {};
+    function renderAllTodos(todos: ProjectsObject, listContainer: Element) {
+        listContainer.innerHTML = '';
+
+        for (const project in todos) {
+            todos[project].forEach((todo, i) => {
+                const todoItem = document.createElement('div');
+                todoItem.classList.add('list-item');
+                todoItem.classList.add(`${todo.priority}-priority`);
+                todoItem.setAttribute('data-index', `${i}`);
+                todoItem.setAttribute('data-project', `${todo.project}`);
+                const itemLeft = document.createElement('div');
+                itemLeft.classList.add('list-item-left');
+                const checkboxIcon = document.createElement('i');
+                checkboxIcon.classList.add('fa-regular', 'fa-square');
+                const itemName = document.createElement('p');
+                itemName.classList.add('item-description');
+                itemName.textContent = todo.title;
+                itemLeft.appendChild(checkboxIcon);
+                itemLeft.appendChild(itemName);
+                const itemRight = document.createElement('div');
+                itemRight.classList.add('list-item-right');
+                const notesBtn = document.createElement('button');
+                notesBtn.classList.add('item-notes');
+                notesBtn.textContent = 'NOTES';
+            });
+        }
+
+        /*      
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todos[project]));
+             
+                const dateText = document.createElement('p');
+                dateText.classList.add('item-date');
+                const dateObject = new Date(todo.dueDate);
+                const month = format(dateObject, 'MMM');
+                const day = format(dateObject, 'do');
+                dateText.textContent = `${month} ${day}`;
+             
+                const editIcon = document.createElement('i');
+                editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
+          
+                const deleteIcon = document.createElement('i');
+                deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                itemRight.appendChild(notesBtn);
+                itemRight.appendChild(dateText);
+                itemRight.appendChild(editIcon);
+                itemRight.appendChild(deleteIcon);
+                todoItem.appendChild(itemLeft);
+                todoItem.appendChild(itemRight);
+
+                if (todo.checked) {
+                    toggleTodoReload(todoItem);
+                };
+              
+                listContainer.appendChild(todoItem);
+            });
+        }
+        localStorage.setItem('todos', JSON.stringify(todos)); */
+    };
 
     return {
         renderFilters,
