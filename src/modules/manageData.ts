@@ -1,4 +1,4 @@
-import { ProjectsObject } from "../util/storageTypes";
+import { ProjectsObject } from "../util/types";
 
 export default (function manageData() {
     let selectedProject = 'all';

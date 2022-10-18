@@ -1,5 +1,5 @@
 import manageData from './manageData';
-import { ProjectsObject } from '../util/storageTypes';
+import { ProjectsObject } from '../util/types';
 import { today, weekAgo, weekNext, monthNext } from '../util/dates';
 
 /**
