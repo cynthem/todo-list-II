@@ -2,49 +2,7 @@ import { TodoObject, ProjectsObject } from "../util/types";
 
 export default (function displayData() {
 
-    function renderProjectList(todos: ProjectsObject, listContainer: Element) {
-        const el1 = document.querySelector('.projects-list');
-        const projectContainer: Element = el1!;
-        projectContainer.innerHTML = '';
-
-        const projectsObject = { ...todos };
-        delete projectsObject['all'];
-        delete projectsObject['today'];
-        delete projectsObject['week'];
-
-        for (const project in projectsObject) {
-            let uncheckedTodos = 0;
-            projectsObject[project].forEach(todo => {
-                if (!todo.checked) {
-                    uncheckedTodos++;
-                }
-            });
-
-            const projectItem = document.createElement('div');
-            projectItem.classList.add('project-item');
-            const projectTitle = document.createElement('button');
-            projectTitle.classList.add('project-name');
-            projectTitle.textContent = project;
-            const projectCounter = document.createElement('p');
-            projectCounter.classList.add('project-counter');
-            projectCounter.textContent = `${uncheckedTodos}`;
-            projectItem.appendChild(projectTitle);
-            projectItem.appendChild(projectCounter);
-            projectContainer.appendChild(projectItem);
-
-            /*if (manageData.getSelectedProject() === project) {
-                highlightReloadedFilter(project);
-            } else if (manageData.getSelectedProject() === 'all') {
-                highlightReloadedFilter('all');
-            } else if (manageData.getSelectedProject() === 'today') {
-                highlightReloadedFilter('today');
-            } else if (manageData.getSelectedProject() === 'week') {
-                highlightReloadedFilter('week');
-            } else {
-                highlightReloadedFilter('all');
-            }*/
-        };
-        
+    function renderFilters(todos: ProjectsObject, listContainer: Element) {
         /*let allUncheckedTodos = 0;
         for (const todoList in todos) {
             todos[todoList].forEach(todo => {
@@ -103,7 +61,52 @@ export default (function displayData() {
         weekCount.textContent = weekUncheckedTodos; */
     };
 
+    function renderProjectList(todos: ProjectsObject, listContainer: Element) {
+        const el1 = document.querySelector('.projects-list');
+        const projectContainer: Element = el1!;
+        projectContainer.innerHTML = '';
+
+        const projectsObject = { ...todos };
+        delete projectsObject['all'];
+        delete projectsObject['today'];
+        delete projectsObject['week'];
+
+        for (const project in projectsObject) {
+            let uncheckedTodos = 0;
+            projectsObject[project].forEach(todo => {
+                if (!todo.checked) {
+                    uncheckedTodos++;
+                }
+            });
+
+            const projectItem = document.createElement('div');
+            projectItem.classList.add('project-item');
+            const projectTitle = document.createElement('button');
+            projectTitle.classList.add('project-name');
+            projectTitle.textContent = project;
+            const projectCounter = document.createElement('p');
+            projectCounter.classList.add('project-counter');
+            projectCounter.textContent = `${uncheckedTodos}`;
+            projectItem.appendChild(projectTitle);
+            projectItem.appendChild(projectCounter);
+            projectContainer.appendChild(projectItem);
+
+            /*if (manageData.getSelectedProject() === project) {
+                highlightReloadedFilter(project);
+            } else if (manageData.getSelectedProject() === 'all') {
+                highlightReloadedFilter('all');
+            } else if (manageData.getSelectedProject() === 'today') {
+                highlightReloadedFilter('today');
+            } else if (manageData.getSelectedProject() === 'week') {
+                highlightReloadedFilter('week');
+            } else {
+                highlightReloadedFilter('all');
+            }*/
+        };
+    };
+
     return {
+        renderFilters,
         renderProjectList
     };
 })();
