@@ -203,7 +203,7 @@ export default (function displayData() {
         itemEdit.classList.toggle('selected');
     };
 
-    function toggleCheckedTodo() {};
+    function toggleCheckedTodo(e: Event, todos: ProjectsObject, listContainer: Element) {};
 
     return {
         renderFilters,
