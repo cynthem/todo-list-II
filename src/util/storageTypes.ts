@@ -1,4 +1,4 @@
-type TodoObject = {
+export type TodoObject = {
     'title': string,
     'details': string,
     'dueDate': string,
