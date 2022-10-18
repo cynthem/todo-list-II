@@ -3,50 +3,56 @@ import { TodoObject, ProjectsObject } from "../util/types";
 export default (function displayData() {
 
     function renderFilters(todos: ProjectsObject) {
-        /*let allUncheckedTodos = 0;
-        for (const todoList in todos) {
-            todos[todoList].forEach(todo => {
+        let allUncheckedTodos = 0;
+        let todayUncheckedTodos = 0;
+        let weekUncheckedTodos = 0;
+
+        const allTodosEl = document.querySelector('.all');
+        const allTodosCount: Element = allTodosEl!;
+        const todayTodosEl = document.querySelector('.today');
+        const todayTodosCount: Element = todayTodosEl!;
+        const weekTodosEl = document.querySelector('.week');
+        const weekTodosCount: Element = weekTodosEl!;
+
+        const todayTodos = { ...todos };
+        const weekTodos = { ...todos };
+        delete todayTodos.today;
+        delete weekTodos.week;
+        const today = new Date();
+
+        todayUncheckedTodos = todos.today.reduce((total, value) => {
+            return total + Number(!value.checked);
+        }, 0);
+        
+        weekUncheckedTodos = todos.week.reduce((total, value) => {
+            return total + Number(!value.checked);
+        }, 0);
+
+        for (const allTodos in todos) {
+            todos[allTodos].forEach(todo => {
                 if (!todo.checked) {
                     allUncheckedTodos++;
                 }
-            })
-        };
-        const allCount = document.querySelector('.all');
-        allCount.textContent = allUncheckedTodos;
-
-        let todayUncheckedTodos;
-        todayUncheckedTodos = todos.today.reduce((total, value) => {
-            return total + !value.checked;
-        }, 0);
-        const projectsObjectTwo = Object.assign({}, todos);
-        delete projectsObjectTwo.today;
-        for (const projectTwo in projectsObjectTwo) {
-            projectsObjectTwo[projectTwo].forEach(todo => {
-                    const today = new Date();
-                    const todoDate = new Date(todo.dueDate);
-                    if (
-                        today.getDate() === todoDate.getDate() &&
-                        today.getMonth() === todoDate.getMonth() &&
-                        today.getFullYear() === todoDate.getFullYear()
-                    ) {
-                        if (!todo.checked) {
-                            todayUncheckedTodos++;
-                        }
-                    }
             });
         }
-        const todayCount = document.querySelector('.today');
-        todayCount.textContent = todayUncheckedTodos;
 
-        let weekUncheckedTodos;
-        weekUncheckedTodos = todos.week.reduce((total, value) => {
-            return total + !value.checked;
-        }, 0);
-        const projectsObjectThree = Object.assign({}, todos);
-        delete projectsObjectThree.week;
-        for (const projectThree in projectsObjectThree) {
-            projectsObjectThree[projectThree].forEach(todo => {
-                const today = new Date();
+        for (const project in todayTodos) {
+            todayTodos[project].forEach(todo => {
+                const todoDate = new Date(todo.dueDate);
+                if (
+                    today.getDate() === todoDate.getDate() &&
+                    today.getMonth() === todoDate.getMonth() &&
+                    today.getFullYear() === todoDate.getFullYear()
+                ) {
+                    if (!todo.checked) {
+                        todayUncheckedTodos++;
+                    }
+                }
+            });
+        }
+
+        for (const project in weekTodos) {
+            weekTodos[project].forEach(todo => {
                 const todoDate = new Date(todo.dueDate);
                 const msDifference = Math.abs(today.getTime() - todoDate.getTime());
                 const dayDifference = msDifference / (24*60*60*1000);
@@ -57,8 +63,10 @@ export default (function displayData() {
                 }
             });
         }
-        const weekCount = document.querySelector('.week');
-        weekCount.textContent = weekUncheckedTodos; */
+
+        allTodosCount.textContent = `${allUncheckedTodos}`;
+        todayTodosCount.textContent = `${todayUncheckedTodos}`;
+        weekTodosCount.textContent = `${weekUncheckedTodos}`;
     };
 
     function renderProjectList(todos: ProjectsObject) {
