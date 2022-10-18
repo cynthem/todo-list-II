@@ -33,6 +33,7 @@ export default (function UI() {
     };
 
     function toggleFilters() {
+        displayData.renderFilters(todos, listContainer);
         const filterBtns = document.querySelectorAll('.filters-btn');
         /* filterBtns.forEach(btn => {
             btn.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
