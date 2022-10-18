@@ -1,4 +1,5 @@
 import manageData from './manageData';
+import { ProjectsObject } from '../util/storageTypes';
 import { today, weekAgo, weekNext, monthNext } from '../util/dates';
 
 /**
@@ -7,22 +8,6 @@ import { today, weekAgo, weekNext, monthNext } from '../util/dates';
  * 
  */
 function getTodos() {
-    type TodoObject = {
-        'title': string,
-        'details': string,
-        'dueDate': string,
-        'priority': string,
-        'project': string,
-        'checked': boolean
-    };
-
-    interface ProjectsObject {
-        'all': TodoObject[],
-        'today': TodoObject[],
-        'week': TodoObject[],
-        'Kitchen renovation': TodoObject[]
-    };
-
     let todoList: ProjectsObject;
 
     const stored = localStorage.getItem('todos');
