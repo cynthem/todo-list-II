@@ -159,15 +159,14 @@ export default (function manageData() {
             //displayData.renderWeekTodos(todos, listContainer);
             //displayData.highlightSelectedFilter(e);
         } else {
-            setSelectedProject((e.target as Element).textContent);
-            /*let projectLength = todos[getSelectedProject()].length;
+            setSelectedProject((e.target as Element).textContent!);
+            let projectLength = todos[getSelectedProject()].length;
             todos[getSelectedProject()].forEach(todo => {
                 if (todo.checked) {
                     projectLength--;
                 }
             });
-
-            if (projectLength < 1) {
+            /*if (projectLength < 1) {
                 displayData.renderEmptyProject(e, todos, listContainer);
             } else {
                 displayData.renderProjectTodos(todos, listContainer);
