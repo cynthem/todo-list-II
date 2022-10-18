@@ -33,7 +33,7 @@ export default (function UI() {
     };
 
     function loadFilters() {
-        displayData.renderFilters(todos, listContainer);
+        displayData.renderFilters(todos);
         toggleFilters();
     };
 
@@ -45,10 +45,9 @@ export default (function UI() {
     };
 
     function loadProjects() {
-        displayData.renderProjectList(todos, listContainer);
+        displayData.renderProjectList(todos);
         handleAddBtn();
         toggleProjects();
-        handleEmptyProject();
     };
 
     function handleAddBtn() {
@@ -172,6 +171,7 @@ export default (function UI() {
     function toggleProjects() {
         /* projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
         projectTitle.addEventListener('click', e => highlightSelectedFilter(e)); */
+        handleEmptyProject();
     };
 
     function handleEmptyProject() {};

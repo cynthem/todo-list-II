@@ -2,7 +2,7 @@ import { TodoObject, ProjectsObject } from "../util/types";
 
 export default (function displayData() {
 
-    function renderFilters(todos: ProjectsObject, listContainer: Element) {
+    function renderFilters(todos: ProjectsObject) {
         /*let allUncheckedTodos = 0;
         for (const todoList in todos) {
             todos[todoList].forEach(todo => {
@@ -61,7 +61,7 @@ export default (function displayData() {
         weekCount.textContent = weekUncheckedTodos; */
     };
 
-    function renderProjectList(todos: ProjectsObject, listContainer: Element) {
+    function renderProjectList(todos: ProjectsObject) {
         const el1 = document.querySelector('.projects-list');
         const projectContainer: Element = el1!;
         projectContainer.innerHTML = '';
