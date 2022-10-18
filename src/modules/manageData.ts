@@ -1,4 +1,4 @@
-import { ProjectsObject } from "../util/types";
+import { TodoObject, ProjectsObject } from "../util/types";
 
 export default (function manageData() {
     let selectedProject = 'all';
@@ -12,15 +12,7 @@ export default (function manageData() {
     };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
-        interface todoItemType {
-            'title': string,
-            'details': string,
-            'dueDate': string,
-            'priority': string,
-            'project': string,
-            'checked': boolean
-        }
-        const todoItem: todoItemType = {
+        const todoItem: TodoObject = {
             title,
             details,
             dueDate,
@@ -120,11 +112,46 @@ export default (function manageData() {
         } */
     };
 
+    function deleteTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
+        /* const item = e.target.parentElement.parentElement.dataset.index;
+        const project = e.target.parentElement.parentElement.dataset.project;
+
+        todos[project].splice(item, 1);
+        
+        if (getSelectedProject() === 'all') {
+            changeDOM.renderAllTodos(todos, listContainer);
+        } else if (getSelectedProject() === 'today') {
+            changeDOM.renderTodayTodos(todos, listContainer);
+        } else if (getSelectedProject() === 'week') {
+            changeDOM.renderWeekTodos(todos, listContainer);
+        } else {
+            let projectLength = todos[project].length;
+
+            todos[project].forEach(todo => {
+                if (todo.checked) {
+                    projectLength--;
+                }
+            });
+
+            if (projectLength < 1) {
+                changeDOM.renderEmptyProject(e, todos, listContainer);
+            } else {
+                changeDOM.renderProjectTodos(todos, listContainer);
+            }
+        }
+
+        localStorage.setItem('todos', JSON.stringify(todos));
+
+        changeDOM.renderProjectList(todos, listContainer); */
+    };
+
     return {
         setSelectedProject,
         getSelectedProject,
         createTodo,
         addProject,
-        addTodo
+        addTodo,
+        editTodo,
+        deleteTodo
     };
 })();
