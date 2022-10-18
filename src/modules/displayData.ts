@@ -13,12 +13,11 @@ export default (function displayData() {
         delete projectsObject['week'];
 
         /* for (const project in projectsObject) {
-
             const projectItem = document.createElement('div');
-            projectItem.classList.add('projects-item');
+            projectItem.classList.add('project-item');
 
             const projectTitle = document.createElement('button');
-            projectTitle.classList.add('projects-name');
+            projectTitle.classList.add('project-name');
             projectTitle.textContent = project;
             projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
             projectTitle.addEventListener('click', e => highlightSelectedFilter(e));

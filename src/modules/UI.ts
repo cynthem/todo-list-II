@@ -1,7 +1,11 @@
 import { todos } from './todoList';
+import displayData from './displayData';
+import manageData from './manageData';
 import { currentDay } from '../util/dates';
 
 export default (function UI() {
+    const contentContainer = document.querySelector('.main');
+    const listContainer = document.querySelector('.main-list');
 
     function loadPage() {
         loadDashboard();
@@ -27,22 +31,23 @@ export default (function UI() {
 
     function toggleFilters() {
         const filterBtns = document.querySelectorAll('.filters-btn');
-        /* const listContainer = document.querySelector('.list');
-        filterBtns.forEach(btn => {
-    btn.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
-}); */
+        /* filterBtns.forEach(btn => {
+            btn.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
+        }); */
     };
 
     function loadProjects() {
+        displayData.renderProjectList(todos, listContainer);
+        /* projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
+        projectTitle.addEventListener('click', e => highlightSelectedFilter(e)); */
+
         handleAddBtn();
         toggleProjects();
         handleEmptyProject();
     };
 
     function handleAddBtn() {
-        /* const contentContainer = document.getElementById('content');
-        const listContainer = document.querySelector('.list');
-        const addNew = document.querySelector('.projects-btn');
+        /* const addNew = document.querySelector('.projects-btn');
         const addNewCard = document.querySelector('.add-new-card');
         const addExit = document.querySelector('#add-exit');
         const addTodoBtn = document.querySelector('.add-btn-todo');
@@ -164,9 +169,7 @@ export default (function UI() {
     function handleEmptyProject() {};
 
     function loadTodoList() {
-        /* const listContainer = document.querySelector('.list');
-        displayData.renderAllTodos(todos, listContainer);
-        displayData.renderProjectList(todos, listContainer); */
+        /* displayData.renderAllTodos(todos, listContainer); */
         loadTodoItems();
     };
 
@@ -180,8 +183,7 @@ export default (function UI() {
     function handleCheckbox() {};
 
     function handleNotesBtn() {
-        /* const contentContainer = document.getElementById('content');
-        const notesCard = document.querySelector('.notes-card');
+        /* const notesCard = document.querySelector('.notes-card');
         const notesExit = document.querySelector('#notes-exit'); */
 
         /* notesExit.addEventListener('click', () => {
@@ -191,9 +193,7 @@ export default (function UI() {
     };
 
     function handleEditBtn() {
-        /* const listContainer = document.querySelector('.list');
-        const contentContainer = document.getElementById('content');
-        const editCard = document.querySelector('.edit-card');
+        /* const editCard = document.querySelector('.edit-card');
         const editExit = document.querySelector('#edit-exit');
         const editSubmit = document.querySelector('.edit-form'); */
         
