@@ -13,22 +13,21 @@ export default (function displayData() {
         delete projectsObject['week'];
 
         for (const project in projectsObject) {
-            const projectItem = document.createElement('div');
-            projectItem.classList.add('project-item');
-            const projectTitle = document.createElement('button');
-            projectTitle.classList.add('project-name');
-            projectTitle.textContent = project;
-
             let uncheckedTodos = 0;
             projectsObject[project].forEach(todo => {
                 if (!todo.checked) {
                     uncheckedTodos++;
                 }
             });
-            
-            /*const projectCounter = document.createElement('p');
-            projectCounter.classList.add('projects-counter');
-            projectCounter.textContent = uncheckedTodos;
+
+            const projectItem = document.createElement('div');
+            projectItem.classList.add('project-item');
+            const projectTitle = document.createElement('button');
+            projectTitle.classList.add('project-name');
+            projectTitle.textContent = project;
+            const projectCounter = document.createElement('p');
+            projectCounter.classList.add('project-counter');
+            projectCounter.textContent = `${uncheckedTodos}`;
             projectItem.appendChild(projectTitle);
             projectItem.appendChild(projectCounter);
             projectContainer.appendChild(projectItem);
