@@ -175,7 +175,7 @@ export default (function displayData() {
                 todoItem.appendChild(itemRight);
 
                 if (todo.checked) {
-                    renderCheckedTodo(todoItem);
+                    renderCheckedTodoOnLoad(todoItem);
                 };
 
                 listContainer.appendChild(todoItem);
@@ -184,7 +184,7 @@ export default (function displayData() {
         localStorage.setItem('todos', JSON.stringify(todos));
     };
 
-    function renderCheckedTodo(todoDiv: Element) {
+    function renderCheckedTodoOnLoad(todoDiv: Element) {
         const todoItems = todoDiv.children;
         const itemsLeft = todoItems[0];
         const itemsRight = todoItems[1];
@@ -208,6 +208,6 @@ export default (function displayData() {
         renderHighlightedFilters,
         renderProjectList,
         renderAllTodos,
-        renderCheckedTodo
+        renderCheckedTodoOnLoad
     };
 })();
