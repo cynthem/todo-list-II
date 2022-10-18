@@ -16,20 +16,9 @@ export default (function UI() {
     };
 
     function loadDashboard() {
-        toggleDashboard();
         loadFilters();
         loadProjects();
-    };
-
-    function toggleDashboard() {
-        const dashboardEl = document.querySelector('.main-dashboard');
-        const dashboard: Element = dashboardEl!;
-        const hamburgerEl = document.querySelector('.fa-bars');
-        const hamburgerMenu: Element = hamburgerEl!;
-        hamburgerMenu.addEventListener('click', () => {
-            console.log('hello');
-            (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
-        });
+        toggleDashboard();
     };
 
     function loadFilters() {
@@ -219,6 +208,17 @@ export default (function UI() {
     };
 
     function handleDeleteBtn() {};
+
+    function toggleDashboard() {
+        const dashboardEl = document.querySelector('.main-dashboard');
+        const dashboard: Element = dashboardEl!;
+        const hamburgerEl = document.querySelector('.fa-bars');
+        const hamburgerMenu: Element = hamburgerEl!;
+        hamburgerMenu.addEventListener('click', () => {
+            console.log('hello');
+            (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
+        });
+    };
 
     return { loadPage };
 })();

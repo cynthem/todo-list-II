@@ -113,13 +113,10 @@ export default (function displayData() {
         };
     };
 
-    function manageTodosRender(e: Event, todos: ProjectsObject, listContainer: Element) {
-
-    };
+    
 
     return {
         renderFilters,
-        renderProjectList,
-        manageTodosRender
+        renderProjectList
     };
 })();
