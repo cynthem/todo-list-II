@@ -22,10 +22,10 @@ export default (function UI() {
     };
 
     function toggleDashboard() {
-        const el1 = document.querySelector('.main-dashboard');
-        const dashboard: Element = el1!;
-        const el2 = document.querySelector('.fa-bars');
-        const hamburgerMenu: Element = el2!;
+        const dashboardEl = document.querySelector('.main-dashboard');
+        const dashboard: Element = dashboardEl!;
+        const hamburgerEl = document.querySelector('.fa-bars');
+        const hamburgerMenu: Element = hamburgerEl!;
         hamburgerMenu.addEventListener('click', () => {
             console.log('hello');
             (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
@@ -38,10 +38,11 @@ export default (function UI() {
     };
 
     function toggleFilters() {
-        const filterBtns = document.querySelectorAll('.filters-btn');
-        /* filterBtns.forEach(btn => {
-            btn.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
-        }); */
+        const filterEl = document.querySelectorAll('.filters-btn');
+        const filterBtns: NodeListOf<Element> = filterEl!;
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', e => displayData.manageTodosRender(e, todos, listContainer));
+        });
     };
 
     function loadProjects() {
