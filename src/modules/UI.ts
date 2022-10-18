@@ -17,7 +17,7 @@ export default (function UI() {
 
     function loadDashboard() {
         toggleDashboard();
-        toggleFilters();
+        loadFilters();
         loadProjects();
     };
 
@@ -32,8 +32,12 @@ export default (function UI() {
         });
     };
 
-    function toggleFilters() {
+    function loadFilters() {
         displayData.renderFilters(todos, listContainer);
+        toggleFilters();
+    };
+
+    function toggleFilters() {
         const filterBtns = document.querySelectorAll('.filters-btn');
         /* filterBtns.forEach(btn => {
             btn.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
