@@ -164,9 +164,9 @@ export default (function UI() {
         projectTitle.forEach(project => {
             project.addEventListener('click', e => manageData.manageTodosRender(e, todos, listContainer));
         });
-        /* projectTitle.forEach(project => {
-            project.addEventListener('click', e => highlightSelectedFilter(e));
-        }); */
+        projectTitle.forEach(project => {
+            project.addEventListener('click', e => displayData.renderHighlightedFilters(e));
+        });
         handleEmptyProject();
     };
 
