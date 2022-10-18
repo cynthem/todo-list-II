@@ -4,8 +4,10 @@ import manageData from './manageData';
 import { currentDay } from '../util/dates';
 
 export default (function UI() {
-    const contentContainer = document.querySelector('.main');
-    const listContainer = document.querySelector('.main-list');
+    const contentElement = document.querySelector('.main');
+    const contentContainer: Element = contentElement!;
+    const listElement = document.querySelector('.main-list');
+    const listContainer: Element = listElement!;
 
     function loadPage() {
         loadDashboard();
