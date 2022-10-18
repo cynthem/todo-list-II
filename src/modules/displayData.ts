@@ -7,14 +7,17 @@ export default (function displayData() {
         const projectContainer: Element = el1!;
         projectContainer.innerHTML = '';
 
-        const projectsObject: ProjectsObject = Object.assign({}, todos);
+        const projectsList = { ...todos };
+        delete projectsList['all'];
+
+        const projectsObject = Object.assign({}, todos);
         delete projectsObject['all'];
         delete projectsObject['today'];
         delete projectsObject['week'];
 
-        let project: string;
 
-        for (project in projectsObject) {
+
+        for (const project in projectsObject) {
             const projectItem = document.createElement('div');
             projectItem.classList.add('project-item');
             const projectTitle = document.createElement('button');

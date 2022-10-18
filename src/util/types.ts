@@ -8,7 +8,7 @@ export type TodoObject = {
 };
 
 export interface ProjectsObject {
-    'all': TodoObject[],
+    'all'?: TodoObject[],
     'today': TodoObject[],
     'week': TodoObject[],
     'Kitchen renovation'?: TodoObject[]
