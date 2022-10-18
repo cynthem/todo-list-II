@@ -203,11 +203,14 @@ export default (function displayData() {
         itemEdit.classList.toggle('selected');
     };
 
+    function toggleCheckedTodo() {};
+
     return {
         renderFilters,
         renderHighlightedFilters,
         renderProjectList,
         renderAllTodos,
-        renderCheckedTodo
+        renderCheckedTodo,
+        toggleCheckedTodo
     };
 })();
