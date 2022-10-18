@@ -1,6 +1,7 @@
 import { todos } from './todoList';
 import displayData from './displayData';
 import manageData from './manageData';
+import { ProjectsObject } from '../util/types';
 import { currentDay } from '../util/dates';
 
 export default (function UI() {

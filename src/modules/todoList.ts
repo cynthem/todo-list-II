@@ -8,7 +8,7 @@ import { today, weekAgo, weekNext, monthNext } from '../util/dates';
  * 
  */
 function getTodos() {
-    let todoList: ProjectsObject;
+    let todoList: ProjectsObject | string;
 
     const stored = localStorage.getItem('todos');
 

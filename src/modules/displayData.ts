@@ -12,15 +12,14 @@ export default (function displayData() {
         delete projectsObject['today'];
         delete projectsObject['week'];
 
-        /* for (const project in projectsObject) {
+        let project: string;
+
+        for (project in projectsObject) {
             const projectItem = document.createElement('div');
             projectItem.classList.add('project-item');
-
             const projectTitle = document.createElement('button');
             projectTitle.classList.add('project-name');
             projectTitle.textContent = project;
-            projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
-            projectTitle.addEventListener('click', e => highlightSelectedFilter(e));
 
             let uncheckedTodos = 0;
             projectsObject[project].forEach(todo => {
@@ -29,15 +28,14 @@ export default (function displayData() {
                 }
             });
             
-            const projectCounter = document.createElement('p');
+            /*const projectCounter = document.createElement('p');
             projectCounter.classList.add('projects-counter');
             projectCounter.textContent = uncheckedTodos;
-
             projectItem.appendChild(projectTitle);
             projectItem.appendChild(projectCounter);
             projectContainer.appendChild(projectItem);
 
-            if (manageData.getSelectedProject() === project) {
+            /*if (manageData.getSelectedProject() === project) {
                 highlightReloadedFilter(project);
             } else if (manageData.getSelectedProject() === 'all') {
                 highlightReloadedFilter('all');
@@ -47,10 +45,10 @@ export default (function displayData() {
                 highlightReloadedFilter('week');
             } else {
                 highlightReloadedFilter('all');
-            }
+            }*/
         };
         
-        let allUncheckedTodos = 0;
+        /*let allUncheckedTodos = 0;
         for (const todoList in todos) {
             todos[todoList].forEach(todo => {
                 if (!todo.checked) {
