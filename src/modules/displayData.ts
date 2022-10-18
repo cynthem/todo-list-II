@@ -7,15 +7,10 @@ export default (function displayData() {
         const projectContainer: Element = el1!;
         projectContainer.innerHTML = '';
 
-        const projectsList = { ...todos };
-        delete projectsList['all'];
-
-        const projectsObject = Object.assign({}, todos);
+        const projectsObject = { ...todos };
         delete projectsObject['all'];
         delete projectsObject['today'];
         delete projectsObject['week'];
-
-
 
         for (const project in projectsObject) {
             const projectItem = document.createElement('div');
