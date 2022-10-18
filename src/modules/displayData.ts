@@ -114,7 +114,19 @@ export default (function displayData() {
     };
 
     function renderHighlightedFilters(e: Event) {
+        const filterEl = document.querySelectorAll('.filters-btn');
+        const filterBtns: NodeListOf<Element> = filterEl!;
+        filterBtns.forEach(btn => {
+            btn.classList.remove('clicked');
+        });
 
+        const projectEl = document.querySelectorAll('.project-name');
+        const projectBtns: NodeListOf<Element> = projectEl!;
+        projectBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        (e.target as Element).classList.add('clicked');
     };
 
     return {
