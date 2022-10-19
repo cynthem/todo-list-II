@@ -201,7 +201,10 @@ export default (function UI() {
         const notesClose: Element = notesCloseEl!;
         
         notesBtn.forEach(btn => {
-            btn.addEventListener('click', () => notesCard.classList.remove('invisible-notes'));
+            btn.addEventListener('click', e => {
+                displayData.renderNotesPopup(e, todos);
+                notesCard.classList.remove('invisible-notes');
+            });
             notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
         });
     };
@@ -217,7 +220,8 @@ export default (function UI() {
         const editSubmit: Element = editSubmitEl!;
         
         editBtn.forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', e => {
+                displayData.renderEditPopup(e, todos);
                 editCard.classList.remove('invisible-edit');
                 editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
                 editSubmit.addEventListener('submit', e => {

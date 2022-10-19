@@ -234,12 +234,18 @@ export default (function displayData() {
         renderProjectList(todos);
     };
 
+    function renderNotesPopup(e: Event, todos: ProjectsObject) {};
+
+    function renderEditPopup(e: Event, todos: ProjectsObject) {};
+
     return {
         renderFilters,
         renderHighlightedFilters,
         renderProjectList,
         renderAllTodos,
         renderCheckedTodo,
-        toggleCheckedTodo
+        toggleCheckedTodo,
+        renderNotesPopup,
+        renderEditPopup
     };
 })();
