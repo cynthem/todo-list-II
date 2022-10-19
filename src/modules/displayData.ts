@@ -537,52 +537,53 @@ export default (function displayData() {
         manageData.storeTodos(todos);
     };
 
-    function renderCheckedTodo(todoDiv: Element) {
-        const todoItems = todoDiv.children;
-        const itemsLeft = todoItems[0];
-        const itemsRight = todoItems[1];
-        const checkbox = itemsLeft.children[0];
-        const itemTitle = itemsLeft.children[1];
-        const itemNotes = itemsRight.children[0];
-        const itemDate = itemsRight.children[1];
-        const itemEdit = itemsRight.children[2]; 
-       
-        checkbox.classList.remove('fa-square');
-        checkbox.classList.add('fa-square-check');
-        itemTitle.classList.toggle('selected');
-        itemTitle.classList.toggle('strike');
-        itemNotes.classList.toggle('done');
-        itemDate.classList.toggle('selected');
-        itemEdit.classList.toggle('selected');
-    };
-
-    function toggleCheckedTodo(e: Event, todos: ProjectsObject) {
-        const checkedTodo = (e.target as Element).parentElement!.parentElement;
-        const checkbox = (e.target as Element);
-
-        checkbox.classList.toggle('fa-square');
-        checkbox.classList.toggle('fa-square-check');
-
-        const todoItems = checkedTodo!.children;
-        const itemsLeft = todoItems[0];
-        const itemsRight = todoItems[1];
-        const itemTitle = itemsLeft.children[1];
-        const itemNotes = itemsRight.children[0];
-        const itemDate = itemsRight.children[1];
-        const itemEdit = itemsRight.children[2];
-
-        itemTitle.classList.toggle('selected');
-        itemTitle.classList.toggle('strike');
-        itemNotes.classList.toggle('done');
-        itemDate.classList.toggle('selected');
-        itemEdit.classList.toggle('selected');
+    function renderCheckedTodo(arg: (Element | Event), todos?: ProjectsObject) {
+        if (arg instanceof Element) {
+            const todoItems = arg.children;
+            const itemsLeft = todoItems[0];
+            const itemsRight = todoItems[1];
+            const checkbox = itemsLeft.children[0];
+            const itemTitle = itemsLeft.children[1];
+            const itemNotes = itemsRight.children[0];
+            const itemDate = itemsRight.children[1];
+            const itemEdit = itemsRight.children[2]; 
         
-        const item: number = Number(checkedTodo!.dataset.index);
-        const project: string = checkedTodo!.dataset.project!;
-        todos[project][item].checked = !todos[project][item].checked;
+            checkbox.classList.remove('fa-square');
+            checkbox.classList.add('fa-square-check');
+            itemTitle.classList.toggle('selected');
+            itemTitle.classList.toggle('strike');
+            itemNotes.classList.toggle('done');
+            itemDate.classList.toggle('selected');
+            itemEdit.classList.toggle('selected');
 
-        manageData.storeTodos(todos);
-        renderProjectList(todos);
+        } else if (arg instanceof Event) {
+            const checkedTodo = (arg.target as Element).parentElement!.parentElement;
+            const checkbox = (arg.target as Element);
+
+            checkbox.classList.toggle('fa-square');
+            checkbox.classList.toggle('fa-square-check');
+
+            const todoItems = checkedTodo!.children;
+            const itemsLeft = todoItems[0];
+            const itemsRight = todoItems[1];
+            const itemTitle = itemsLeft.children[1];
+            const itemNotes = itemsRight.children[0];
+            const itemDate = itemsRight.children[1];
+            const itemEdit = itemsRight.children[2];
+
+            itemTitle.classList.toggle('selected');
+            itemTitle.classList.toggle('strike');
+            itemNotes.classList.toggle('done');
+            itemDate.classList.toggle('selected');
+            itemEdit.classList.toggle('selected');
+            
+            const item: number = Number(checkedTodo!.dataset.index);
+            const project: string = checkedTodo!.dataset.project!;
+            todos![project][item].checked = !todos![project][item].checked;
+
+            manageData.storeTodos(todos!);
+            renderProjectList(todos!);
+        }
     };
 
     function renderNotesPopup(e: Event, todos: ProjectsObject) {
@@ -769,7 +770,6 @@ export default (function displayData() {
         renderWeekTodos,
         renderProjectTodos,
         renderCheckedTodo,
-        toggleCheckedTodo,
         renderNotesPopup,
         renderEditPopup,
         renderEmptyProjectPopup
