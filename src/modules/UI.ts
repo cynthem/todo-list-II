@@ -5,8 +5,6 @@ import { ProjectsObject } from '../util/types';
 import { currentDay } from '../util/dates';
 
 export default (function UI() {
-    const contentElement = document.querySelector('.main');
-    const contentContainer: Element = contentElement!;
     const listElement = document.querySelector('.main-list');
     const listContainer: Element = listElement!;
 
