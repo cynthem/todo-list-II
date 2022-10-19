@@ -234,7 +234,39 @@ export default (function displayData() {
         renderProjectList(todos);
     };
 
-    function renderNotesPopup(e: Event, todos: ProjectsObject) {};
+    function renderNotesPopup(e: Event, todos: ProjectsObject) {
+
+        const editEl = document.querySelector('.popup-edit');
+        const editCard: Element = editEl!;
+
+        /* const item = e.target.parentElement.parentElement.dataset.index;
+        const notesTitle = document.querySelector('.notes-header');
+        const notesProject = document.querySelector('.notes-todo');
+        const notesDueDate = document.querySelector('.notes-date');
+        const notesPriority = document.querySelector('.notes-priority');
+        const notesDetails = document.querySelector('.notes-details');
+        const contentContainer = document.getElementById('content');
+        
+        notesTitle.innerHTML = '';
+        notesProject.innerHTML = '';
+        notesDueDate.innerHTML = '';
+        notesPriority.innerHTML = '';
+        notesDetails.innerHTML = '';
+
+        const day = format(new Date(todos[item].dueDate), 'do');
+        const month = format(new Date(todos[item].dueDate), 'MMM');
+        const year = format(new Date(todos[item].dueDate), 'yyyy');
+
+        notesTitle.textContent = todos[item].title;
+        notesProject.textContent = todos[item].project;
+        notesDueDate.textContent = `${month} ${day}, ${year}`;
+        notesPriority.textContent = todos[item].priority[0].toUpperCase() + todos[item].priority.slice(1);
+        notesDetails.textContent = todos[item].details;
+
+        notesCard.style.visibility = 'visible';
+        contentContainer.classList.add('blur'); */
+        editCard.classList.remove('invisible-edit');
+    };
 
     function renderEditPopup(e: Event, todos: ProjectsObject) {};
 

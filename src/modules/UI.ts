@@ -222,12 +222,14 @@ export default (function UI() {
         editBtn.forEach(btn => {
             btn.addEventListener('click', e => {
                 displayData.renderEditPopup(e, todos);
-                editCard.classList.remove('invisible-edit');
                 editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
                 editSubmit.addEventListener('submit', e => {
                     editCard.classList.add('invisible-edit');
                     manageData.editTodo(e, todos, listContainer);
-                    /*if (getSelectedProject() === 'all') {
+                    /* would go in manageData.manageTodosRender, but that one has 
+                       highlighting and unsure if not needed here:
+                       
+                    if (getSelectedProject() === 'all') {
                         displayData.renderAllTodos(todos, listContainer);
                     } else if (getSelectedProject() === 'today') {
                         displayData.renderTodayTodos(todos, listContainer);
