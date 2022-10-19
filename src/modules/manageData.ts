@@ -147,19 +147,15 @@ export default (function manageData() {
         if ((e.target as Element).textContent === 'All') {
             setSelectedProject('all');
             displayData.renderAllTodos(todos, listContainer);
-            displayData.renderHighlightedFilters(e);
         } else if ((e.target as Element).textContent === 'Today') {
             setSelectedProject('today');
             //displayData.renderTodayTodos(todos, listContainer);
-            displayData.renderHighlightedFilters(e);
         } else if ((e.target as Element).textContent === 'This week') {
             setSelectedProject('week');
             //displayData.renderWeekTodos(todos, listContainer);
-            displayData.renderHighlightedFilters(e);
         } else {
             setSelectedProject((e.target as Element).textContent!);
             //displayData.renderProjectTodos(todos, listContainer);
-            displayData.renderHighlightedFilters(e);
         }
     };
 
