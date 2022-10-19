@@ -88,28 +88,35 @@ export default (function manageData() {
     function editTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
-        /* const item = e.target.firstElementChild.children[0].children[0].dataset.index;
-        const project = e.target.firstElementChild.children[0].children[0].dataset.project;
-
-        const todoDate = (document.querySelector('#edit-date')).value;
+        const todoDate = (document.querySelector('#edit-date') as HTMLInputElement).value;
         const todoDay = todoDate.slice(5, 10);
         const todoYear = todoDate.slice(0, 4);
         const todoDueDate = `${todoDay}-${todoYear}`;
 
-        todos[project][item].title = (document.querySelector('.edit-name')).value;
-        todos[project][item].details = (document.querySelector('.edit-details')).value;
-        todos[project][item].dueDate = todoDueDate;
-        todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;
+        let item: number;
+        let project: string;
+        const target = e.target;
 
-        if (getSelectedProject() === 'all') {
-            changeDOM.renderAllTodos(todos, listContainer);
-        } else if (getSelectedProject() === 'today') {
-            changeDOM.renderTodayTodos(todos, listContainer);
-        } else if (getSelectedProject() === 'week') {
-            changeDOM.renderWeekTodos(todos, listContainer);
-        } else {
-            changeDOM.renderProjectTodos(todos, listContainer);
-        } */
+        if (target instanceof HTMLElement) {
+            const itemChild = target.firstElementChild;
+            if (itemChild instanceof HTMLElement) {
+                const itemGrandchild = itemChild.children[0];
+                if (itemGrandchild instanceof HTMLElement) {
+                    const itemGreatGrand = itemGrandchild.children[0];
+                    if (itemGreatGrand instanceof HTMLElement) {
+                        item = Number(itemGreatGrand.dataset.index);
+                        project = itemGreatGrand.dataset.project!;
+
+                        todos[project][item].title = (document.querySelector('.edit-title-textarea') as HTMLTextAreaElement).value;
+                        todos[project][item].details = (document.querySelector('.edit-details-textarea') as HTMLTextAreaElement).value;
+                        todos[project][item].dueDate = todoDueDate;
+                        todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
+
+                        storeTodos(todos);
+                    }
+                }
+            }
+        }
     };
 
     function deleteTodo(e: Event, todos: ProjectsObject, listContainer: Element) {

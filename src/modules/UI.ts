@@ -202,9 +202,8 @@ export default (function UI() {
         
         notesBtn.forEach(btn => {
             btn.addEventListener('click', () => notesCard.classList.remove('invisible-notes'));
+            notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
         });
-
-        notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
     };
 
     function handleEditBtn() {
@@ -218,17 +217,15 @@ export default (function UI() {
         const editSubmit: Element = editSubmitEl!;
         
         editBtn.forEach(btn => {
-            btn.addEventListener('click', () => editCard.classList.remove('invisible-edit'));
+            btn.addEventListener('click', () => {
+                editCard.classList.remove('invisible-edit');
+                editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
+                editSubmit.addEventListener('submit', e => {
+                    editCard.classList.add('invisible-edit');
+                    manageData.editTodo(e, todos, listContainer);
+                });
+            });
         });
-
-        editClose.addEventListener('click', () => {
-            editCard.classList.add('invisible-edit');
-        });
-        
-        /* 
-        editSubmit.addEventListener('submit', e => {
-            manageData.editTodo(e, todos, listContainer);
-        }); */
     };
 
     function handleDeleteBtn() {};
