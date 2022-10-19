@@ -209,19 +209,24 @@ export default (function UI() {
     function handleEditBtn() {
         const editBtnEl = document.querySelectorAll('.fa-pen-to-square');
         const editBtn: NodeListOf<Element> = editBtnEl!;
+        
+        editBtn.forEach(btn => {
+            btn.addEventListener('click', e => {
+                displayData.renderEditPopup(e, todos);
+                handleEditForm();
+            });
+        });
+    };
+
+    function handleEditForm() {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
         const editCloseEl = document.querySelector('.edit-close');
         const editClose: Element = editCloseEl!;
         const editSubmitEl = document.querySelector('.edit-form');
         const editSubmit: Element = editSubmitEl!;
-        
-        editBtn.forEach(btn => {
-            btn.addEventListener('click', e => {
-                displayData.renderEditPopup(e, todos);
-                handleEditForm();
 
-                editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
+        editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
                 editSubmit.addEventListener('submit', e => {
                     editCard.classList.add('invisible-edit');
                     manageData.editTodo(e, todos, listContainer);
@@ -238,11 +243,7 @@ export default (function UI() {
                         displayData.renderProjectTodos(todos, listContainer);
                     } */
                 });
-            });
-        });
     };
-
-    function handleEditForm() {};
 
     function handleDeleteBtn() {
         const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
