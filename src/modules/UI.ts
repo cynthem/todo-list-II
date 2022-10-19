@@ -225,24 +225,82 @@ export default (function UI() {
         const editClose: Element = editCloseEl!;
         const editSubmitEl = document.querySelector('.edit-form');
         const editSubmit: Element = editSubmitEl!;
+        const editLowEl = document.getElementById('edit-low');
+        const editLowPriority: Element = editLowEl!;
+        const editMediumEl = document.getElementById('edit-medium');
+        const editMediumPriority: Element = editMediumEl!;
+        const editHighEl = document.getElementById('edit-high');
+        const editHighPriority: Element = editHighEl!;
+        const editLowLabelEl = document.getElementById('edit-low-label');
+        const editLowLabel: Element = editLowLabelEl!;
+        const editMediumLabelEl = document.getElementById('edit-medium-label');
+        const editMediumLabel: Element = editMediumLabelEl!;
+        const editHighLabelEl = document.getElementById('edit-high-label');
+        const editHighLabel: Element = editHighLabelEl!;
 
         editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
-                editSubmit.addEventListener('submit', e => {
-                    editCard.classList.add('invisible-edit');
-                    manageData.editTodo(e, todos, listContainer);
-                    /* would go in manageData.manageTodosRender, but that one has 
-                       highlighting and unsure if not needed here:
+        
+        editSubmit.addEventListener('submit', e => {
+            editCard.classList.add('invisible-edit');
+            manageData.editTodo(e, todos, listContainer);
+            /* would go in manageData.manageTodosRender, but that one has 
+                highlighting and unsure if not needed here:
 
-                    if (getSelectedProject() === 'all') {
-                        displayData.renderAllTodos(todos, listContainer);
-                    } else if (getSelectedProject() === 'today') {
-                        displayData.renderTodayTodos(todos, listContainer);
-                    } else if (getSelectedProject() === 'week') {
-                        displayData.renderWeekTodos(todos, listContainer);
-                    } else {
-                        displayData.renderProjectTodos(todos, listContainer);
-                    } */
-                });
+            if (getSelectedProject() === 'all') {
+                displayData.renderAllTodos(todos, listContainer);
+            } else if (getSelectedProject() === 'today') {
+                displayData.renderTodayTodos(todos, listContainer);
+            } else if (getSelectedProject() === 'week') {
+                displayData.renderWeekTodos(todos, listContainer);
+            } else {
+                displayData.renderProjectTodos(todos, listContainer);
+            } */
+        });
+
+        editLowPriority.addEventListener('click', () => {
+            if (editLowLabel.classList.contains('low')) {
+                editLowLabel.classList.remove('low');
+                editLowLabel.classList.add('low-checked');
+            }
+            if (editMediumLabel.classList.contains('medium-checked')) {
+                editMediumLabel.classList.remove('medium-checked');
+                editMediumLabel.classList.add('medium');
+            }
+            if (editHighLabel.classList.contains('high-checked')) {
+                editHighLabel.classList.remove('high-checked');
+                editHighLabel.classList.add('high');
+            }
+        });
+
+        editMediumPriority.addEventListener('click', () => {
+            if (editLowLabel.classList.contains('low-checked')) {
+                editLowLabel.classList.remove('low-checked');
+                editLowLabel.classList.add('low');
+            }
+            if (editMediumLabel.classList.contains('medium')) {
+                editMediumLabel.classList.remove('medium');
+                editMediumLabel.classList.add('medium-checked');
+            }
+            if (editHighLabel.classList.contains('high-checked')) {
+                editHighLabel.classList.remove('high-checked');
+                editHighLabel.classList.add('high');
+            }
+        });
+
+        editHighPriority.addEventListener('click', () => {
+            if (editLowLabel.classList.contains('low-checked')) {
+                editLowLabel.classList.remove('low-checked');
+                editLowLabel.classList.add('low');
+            }
+            if (editMediumLabel.classList.contains('medium-checked')) {
+                editMediumLabel.classList.remove('medium-checked');
+                editMediumLabel.classList.add('medium');
+            }
+            if (editHighLabel.classList.contains('high')) {
+                editHighLabel.classList.remove('high');
+                editHighLabel.classList.add('high-checked');
+            }
+        });
     };
 
     function handleDeleteBtn() {

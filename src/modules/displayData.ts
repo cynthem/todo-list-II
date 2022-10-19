@@ -1,4 +1,4 @@
-import { TodoObject, ProjectsObject } from "../util/types";
+import { ProjectsObject } from "../util/types";
 import { format } from 'date-fns';
 import manageData from "./manageData";
 
@@ -284,115 +284,80 @@ export default (function displayData() {
     function renderEditPopup(e: Event, todos: ProjectsObject) {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
-
-        /* const item = e.target.parentElement.parentElement.dataset.index;
-        const project = e.target.parentElement.parentElement.dataset.project;
-
-        const editCard = document.querySelector('.edit-card');
-        const editTitle = document.querySelector('.edit-name');
-        const editDetails = document.querySelector('.edit-details');
-        const editDueDate = document.getElementById('edit-date');
-        const editPriorityLow = document.getElementById('edit-low-label');
-        const editPriorityMedium = document.getElementById('edit-medium-label');
-        const editPriorityHigh = document.getElementById('edit-high-label');
-        const editLow = document.getElementById('edit-low');
-        const editMedium = document.getElementById('edit-medium');
-        const editHigh = document.getElementById('edit-high');
-        const contentContainer = document.getElementById('content');
-
-        editTitle.dataset.index = item;
-        editTitle.dataset.project = project;
+        const editTitleEl = document.querySelector('.edit-title-textarea');
+        const editTitle: Element = editTitleEl!;
+        const editDetailsEl = document.querySelector('.edit-details-textarea');
+        const editDetails: Element = editDetailsEl!;
+        const editDueDateEl = document.getElementById('edit-date');
+        const editDueDate: Element = editDueDateEl!;
+        const editLowEl = <HTMLInputElement>document.getElementById('edit-low');
+        const editLowPriority: HTMLInputElement = editLowEl!;
+        const editMediumEl = <HTMLInputElement>document.getElementById('edit-medium');
+        const editMediumPriority: HTMLInputElement = editMediumEl!;
+        const editHighEl = <HTMLInputElement>document.getElementById('edit-high');
+        const editHighPriority: HTMLInputElement = editHighEl!;
+        const editLowLabelEl = document.getElementById('edit-low-label');
+        const editLowLabel: Element = editLowLabelEl!;
+        const editMediumLabelEl = document.getElementById('edit-medium-label');
+        const editMediumLabel: Element = editMediumLabelEl!;
+        const editHighLabelEl = document.getElementById('edit-high-label');
+        const editHighLabel: Element = editHighLabelEl!;
 
         editTitle.innerHTML = '';
         editDetails.innerHTML = '';
 
-        editTitle.textContent = todos[item].title;
-        editDetails.textContent = todos[item].details;
+        let item: number;
+        let project: string;    //added per TS issue (remove and refactor?)
+        const target = e.target;
 
-        const dateObject = new Date(todos[item].dueDate);
-        const month = format(dateObject, 'MM');
-        const day = format(dateObject, 'dd');
-        const year = format(dateObject, 'yyyy');
-        const currentDay = `${year}-${month}-${day}`;
+        if (target instanceof HTMLElement) {
+            const itemParent = target.parentElement;
+            if (itemParent instanceof HTMLElement) {
+                const itemGrandparent = itemParent.parentElement;
+                if (itemGrandparent instanceof HTMLElement) {
+                    item = Number(itemGrandparent.dataset.index);
+                    project = itemGrandparent.dataset.project!;
 
-        editDueDate.removeAttribute('value');
-        editDueDate.setAttribute('value', currentDay);
+                    const dateObject = new Date(todos[project][item].dueDate);
+                    const month = format(dateObject, 'MM');
+                    const day = format(dateObject, 'dd');
+                    const year = format(dateObject, 'yyyy');
+                    const currentDay = `${year}-${month}-${day}`;
 
-        if (editPriorityLow.classList.contains('low-checked')) {
-            editPriorityLow.classList.remove('low-checked');
-            editPriorityLow.classList.add('low');
+                    editTitle.textContent = todos[project][item].title;
+                    editDetails.textContent = todos[project][item].details;
+                    editDueDate.removeAttribute('value');
+                    editDueDate.setAttribute('value', currentDay);
+
+                    if (editLowLabel.classList.contains('low-checked')) {
+                        editLowLabel.classList.remove('low-checked');
+                        editLowLabel.classList.add('low');
+                    }
+                    if (editMediumLabel.classList.contains('medium-checked')) {
+                        editMediumLabel.classList.remove('medium-checked');
+                        editMediumLabel.classList.add('medium');
+                    }
+                    if (editHighLabel.classList.contains('high-checked')) {
+                        editHighLabel.classList.remove('high-checked');
+                        editHighLabel.classList.add('high');
+                    }
+
+                    if (todos[project][item].priority === 'low') {
+                        editLowPriority.checked = true;
+                        editLowLabel.classList.remove('low');
+                        editLowLabel.classList.add('low-checked');
+                    } else if (todos[project][item].priority === 'medium') {
+                        editMediumPriority.checked = true;
+                        editMediumLabel.classList.remove('medium');
+                        editMediumLabel.classList.add('medium-checked');
+                    } else if (todos[project][item].priority === 'high') {
+                        editHighPriority.checked = true;
+                        editHighLabel.classList.remove('high');
+                        editHighLabel.classList.add('high-checked');
+                    } 
+                }
+            }
         }
-        if (editPriorityMedium.classList.contains('medium-checked')) {
-            editPriorityMedium.classList.remove('medium-checked');
-            editPriorityMedium.classList.add('medium');
-        }
-        if (editPriorityHigh.classList.contains('high-checked')) {
-            editPriorityHigh.classList.remove('high-checked');
-            editPriorityHigh.classList.add('high');
-        }
-
-        if (todos[item].priority === 'low') {
-            editLow.checked = true;
-            editPriorityLow.classList.remove('low');
-            editPriorityLow.classList.add('low-checked');
-        } else if (todos[item].priority === 'medium') {
-            editMedium.checked = true;
-            editPriorityMedium.classList.remove('medium');
-            editPriorityMedium.classList.add('medium-checked');
-        } else if (todos[item].priority === 'high') {
-            editHigh.checked = true;
-            editPriorityHigh.classList.remove('high');
-            editPriorityHigh.classList.add('high-checked');
-        }
-
-        editCard.style.visibility = 'visible';
-        contentContainer.classList.add('blur');
-
-        editLow.addEventListener('click', () => {
-            if (editPriorityLow.classList.contains('low')) {
-                editPriorityLow.classList.remove('low');
-                editPriorityLow.classList.add('low-checked');
-            }
-            if (editPriorityMedium.classList.contains('medium-checked')) {
-                editPriorityMedium.classList.remove('medium-checked');
-                editPriorityMedium.classList.add('medium');
-            }
-            if (editPriorityHigh.classList.contains('high-checked')) {
-                editPriorityHigh.classList.remove('high-checked');
-                editPriorityHigh.classList.add('high');
-            }
-        });
-
-        editMedium.addEventListener('click', () => {
-            if (editPriorityLow.classList.contains('low-checked')) {
-                editPriorityLow.classList.remove('low-checked');
-                editPriorityLow.classList.add('low');
-            }
-            if (editPriorityMedium.classList.contains('medium')) {
-                editPriorityMedium.classList.remove('medium');
-                editPriorityMedium.classList.add('medium-checked');
-            }
-            if (editPriorityHigh.classList.contains('high-checked')) {
-                editPriorityHigh.classList.remove('high-checked');
-                editPriorityHigh.classList.add('high');
-            }
-        });
-
-        editHigh.addEventListener('click', () => {
-            if (editPriorityLow.classList.contains('low-checked')) {
-                editPriorityLow.classList.remove('low-checked');
-                editPriorityLow.classList.add('low');
-            }
-            if (editPriorityMedium.classList.contains('medium-checked')) {
-                editPriorityMedium.classList.remove('medium-checked');
-                editPriorityMedium.classList.add('medium');
-            }
-            if (editPriorityHigh.classList.contains('high')) {
-                editPriorityHigh.classList.remove('high');
-                editPriorityHigh.classList.add('high-checked');
-            }
-        }); */
-
         editCard.classList.remove('invisible-edit');
     };
 
