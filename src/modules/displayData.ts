@@ -235,8 +235,8 @@ export default (function displayData() {
     };
 
     function renderNotesPopup(e: Event, todos: ProjectsObject) {
-        const editEl = document.querySelector('.popup-edit');
-        const editCard: Element = editEl!;
+        const notesEl = document.querySelector('.popup-notes');
+        const notesCard: Element = notesEl!;
         const notesTitleEl = document.querySelector('.notes-title');
         const notesTitle: Element = notesTitleEl!; 
         const notesProjectEl = document.querySelector('.notes-project');
@@ -278,10 +278,123 @@ export default (function displayData() {
                 }
             }
         }
-        editCard.classList.remove('invisible-edit');
+        notesCard.classList.remove('invisible-notes');
     };
 
-    function renderEditPopup(e: Event, todos: ProjectsObject) {};
+    function renderEditPopup(e: Event, todos: ProjectsObject) {
+        const editEl = document.querySelector('.popup-edit');
+        const editCard: Element = editEl!;
+
+        /* const item = e.target.parentElement.parentElement.dataset.index;
+        const project = e.target.parentElement.parentElement.dataset.project;
+
+        const editCard = document.querySelector('.edit-card');
+        const editTitle = document.querySelector('.edit-name');
+        const editDetails = document.querySelector('.edit-details');
+        const editDueDate = document.getElementById('edit-date');
+        const editPriorityLow = document.getElementById('edit-low-label');
+        const editPriorityMedium = document.getElementById('edit-medium-label');
+        const editPriorityHigh = document.getElementById('edit-high-label');
+        const editLow = document.getElementById('edit-low');
+        const editMedium = document.getElementById('edit-medium');
+        const editHigh = document.getElementById('edit-high');
+        const contentContainer = document.getElementById('content');
+
+        editTitle.dataset.index = item;
+        editTitle.dataset.project = project;
+
+        editTitle.innerHTML = '';
+        editDetails.innerHTML = '';
+
+        editTitle.textContent = todos[item].title;
+        editDetails.textContent = todos[item].details;
+
+        const dateObject = new Date(todos[item].dueDate);
+        const month = format(dateObject, 'MM');
+        const day = format(dateObject, 'dd');
+        const year = format(dateObject, 'yyyy');
+        const currentDay = `${year}-${month}-${day}`;
+
+        editDueDate.removeAttribute('value');
+        editDueDate.setAttribute('value', currentDay);
+
+        if (editPriorityLow.classList.contains('low-checked')) {
+            editPriorityLow.classList.remove('low-checked');
+            editPriorityLow.classList.add('low');
+        }
+        if (editPriorityMedium.classList.contains('medium-checked')) {
+            editPriorityMedium.classList.remove('medium-checked');
+            editPriorityMedium.classList.add('medium');
+        }
+        if (editPriorityHigh.classList.contains('high-checked')) {
+            editPriorityHigh.classList.remove('high-checked');
+            editPriorityHigh.classList.add('high');
+        }
+
+        if (todos[item].priority === 'low') {
+            editLow.checked = true;
+            editPriorityLow.classList.remove('low');
+            editPriorityLow.classList.add('low-checked');
+        } else if (todos[item].priority === 'medium') {
+            editMedium.checked = true;
+            editPriorityMedium.classList.remove('medium');
+            editPriorityMedium.classList.add('medium-checked');
+        } else if (todos[item].priority === 'high') {
+            editHigh.checked = true;
+            editPriorityHigh.classList.remove('high');
+            editPriorityHigh.classList.add('high-checked');
+        }
+
+        editCard.style.visibility = 'visible';
+        contentContainer.classList.add('blur');
+
+        editLow.addEventListener('click', () => {
+            if (editPriorityLow.classList.contains('low')) {
+                editPriorityLow.classList.remove('low');
+                editPriorityLow.classList.add('low-checked');
+            }
+            if (editPriorityMedium.classList.contains('medium-checked')) {
+                editPriorityMedium.classList.remove('medium-checked');
+                editPriorityMedium.classList.add('medium');
+            }
+            if (editPriorityHigh.classList.contains('high-checked')) {
+                editPriorityHigh.classList.remove('high-checked');
+                editPriorityHigh.classList.add('high');
+            }
+        });
+
+        editMedium.addEventListener('click', () => {
+            if (editPriorityLow.classList.contains('low-checked')) {
+                editPriorityLow.classList.remove('low-checked');
+                editPriorityLow.classList.add('low');
+            }
+            if (editPriorityMedium.classList.contains('medium')) {
+                editPriorityMedium.classList.remove('medium');
+                editPriorityMedium.classList.add('medium-checked');
+            }
+            if (editPriorityHigh.classList.contains('high-checked')) {
+                editPriorityHigh.classList.remove('high-checked');
+                editPriorityHigh.classList.add('high');
+            }
+        });
+
+        editHigh.addEventListener('click', () => {
+            if (editPriorityLow.classList.contains('low-checked')) {
+                editPriorityLow.classList.remove('low-checked');
+                editPriorityLow.classList.add('low');
+            }
+            if (editPriorityMedium.classList.contains('medium-checked')) {
+                editPriorityMedium.classList.remove('medium-checked');
+                editPriorityMedium.classList.add('medium');
+            }
+            if (editPriorityHigh.classList.contains('high')) {
+                editPriorityHigh.classList.remove('high');
+                editPriorityHigh.classList.add('high-checked');
+            }
+        }); */
+
+        editCard.classList.remove('invisible-edit');
+    };
 
     return {
         renderFilters,

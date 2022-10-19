@@ -201,10 +201,7 @@ export default (function UI() {
         const notesClose: Element = notesCloseEl!;
         
         notesBtn.forEach(btn => {
-            btn.addEventListener('click', e => {
-                displayData.renderNotesPopup(e, todos);
-                notesCard.classList.remove('invisible-notes');
-            });
+            btn.addEventListener('click', e => displayData.renderNotesPopup(e, todos));
             notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
         });
     };
@@ -222,13 +219,15 @@ export default (function UI() {
         editBtn.forEach(btn => {
             btn.addEventListener('click', e => {
                 displayData.renderEditPopup(e, todos);
+                handleEditForm();
+
                 editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
                 editSubmit.addEventListener('submit', e => {
                     editCard.classList.add('invisible-edit');
                     manageData.editTodo(e, todos, listContainer);
                     /* would go in manageData.manageTodosRender, but that one has 
                        highlighting and unsure if not needed here:
-                       
+
                     if (getSelectedProject() === 'all') {
                         displayData.renderAllTodos(todos, listContainer);
                     } else if (getSelectedProject() === 'today') {
@@ -242,6 +241,8 @@ export default (function UI() {
             });
         });
     };
+
+    function handleEditForm() {};
 
     function handleDeleteBtn() {
         const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
