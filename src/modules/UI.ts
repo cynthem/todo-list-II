@@ -237,7 +237,14 @@ export default (function UI() {
         });
     };
 
-    function handleDeleteBtn() {};
+    function handleDeleteBtn() {
+        const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
+        const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
+
+        deleteBtn.forEach(btn => {
+            btn.addEventListener('click', () => {});
+        });
+    };
 
     function toggleDashboard() {
         const dashboardEl = document.querySelector('.main-dashboard');
