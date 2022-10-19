@@ -53,7 +53,7 @@ export default (function manageData() {
                 changeDOM.renderAllTodos(todos, listContainer);
             }
         } */
-        
+        storeTodos(todos);
     };
 
     function addTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
