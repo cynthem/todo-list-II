@@ -52,9 +52,8 @@ export default (function manageData() {
                 changeDOM.renderProjectList(todos, listContainer);
                 changeDOM.renderAllTodos(todos, listContainer);
             }
-        }
-
-        localStorage.setItem('todos', JSON.stringify(todos)); */
+        } */
+        
     };
 
     function addTodo(e: Event, todos: ProjectsObject, listContainer: Element) {

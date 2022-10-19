@@ -315,10 +315,8 @@ export default (function UI() {
         const dashboard: Element = dashboardEl!;
         const hamburgerEl = document.querySelector('.fa-bars');
         const hamburgerMenu: Element = hamburgerEl!;
-        hamburgerMenu.addEventListener('click', () => {
-            console.log('hello');
-            (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
-        });
+        
+        hamburgerMenu.addEventListener('click', () => (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden');
     };
 
     return { loadPage };
