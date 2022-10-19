@@ -556,7 +556,7 @@ export default (function displayData() {
         itemEdit.classList.toggle('selected');
     };
 
-    function toggleCheckedTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
+    function toggleCheckedTodo(e: Event, todos: ProjectsObject) {
         const checkedTodo = (e.target as Element).parentElement!.parentElement;
         const checkbox = (e.target as Element);
 
