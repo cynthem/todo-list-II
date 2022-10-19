@@ -228,8 +228,6 @@ export default (function UI() {
         /* 
         editSubmit.addEventListener('submit', e => {
             manageData.editTodo(e, todos, listContainer);
-            editCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
         }); */
     };
 

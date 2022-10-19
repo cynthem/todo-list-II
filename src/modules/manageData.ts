@@ -175,6 +175,8 @@ export default (function manageData() {
         }
     };
 
+    function storeTodos() {};
+
     return {
         setSelectedProject,
         getSelectedProject,
@@ -183,6 +185,7 @@ export default (function manageData() {
         addTodo,
         editTodo,
         deleteTodo,
-        manageTodosRender
+        manageTodosRender,
+        storeTodos
     };
 })();
