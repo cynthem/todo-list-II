@@ -87,6 +87,35 @@ export default (function displayData() {
         (e.target as Element).classList.add('clicked');
     };
 
+    function toggleHighlightedFilters(projectName: string) {
+        /* const filterBtns = document.querySelectorAll('.filters-btn');
+        const projectBtns = document.querySelectorAll('.projects-name');
+
+        filterBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        projectBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        filterBtns.forEach(btn => {
+            if (projectName === 'all' && btn.classList.contains('all-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'today' && btn.classList.contains('today-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'week' && btn.classList.contains('week-btn')) {
+                btn.classList.add('clicked');
+            }
+        });
+
+        projectBtns.forEach(btn => {
+            if (btn.textContent === projectName) {
+                btn.classList.add('clicked');
+            }
+        }); */
+    };
+
     function renderProjectList(todos: ProjectsObject) {
         const el1 = document.querySelector('.projects-list');
         const projectContainer: Element = el1!;
@@ -182,6 +211,338 @@ export default (function displayData() {
                 listContainer.appendChild(todoItem);
             });
         }
+        manageData.storeTodos(todos);
+    };
+
+    function renderTodayTodos(todos: ProjectsObject, listContainer: Element) {
+        /* listContainer.innerHTML = '';
+
+        for (const project in todos) {
+            
+            if (project !== 'today') {
+                
+                todos[project].forEach((todo, i) => {
+                    
+                    const today = new Date();
+                    const todoDate = new Date(todo.dueDate);
+
+                    if (
+                        !todo.checked &&
+                        today.getDate() === todoDate.getDate() &&
+                        today.getMonth() === todoDate.getMonth() &&
+                        today.getFullYear() === todoDate.getFullYear()
+                    ) {
+                        const todoItem = document.createElement('div');
+                        todoItem.classList.add('list-item');
+                        todoItem.classList.add(`${todo.priority}-priority`);
+                        todoItem.setAttribute('data-index', i);
+                        todoItem.setAttribute('data-project', `${todo.project}`);
+
+                        const itemLeft = document.createElement('div');
+                        itemLeft.classList.add('item-left');
+
+                        const checkboxIcon = document.createElement('i');
+                        checkboxIcon.classList.add('fa-regular', 'fa-square');
+                        checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+
+                        const itemName = document.createElement('p');
+                        itemName.classList.add('item-description');
+                        itemName.textContent = todo.title;
+                        itemLeft.appendChild(checkboxIcon);
+                        itemLeft.appendChild(itemName);
+
+                        const itemRight = document.createElement('div');
+                        itemRight.classList.add('item-right');
+
+                        const notesBtn = document.createElement('button');
+                        notesBtn.classList.add('item-notes');
+                        notesBtn.textContent = 'NOTES';
+                        notesBtn.addEventListener('click', e => renderNotesCard(e, todos[project]));
+
+                        const dateText = document.createElement('p');
+                        dateText.classList.add('item-date');
+                        const dateObject = new Date(todo.dueDate);
+                        const month = format(dateObject, 'MMM');
+                        const day = format(dateObject, 'do');
+                        dateText.textContent = `${month} ${day}`;
+
+                        const editIcon = document.createElement('i');
+                        editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                        editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
+                
+                        const deleteIcon = document.createElement('i');
+                        deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                        deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                        itemRight.appendChild(notesBtn);
+                        itemRight.appendChild(dateText);
+                        itemRight.appendChild(editIcon);
+                        itemRight.appendChild(deleteIcon);
+                        todoItem.appendChild(itemLeft);
+                        todoItem.appendChild(itemRight);
+                        listContainer.appendChild(todoItem);
+                    }
+                });
+            }
+        }
+
+        const todoList = todos[manageData.getSelectedProject()];
+
+        if (todoList.length === 0) {
+            return;
+        }
+
+        todoList.forEach((todo, i) => {
+
+            if (!todo.checked) {
+
+                const todoItem = document.createElement('div');
+                todoItem.classList.add('list-item');
+                todoItem.classList.add(`${todo.priority}-priority`);
+                todoItem.setAttribute('data-index', i);
+                todoItem.setAttribute('data-project', `${todo.project}`);
+
+                const itemLeft = document.createElement('div');
+                itemLeft.classList.add('item-left');
+
+                const checkboxIcon = document.createElement('i');
+                checkboxIcon.classList.add('fa-regular', 'fa-square');
+                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+
+                const itemName = document.createElement('p');
+                itemName.classList.add('item-description');
+                itemName.textContent = todo.title;
+                itemLeft.appendChild(checkboxIcon);
+                itemLeft.appendChild(itemName);
+
+                const itemRight = document.createElement('div');
+                itemRight.classList.add('item-right');
+
+                const notesBtn = document.createElement('button');
+                notesBtn.classList.add('item-notes');
+                notesBtn.textContent = 'NOTES';
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
+
+                const dateText = document.createElement('p');
+                dateText.classList.add('item-date');
+                const dateObject = new Date(todo.dueDate);
+                const month = format(dateObject, 'MMM');
+                const day = format(dateObject, 'do');
+                dateText.textContent = `${month} ${day}`;
+
+                const editIcon = document.createElement('i');
+                editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
+          
+                const deleteIcon = document.createElement('i');
+                deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                itemRight.appendChild(notesBtn);
+                itemRight.appendChild(dateText);
+                itemRight.appendChild(editIcon);
+                itemRight.appendChild(deleteIcon);
+                todoItem.appendChild(itemLeft);
+                todoItem.appendChild(itemRight);
+                listContainer.appendChild(todoItem);
+            }
+        }); */
+        manageData.storeTodos(todos);
+    };
+
+    function renderWeekTodos(todos: ProjectsObject, listContainer: Element) {
+        /* listContainer.innerHTML = '';
+
+        for (const project in todos) {
+            
+            if (project !== 'week') {
+
+                todos[project].forEach((todo, i) => {
+
+                    const today = new Date();
+                    const todoDate = new Date(todo.dueDate);
+                    const msDifference = Math.abs(today.getTime() - todoDate.getTime());
+                    const dayDifference = msDifference / (24*60*60*1000);
+
+                    if (!todo.checked && dayDifference <= 7) {
+
+                        const todoItem = document.createElement('div');
+                        todoItem.classList.add('list-item');
+                        todoItem.classList.add(`${todo.priority}-priority`);
+                        todoItem.setAttribute('data-index', i);
+                        todoItem.setAttribute('data-project', `${todo.project}`);
+
+                        const itemLeft = document.createElement('div');
+                        itemLeft.classList.add('item-left');
+
+                        const checkboxIcon = document.createElement('i');
+                        checkboxIcon.classList.add('fa-regular', 'fa-square');
+                        checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+
+                        const itemName = document.createElement('p');
+                        itemName.classList.add('item-description');
+                        itemName.textContent = todo.title;
+                        itemLeft.appendChild(checkboxIcon);
+                        itemLeft.appendChild(itemName);
+
+                        const itemRight = document.createElement('div');
+                        itemRight.classList.add('item-right');
+
+                        const notesBtn = document.createElement('button');
+                        notesBtn.classList.add('item-notes');
+                        notesBtn.textContent = 'NOTES';
+                        notesBtn.addEventListener('click', e => renderNotesCard(e, todos[project]));
+
+                        const dateText = document.createElement('p');
+                        dateText.classList.add('item-date');
+                        const dateObject = new Date(todo.dueDate);
+                        const month = format(dateObject, 'MMM');
+                        const day = format(dateObject, 'do');
+                        dateText.textContent = `${month} ${day}`;
+
+                        const editIcon = document.createElement('i');
+                        editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                        editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
+                
+                        const deleteIcon = document.createElement('i');
+                        deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                        deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                        itemRight.appendChild(notesBtn);
+                        itemRight.appendChild(dateText);
+                        itemRight.appendChild(editIcon);
+                        itemRight.appendChild(deleteIcon);
+                        todoItem.appendChild(itemLeft);
+                        todoItem.appendChild(itemRight);
+                        listContainer.appendChild(todoItem);
+                    }
+                });
+            }
+        }
+
+        const todoList = todos[manageData.getSelectedProject()];
+
+        if (todoList.length === 0) {
+            return;
+        }
+
+        todoList.forEach((todo, i) => {
+
+            if (!todo.checked) {
+
+                const todoItem = document.createElement('div');
+                todoItem.classList.add('list-item');
+                todoItem.classList.add(`${todo.priority}-priority`);
+                todoItem.setAttribute('data-index', i);
+                todoItem.setAttribute('data-project', `${todo.project}`);
+
+                const itemLeft = document.createElement('div');
+                itemLeft.classList.add('item-left');
+
+                const checkboxIcon = document.createElement('i');
+                checkboxIcon.classList.add('fa-regular', 'fa-square');
+                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+
+                const itemName = document.createElement('p');
+                itemName.classList.add('item-description');
+                itemName.textContent = todo.title;
+                itemLeft.appendChild(checkboxIcon);
+                itemLeft.appendChild(itemName);
+
+                const itemRight = document.createElement('div');
+                itemRight.classList.add('item-right');
+
+                const notesBtn = document.createElement('button');
+                notesBtn.classList.add('item-notes');
+                notesBtn.textContent = 'NOTES';
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
+
+                const dateText = document.createElement('p');
+                dateText.classList.add('item-date');
+                const dateObject = new Date(todo.dueDate);
+                const month = format(dateObject, 'MMM');
+                const day = format(dateObject, 'do');
+                dateText.textContent = `${month} ${day}`;
+
+                const editIcon = document.createElement('i');
+                editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
+          
+                const deleteIcon = document.createElement('i');
+                deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                itemRight.appendChild(notesBtn);
+                itemRight.appendChild(dateText);
+                itemRight.appendChild(editIcon);
+                itemRight.appendChild(deleteIcon);
+                todoItem.appendChild(itemLeft);
+                todoItem.appendChild(itemRight);
+                listContainer.appendChild(todoItem);
+            }
+        }); */
+        manageData.storeTodos(todos);
+    };
+
+    function renderProjectTodos(todos: ProjectsObject, listContainer: Element) {
+        /* const todoList = todos[manageData.getSelectedProject()];
+        
+        listContainer.innerHTML = '';
+
+        if (todoList.length === 0) {
+            return;
+        }
+
+        todoList.forEach((todo, i) => {
+
+            if (!todo.checked) {
+
+                const todoItem = document.createElement('div');
+                todoItem.classList.add('list-item');
+                todoItem.classList.add(`${todo.priority}-priority`);
+                todoItem.setAttribute('data-index', i);
+                todoItem.setAttribute('data-project', `${todo.project}`);
+
+                const itemLeft = document.createElement('div');
+                itemLeft.classList.add('item-left');
+
+                const checkboxIcon = document.createElement('i');
+                checkboxIcon.classList.add('fa-regular', 'fa-square');
+                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+
+                const itemName = document.createElement('p');
+                itemName.classList.add('item-description');
+                itemName.textContent = todo.title;
+                itemLeft.appendChild(checkboxIcon);
+                itemLeft.appendChild(itemName);
+
+                const itemRight = document.createElement('div');
+                itemRight.classList.add('item-right');
+
+                const notesBtn = document.createElement('button');
+                notesBtn.classList.add('item-notes');
+                notesBtn.textContent = 'NOTES';
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
+
+                const dateText = document.createElement('p');
+                dateText.classList.add('item-date');
+                const dateObject = new Date(todo.dueDate);
+                const month = format(dateObject, 'MMM');
+                const day = format(dateObject, 'do');
+                dateText.textContent = `${month} ${day}`;
+
+                const editIcon = document.createElement('i');
+                editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
+          
+                const deleteIcon = document.createElement('i');
+                deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                itemRight.appendChild(notesBtn);
+                itemRight.appendChild(dateText);
+                itemRight.appendChild(editIcon);
+                itemRight.appendChild(deleteIcon);
+                todoItem.appendChild(itemLeft);
+                todoItem.appendChild(itemRight);
+                listContainer.appendChild(todoItem);
+            }
+        }); */
         manageData.storeTodos(todos);
     };
 
@@ -361,14 +722,67 @@ export default (function displayData() {
         editCard.classList.remove('invisible-edit');
     };
 
+    function renderEmptyProjectPopup(e: Event, todos: ProjectsObject, listContainer: Element) {
+        /* const contentContainer = document.getElementById('content');
+        const emptyContainer = document.querySelector('.empty-project-card');
+        const emptyExit = document.getElementById('empty-cancel');
+        const emptyTitle = document.querySelector('.empty-name');
+        const emptyAdd = document.querySelector('.empty-add');
+        const deleteProject = document.querySelector('.empty-delete');
+        const allBtn = document.querySelector('.all-btn');
+        const addNewCard = document.querySelector('.add-new-card');
+        const addNewDate = document.getElementById('new-date');
+        const dateObject = new Date();
+        const month = format(dateObject, 'MM');
+        const day = format(dateObject, 'dd');
+        const year = format(dateObject, 'yyyy');
+        const currentDay = `${year}-${month}-${day}`;
+        
+        emptyTitle.innerHTML = '';
+        emptyTitle.textContent = manageData.getSelectedProject();
+        
+        emptyContainer.style.visibility = 'visible';
+        contentContainer.classList.add('blur');
+
+        emptyExit.addEventListener('click', () => {
+            renderAllTodos(todos, listContainer);
+            manageData.setSelectedProject('all');
+            highlightReloadedFilter('all');
+            emptyContainer.style.visibility = 'hidden';
+            contentContainer.classList.remove('blur');
+        });
+
+        emptyAdd.addEventListener('click', () => {
+            addNewDate.setAttribute('value', currentDay);
+            emptyContainer.style.visibility = 'hidden';
+            addNewCard.style.visibility = 'visible';
+        });
+
+        deleteProject.addEventListener('click', () => {
+            delete todos[manageData.getSelectedProject()];
+            localStorage.setItem('todos', JSON.stringify(todos));
+            renderProjectList(todos, listContainer);
+            manageData.setSelectedProject('all');
+            renderAllTodos(todos, listContainer);
+            allBtn.classList.add('clicked');
+            emptyContainer.style.visibility = 'hidden';
+            contentContainer.classList.remove('blur');
+        }); */
+    };
+
     return {
         renderFilters,
         renderHighlightedFilters,
+        toggleHighlightedFilters,
         renderProjectList,
         renderAllTodos,
+        renderTodayTodos,
+        renderWeekTodos,
+        renderProjectTodos,
         renderCheckedTodo,
         toggleCheckedTodo,
         renderNotesPopup,
-        renderEditPopup
+        renderEditPopup,
+        renderEmptyProjectPopup
     };
 })();
