@@ -223,6 +223,15 @@ export default (function UI() {
                 editSubmit.addEventListener('submit', e => {
                     editCard.classList.add('invisible-edit');
                     manageData.editTodo(e, todos, listContainer);
+                    /*if (getSelectedProject() === 'all') {
+                        displayData.renderAllTodos(todos, listContainer);
+                    } else if (getSelectedProject() === 'today') {
+                        displayData.renderTodayTodos(todos, listContainer);
+                    } else if (getSelectedProject() === 'week') {
+                        displayData.renderWeekTodos(todos, listContainer);
+                    } else {
+                        displayData.renderProjectTodos(todos, listContainer);
+                    } */
                 });
             });
         });
