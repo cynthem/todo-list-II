@@ -193,13 +193,13 @@ export default (function UI() {
     };
 
     function handleNotesBtn() {
+        const notesBtnEl = document.querySelectorAll('.item-notes');
+        const notesBtn: NodeListOf<Element> = notesBtnEl!;
         const notesEl = document.querySelector('.popup-notes');
         const notesCard: Element = notesEl!;
         const notesCloseEl = document.querySelector('.notes-close');
         const notesClose: Element = notesCloseEl!;
-        const notesBtnEl = document.querySelectorAll('.item-notes');
-        const notesBtn: NodeListOf<Element> = notesBtnEl!;
-
+        
         notesBtn.forEach(btn => {
             btn.addEventListener('click', () => notesCard.classList.remove('invisible-notes'));
         });
@@ -208,15 +208,24 @@ export default (function UI() {
     };
 
     function handleEditBtn() {
-        /* const editCard = document.querySelector('.edit-card');
-        const editExit = document.querySelector('#edit-exit');
-        const editSubmit = document.querySelector('.edit-form'); */
+        const editBtnEl = document.querySelectorAll('.fa-pen-to-square');
+        const editBtn: NodeListOf<Element> = editBtnEl!;
+        const editEl = document.querySelector('.popup-edit');
+        const editCard: Element = editEl!;
+        const editCloseEl = document.querySelector('.edit-close');
+        const editClose: Element = editCloseEl!;
+        const editSubmitEl = document.querySelector('.edit-form');
+        const editSubmit: Element = editSubmitEl!;
         
-        /* editExit.addEventListener('click', () => {
-            editCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
+        editBtn.forEach(btn => {
+            btn.addEventListener('click', () => editCard.classList.remove('invisible-edit'));
         });
 
+        editClose.addEventListener('click', () => {
+            editCard.classList.add('invisible-edit');
+        });
+        
+        /* 
         editSubmit.addEventListener('submit', e => {
             manageData.editTodo(e, todos, listContainer);
             editCard.style.visibility = 'hidden';
