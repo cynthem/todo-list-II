@@ -175,7 +175,9 @@ export default (function manageData() {
         }
     };
 
-    function storeTodos() {};
+    function storeTodos(todos: ProjectsObject) {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    };
 
     return {
         setSelectedProject,

@@ -1,5 +1,6 @@
 import { TodoObject, ProjectsObject } from "../util/types";
 import { format } from 'date-fns';
+import manageData from "./manageData";
 
 export default (function displayData() {
 
@@ -181,7 +182,7 @@ export default (function displayData() {
                 listContainer.appendChild(todoItem);
             });
         }
-        localStorage.setItem('todos', JSON.stringify(todos));
+        manageData.storeTodos(todos);
     };
 
     function renderCheckedTodo(todoDiv: Element) {
