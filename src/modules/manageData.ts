@@ -11,18 +11,6 @@ export default (function manageData() {
         return selectedProject;
     };
 
-    function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
-        const todoItem: TodoObject = {
-            title,
-            details,
-            dueDate,
-            priority,
-            project,
-            checked
-        }
-        return todoItem;
-    };
-
     function addProject(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
@@ -54,6 +42,18 @@ export default (function manageData() {
             }
         } */
         storeTodos(todos);
+    };
+
+    function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
+        const todoItem: TodoObject = {
+            title,
+            details,
+            dueDate,
+            priority,
+            project,
+            checked
+        }
+        return todoItem;
     };
 
     function addTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
@@ -119,10 +119,26 @@ export default (function manageData() {
     };
 
     function deleteTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
-        /* const item = e.target.parentElement.parentElement.dataset.index;
-        const project = e.target.parentElement.parentElement.dataset.project;
+        let item: number;
+        let project: string;
+        const target = e.target;
 
-        todos[project].splice(item, 1);
+        if (target instanceof HTMLElement) {
+            const itemParent = target.parentElement;
+            if (itemParent instanceof HTMLElement) {
+                const itemGrandparent = itemParent.parentElement;
+                if (itemGrandparent instanceof HTMLElement) {
+                    item = Number(itemGrandparent.dataset.index);
+                    project = itemGrandparent.dataset.project!;
+
+                    todos[project].splice(item, 1);
+                }
+            }
+        }
+
+        /* 
+
+        
         
         if (getSelectedProject() === 'all') {
             changeDOM.renderAllTodos(todos, listContainer);
@@ -151,7 +167,7 @@ export default (function manageData() {
         changeDOM.renderProjectList(todos, listContainer); */
     };
 
-    function manageTodosRender(e: Event, todos: ProjectsObject, listContainer: Element) {
+    function toggleTodosRender(e: Event, todos: ProjectsObject, listContainer: Element) {
         if ((e.target as Element).textContent === 'All') {
             setSelectedProject('all');
             //displayData.renderAllTodos(todos, listContainer);
@@ -181,6 +197,8 @@ export default (function manageData() {
         }
     };
 
+    function manageTodosRender() {};
+
     function storeTodos(todos: ProjectsObject) {
         localStorage.setItem('todos', JSON.stringify(todos));
     };
@@ -193,6 +211,7 @@ export default (function manageData() {
         addTodo,
         editTodo,
         deleteTodo,
+        toggleTodosRender,
         manageTodosRender,
         storeTodos
     };

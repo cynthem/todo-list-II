@@ -28,7 +28,7 @@ export default (function UI() {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', e => manageData.manageTodosRender(e, todos, listContainer));
+            btn.addEventListener('click', e => manageData.toggleTodosRender(e, todos, listContainer));
         });
     };
 
@@ -160,7 +160,7 @@ export default (function UI() {
         const projectEl = document.querySelectorAll('.project-name');
         const projectTitle: NodeListOf<Element> = projectEl!;
         projectTitle.forEach(project => {
-            project.addEventListener('click', e => manageData.manageTodosRender(e, todos, listContainer));
+            project.addEventListener('click', e => manageData.toggleTodosRender(e, todos, listContainer));
         });
         projectTitle.forEach(project => {
             project.addEventListener('click', e => displayData.renderHighlightedFilters(e));
@@ -306,7 +306,9 @@ export default (function UI() {
         const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
 
         deleteBtn.forEach(btn => {
-            btn.addEventListener('click', () => {});
+            btn.addEventListener('click', e => {
+                manageData.deleteTodo(e, todos, listContainer);
+            });
         });
     };
 
@@ -315,7 +317,7 @@ export default (function UI() {
         const dashboard: Element = dashboardEl!;
         const hamburgerEl = document.querySelector('.fa-bars');
         const hamburgerMenu: Element = hamburgerEl!;
-        
+
         hamburgerMenu.addEventListener('click', () => (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden');
     };
 
