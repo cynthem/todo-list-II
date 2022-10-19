@@ -25,7 +25,7 @@ export default (function UI() {
     };
 
     function loadFilters() {
-        displayData.renderFilters(todos);
+        displayData.renderFilterCounts(todos);
         toggleFilters();
     };
 
