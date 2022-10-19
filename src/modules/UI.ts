@@ -55,7 +55,7 @@ export default (function UI() {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', e => manageData.toggleTodosRender(e, todos, listContainer));
+            btn.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
         });
     };
 
@@ -63,7 +63,7 @@ export default (function UI() {
         const projectEl = document.querySelectorAll('.project-name');
         const projectTitle: NodeListOf<Element> = projectEl!;
         projectTitle.forEach(project => {
-            project.addEventListener('click', e => manageData.toggleTodosRender(e, todos, listContainer));
+            project.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
         });
         // if project has no todo items then do this instead of toggleTodosRender:
         handleEmptyProject();
