@@ -150,25 +150,25 @@ export default (function manageData() {
                 displayData.renderAllTodos(todos, listContainer);
             } else if ((e.target as Element).textContent === 'Today') {
                 setSelectedProject('today');
-                //displayData.renderTodayTodos(todos, listContainer);
+                displayData.renderTodayTodos(todos, listContainer);
             } else if ((e.target as Element).textContent === 'This week') {
                 setSelectedProject('week');
-                //displayData.renderWeekTodos(todos, listContainer);
+                displayData.renderWeekTodos(todos, listContainer);
             } else {
                 setSelectedProject((e.target as Element).textContent!);
-                //displayData.renderProjectTodos(todos, listContainer);
+                displayData.renderProjectTodos(todos, listContainer);
             }
 
         } else if (!e) {
-            /* if (getSelectedProject() === 'all') {
-            displayData.renderAllTodos(todos, listContainer);
+            if (getSelectedProject() === 'all') {
+                displayData.renderAllTodos(todos, listContainer);
             } else if (getSelectedProject() === 'today') {
                 displayData.renderTodayTodos(todos, listContainer);
             } else if (getSelectedProject() === 'week') {
                 displayData.renderWeekTodos(todos, listContainer);
             } else {
                 displayData.renderProjectTodos(todos, listContainer);
-            } */
+            }
         }
     };
 
