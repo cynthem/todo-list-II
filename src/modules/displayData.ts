@@ -235,36 +235,49 @@ export default (function displayData() {
     };
 
     function renderNotesPopup(e: Event, todos: ProjectsObject) {
-
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
+        const notesTitleEl = document.querySelector('.notes-title');
+        const notesTitle: Element = notesTitleEl!; 
+        const notesProjectEl = document.querySelector('.notes-project');
+        const notesProject: Element = notesProjectEl!; 
+        const notesDueDateEl = document.querySelector('.notes-date');
+        const notesDueDate: Element = notesDueDateEl!;
+        const notesPriorityEl = document.querySelector('.notes-priority');
+        const notesPriority: Element = notesPriorityEl!;
+        const notesDetailsEl = document.querySelector('.notes-details');
+        const notesDetails: Element = notesDetailsEl!; 
 
-        /* const item = e.target.parentElement.parentElement.dataset.index;
-        const notesTitle = document.querySelector('.notes-header');
-        const notesProject = document.querySelector('.notes-todo');
-        const notesDueDate = document.querySelector('.notes-date');
-        const notesPriority = document.querySelector('.notes-priority');
-        const notesDetails = document.querySelector('.notes-details');
-        const contentContainer = document.getElementById('content');
-        
         notesTitle.innerHTML = '';
         notesProject.innerHTML = '';
         notesDueDate.innerHTML = '';
         notesPriority.innerHTML = '';
         notesDetails.innerHTML = '';
 
-        const day = format(new Date(todos[item].dueDate), 'do');
-        const month = format(new Date(todos[item].dueDate), 'MMM');
-        const year = format(new Date(todos[item].dueDate), 'yyyy');
+        let item: number;
+        let project: string;    //added per TS issue (remove and refactor?)
+        const target = e.target;
 
-        notesTitle.textContent = todos[item].title;
-        notesProject.textContent = todos[item].project;
-        notesDueDate.textContent = `${month} ${day}, ${year}`;
-        notesPriority.textContent = todos[item].priority[0].toUpperCase() + todos[item].priority.slice(1);
-        notesDetails.textContent = todos[item].details;
+        if (target instanceof HTMLElement) {
+            const itemParent = target.parentElement;
+            if (itemParent instanceof HTMLElement) {
+                const itemGrandparent = itemParent.parentElement;
+                if (itemGrandparent instanceof HTMLElement) {
+                    item = Number(itemGrandparent.dataset.index);
+                    project = itemGrandparent.dataset.project!;
 
-        notesCard.style.visibility = 'visible';
-        contentContainer.classList.add('blur'); */
+                    const day = format(new Date(todos[project][item].dueDate), 'do');
+                    const month = format(new Date(todos[project][item].dueDate), 'MMM');
+                    const year = format(new Date(todos[project][item].dueDate), 'yyyy');
+
+                    notesTitle.textContent = todos[project][item].title;
+                    notesProject.textContent = todos[project][item].project;
+                    notesDueDate.textContent = `${month} ${day}, ${year}`;
+                    notesPriority.textContent = todos[project][item].priority[0].toUpperCase() + todos[project][item].priority.slice(1);
+                    notesDetails.textContent = todos[project][item].details;
+                }
+            }
+        }
         editCard.classList.remove('invisible-edit');
     };
 
