@@ -229,7 +229,7 @@ export default (function displayData() {
         const project: string = checkedTodo!.dataset.project!;
         todos[project][item].checked = !todos[project][item].checked;
 
-        localStorage.setItem('todos', JSON.stringify(todos));
+        manageData.storeTodos(todos);
         
         renderProjectList(todos);
     };
