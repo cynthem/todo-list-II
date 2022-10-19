@@ -4,7 +4,7 @@ import manageData from "./manageData";
 
 export default (function displayData() {
 
-    function renderFilters(todos: ProjectsObject) {
+    function renderFilterCounts(todos: ProjectsObject) {
         let allUncheckedTodos = 0;
         let todayUncheckedTodos = 0;
         let weekUncheckedTodos = 0;
@@ -762,7 +762,7 @@ export default (function displayData() {
     };
 
     return {
-        renderFilters,
+        renderFilterCounts,
         renderHighlightedFilters,
         renderProjectList,
         renderAllTodos,
