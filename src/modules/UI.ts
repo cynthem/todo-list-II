@@ -5,8 +5,8 @@ import { ProjectsObject } from '../util/types';
 import { currentDay } from '../util/dates';
 
 export default (function UI() {
-    const listElement = document.querySelector('.main-list');
-    const listContainer: Element = listElement!;
+    const listContainerEl = document.querySelector('.main-list');
+    const listContainer: Element = listContainerEl!;
 
     function loadPage() {
         loadDashboard();
@@ -19,9 +19,36 @@ export default (function UI() {
         toggleDashboard();
     };
 
+    function loadTodoList() {
+        displayData.renderAllTodos(todos, listContainer);
+        loadTodoItems();
+    };
+
     function loadFilters() {
         displayData.renderFilters(todos);
         toggleFilters();
+    };
+
+    function loadProjects() {
+        displayData.renderProjectList(todos);
+        toggleProjects();
+        toggleAddBtn();
+    };
+
+    function toggleDashboard() {
+        const dashboardEl = document.querySelector('.main-dashboard');
+        const dashboard: Element = dashboardEl!;
+        const hamburgerEl = document.querySelector('.fa-bars');
+        const hamburgerMenu: Element = hamburgerEl!;
+
+        hamburgerMenu.addEventListener('click', () => (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden');
+    };
+
+    function loadTodoItems() {
+        toggleCheckbox();
+        toggleNotesBtn();
+        toggleEditBtn();
+        handleDeleteBtn();
     };
 
     function toggleFilters() {
@@ -32,10 +59,63 @@ export default (function UI() {
         });
     };
 
-    function loadProjects() {
-        displayData.renderProjectList(todos);
+    function toggleProjects() {
+        const projectEl = document.querySelectorAll('.project-name');
+        const projectTitle: NodeListOf<Element> = projectEl!;
+        projectTitle.forEach(project => {
+            project.addEventListener('click', e => manageData.toggleTodosRender(e, todos, listContainer));
+        });
+        // if project has no todo items then do this instead of toggleTodosRender:
+        handleEmptyProject();
+    };
+
+    function toggleAddBtn() {
         handleAddBtn();
-        toggleProjects();
+    };
+
+    function toggleCheckbox() {
+        const checkboxEl = document.querySelectorAll('fa-square');
+        const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
+        checkboxIcon.forEach(box => {
+            box.addEventListener('click', e => displayData.toggleCheckedTodo(e, todos, listContainer));
+        });
+    };
+
+    function toggleNotesBtn() {
+        const notesBtnEl = document.querySelectorAll('.item-notes');
+        const notesBtn: NodeListOf<Element> = notesBtnEl!;
+        const notesEl = document.querySelector('.popup-notes');
+        const notesCard: Element = notesEl!;
+        const notesCloseEl = document.querySelector('.notes-close');
+        const notesClose: Element = notesCloseEl!;
+        
+        notesBtn.forEach(btn => {
+            btn.addEventListener('click', e => displayData.renderNotesPopup(e, todos));
+            notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
+        });
+    };
+
+    function toggleEditBtn() {
+        const editBtnEl = document.querySelectorAll('.fa-pen-to-square');
+        const editBtn: NodeListOf<Element> = editBtnEl!;
+        
+        editBtn.forEach(btn => {
+            btn.addEventListener('click', e => {
+                displayData.renderEditPopup(e, todos);
+                handleEditForm();
+            });
+        });
+    };
+
+    function handleDeleteBtn() {
+        const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
+        const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
+
+        deleteBtn.forEach(btn => {
+            btn.addEventListener('click', e => {
+                manageData.deleteTodo(e, todos, listContainer);
+            });
+        });
     };
 
     function handleAddBtn() {
@@ -156,65 +236,7 @@ export default (function UI() {
         }); */
     };
 
-    function toggleProjects() {
-        const projectEl = document.querySelectorAll('.project-name');
-        const projectTitle: NodeListOf<Element> = projectEl!;
-        projectTitle.forEach(project => {
-            project.addEventListener('click', e => manageData.toggleTodosRender(e, todos, listContainer));
-        });
-        projectTitle.forEach(project => {
-            project.addEventListener('click', e => displayData.renderHighlightedFilters(e));
-        });
-        handleEmptyProject();
-    };
-
     function handleEmptyProject() {};
-
-    function loadTodoList() {
-        displayData.renderAllTodos(todos, listContainer);
-        loadTodoItems();
-    };
-
-    function loadTodoItems() {
-        toggleCheckbox();
-        handleNotesBtn();
-        handleEditBtn();
-        handleDeleteBtn();
-    };
-
-    function toggleCheckbox() {
-        const checkboxEl = document.querySelectorAll('fa-square');
-        const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
-        checkboxIcon.forEach(box => {
-            box.addEventListener('click', e => displayData.toggleCheckedTodo(e, todos, listContainer));
-        });
-    };
-
-    function handleNotesBtn() {
-        const notesBtnEl = document.querySelectorAll('.item-notes');
-        const notesBtn: NodeListOf<Element> = notesBtnEl!;
-        const notesEl = document.querySelector('.popup-notes');
-        const notesCard: Element = notesEl!;
-        const notesCloseEl = document.querySelector('.notes-close');
-        const notesClose: Element = notesCloseEl!;
-        
-        notesBtn.forEach(btn => {
-            btn.addEventListener('click', e => displayData.renderNotesPopup(e, todos));
-            notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
-        });
-    };
-
-    function handleEditBtn() {
-        const editBtnEl = document.querySelectorAll('.fa-pen-to-square');
-        const editBtn: NodeListOf<Element> = editBtnEl!;
-        
-        editBtn.forEach(btn => {
-            btn.addEventListener('click', e => {
-                displayData.renderEditPopup(e, todos);
-                handleEditForm();
-            });
-        });
-    };
 
     function handleEditForm() {
         const editEl = document.querySelector('.popup-edit');
@@ -288,26 +310,6 @@ export default (function UI() {
                 editHighLabel.classList.add('high-checked');
             }
         });
-    };
-
-    function handleDeleteBtn() {
-        const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
-        const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
-
-        deleteBtn.forEach(btn => {
-            btn.addEventListener('click', e => {
-                manageData.deleteTodo(e, todos, listContainer);
-            });
-        });
-    };
-
-    function toggleDashboard() {
-        const dashboardEl = document.querySelector('.main-dashboard');
-        const dashboard: Element = dashboardEl!;
-        const hamburgerEl = document.querySelector('.fa-bars');
-        const hamburgerMenu: Element = hamburgerEl!;
-
-        hamburgerMenu.addEventListener('click', () => (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden');
     };
 
     return { loadPage };

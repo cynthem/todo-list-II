@@ -71,49 +71,40 @@ export default (function displayData() {
         weekTodosCount.textContent = `${weekUncheckedTodos}`;
     };
 
-    function renderHighlightedFilters(e: Event) {
+    function renderHighlightedFilters(arg: (Event | string)) {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
+        const projectEl = document.querySelectorAll('.project-name');
+        const projectBtns: NodeListOf<Element> = projectEl!;
+
         filterBtns.forEach(btn => {
             btn.classList.remove('clicked');
         });
 
-        const projectEl = document.querySelectorAll('.project-name');
-        const projectBtns: NodeListOf<Element> = projectEl!;
         projectBtns.forEach(item => {
             item.classList.remove('clicked');
         });
 
-        (e.target as Element).classList.add('clicked');
-    };
+        if (arg instanceof Event) {
+            (arg.target as Element).classList.add('clicked');
 
-    function toggleHighlightedFilters(projectName: string) {
-        /* const filterBtns = document.querySelectorAll('.filters-btn');
-        const projectBtns = document.querySelectorAll('.projects-name');
-
-        filterBtns.forEach(item => {
-            item.classList.remove('clicked');
-        });
-
-        projectBtns.forEach(item => {
-            item.classList.remove('clicked');
-        });
-
-        filterBtns.forEach(btn => {
-            if (projectName === 'all' && btn.classList.contains('all-btn')) {
-                btn.classList.add('clicked');
-            } else if (projectName === 'today' && btn.classList.contains('today-btn')) {
-                btn.classList.add('clicked');
-            } else if (projectName === 'week' && btn.classList.contains('week-btn')) {
-                btn.classList.add('clicked');
-            }
-        });
-
-        projectBtns.forEach(btn => {
-            if (btn.textContent === projectName) {
-                btn.classList.add('clicked');
-            }
-        }); */
+        } else if (typeof arg === 'string') {
+            filterBtns.forEach(btn => {
+                if (arg === 'all' && btn.classList.contains('all-btn')) {
+                    btn.classList.add('clicked');
+                } else if (arg === 'today' && btn.classList.contains('today-btn')) {
+                    btn.classList.add('clicked');
+                } else if (arg === 'week' && btn.classList.contains('week-btn')) {
+                    btn.classList.add('clicked');
+                }
+            });
+        
+            projectBtns.forEach(btn => {
+                if (btn.textContent === arg) {
+                    btn.classList.add('clicked');
+                }
+            });
+        }
     };
 
     function renderProjectList(todos: ProjectsObject) {
@@ -591,7 +582,6 @@ export default (function displayData() {
         todos[project][item].checked = !todos[project][item].checked;
 
         manageData.storeTodos(todos);
-        
         renderProjectList(todos);
     };
 
@@ -773,7 +763,6 @@ export default (function displayData() {
     return {
         renderFilters,
         renderHighlightedFilters,
-        toggleHighlightedFilters,
         renderProjectList,
         renderAllTodos,
         renderTodayTodos,

@@ -145,20 +145,20 @@ export default (function manageData() {
     function toggleTodosRender(e: Event, todos: ProjectsObject, listContainer: Element) {
         if ((e.target as Element).textContent === 'All') {
             setSelectedProject('all');
-            //displayData.renderAllTodos(todos, listContainer);
-            //displayData.highlightSelectedFilter(e);
+            displayData.renderAllTodos(todos, listContainer);
+            displayData.renderHighlightedFilters(e);
         } else if ((e.target as Element).textContent === 'Today') {
             setSelectedProject('today');
             //displayData.renderTodayTodos(todos, listContainer);
-            //displayData.highlightSelectedFilter(e);
+            displayData.renderHighlightedFilters(e);
         } else if ((e.target as Element).textContent === 'This week') {
             setSelectedProject('week');
             //displayData.renderWeekTodos(todos, listContainer);
-            //displayData.highlightSelectedFilter(e);
+            displayData.renderHighlightedFilters(e);
         } else {
             setSelectedProject((e.target as Element).textContent!);
             //displayData.renderProjectTodos(todos, listContainer);
-            //displayData.highlightSelectedFilter(e);
+            displayData.renderHighlightedFilters(e);
         }
     };
 
