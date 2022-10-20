@@ -61,8 +61,14 @@ export default (function UI() {
     function toggleProjects() {
         const projectEl = document.querySelectorAll('.project-name');
         const projectTitle: NodeListOf<Element> = projectEl!;
+
         projectTitle.forEach(project => {
-            project.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
+            
+            project.addEventListener('click', e => {
+                
+
+                manageData.manageTodosRender(todos, listContainer, e);
+            });
         });
         // if project has no todo items then do this instead of toggleTodosRender:
         handleEmptyProject();

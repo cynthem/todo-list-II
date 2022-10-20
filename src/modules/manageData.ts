@@ -143,8 +143,21 @@ export default (function manageData() {
                 setSelectedProject('week');
                 displayData.renderWeekTodos(todos, listContainer);
             } else {
-                setSelectedProject((e.target as Element).textContent!);
-                displayData.renderProjectTodos(todos, listContainer);
+                const project = (e.target as Element).textContent!;
+                let projectLength = todos[project].length;
+
+                todos[project].forEach(todo => {
+                    if (todo.checked) {
+                        projectLength--;
+                    }
+                });
+
+                if (projectLength < 1) {
+                    displayData.renderEmptyProjectPopup(e, todos, listContainer);
+                } else {
+                    setSelectedProject(project);
+                    displayData.renderProjectTodos(todos, listContainer);
+                }
             }
 
         } else if (!e) {
