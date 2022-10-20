@@ -32,6 +32,7 @@ export default (function UI() {
         displayData.renderProjectList(todos);
         toggleProjects();
         toggleAddBtn();
+        handleEmptyProject();
     };
 
     function toggleDashboard() {
@@ -63,15 +64,8 @@ export default (function UI() {
         const projectTitle: NodeListOf<Element> = projectEl!;
 
         projectTitle.forEach(project => {
-            
-            project.addEventListener('click', e => {
-                
-
-                manageData.manageTodosRender(todos, listContainer, e);
-            });
+            project.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
         });
-        // if project has no todo items then do this instead of toggleTodosRender:
-        handleEmptyProject();
     };
 
     function toggleAddBtn() {
