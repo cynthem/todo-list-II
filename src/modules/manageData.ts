@@ -87,7 +87,11 @@ export default (function manageData() {
     };
 
     function checkOffTodo(index: number, projectName: string, todos: ProjectsObject) {
-        
+        todos[projectName][index].checked = todos[projectName][index].checked;
+
+        storeTodos(todos);
+        displayData.renderFilterCounts(todos);
+        displayData.renderProjectList(todos);
     };
 
     function editTodo(e: Event, todos: ProjectsObject) {
