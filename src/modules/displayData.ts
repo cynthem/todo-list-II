@@ -577,13 +577,10 @@ export default (function displayData() {
             itemDate.classList.toggle('selected');
             itemEdit.classList.toggle('selected');
             
-            const item: number = Number(checkedTodo!.dataset.index);
+            const index: number = Number(checkedTodo!.dataset.index);
             const project: string = checkedTodo!.dataset.project!;
-            todos![project][item].checked = !todos![project][item].checked;
 
-            manageData.storeTodos(todos!);
-            renderFilterCounts(todos!);
-            renderProjectList(todos!);
+            manageData.checkOffTodo(index, project, todos!);
         }
     };
 
@@ -715,16 +712,16 @@ export default (function displayData() {
     };
 
     return {
-        renderFilterCounts,
         renderHighlightedFilters,
+        renderFilterCounts,
         renderProjectList,
+        renderEmptyProjectPopup,
         renderAllTodos,
         renderTodayTodos,
         renderWeekTodos,
         renderProjectTodos,
         renderCheckedTodo,
         renderNotesPopup,
-        renderEditPopup,
-        renderEmptyProjectPopup
+        renderEditPopup
     };
 })();

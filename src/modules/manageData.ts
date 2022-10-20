@@ -86,7 +86,9 @@ export default (function manageData() {
         manageTodosRender(todos);
     };
 
-    function checkOffTodo() {};
+    function checkOffTodo(index: number, projectName: string, todos: ProjectsObject) {
+        
+    };
 
     function editTodo(e: Event, todos: ProjectsObject) {
         e.preventDefault();
