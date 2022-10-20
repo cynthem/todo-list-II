@@ -112,9 +112,9 @@ export default (function manageData() {
                         todos[project][item].details = (document.querySelector('.edit-details-textarea') as HTMLTextAreaElement).value;
                         todos[project][item].dueDate = todoDueDate;
                         todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
-
-                        manageTodosRender(todos, listContainer);
+                        
                         storeTodos(todos);
+                        manageTodosRender(todos, listContainer);
                     }
                 }
             }
