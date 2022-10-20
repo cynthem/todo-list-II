@@ -350,20 +350,25 @@ export default (function UI() {
         deleteBtn.forEach(btn => {
             btn.addEventListener('click', e => {
                 deletePopup.classList.remove('invisible-delete');
-                handleDeleteBtn();
+                handleDeleteBtn(e);
             });
         });
     };
 
-    function handleDeleteBtn() {
-        const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
-        const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
+    function handleDeleteBtn(e: Event) {
+        const deletePopupEl = document.querySelector('.popup-delete');
+        const deletePopup: Element = deletePopupEl!;
+        const deleteConfirmEl = document.querySelector('.');
+        const deleteConfirm: Element = deleteConfirmEl!;
+        const deleteCloseEl = document.querySelector('.delete-close');
+        const deleteClose: Element = deleteCloseEl!;
 
-        deleteBtn.forEach(btn => {
-            btn.addEventListener('click', e => {
-                manageData.deleteTodo(e, todos, listContainer);
-            });
+        deleteConfirm.addEventListener('click', () => {
+            manageData.deleteTodo(e, todos, listContainer);
+            deletePopup.classList.add('invisible-delete');
         });
+
+        deleteClose.addEventListener('click', () => deletePopup.classList.add('invisible-delete'));
     };
 
     return { loadPage };
