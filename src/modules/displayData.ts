@@ -157,43 +157,10 @@ export default (function displayData() {
         const emptyNameEl = document.querySelector('.empty-project-name');
         const emptyName: Element = emptyNameEl!;
 
-        /* 
-        const emptyAdd = document.querySelector('.empty-add');
-        const deleteProject = document.querySelector('.empty-delete');
-        const allBtn = document.querySelector('.all-btn');
-        const addNewCard = document.querySelector('.add-new-card');
-        const addNewDate = document.getElementById('new-date');
-        
         emptyName.innerHTML = '';
         emptyName.textContent = manageData.getSelectedProject();
-        
-        emptyContainer.style.visibility = 'visible';
-        contentContainer.classList.add('blur');
 
-        emptyExit.addEventListener('click', () => {
-            renderAllTodos(todos, listContainer);
-            manageData.setSelectedProject('all');
-            highlightReloadedFilter('all');
-            emptyContainer.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-        });
-
-        emptyAdd.addEventListener('click', () => {
-            addNewDate.setAttribute('value', currentDay);
-            emptyContainer.style.visibility = 'hidden';
-            addNewCard.style.visibility = 'visible';
-        });
-
-        deleteProject.addEventListener('click', () => {
-            delete todos[manageData.getSelectedProject()];
-            localStorage.setItem('todos', JSON.stringify(todos));
-            renderProjectList(todos, listContainer);
-            manageData.setSelectedProject('all');
-            renderAllTodos(todos, listContainer);
-            allBtn.classList.add('clicked');
-            emptyContainer.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-        }); */
+        emptyPopup.classList.remove('invisible-empty-project');
     };
 
     function renderAllTodos(todos: ProjectsObject, listContainer: Element) {
