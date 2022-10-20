@@ -135,6 +135,7 @@ export default (function manageData() {
 
                     storeTodos(todos);
                     manageTodosRender(todos, listContainer);
+                    displayData.renderFilterCounts(todos);
                     displayData.renderProjectList(todos);
                 }
             }
