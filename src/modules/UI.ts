@@ -70,7 +70,15 @@ export default (function UI() {
     };
 
     function toggleAddBtn() {
-        handleAddForm();
+        const addNewEl = document.querySelector('.projects-btn');
+        const addNewBtn: Element = addNewEl!;
+        const addNewPopupEl = document.querySelector('.popup-add-new');
+        const addNewPopup: Element = addNewPopupEl!;
+
+        addNewBtn.addEventListener('click', () => {
+            addNewPopup.classList.remove('invisible-add-new');
+            handleAddForm();
+        });
     };
 
     function toggleCheckbox() {
