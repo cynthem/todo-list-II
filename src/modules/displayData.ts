@@ -152,7 +152,7 @@ export default (function displayData() {
         emptyPopup.classList.remove('invisible-empty-project');
     };
 
-    function renderAllTodos(todos: ProjectsObject, listContainer: Element) {
+    function renderAllTodos(todos: ProjectsObject) {
         listContainer.innerHTML = '';
 
         for (const project in todos) {
@@ -205,7 +205,7 @@ export default (function displayData() {
         }
     };
 
-    function renderTodayTodos(todos: ProjectsObject, listContainer: Element) {
+    function renderTodayTodos(todos: ProjectsObject) {
         /* listContainer.innerHTML = '';
 
         for (const project in todos) {
@@ -339,7 +339,7 @@ export default (function displayData() {
         manageData.storeTodos(todos);
     };
 
-    function renderWeekTodos(todos: ProjectsObject, listContainer: Element) {
+    function renderWeekTodos(todos: ProjectsObject) {
         /* listContainer.innerHTML = '';
 
         for (const project in todos) {
@@ -471,7 +471,7 @@ export default (function displayData() {
         manageData.storeTodos(todos);
     };
 
-    function renderProjectTodos(todos: ProjectsObject, listContainer: Element) {
+    function renderProjectTodos(todos: ProjectsObject) {
         /* const todoList = todos[manageData.getSelectedProject()];
         
         listContainer.innerHTML = '';
