@@ -127,6 +127,11 @@ export default (function manageData() {
         }
     };
 
+    function storeTodos(todos: ProjectsObject) {
+        localStorage.setItem('todos', JSON.stringify(todos));
+        displayData.reloadContent(todos);
+    };
+
     function manageTodosRender(todos: ProjectsObject, e?: Event) {
         if (e) {
             const project = (e.target as Element).textContent!;
@@ -168,11 +173,6 @@ export default (function manageData() {
         }
     };
 
-    function storeTodos(todos: ProjectsObject) {
-        localStorage.setItem('todos', JSON.stringify(todos));
-        displayData.reloadContent(todos);
-    };
-
     return {
         setSelectedProject,
         getSelectedProject,
@@ -183,7 +183,7 @@ export default (function manageData() {
         checkOffTodo,
         editTodo,
         deleteTodo,
-        manageTodosRender,
-        storeTodos
+        storeTodos,
+        manageTodosRender
     };
 })();
