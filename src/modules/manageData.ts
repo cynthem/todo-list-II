@@ -1,5 +1,4 @@
 import displayData from "./displayData";
-import { todos } from './todoList';
 import { TodoObject, ProjectsObject } from "../util/types";
 
 export default (function manageData() {
@@ -42,8 +41,12 @@ export default (function manageData() {
         storeTodos(todos);
     };
 
-    function deleteProject() {
-        
+    function deleteProject(todos: ProjectsObject, listContainer: Element) {
+        delete todos[getSelectedProject()];
+        setSelectedProject('all');
+        storeTodos(todos);
+        displayData.renderProjectList(todos);
+        displayData.renderAllTodos(todos, listContainer);
     };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {

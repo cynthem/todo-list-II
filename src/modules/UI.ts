@@ -270,7 +270,7 @@ export default (function UI() {
         });
 
         emptyDeleteBtn.addEventListener('click', () => {
-            manageData.deleteProject();
+            manageData.deleteProject(todos, listContainer);
             emptyPopup.classList.add('invisible-empty-project');
         });
 
