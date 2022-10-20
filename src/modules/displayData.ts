@@ -635,7 +635,7 @@ export default (function displayData() {
         }
     };
 
-    function renderEditPopup(e: Event, todos: ProjectsObject) {
+    function renderEditPopup(index: number, projectName: string, todos: ProjectsObject) {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
         const editTitleEl = document.querySelector('.edit-title-textarea');
@@ -660,60 +660,45 @@ export default (function displayData() {
         editTitle.innerHTML = '';
         editDetails.innerHTML = '';
 
-        let item: number;
-        let project: string;
-        const target = e.target;
+        const dateObject = new Date(todos[projectName][index].dueDate);
+        const month = format(dateObject, 'MM');
+        const day = format(dateObject, 'dd');
+        const year = format(dateObject, 'yyyy');
+        const currentDay = `${year}-${month}-${day}`;
 
-        if (target instanceof HTMLElement) {
-            const itemParent = target.parentElement;
-            if (itemParent instanceof HTMLElement) {
-                const itemGrandparent = itemParent.parentElement;
-                if (itemGrandparent instanceof HTMLElement) {
-                    item = Number(itemGrandparent.dataset.index);
-                    project = itemGrandparent.dataset.project!;
+        editTitle.textContent = todos[projectName][index].title;
+        editDetails.textContent = todos[projectName][index].details;
+        editDueDate.removeAttribute('value');
+        editDueDate.setAttribute('value', currentDay);
 
-                    const dateObject = new Date(todos[project][item].dueDate);
-                    const month = format(dateObject, 'MM');
-                    const day = format(dateObject, 'dd');
-                    const year = format(dateObject, 'yyyy');
-                    const currentDay = `${year}-${month}-${day}`;
-
-                    editTitle.textContent = todos[project][item].title;
-                    editDetails.textContent = todos[project][item].details;
-                    editDueDate.removeAttribute('value');
-                    editDueDate.setAttribute('value', currentDay);
-
-                    if (editLowLabel.classList.contains('low-checked')) {
-                        editLowLabel.classList.remove('low-checked');
-                        editLowLabel.classList.add('low');
-                    }
-                    if (editMediumLabel.classList.contains('medium-checked')) {
-                        editMediumLabel.classList.remove('medium-checked');
-                        editMediumLabel.classList.add('medium');
-                    }
-                    if (editHighLabel.classList.contains('high-checked')) {
-                        editHighLabel.classList.remove('high-checked');
-                        editHighLabel.classList.add('high');
-                    }
-
-                    if (todos[project][item].priority === 'low') {
-                        editLowPriority.checked = true;
-                        editLowLabel.classList.remove('low');
-                        editLowLabel.classList.add('low-checked');
-                    } else if (todos[project][item].priority === 'medium') {
-                        editMediumPriority.checked = true;
-                        editMediumLabel.classList.remove('medium');
-                        editMediumLabel.classList.add('medium-checked');
-                    } else if (todos[project][item].priority === 'high') {
-                        editHighPriority.checked = true;
-                        editHighLabel.classList.remove('high');
-                        editHighLabel.classList.add('high-checked');
-                    } 
-
-                    editCard.classList.remove('invisible-edit');
-                }
-            }
+        if (editLowLabel.classList.contains('low-checked')) {
+            editLowLabel.classList.remove('low-checked');
+            editLowLabel.classList.add('low');
         }
+        if (editMediumLabel.classList.contains('medium-checked')) {
+            editMediumLabel.classList.remove('medium-checked');
+            editMediumLabel.classList.add('medium');
+        }
+        if (editHighLabel.classList.contains('high-checked')) {
+            editHighLabel.classList.remove('high-checked');
+            editHighLabel.classList.add('high');
+        }
+
+        if (todos[projectName][index].priority === 'low') {
+            editLowPriority.checked = true;
+            editLowLabel.classList.remove('low');
+            editLowLabel.classList.add('low-checked');
+        } else if (todos[projectName][index].priority === 'medium') {
+            editMediumPriority.checked = true;
+            editMediumLabel.classList.remove('medium');
+            editMediumLabel.classList.add('medium-checked');
+        } else if (todos[projectName][index].priority === 'high') {
+            editHighPriority.checked = true;
+            editHighLabel.classList.remove('high');
+            editHighLabel.classList.add('high-checked');
+        } 
+
+        editCard.classList.remove('invisible-edit');
     };
 
     return {
