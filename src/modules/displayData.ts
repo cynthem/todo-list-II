@@ -581,6 +581,7 @@ export default (function displayData() {
             todos![project][item].checked = !todos![project][item].checked;
 
             manageData.storeTodos(todos!);
+            renderFilterCounts(todos!);
             renderProjectList(todos!);
         }
     };
