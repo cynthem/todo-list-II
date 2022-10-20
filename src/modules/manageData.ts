@@ -19,38 +19,25 @@ export default (function manageData() {
         const newProject = (document.querySelector('#add-project') as HTMLInputElement).value;
 
         if (newProject) {
-            if (newProject.toLowerCase() === 'all') {
-                storeTodos(todos);
-                setSelectedProject('all');
-                displayData.renderAllTodos(todos);
-            } else if (newProject.toLowerCase() === 'today') {
-                storeTodos(todos);
-                setSelectedProject('today');
-                displayData.renderTodayTodos(todos);
-            } else if ((newProject.toLowerCase() === 'week') || (newProject.toLowerCase() === 'this week')) {
-                storeTodos(todos);
-                setSelectedProject('week');
-                displayData.renderWeekTodos(todos);
-            } else if (newProject in todos) {
-                storeTodos(todos);
-                setSelectedProject(newProject);
-                displayData.renderProjectTodos(todos);
+            if (
+                (newProject.toLowerCase() === 'all') ||
+                (newProject.toLowerCase() === 'today') ||
+                (newProject.toLowerCase() === 'week') ||
+                (newProject.toLowerCase() === 'this week') ||
+                (newProject in todos)
+            ) {
+                return;
             } else {
                 todos[newProject] = [];
                 storeTodos(todos);
-                displayData.renderFilterCounts(todos);
-                displayData.renderProjectList(todos);
             }
         }
     };
 
     function deleteProject(todos: ProjectsObject) {
         delete todos[getSelectedProject()];
-        storeTodos(todos);
         setSelectedProject('all');
-        displayData.renderFilterCounts(todos);
-        displayData.renderProjectList(todos);
-        displayData.renderAllTodos(todos);
+        storeTodos(todos);
     };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
@@ -79,19 +66,12 @@ export default (function manageData() {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-
         storeTodos(todos);
-        displayData.renderFilterCounts(todos);
-        displayData.renderProjectList(todos);
-        manageTodosRender(todos);
     };
 
     function checkOffTodo(index: number, projectName: string, todos: ProjectsObject) {
         todos[projectName][index].checked = todos[projectName][index].checked;
-
         storeTodos(todos);
-        displayData.renderFilterCounts(todos);
-        displayData.renderProjectList(todos);
     };
 
     function editTodo(e: Event, todos: ProjectsObject) {
@@ -122,7 +102,6 @@ export default (function manageData() {
                         todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
                         
                         storeTodos(todos);
-                        manageTodosRender(todos);
                     }
                 }
             }
@@ -142,11 +121,7 @@ export default (function manageData() {
                     item = Number(itemGrandparent.dataset.index);
                     project = itemGrandparent.dataset.project!;
                     todos[project].splice(item, 1);
-
                     storeTodos(todos);
-                    manageTodosRender(todos);
-                    displayData.renderFilterCounts(todos);
-                    displayData.renderProjectList(todos);
                 }
             }
         }
