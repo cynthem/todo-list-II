@@ -74,8 +74,11 @@ export default (function UI() {
         const addNewBtn: Element = addNewEl!;
         const addNewPopupEl = document.querySelector('.popup-add-new');
         const addNewPopup: Element = addNewPopupEl!;
+        const addDateEl = <HTMLInputElement>document.getElementById('new-date');
+        const addDate: HTMLInputElement = addDateEl!;
 
         addNewBtn.addEventListener('click', () => {
+            addDate.setAttribute('value', currentDay);
             addNewPopup.classList.remove('invisible-add-new');
             handleAddForm();
         });
