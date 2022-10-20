@@ -139,111 +139,114 @@ export default (function UI() {
         const addTodoBtn: Element = addTodoBtnEl!;
         const addProjectBtnEl = document.querySelector('.add-project-btn');
         const addProjectBtn: Element = addProjectBtnEl!;
+        const addDateEl = document.getElementById('new-date');
+        const addDate: Element = addDateEl!;
+        const addLowPriorityEl = document.getElementById('new-low');
+        const addLowPriority: Element = addLowPriorityEl!;
+        const addMediumPriorityEl = document.getElementById('new-medium');
+        const addMediumPriority: Element = addMediumPriorityEl!;
+        const addHighPriorityEl = document.getElementById('new-high');
+        const addHighPriority: Element = addHighPriorityEl!;
+        const addLowLabelEl = document.querySelector('.low');
+        const addLowLabel: Element = addLowLabelEl!;
+        const addMediumLabelEl = document.querySelector('.medium');
+        const addMediumLabel: Element = addMediumLabelEl!;
+        const addHighLabelEl = document.querySelector('.high');
+        const addHighLabel: Element = addHighLabelEl!;
 
         addNewClose.addEventListener('click', () => {
             addNewPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
+            addTodoForm.style.display = 'grid';
             addProjectForm.reset();
+            addProjectForm.style.display = 'none';
             addTodoBtn.classList.add('clicked');
             addProjectBtn.classList.remove('clicked');
-        });
-
-
-        /*  
-            addTodoForm.style.display = 'grid';
-            addProject.classList.remove('clicked');
-            addProjectForm.style.display = 'none';
             addDate.removeAttribute('value');
         });
 
-        const addDate = document.getElementById('new-date');
-        const addLowPriority = document.getElementById('new-low');
-        const addMediumPriority = document.getElementById('new-medium');
-        const addHighPriority = document.getElementById('new-high');
-        const addLow = document.querySelector('.low');
-        const addMedium = document.querySelector('.medium');
-        const addHigh = document.querySelector('.high');
+        addTodoForm.addEventListener('submit', e => {
+            manageData.addTodo(e, todos, listContainer);
+            addNewPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addTodoForm.style.display = 'grid';
+            addProjectForm.reset();
+            addProjectForm.style.display = 'none';
+            addTodoBtn.classList.add('clicked');
+            addProjectBtn.classList.remove('clicked');
+            addDate.removeAttribute('value');
+        });
+
+        addProjectForm.addEventListener('submit', e => {
+            manageData.addProject(e, todos, listContainer);
+            addNewPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addTodoForm.style.display = 'grid';
+            addProjectForm.reset();
+            addProjectForm.style.display = 'none';
+            addTodoBtn.classList.add('clicked');
+            addProjectBtn.classList.remove('clicked');
+            addDate.removeAttribute('value');
+        });
 
         addTodoBtn.addEventListener('click', () => {
             addTodoBtn.classList.add('clicked');
             addTodoForm.style.display = 'grid';
-            addProject.classList.remove('clicked');
+            addProjectBtn.classList.remove('clicked');
             addProjectForm.style.display = 'none';
         });
 
-        addProject.addEventListener('click', () => {
-            addProject.classList.add('clicked');
+        addProjectBtn.addEventListener('click', () => {
+            addProjectBtn.classList.add('clicked');
             addProjectForm.style.display = 'grid';
             addTodoBtn.classList.remove('clicked');
             addTodoForm.style.display = 'none';
         });
 
         addLowPriority.addEventListener('click', () => {
-            if (addLow.classList.contains('low')) {
-                addLow.classList.remove('low');
-                addLow.classList.add('low-checked');
+            if (addLowLabel.classList.contains('low')) {
+                addLowLabel.classList.remove('low');
+                addLowLabel.classList.add('low-checked');
             }
-            if (addMedium.classList.contains('medium-checked')) {
-                addMedium.classList.remove('medium-checked');
-                addMedium.classList.add('medium');
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
             }
-            if (addHigh.classList.contains('high-checked')) {
-                addHigh.classList.remove('high-checked');
-                addHigh.classList.add('high');
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
             }
         });
 
         addMediumPriority.addEventListener('click', () => {
-            if (addLow.classList.contains('low-checked')) {
-                addLow.classList.remove('low-checked');
-                addLow.classList.add('low');
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
             }
-            if (addMedium.classList.contains('medium')) {
-                addMedium.classList.remove('medium');
-                addMedium.classList.add('medium-checked');
+            if (addMediumLabel.classList.contains('medium')) {
+                addMediumLabel.classList.remove('medium');
+                addMediumLabel.classList.add('medium-checked');
             }
-            if (addHigh.classList.contains('high-checked')) {
-                addHigh.classList.remove('high-checked');
-                addHigh.classList.add('high');
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
             }
         });
 
         addHighPriority.addEventListener('click', () => {
-            if (addLow.classList.contains('low-checked')) {
-                addLow.classList.remove('low-checked');
-                addLow.classList.add('low');
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
             }
-            if (addMedium.classList.contains('medium-checked')) {
-                addMedium.classList.remove('medium-checked');
-                addMedium.classList.add('medium');
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
             }
-            if (addHigh.classList.contains('high')) {
-                addHigh.classList.remove('high');
-                addHigh.classList.add('high-checked');
+            if (addHighLabel.classList.contains('high')) {
+                addHighLabel.classList.remove('high');
+                addHighLabel.classList.add('high-checked');
             }
         });
-
-        addTodoForm.addEventListener('submit', e => {
-            manageData.addTodo(e, todos, listContainer);
-            addNewCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-            addTodoForm.reset();
-            addProjectForm.reset();
-            addDate.removeAttribute('value');
-        });
-
-        addProjectForm.addEventListener('submit', e => {
-            manageData.addProject(e, todos, listContainer);
-            addNewCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-            addTodoForm.reset();
-            addProjectForm.reset();
-            addTodoBtn.classList.add('clicked');
-            addTodoForm.style.display = 'grid';
-            addProject.classList.remove('clicked');
-            addProjectForm.style.display = 'none';
-            addDate.removeAttribute('value');
-        }); */
     };
 
     function handleEmptyProject() {};
