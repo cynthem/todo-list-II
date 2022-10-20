@@ -13,26 +13,9 @@ export default (function UI() {
     };
 
     function loadDashboard() {
+        toggleDashboard();
         loadFilters();
         loadProjects();
-        toggleDashboard();
-    };
-
-    function loadTodoList() {
-        displayData.renderAllTodos(todos, listContainer);
-        loadTodoItems();
-    };
-
-    function loadFilters() {
-        displayData.renderHighlightedFilters('all');
-        displayData.renderFilterCounts(todos);
-        toggleFilters();
-    };
-
-    function loadProjects() {
-        displayData.renderProjectList(todos);
-        toggleProjects();
-        toggleAddBtn();
     };
 
     function toggleDashboard() {
@@ -44,11 +27,10 @@ export default (function UI() {
         hamburgerMenu.addEventListener('click', () => (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden');
     };
 
-    function loadTodoItems() {
-        toggleCheckbox();
-        toggleNotesBtn();
-        toggleEditBtn();
-        handleDeleteBtn();
+    function loadFilters() {
+        displayData.renderHighlightedFilters('all');
+        displayData.renderFilterCounts(todos);
+        toggleFilters();
     };
 
     function toggleFilters() {
@@ -59,6 +41,12 @@ export default (function UI() {
         });
     };
 
+    function loadProjects() {
+        displayData.renderProjectList(todos);
+        toggleProjects();
+        toggleAddBtn();
+    };
+
     function toggleProjects() {
         const projectEl = document.querySelectorAll('.project-name');
         const projectTitle: NodeListOf<Element> = projectEl!;
@@ -66,6 +54,30 @@ export default (function UI() {
         projectTitle.forEach(project => {
             project.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
             handleEmptyProject();
+        });
+    };
+
+    function handleEmptyProject() {
+        const emptyPopupEl = document.querySelector('.popup-empty-project');
+        const emptyPopup: Element = emptyPopupEl!;
+        const emptyAddBtnEl = document.querySelector('.empty-project-add-btn');
+        const emptyAddBtn: Element = emptyAddBtnEl!;
+        const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
+        const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
+        const addNewPopupEl = document.querySelector('.popup-add-new-todo');
+        const addNewPopup: Element = addNewPopupEl!;
+        const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
+        const addDate: HTMLInputElement = addDateEl!;
+
+        emptyAddBtn.addEventListener('click', () => {
+            addDate.setAttribute('value', currentDay);
+            addNewPopup.classList.remove('invisible-add-new');
+            handleAddTodoForm();
+        });
+
+        emptyDeleteBtn.addEventListener('click', () => {
+            manageData.deleteProject(todos, listContainer);
+            emptyPopup.classList.add('invisible-empty-project');
         });
     };
 
@@ -82,6 +94,18 @@ export default (function UI() {
             addNewPopup.classList.remove('invisible-add-new');
             handleAddForm();
         });
+    };
+
+    function loadTodoList() {
+        displayData.renderAllTodos(todos, listContainer);
+        loadTodoItems();
+    };
+
+    function loadTodoItems() {
+        toggleCheckbox();
+        toggleNotesBtn();
+        toggleEditBtn();
+        handleDeleteBtn();
     };
 
     function toggleCheckbox() {
@@ -249,30 +273,6 @@ export default (function UI() {
                 addHighLabel.classList.remove('high');
                 addHighLabel.classList.add('high-checked');
             }
-        });
-    };
-
-    function handleEmptyProject() {
-        const emptyPopupEl = document.querySelector('.popup-empty-project');
-        const emptyPopup: Element = emptyPopupEl!;
-        const emptyAddBtnEl = document.querySelector('.empty-project-add-btn');
-        const emptyAddBtn: Element = emptyAddBtnEl!;
-        const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
-        const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
-        const addNewPopupEl = document.querySelector('.popup-add-new-todo');
-        const addNewPopup: Element = addNewPopupEl!;
-        const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
-        const addDate: HTMLInputElement = addDateEl!;
-
-        emptyAddBtn.addEventListener('click', () => {
-            addDate.setAttribute('value', currentDay);
-            addNewPopup.classList.remove('invisible-add-new');
-            handleAddTodoForm();
-        });
-
-        emptyDeleteBtn.addEventListener('click', () => {
-            manageData.deleteProject(todos, listContainer);
-            emptyPopup.classList.add('invisible-empty-project');
         });
     };
 
