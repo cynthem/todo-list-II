@@ -139,7 +139,7 @@ export default (function displayData() {
         };
     };
 
-    function renderEmptyProjectPopup(e: Event, todos: ProjectsObject, listContainer: Element) {
+    function renderEmptyProjectPopup() {
         const emptyPopupEl = document.querySelector('.popup-empty-project');
         const emptyPopup: Element = emptyPopupEl!;
         const emptyNameEl = document.querySelector('.empty-project-name');
