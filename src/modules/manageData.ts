@@ -166,7 +166,7 @@ export default (function manageData() {
                 });
 
                 if (projectLength < 1) {
-                    displayData.renderEmptyProjectPopup(e, todos, listContainer);
+                    displayData.renderEmptyProjectPopup();
                 } else {
                     displayData.renderProjectTodos(todos, listContainer);
                 }
