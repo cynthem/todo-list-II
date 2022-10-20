@@ -81,6 +81,8 @@ export default (function UI() {
         });
     };
 
+    function handleAddTodoForm() {};
+
     function toggleAddBtn() {
         const addNewEl = document.querySelector('.projects-btn');
         const addNewBtn: Element = addNewEl!;
@@ -93,63 +95,6 @@ export default (function UI() {
             addDate.setAttribute('value', currentDay);
             addNewPopup.classList.remove('invisible-add-new');
             handleAddForm();
-        });
-    };
-
-    function loadTodoList() {
-        displayData.renderAllTodos(todos, listContainer);
-        loadTodoItems();
-    };
-
-    function loadTodoItems() {
-        toggleCheckbox();
-        toggleNotesBtn();
-        toggleEditBtn();
-        handleDeleteBtn();
-    };
-
-    function toggleCheckbox() {
-        const checkboxEl = document.querySelectorAll('fa-square');
-        const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
-        checkboxIcon.forEach(box => {
-            box.addEventListener('click', e => displayData.renderCheckedTodo(e, todos));
-        });
-    };
-
-    function toggleNotesBtn() {
-        const notesBtnEl = document.querySelectorAll('.item-notes');
-        const notesBtn: NodeListOf<Element> = notesBtnEl!;
-        const notesEl = document.querySelector('.popup-notes');
-        const notesCard: Element = notesEl!;
-        const notesCloseEl = document.querySelector('.notes-close');
-        const notesClose: Element = notesCloseEl!;
-        
-        notesBtn.forEach(btn => {
-            btn.addEventListener('click', e => displayData.renderNotesPopup(e, todos));
-            notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
-        });
-    };
-
-    function toggleEditBtn() {
-        const editBtnEl = document.querySelectorAll('.fa-pen-to-square');
-        const editBtn: NodeListOf<Element> = editBtnEl!;
-        
-        editBtn.forEach(btn => {
-            btn.addEventListener('click', e => {
-                displayData.renderEditPopup(e, todos);
-                handleEditForm();
-            });
-        });
-    };
-
-    function handleDeleteBtn() {
-        const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
-        const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
-
-        deleteBtn.forEach(btn => {
-            btn.addEventListener('click', e => {
-                manageData.deleteTodo(e, todos, listContainer);
-            });
         });
     };
 
@@ -276,6 +221,52 @@ export default (function UI() {
         });
     };
 
+    function loadTodoList() {
+        displayData.renderAllTodos(todos, listContainer);
+        loadTodoItems();
+    };
+
+    function loadTodoItems() {
+        toggleCheckbox();
+        toggleNotesBtn();
+        toggleEditBtn();
+        handleDeleteBtn();
+    };
+
+    function toggleCheckbox() {
+        const checkboxEl = document.querySelectorAll('fa-square');
+        const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
+        checkboxIcon.forEach(box => {
+            box.addEventListener('click', e => displayData.renderCheckedTodo(e, todos));
+        });
+    };
+
+    function toggleNotesBtn() {
+        const notesBtnEl = document.querySelectorAll('.item-notes');
+        const notesBtn: NodeListOf<Element> = notesBtnEl!;
+        const notesEl = document.querySelector('.popup-notes');
+        const notesCard: Element = notesEl!;
+        const notesCloseEl = document.querySelector('.notes-close');
+        const notesClose: Element = notesCloseEl!;
+        
+        notesBtn.forEach(btn => {
+            btn.addEventListener('click', e => displayData.renderNotesPopup(e, todos));
+            notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
+        });
+    };
+
+    function toggleEditBtn() {
+        const editBtnEl = document.querySelectorAll('.fa-pen-to-square');
+        const editBtn: NodeListOf<Element> = editBtnEl!;
+        
+        editBtn.forEach(btn => {
+            btn.addEventListener('click', e => {
+                displayData.renderEditPopup(e, todos);
+                handleEditForm();
+            });
+        });
+    };
+
     function handleEditForm() {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
@@ -350,7 +341,16 @@ export default (function UI() {
         });
     };
 
-    function handleAddTodoForm() {};
+    function handleDeleteBtn() {
+        const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
+        const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
+
+        deleteBtn.forEach(btn => {
+            btn.addEventListener('click', e => {
+                manageData.deleteTodo(e, todos, listContainer);
+            });
+        });
+    };
 
     return { loadPage };
 })();
