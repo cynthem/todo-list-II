@@ -195,6 +195,7 @@ export default (function manageData() {
 
     function storeTodos(todos: ProjectsObject) {
         localStorage.setItem('todos', JSON.stringify(todos));
+        displayData.reloadContent(todos);
     };
 
     return {

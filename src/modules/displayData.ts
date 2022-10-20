@@ -6,6 +6,8 @@ export default (function displayData() {
     const listContainerEl = document.querySelector('.main-list');
     const listContainer: Element = listContainerEl!;
 
+    function reloadContent(todos: ProjectsObject) {};
+
     function renderHighlightedFilters(arg: (Event | string)) {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
@@ -709,6 +711,7 @@ export default (function displayData() {
     };
 
     return {
+        reloadContent,
         renderHighlightedFilters,
         renderFilterCounts,
         renderProjectList,
