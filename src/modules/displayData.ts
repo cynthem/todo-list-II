@@ -6,7 +6,11 @@ export default (function displayData() {
     const listContainerEl = document.querySelector('.main-list');
     const listContainer: Element = listContainerEl!;
 
-    function reloadContent(todos: ProjectsObject) {};
+    function reloadContent(todos: ProjectsObject) {
+        manageData.manageTodosRender(todos);
+        renderFilterCounts(todos);
+        renderProjectList(todos);
+    };
 
     function renderHighlightedFilters(arg: (Event | string)) {
         const filterEl = document.querySelectorAll('.filters-btn');
