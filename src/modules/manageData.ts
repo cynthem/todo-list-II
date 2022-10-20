@@ -74,7 +74,7 @@ export default (function manageData() {
         storeTodos(todos);
     };
 
-    function editTodo(e: Event, todos: ProjectsObject) {
+    function editTodo(index: number, projectName: string, e: Event, todos: ProjectsObject) {
         e.preventDefault();
 
         const todoDate = (document.querySelector('#edit-date') as HTMLInputElement).value;
@@ -82,7 +82,14 @@ export default (function manageData() {
         const todoYear = todoDate.slice(0, 4);
         const todoDueDate = `${todoDay}-${todoYear}`;
 
-        let item: number;
+        todos[projectName][index].title = (document.querySelector('.edit-title-textarea') as HTMLTextAreaElement).value;
+        todos[projectName][index].details = (document.querySelector('.edit-details-textarea') as HTMLTextAreaElement).value;
+        todos[projectName][index].dueDate = todoDueDate;
+        todos[projectName][index].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
+        
+        storeTodos(todos);
+
+        /*let item: number;
         let project: string;
         const target = e.target;
 
@@ -105,7 +112,7 @@ export default (function manageData() {
                     }
                 }
             }
-        }
+        }*/
     };
 
     function deleteTodo(e: Event, todos: ProjectsObject) {
@@ -148,7 +155,7 @@ export default (function manageData() {
             } else {
                 setSelectedProject(project);
                 let projectLength = todos[project].length;
-                
+
                 todos[project].forEach(todo => {
                     if (todo.checked) {
                         projectLength--;
