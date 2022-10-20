@@ -32,7 +32,6 @@ export default (function UI() {
         displayData.renderProjectList(todos);
         toggleProjects();
         toggleAddBtn();
-        handleEmptyProject();
     };
 
     function toggleDashboard() {
@@ -65,6 +64,7 @@ export default (function UI() {
 
         projectTitle.forEach(project => {
             project.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
+            handleEmptyProject();
         });
     };
 
@@ -252,42 +252,16 @@ export default (function UI() {
     };
 
     function handleEmptyProject() {
-        /* 
-        const emptyContainer = document.querySelector('.empty-project-card');
-        const emptyExit = document.getElementById('empty-cancel');
-        const emptyTitle = document.querySelector('.empty-name');
-        const emptyAdd = document.querySelector('.empty-add');
-        const deleteProject = document.querySelector('.empty-delete');
-        const allBtn = document.querySelector('.all-btn');
-        const addNewCard = document.querySelector('.add-new-card');
-        const addNewDate = document.getElementById('new-date');
-        const dateObject = new Date();
-        const month = format(dateObject, 'MM');
-        const day = format(dateObject, 'dd');
-        const year = format(dateObject, 'yyyy');
-        const currentDay = `${year}-${month}-${day}`;
-        
-        emptyTitle.innerHTML = '';
-        emptyTitle.textContent = manageData.getSelectedProject();
-        
-        emptyContainer.style.visibility = 'visible';
-        contentContainer.classList.add('blur');
+        const emptyAddBtnEl = document.querySelector('.empty-project-add-btn');
+        const emptyAddBtn: Element = emptyAddBtnEl!;
+        const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
+        const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
 
-        emptyExit.addEventListener('click', () => {
-            renderAllTodos(todos, listContainer);
-            manageData.setSelectedProject('all');
-            highlightReloadedFilter('all');
-            emptyContainer.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
+        emptyDeleteBtn.addEventListener('click', () => {
+            
         });
 
-        emptyAdd.addEventListener('click', () => {
-            addNewDate.setAttribute('value', currentDay);
-            emptyContainer.style.visibility = 'hidden';
-            addNewCard.style.visibility = 'visible';
-        });
-
-        deleteProject.addEventListener('click', () => {
+        /* deleteProject.addEventListener('click', () => {
             delete todos[manageData.getSelectedProject()];
             localStorage.setItem('todos', JSON.stringify(todos));
             renderProjectList(todos, listContainer);
@@ -296,7 +270,19 @@ export default (function UI() {
             allBtn.classList.add('clicked');
             emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
-        }); */
+        }); 
+
+        const emptyContainer = document.querySelector('.empty-project-card');
+        const emptyTitle = document.querySelector('.empty-name');
+        const allBtn = document.querySelector('.all-btn');
+        const addNewCard = document.querySelector('.add-new-card');
+        const addNewDate = document.getElementById('new-date');
+
+        emptyAdd.addEventListener('click', () => {
+            addNewDate.setAttribute('value', currentDay);
+            emptyContainer.style.visibility = 'hidden';
+            addNewCard.style.visibility = 'visible';
+        });*/
     };
 
     function handleEditForm() {

@@ -42,6 +42,10 @@ export default (function manageData() {
         storeTodos(todos);
     };
 
+    function deleteProject() {
+        
+    };
+
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
         const todoItem: TodoObject = {
             title,
@@ -179,8 +183,9 @@ export default (function manageData() {
     return {
         setSelectedProject,
         getSelectedProject,
-        createTodo,
         addProject,
+        deleteProject,
+        createTodo,
         addTodo,
         editTodo,
         deleteTodo,
