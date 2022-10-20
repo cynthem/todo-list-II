@@ -273,17 +273,6 @@ export default (function UI() {
             manageData.deleteProject(todos, listContainer);
             emptyPopup.classList.add('invisible-empty-project');
         });
-
-        /* deleteProject.addEventListener('click', () => {
-            delete todos[manageData.getSelectedProject()];
-            localStorage.setItem('todos', JSON.stringify(todos));
-            renderProjectList(todos, listContainer);
-            manageData.setSelectedProject('all');
-            renderAllTodos(todos, listContainer);
-            allBtn.classList.add('clicked');
-        }); 
-
-        const allBtn = document.querySelector('.all-btn');*/
     };
 
     function handleEditForm() {
