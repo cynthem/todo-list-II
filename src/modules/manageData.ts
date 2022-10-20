@@ -13,7 +13,7 @@ export default (function manageData() {
         return selectedProject;
     };
 
-    function addProject(e: Event, todos: ProjectsObject, listContainer: Element) {
+    function addProject(e: Event, todos: ProjectsObject) {
         e.preventDefault();
 
         const newProject = (document.querySelector('#add-project') as HTMLInputElement).value;
@@ -22,19 +22,19 @@ export default (function manageData() {
             if (newProject.toLowerCase() === 'all') {
                 storeTodos(todos);
                 setSelectedProject('all');
-                displayData.renderAllTodos(todos, listContainer);
+                displayData.renderAllTodos(todos);
             } else if (newProject.toLowerCase() === 'today') {
                 storeTodos(todos);
                 setSelectedProject('today');
-                displayData.renderTodayTodos(todos, listContainer);
+                displayData.renderTodayTodos(todos);
             } else if ((newProject.toLowerCase() === 'week') || (newProject.toLowerCase() === 'this week')) {
                 storeTodos(todos);
                 setSelectedProject('week');
-                displayData.renderWeekTodos(todos, listContainer);
+                displayData.renderWeekTodos(todos);
             } else if (newProject in todos) {
                 storeTodos(todos);
                 setSelectedProject(newProject);
-                displayData.renderProjectTodos(todos, listContainer);
+                displayData.renderProjectTodos(todos);
             } else {
                 todos[newProject] = [];
                 storeTodos(todos);
@@ -44,13 +44,13 @@ export default (function manageData() {
         }
     };
 
-    function deleteProject(todos: ProjectsObject, listContainer: Element) {
+    function deleteProject(todos: ProjectsObject) {
         delete todos[getSelectedProject()];
         storeTodos(todos);
         setSelectedProject('all');
         displayData.renderFilterCounts(todos);
         displayData.renderProjectList(todos);
-        displayData.renderAllTodos(todos, listContainer);
+        displayData.renderAllTodos(todos);
     };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
@@ -65,7 +65,7 @@ export default (function manageData() {
         return todoItem;
     };
 
-    function addTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
+    function addTodo(e: Event, todos: ProjectsObject) {
         e.preventDefault();
 
         const todoTitle = (document.querySelector('.add-todo-input') as HTMLInputElement).value;
@@ -83,10 +83,10 @@ export default (function manageData() {
         storeTodos(todos);
         displayData.renderFilterCounts(todos);
         displayData.renderProjectList(todos);
-        manageTodosRender(todos, listContainer);
+        manageTodosRender(todos);
     };
 
-    function editTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
+    function editTodo(e: Event, todos: ProjectsObject) {
         e.preventDefault();
 
         const todoDate = (document.querySelector('#edit-date') as HTMLInputElement).value;
@@ -114,14 +114,14 @@ export default (function manageData() {
                         todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
                         
                         storeTodos(todos);
-                        manageTodosRender(todos, listContainer);
+                        manageTodosRender(todos);
                     }
                 }
             }
         }
     };
 
-    function deleteTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
+    function deleteTodo(e: Event, todos: ProjectsObject) {
         let item: number;
         let project: string;
         const target = e.target;
@@ -136,7 +136,7 @@ export default (function manageData() {
                     todos[project].splice(item, 1);
 
                     storeTodos(todos);
-                    manageTodosRender(todos, listContainer);
+                    manageTodosRender(todos);
                     displayData.renderFilterCounts(todos);
                     displayData.renderProjectList(todos);
                 }
@@ -144,18 +144,18 @@ export default (function manageData() {
         }
     };
 
-    function manageTodosRender(todos: ProjectsObject, listContainer: Element, e?: Event) {
+    function manageTodosRender(todos: ProjectsObject, e?: Event) {
         if (e) {
             const project = (e.target as Element).textContent!;
             if (project === 'All') {
                 setSelectedProject('all');
-                displayData.renderAllTodos(todos, listContainer);
+                displayData.renderAllTodos(todos);
             } else if (project === 'Today') {
                 setSelectedProject('today');
-                displayData.renderTodayTodos(todos, listContainer);
+                displayData.renderTodayTodos(todos);
             } else if (project === 'This week') {
                 setSelectedProject('week');
-                displayData.renderWeekTodos(todos, listContainer);
+                displayData.renderWeekTodos(todos);
             } else {
                 setSelectedProject(project);
                 let projectLength = todos[project].length;
@@ -168,19 +168,19 @@ export default (function manageData() {
                 if (projectLength < 1) {
                     displayData.renderEmptyProjectPopup();
                 } else {
-                    displayData.renderProjectTodos(todos, listContainer);
+                    displayData.renderProjectTodos(todos);
                 }
             }
 
         } else if (!e) {
             if (getSelectedProject() === 'all') {
-                displayData.renderAllTodos(todos, listContainer);
+                displayData.renderAllTodos(todos);
             } else if (getSelectedProject() === 'today') {
-                displayData.renderTodayTodos(todos, listContainer);
+                displayData.renderTodayTodos(todos);
             } else if (getSelectedProject() === 'week') {
-                displayData.renderWeekTodos(todos, listContainer);
+                displayData.renderWeekTodos(todos);
             } else {
-                displayData.renderProjectTodos(todos, listContainer);
+                displayData.renderProjectTodos(todos);
             }
         }
     };
