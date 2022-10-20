@@ -24,6 +24,7 @@ export default (function UI() {
     };
 
     function loadFilters() {
+        displayData.renderHighlightedFilters('all');
         displayData.renderFilterCounts(todos);
         toggleFilters();
     };
