@@ -336,7 +336,6 @@ export default (function displayData() {
                 listContainer.appendChild(todoItem);
             }
         }); */
-        manageData.storeTodos(todos);
     };
 
     function renderWeekTodos(todos: ProjectsObject) {
@@ -468,7 +467,6 @@ export default (function displayData() {
                 listContainer.appendChild(todoItem);
             }
         }); */
-        manageData.storeTodos(todos);
     };
 
     function renderProjectTodos(todos: ProjectsObject) {
@@ -534,7 +532,6 @@ export default (function displayData() {
                 listContainer.appendChild(todoItem);
             }
         }); */
-        manageData.storeTodos(todos);
     };
 
     function renderCheckedTodo(arg: (Element | Event), todos?: ProjectsObject) {
