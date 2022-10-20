@@ -62,29 +62,20 @@ export default (function manageData() {
     function addTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
-        /* const todoTitle = (document.querySelector('.add-input')).value;
-        const todoDetails = (document.querySelector('.add-textarea')).value;
-        const todoDate = (document.querySelector('#new-date')).value;
+        const todoTitle = (document.querySelector('.add-todo-input') as HTMLInputElement).value;
+        const todoDetails = (document.querySelector('.add-todo-textarea') as HTMLTextAreaElement).value;
+        const todoDate = (document.querySelector('#new-date') as HTMLInputElement).value;
+        const todoPriority = (document.querySelector('[name="new-priority"]:checked') as HTMLInputElement).value;
+        const todoProject = getSelectedProject();
         const todoDay = todoDate.slice(5, 10);
         const todoYear = todoDate.slice(0, 4);
         const todoDueDate = `${todoDay}-${todoYear}`;
-        const todoPriority = (document.querySelector('[name="new-priority"]:checked')).value;
-        const todoProject = getSelectedProject();
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
 
-        if (manageData.getSelectedProject() === 'all') {
-            changeDOM.renderAllTodos(todos, listContainer);
-        } else if (manageData.getSelectedProject() === 'today') {
-            changeDOM.renderTodayTodos(todos, listContainer);
-        } else if (manageData.getSelectedProject() === 'week') {
-            changeDOM.renderWeekTodos(todos, listContainer); 
-        } else {
-            changeDOM.renderProjectTodos(todos, listContainer);
-        }
-        
-        changeDOM.renderProjectList(todos, listContainer); */
+        displayData.renderProjectList(todos);
+        manageTodosRender(todos, listContainer);
     };
 
     function editTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
