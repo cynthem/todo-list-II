@@ -147,7 +147,6 @@ export default (function displayData() {
 
         emptyName.innerHTML = '';
         emptyName.textContent = manageData.getSelectedProject();
-
         emptyPopup.classList.remove('invisible-empty-project');
     };
 

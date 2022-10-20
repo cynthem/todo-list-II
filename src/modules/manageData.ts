@@ -33,10 +33,8 @@ export default (function manageData() {
                 displayData.renderProjectTodos(todos, listContainer);
             } else {
                 todos[newProject] = [];
-                setSelectedProject('all');
                 displayData.renderFilterCounts(todos);
                 displayData.renderProjectList(todos);
-                displayData.renderAllTodos(todos, listContainer);
             }
         }
         storeTodos(todos);
