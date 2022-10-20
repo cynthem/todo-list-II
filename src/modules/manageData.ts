@@ -46,8 +46,8 @@ export default (function manageData() {
 
     function deleteProject(todos: ProjectsObject, listContainer: Element) {
         delete todos[getSelectedProject()];
-        setSelectedProject('all');
         storeTodos(todos);
+        setSelectedProject('all');
         displayData.renderFilterCounts(todos);
         displayData.renderProjectList(todos);
         displayData.renderAllTodos(todos, listContainer);
