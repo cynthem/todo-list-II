@@ -214,7 +214,6 @@ export default (function displayData() {
                 listContainer.appendChild(todoItem);
             });
         }
-        manageData.storeTodos(todos);
     };
 
     function renderTodayTodos(todos: ProjectsObject, listContainer: Element) {
