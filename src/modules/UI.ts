@@ -340,12 +340,12 @@ export default (function UI() {
         editBtn.forEach(btn => {
             btn.addEventListener('click', e => {
                 displayData.renderEditPopup(e, todos);
-                handleEditForm();
+                handleEditForm(e);
             });
         });
     };
 
-    function handleEditForm() {
+    function handleEditForm(e: Event) {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
         const editCloseEl = document.querySelector('.edit-close');
@@ -365,30 +365,6 @@ export default (function UI() {
         const editHighLabelEl = document.getElementById('edit-high-label');
         const editHighLabel: Element = editHighLabelEl!;
 
-        /* const editEl = document.querySelector('.popup-edit');
-        const editCard: Element = editEl!;
-        const editTitleEl = document.querySelector('.edit-title-textarea');
-        const editTitle: Element = editTitleEl!;
-        const editDetailsEl = document.querySelector('.edit-details-textarea');
-        const editDetails: Element = editDetailsEl!;
-        const editDueDateEl = document.getElementById('edit-date');
-        const editDueDate: Element = editDueDateEl!;
-        const editLowEl = <HTMLInputElement>document.getElementById('edit-low');
-        const editLowPriority: HTMLInputElement = editLowEl!;
-        const editMediumEl = <HTMLInputElement>document.getElementById('edit-medium');
-        const editMediumPriority: HTMLInputElement = editMediumEl!;
-        const editHighEl = <HTMLInputElement>document.getElementById('edit-high');
-        const editHighPriority: HTMLInputElement = editHighEl!;
-        const editLowLabelEl = document.getElementById('edit-low-label');
-        const editLowLabel: Element = editLowLabelEl!;
-        const editMediumLabelEl = document.getElementById('edit-medium-label');
-        const editMediumLabel: Element = editMediumLabelEl!;
-        const editHighLabelEl = document.getElementById('edit-high-label');
-        const editHighLabel: Element = editHighLabelEl!;
-
-        editTitle.innerHTML = '';
-        editDetails.innerHTML = '';
-
         let item: number;
         let project: string;
         const target = e.target;
@@ -400,56 +376,15 @@ export default (function UI() {
                 if (itemGrandparent instanceof HTMLElement) {
                     item = Number(itemGrandparent.dataset.index);
                     project = itemGrandparent.dataset.project!;
-
-                    const dateObject = new Date(todos[project][item].dueDate);
-                    const month = format(dateObject, 'MM');
-                    const day = format(dateObject, 'dd');
-                    const year = format(dateObject, 'yyyy');
-                    const currentDay = `${year}-${month}-${day}`;
-
-                    editTitle.textContent = todos[project][item].title;
-                    editDetails.textContent = todos[project][item].details;
-                    editDueDate.removeAttribute('value');
-                    editDueDate.setAttribute('value', currentDay);
-
-                    if (editLowLabel.classList.contains('low-checked')) {
-                        editLowLabel.classList.remove('low-checked');
-                        editLowLabel.classList.add('low');
-                    }
-                    if (editMediumLabel.classList.contains('medium-checked')) {
-                        editMediumLabel.classList.remove('medium-checked');
-                        editMediumLabel.classList.add('medium');
-                    }
-                    if (editHighLabel.classList.contains('high-checked')) {
-                        editHighLabel.classList.remove('high-checked');
-                        editHighLabel.classList.add('high');
-                    }
-
-                    if (todos[project][item].priority === 'low') {
-                        editLowPriority.checked = true;
-                        editLowLabel.classList.remove('low');
-                        editLowLabel.classList.add('low-checked');
-                    } else if (todos[project][item].priority === 'medium') {
-                        editMediumPriority.checked = true;
-                        editMediumLabel.classList.remove('medium');
-                        editMediumLabel.classList.add('medium-checked');
-                    } else if (todos[project][item].priority === 'high') {
-                        editHighPriority.checked = true;
-                        editHighLabel.classList.remove('high');
-                        editHighLabel.classList.add('high-checked');
-                    } 
-
-                    editCard.classList.remove('invisible-edit');
                 }
             }
-        } */
+        }
 
         editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
         
         editSubmit.addEventListener('submit', e => {
             editCard.classList.add('invisible-edit');
-            manageData.editTodo(e, todos);
-            
+            manageData.editTodo(item, project, todos);
         });
 
         editLowPriority.addEventListener('click', () => {
