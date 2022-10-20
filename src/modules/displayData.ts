@@ -4,6 +4,42 @@ import { format } from 'date-fns';
 
 export default (function displayData() {
 
+    function renderHighlightedFilters(arg: (Event | string)) {
+        const filterEl = document.querySelectorAll('.filters-btn');
+        const filterBtns: NodeListOf<Element> = filterEl!;
+        const projectEl = document.querySelectorAll('.project-name');
+        const projectBtns: NodeListOf<Element> = projectEl!;
+
+        filterBtns.forEach(btn => {
+            btn.classList.remove('clicked');
+        });
+
+        projectBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        if (arg instanceof Event) {
+            (arg.target as Element).classList.add('clicked');
+
+        } else if (typeof arg === 'string') {
+            filterBtns.forEach(btn => {
+                if (arg === 'all' && btn.classList.contains('all-btn')) {
+                    btn.classList.add('clicked');
+                } else if (arg === 'today' && btn.classList.contains('today-btn')) {
+                    btn.classList.add('clicked');
+                } else if (arg === 'week' && btn.classList.contains('week-btn')) {
+                    btn.classList.add('clicked');
+                }
+            });
+        
+            projectBtns.forEach(btn => {
+                if (btn.textContent === arg) {
+                    btn.classList.add('clicked');
+                }
+            });
+        }
+    };
+
     function renderFilterCounts(todos: ProjectsObject) {
         let allUncheckedTodos = 0;
         let todayUncheckedTodos = 0;
@@ -69,42 +105,6 @@ export default (function displayData() {
         allTodosCount.textContent = `${allUncheckedTodos}`;
         todayTodosCount.textContent = `${todayUncheckedTodos}`;
         weekTodosCount.textContent = `${weekUncheckedTodos}`;
-    };
-
-    function renderHighlightedFilters(arg: (Event | string)) {
-        const filterEl = document.querySelectorAll('.filters-btn');
-        const filterBtns: NodeListOf<Element> = filterEl!;
-        const projectEl = document.querySelectorAll('.project-name');
-        const projectBtns: NodeListOf<Element> = projectEl!;
-
-        filterBtns.forEach(btn => {
-            btn.classList.remove('clicked');
-        });
-
-        projectBtns.forEach(item => {
-            item.classList.remove('clicked');
-        });
-
-        if (arg instanceof Event) {
-            (arg.target as Element).classList.add('clicked');
-
-        } else if (typeof arg === 'string') {
-            filterBtns.forEach(btn => {
-                if (arg === 'all' && btn.classList.contains('all-btn')) {
-                    btn.classList.add('clicked');
-                } else if (arg === 'today' && btn.classList.contains('today-btn')) {
-                    btn.classList.add('clicked');
-                } else if (arg === 'week' && btn.classList.contains('week-btn')) {
-                    btn.classList.add('clicked');
-                }
-            });
-        
-            projectBtns.forEach(btn => {
-                if (btn.textContent === arg) {
-                    btn.classList.add('clicked');
-                }
-            });
-        }
     };
 
     function renderProjectList(todos: ProjectsObject) {
