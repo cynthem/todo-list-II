@@ -136,18 +136,6 @@ export default (function displayData() {
             projectItem.appendChild(projectTitle);
             projectItem.appendChild(projectCounter);
             projectContainer.appendChild(projectItem);
-
-            /*if (manageData.getSelectedProject() === project) {
-                highlightReloadedFilter(project);
-            } else if (manageData.getSelectedProject() === 'all') {
-                highlightReloadedFilter('all');
-            } else if (manageData.getSelectedProject() === 'today') {
-                highlightReloadedFilter('today');
-            } else if (manageData.getSelectedProject() === 'week') {
-                highlightReloadedFilter('week');
-            } else {
-                highlightReloadedFilter('all');
-            }*/
         };
     };
 
