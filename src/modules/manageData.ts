@@ -133,19 +133,19 @@ export default (function manageData() {
 
     function manageTodosRender(todos: ProjectsObject, listContainer: Element, e?: Event) {
         if (e) {
-            if ((e.target as Element).textContent === 'All') {
+            const project = (e.target as Element).textContent!;
+            if (project === 'All') {
                 setSelectedProject('all');
                 displayData.renderAllTodos(todos, listContainer);
-            } else if ((e.target as Element).textContent === 'Today') {
+            } else if (project === 'Today') {
                 setSelectedProject('today');
                 displayData.renderTodayTodos(todos, listContainer);
-            } else if ((e.target as Element).textContent === 'This week') {
+            } else if (project === 'This week') {
                 setSelectedProject('week');
                 displayData.renderWeekTodos(todos, listContainer);
             } else {
-                const project = (e.target as Element).textContent!;
+                setSelectedProject(project);
                 let projectLength = todos[project].length;
-
                 todos[project].forEach(todo => {
                     if (todo.checked) {
                         projectLength--;
@@ -155,7 +155,6 @@ export default (function manageData() {
                 if (projectLength < 1) {
                     displayData.renderEmptyProjectPopup(e, todos, listContainer);
                 } else {
-                    setSelectedProject(project);
                     displayData.renderProjectTodos(todos, listContainer);
                 }
             }

@@ -1,6 +1,6 @@
+import manageData from "./manageData";
 import { ProjectsObject } from "../util/types";
 import { format } from 'date-fns';
-import manageData from "./manageData";
 
 export default (function displayData() {
 
@@ -152,23 +152,20 @@ export default (function displayData() {
     };
 
     function renderEmptyProjectPopup(e: Event, todos: ProjectsObject, listContainer: Element) {
-        /* const contentContainer = document.getElementById('content');
-        const emptyContainer = document.querySelector('.empty-project-card');
-        const emptyExit = document.getElementById('empty-cancel');
-        const emptyTitle = document.querySelector('.empty-name');
+        const emptyPopupEl = document.querySelector('.popup-empty-project');
+        const emptyPopup: Element = emptyPopupEl!;
+        const emptyNameEl = document.querySelector('.empty-project-name');
+        const emptyName: Element = emptyNameEl!;
+
+        /* 
         const emptyAdd = document.querySelector('.empty-add');
         const deleteProject = document.querySelector('.empty-delete');
         const allBtn = document.querySelector('.all-btn');
         const addNewCard = document.querySelector('.add-new-card');
         const addNewDate = document.getElementById('new-date');
-        const dateObject = new Date();
-        const month = format(dateObject, 'MM');
-        const day = format(dateObject, 'dd');
-        const year = format(dateObject, 'yyyy');
-        const currentDay = `${year}-${month}-${day}`;
         
-        emptyTitle.innerHTML = '';
-        emptyTitle.textContent = manageData.getSelectedProject();
+        emptyName.innerHTML = '';
+        emptyName.textContent = manageData.getSelectedProject();
         
         emptyContainer.style.visibility = 'visible';
         contentContainer.classList.add('blur');
