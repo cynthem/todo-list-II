@@ -358,17 +358,17 @@ export default (function UI() {
     function handleDeleteBtn(e: Event) {
         const deletePopupEl = document.querySelector('.popup-delete-todo');
         const deletePopup: Element = deletePopupEl!;
-        const deleteConfirmEl = document.querySelector('.');
+        const deleteConfirmEl = document.querySelector('.delete-todo-confirm-btn');
         const deleteConfirm: Element = deleteConfirmEl!;
-        const deleteCloseEl = document.querySelector('.delete-todo-close');
-        const deleteClose: Element = deleteCloseEl!;
+        const deleteCancelEl = document.querySelector('.delete-todo-cancel-btn');
+        const deleteCancel: Element = deleteCancelEl!;
 
         deleteConfirm.addEventListener('click', () => {
             manageData.deleteTodo(e, todos, listContainer);
             deletePopup.classList.add('invisible-delete-todo');
         });
 
-        deleteClose.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));
+        deleteCancel.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));
     };
 
     return { loadPage };
