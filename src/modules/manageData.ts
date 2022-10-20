@@ -17,33 +17,28 @@ export default (function manageData() {
     function addProject(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
-        /* const newProject = (document.querySelector('#add-project')).value;
+        const newProject = (document.querySelector('#add-project') as HTMLInputElement).value;
 
         if (newProject) {
-            if (newProject.toLowerCase === 'all') {
+            if (newProject.toLowerCase() === 'all') {
                 setSelectedProject('all');
-                changeDOM.highlightReloadedFilter('all');
-                changeDOM.renderAllTodos(todos, listContainer);
+                displayData.renderAllTodos(todos, listContainer);
             } else if (newProject.toLowerCase() === 'today') {
                 setSelectedProject('today');
-                changeDOM.renderTodayTodos(todos, listContainer);
-                changeDOM.highlightReloadedFilter('today');
+                displayData.renderTodayTodos(todos, listContainer);
             } else if ((newProject.toLowerCase() === 'week') || (newProject.toLowerCase() === 'this week')) {
                 setSelectedProject('week');
-                changeDOM.renderWeekTodos(todos, listContainer);
-                changeDOM.highlightReloadedFilter('week');
+                displayData.renderWeekTodos(todos, listContainer);
             } else if (newProject in todos) {
                 setSelectedProject(newProject);
-                changeDOM.renderProjectTodos(todos, listContainer);
-                changeDOM.highlightReloadedFilter(getSelectedProject());
+                displayData.renderProjectTodos(todos, listContainer);
             } else {
                 todos[newProject] = [];
                 setSelectedProject('all');
-                changeDOM.highlightReloadedFilter(getSelectedProject());
-                changeDOM.renderProjectList(todos, listContainer);
-                changeDOM.renderAllTodos(todos, listContainer);
+                displayData.renderProjectList(todos);
+                displayData.renderAllTodos(todos, listContainer);
             }
-        } */
+        }
         storeTodos(todos);
     };
 
@@ -74,6 +69,7 @@ export default (function manageData() {
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
 
+        storeTodos(todos);
         displayData.renderProjectList(todos);
         manageTodosRender(todos, listContainer);
     };
