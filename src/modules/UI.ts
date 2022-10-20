@@ -230,7 +230,7 @@ export default (function UI() {
         toggleCheckbox();
         toggleNotesBtn();
         toggleEditBtn();
-        handleDeleteBtn();
+        toggleDeleteBtn();
     };
 
     function toggleCheckbox() {
@@ -338,6 +338,20 @@ export default (function UI() {
                 editHighLabel.classList.remove('high');
                 editHighLabel.classList.add('high-checked');
             }
+        });
+    };
+
+    function toggleDeleteBtn() {
+        const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
+        const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
+        const deletePopupEl = document.querySelector('.popup-delete');
+        const deletePopup: Element = deletePopupEl!;
+
+        deleteBtn.forEach(btn => {
+            btn.addEventListener('click', e => {
+                deletePopup.classList.remove('invisible-delete');
+                handleDeleteBtn();
+            });
         });
     };
 
