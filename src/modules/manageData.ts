@@ -20,24 +20,28 @@ export default (function manageData() {
 
         if (newProject) {
             if (newProject.toLowerCase() === 'all') {
+                storeTodos(todos);
                 setSelectedProject('all');
                 displayData.renderAllTodos(todos, listContainer);
             } else if (newProject.toLowerCase() === 'today') {
+                storeTodos(todos);
                 setSelectedProject('today');
                 displayData.renderTodayTodos(todos, listContainer);
             } else if ((newProject.toLowerCase() === 'week') || (newProject.toLowerCase() === 'this week')) {
+                storeTodos(todos);
                 setSelectedProject('week');
                 displayData.renderWeekTodos(todos, listContainer);
             } else if (newProject in todos) {
+                storeTodos(todos);
                 setSelectedProject(newProject);
                 displayData.renderProjectTodos(todos, listContainer);
             } else {
                 todos[newProject] = [];
+                storeTodos(todos);
                 displayData.renderFilterCounts(todos);
                 displayData.renderProjectList(todos);
             }
         }
-        storeTodos(todos);
     };
 
     function deleteProject(todos: ProjectsObject, listContainer: Element) {
