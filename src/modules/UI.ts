@@ -64,14 +64,14 @@ export default (function UI() {
         const emptyAddBtn: Element = emptyAddBtnEl!;
         const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
         const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
-        const addNewPopupEl = document.querySelector('.popup-add-new-todo');
-        const addNewPopup: Element = addNewPopupEl!;
+        const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
+        const addTodoPopup: Element = addTodoPopupEl!;
         const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
         const addDate: HTMLInputElement = addDateEl!;
 
         emptyAddBtn.addEventListener('click', () => {
             addDate.setAttribute('value', currentDay);
-            addNewPopup.classList.remove('invisible-add-new');
+            addTodoPopup.classList.remove('invisible-add-new');
             handleAddTodoForm();
         });
 
@@ -81,7 +81,87 @@ export default (function UI() {
         });
     };
 
-    function handleAddTodoForm() {};
+    function handleAddTodoForm() {
+        const addTodoPopupEl = document.querySelector('.popup-add-new');
+        const addTodoPopup: Element = addTodoPopupEl!;
+        const addTodoDeleteEl = document.querySelector('#add-exit');
+        const addTodoDelete: Element = addTodoDeleteEl!;
+        const addTodoFormEl = <HTMLFormElement>document.querySelector('.add-todo-form');
+        const addTodoForm: HTMLFormElement = addTodoFormEl!;
+        const addDateEl = document.getElementById('new-date');
+        const addDate: Element = addDateEl!;
+        const addLowPriorityEl = document.getElementById('new-low');
+        const addLowPriority: Element = addLowPriorityEl!;
+        const addMediumPriorityEl = document.getElementById('new-medium');
+        const addMediumPriority: Element = addMediumPriorityEl!;
+        const addHighPriorityEl = document.getElementById('new-high');
+        const addHighPriority: Element = addHighPriorityEl!;
+        const addLowLabelEl = document.querySelector('.low');
+        const addLowLabel: Element = addLowLabelEl!;
+        const addMediumLabelEl = document.querySelector('.medium');
+        const addMediumLabel: Element = addMediumLabelEl!;
+        const addHighLabelEl = document.querySelector('.high');
+        const addHighLabel: Element = addHighLabelEl!;
+
+        addTodoForm.addEventListener('submit', e => {
+            manageData.addTodo(e, todos, listContainer);
+            addTodoPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addDate.removeAttribute('value');
+        });
+
+        addTodoDelete.addEventListener('click', () => {
+            manageData.deleteProject(todos, listContainer);
+            addTodoPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addDate.removeAttribute('value');
+        });
+
+        addLowPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low')) {
+                addLowLabel.classList.remove('low');
+                addLowLabel.classList.add('low-checked');
+            }
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
+            }
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
+            }
+        });
+
+        addMediumPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
+            }
+            if (addMediumLabel.classList.contains('medium')) {
+                addMediumLabel.classList.remove('medium');
+                addMediumLabel.classList.add('medium-checked');
+            }
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
+            }
+        });
+
+        addHighPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
+            }
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
+            }
+            if (addHighLabel.classList.contains('high')) {
+                addHighLabel.classList.remove('high');
+                addHighLabel.classList.add('high-checked');
+            }
+        });
+    };
 
     function toggleAddBtn() {
         const addNewEl = document.querySelector('.projects-btn');
