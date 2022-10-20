@@ -70,7 +70,7 @@ export default (function UI() {
     };
 
     function toggleAddBtn() {
-        handleAddBtn();
+        handleAddForm();
     };
 
     function toggleCheckbox() {
@@ -118,7 +118,7 @@ export default (function UI() {
         });
     };
 
-    function handleAddBtn() {
+    function handleAddForm() {
         /* const addNew = document.querySelector('.projects-btn');
         const addNewCard = document.querySelector('.add-new-card');
         const addExit = document.querySelector('#add-exit');
