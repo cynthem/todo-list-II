@@ -4,8 +4,6 @@ import { todos } from './todoList';
 import { currentDay } from '../util/dates';
 
 export default (function UI() {
-    const listContainerEl = document.querySelector('.main-list');
-    const listContainer: Element = listContainerEl!;
 
     function loadPage() {
         loadDashboard();
@@ -37,7 +35,7 @@ export default (function UI() {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
+            btn.addEventListener('click', e => manageData.manageTodosRender(todos, e));
         });
     };
 
@@ -52,7 +50,7 @@ export default (function UI() {
         const projectTitle: NodeListOf<Element> = projectEl!;
 
         projectTitle.forEach(project => {
-            project.addEventListener('click', e => manageData.manageTodosRender(todos, listContainer, e));
+            project.addEventListener('click', e => manageData.manageTodosRender(todos, e));
             handleEmptyProject();
         });
     };
@@ -76,7 +74,7 @@ export default (function UI() {
         });
 
         emptyDeleteBtn.addEventListener('click', () => {
-            manageData.deleteProject(todos, listContainer);
+            manageData.deleteProject(todos);
             emptyPopup.classList.add('invisible-empty-project');
         });
     };
@@ -104,14 +102,14 @@ export default (function UI() {
         const addHighLabel: Element = addHighLabelEl!;
 
         addTodoForm.addEventListener('submit', e => {
-            manageData.addTodo(e, todos, listContainer);
+            manageData.addTodo(e, todos);
             addTodoPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
             addDate.removeAttribute('value');
         });
 
         addTodoDelete.addEventListener('click', () => {
-            manageData.deleteProject(todos, listContainer);
+            manageData.deleteProject(todos);
             addTodoPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
             addDate.removeAttribute('value');
@@ -218,7 +216,7 @@ export default (function UI() {
         });
 
         addTodoForm.addEventListener('submit', e => {
-            manageData.addTodo(e, todos, listContainer);
+            manageData.addTodo(e, todos);
             addNewPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
             addTodoForm.style.display = 'grid';
@@ -230,7 +228,7 @@ export default (function UI() {
         });
 
         addProjectForm.addEventListener('submit', e => {
-            manageData.addProject(e, todos, listContainer);
+            manageData.addProject(e, todos);
             addNewPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
             addTodoForm.style.display = 'grid';
@@ -302,7 +300,7 @@ export default (function UI() {
     };
 
     function loadTodoList() {
-        displayData.renderAllTodos(todos, listContainer);
+        displayData.renderAllTodos(todos);
         loadTodoItems();
     };
 
@@ -371,7 +369,7 @@ export default (function UI() {
         
         editSubmit.addEventListener('submit', e => {
             editCard.classList.add('invisible-edit');
-            manageData.editTodo(e, todos, listContainer);
+            manageData.editTodo(e, todos);
             
         });
 
@@ -444,7 +442,7 @@ export default (function UI() {
         const deleteCancel: Element = deleteCancelEl!;
 
         deleteConfirm.addEventListener('click', () => {
-            manageData.deleteTodo(e, todos, listContainer);
+            manageData.deleteTodo(e, todos);
             deletePopup.classList.add('invisible-delete-todo');
         });
 

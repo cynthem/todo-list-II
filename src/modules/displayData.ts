@@ -3,6 +3,8 @@ import { ProjectsObject } from "../util/types";
 import { format } from 'date-fns';
 
 export default (function displayData() {
+    const listContainerEl = document.querySelector('.main-list');
+    const listContainer: Element = listContainerEl!;
 
     function renderHighlightedFilters(arg: (Event | string)) {
         const filterEl = document.querySelectorAll('.filters-btn');
