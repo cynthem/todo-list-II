@@ -34,6 +34,7 @@ export default (function manageData() {
             } else {
                 todos[newProject] = [];
                 setSelectedProject('all');
+                displayData.renderFilterCounts(todos);
                 displayData.renderProjectList(todos);
                 displayData.renderAllTodos(todos, listContainer);
             }
@@ -78,6 +79,7 @@ export default (function manageData() {
         todos[todoProject].push(newTodo);
 
         storeTodos(todos);
+        displayData.renderFilterCounts(todos);
         displayData.renderProjectList(todos);
         manageTodosRender(todos, listContainer);
     };
