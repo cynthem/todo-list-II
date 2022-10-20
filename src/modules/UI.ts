@@ -252,13 +252,26 @@ export default (function UI() {
     };
 
     function handleEmptyProject() {
+        const emptyPopupEl = document.querySelector('.popup-empty-project');
+        const emptyPopup: Element = emptyPopupEl!;
         const emptyAddBtnEl = document.querySelector('.empty-project-add-btn');
         const emptyAddBtn: Element = emptyAddBtnEl!;
         const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
         const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
+        const addNewPopupEl = document.querySelector('.popup-add-new-todo');
+        const addNewPopup: Element = addNewPopupEl!;
+        const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
+        const addDate: HTMLInputElement = addDateEl!;
+
+        emptyAddBtn.addEventListener('click', () => {
+            addDate.setAttribute('value', currentDay);
+            addNewPopup.classList.remove('invisible-add-new');
+            handleAddTodoForm();
+        });
 
         emptyDeleteBtn.addEventListener('click', () => {
-            
+            manageData.deleteProject();
+            emptyPopup.classList.add('invisible-empty-project');
         });
 
         /* deleteProject.addEventListener('click', () => {
@@ -268,21 +281,9 @@ export default (function UI() {
             manageData.setSelectedProject('all');
             renderAllTodos(todos, listContainer);
             allBtn.classList.add('clicked');
-            emptyContainer.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
         }); 
 
-        const emptyContainer = document.querySelector('.empty-project-card');
-        const emptyTitle = document.querySelector('.empty-name');
-        const allBtn = document.querySelector('.all-btn');
-        const addNewCard = document.querySelector('.add-new-card');
-        const addNewDate = document.getElementById('new-date');
-
-        emptyAdd.addEventListener('click', () => {
-            addNewDate.setAttribute('value', currentDay);
-            emptyContainer.style.visibility = 'hidden';
-            addNewCard.style.visibility = 'visible';
-        });*/
+        const allBtn = document.querySelector('.all-btn');*/
     };
 
     function handleEditForm() {
@@ -358,6 +359,8 @@ export default (function UI() {
             }
         });
     };
+
+    function handleAddTodoForm() {};
 
     return { loadPage };
 })();
