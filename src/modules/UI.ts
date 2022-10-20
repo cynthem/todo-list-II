@@ -127,40 +127,42 @@ export default (function UI() {
     };
 
     function handleAddForm() {
-        /* const addNew = document.querySelector('.projects-btn');
-        const addNewCard = document.querySelector('.add-new-card');
-        const addExit = document.querySelector('#add-exit');
-        const addTodoBtn = document.querySelector('.add-btn-todo');
-        const addTodoForm = document.querySelector('.add-todo-form');
-        const addProject = document.querySelector('.add-btn-project');
-        const addProjectForm = document.querySelector('.add-project-form');
+        const addNewPopupEl = document.querySelector('.popup-add-new');
+        const addNewPopup: Element = addNewPopupEl!;
+        const addNewCloseEl = document.querySelector('#add-exit');
+        const addNewClose: Element = addNewCloseEl!;
+        const addTodoFormEl = <HTMLFormElement>document.querySelector('.add-todo-form');
+        const addTodoForm: HTMLFormElement = addTodoFormEl!;
+        const addProjectFormEl = <HTMLFormElement>document.querySelector('.add-project-form');
+        const addProjectForm: HTMLFormElement = addProjectFormEl!;
+        const addTodoBtnEl = document.querySelector('.add-todo-btn');
+        const addTodoBtn: Element = addTodoBtnEl!;
+        const addProjectBtnEl = document.querySelector('.add-project-btn');
+        const addProjectBtn: Element = addProjectBtnEl!;
+
+        addNewClose.addEventListener('click', () => {
+            addNewPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addProjectForm.reset();
+            addTodoBtn.classList.add('clicked');
+            addProjectBtn.classList.remove('clicked');
+        });
+
+
+        /*  
+            addTodoForm.style.display = 'grid';
+            addProject.classList.remove('clicked');
+            addProjectForm.style.display = 'none';
+            addDate.removeAttribute('value');
+        });
+
         const addDate = document.getElementById('new-date');
         const addLowPriority = document.getElementById('new-low');
         const addMediumPriority = document.getElementById('new-medium');
         const addHighPriority = document.getElementById('new-high');
         const addLow = document.querySelector('.low');
         const addMedium = document.querySelector('.medium');
-        const addHigh = document.querySelector('.high'); */
-
-        /* addNew.addEventListener('click', () => {
-            contentContainer.classList.add('blur');
-            addNewCard.style.visibility = 'visible';
-            addDate.setAttribute('value', currentDay);
-        });
-
-        addExit.addEventListener('click', () => {
-            addNewCard.style.visibility = 'hidden';
-            addNewCard.classList.remove('enter');
-            addNewCard.classList.add('exit');
-            contentContainer.classList.remove('blur');
-            addTodoForm.reset();
-            addProjectForm.reset();
-            addTodoBtn.classList.add('clicked');
-            addTodoForm.style.display = 'grid';
-            addProject.classList.remove('clicked');
-            addProjectForm.style.display = 'none';
-            addDate.removeAttribute('value');
-        });
+        const addHigh = document.querySelector('.high');
 
         addTodoBtn.addEventListener('click', () => {
             addTodoBtn.classList.add('clicked');
