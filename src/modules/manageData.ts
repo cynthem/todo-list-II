@@ -1,5 +1,6 @@
-import { TodoObject, ProjectsObject } from "../util/types";
 import displayData from "./displayData";
+import { todos } from './todoList';
+import { TodoObject, ProjectsObject } from "../util/types";
 
 export default (function manageData() {
     let selectedProject = 'all';
