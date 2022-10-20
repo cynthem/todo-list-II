@@ -655,7 +655,7 @@ export default (function displayData() {
         notesDetails.innerHTML = '';
 
         let item: number;
-        let project: string;    //added per TS issue (remove and refactor?)
+        let project: string;  
         const target = e.target;
 
         if (target instanceof HTMLElement) {
@@ -707,7 +707,7 @@ export default (function displayData() {
         editDetails.innerHTML = '';
 
         let item: number;
-        let project: string;    //added per TS issue (remove and refactor?)
+        let project: string;
         const target = e.target;
 
         if (target instanceof HTMLElement) {
