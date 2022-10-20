@@ -339,13 +339,28 @@ export default (function UI() {
         
         editBtn.forEach(btn => {
             btn.addEventListener('click', e => {
-                displayData.renderEditPopup(e, todos);
-                handleEditForm(e);
+                let item: number;
+                let project: string;
+                const target = e.target;
+
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+
+                            displayData.renderEditPopup(item, project, todos);
+                            handleEditForm(item, project);
+                        }
+                    }
+                }
             });
         });
     };
 
-    function handleEditForm(e: Event) {
+    function handleEditForm(index: number, projectName: string) {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
         const editCloseEl = document.querySelector('.edit-close');
@@ -365,26 +380,11 @@ export default (function UI() {
         const editHighLabelEl = document.getElementById('edit-high-label');
         const editHighLabel: Element = editHighLabelEl!;
 
-        let item: number;
-        let project: string;
-        const target = e.target;
-
-        if (target instanceof HTMLElement) {
-            const itemParent = target.parentElement;
-            if (itemParent instanceof HTMLElement) {
-                const itemGrandparent = itemParent.parentElement;
-                if (itemGrandparent instanceof HTMLElement) {
-                    item = Number(itemGrandparent.dataset.index);
-                    project = itemGrandparent.dataset.project!;
-                }
-            }
-        }
-
         editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
         
         editSubmit.addEventListener('submit', e => {
             editCard.classList.add('invisible-edit');
-            manageData.editTodo(item, project, todos);
+            manageData.editTodo(index, projectName, e, todos);
         });
 
         editLowPriority.addEventListener('click', () => {
