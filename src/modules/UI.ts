@@ -344,31 +344,31 @@ export default (function UI() {
     function toggleDeleteBtn() {
         const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
         const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
-        const deletePopupEl = document.querySelector('.popup-delete');
+        const deletePopupEl = document.querySelector('.popup-delete-todo');
         const deletePopup: Element = deletePopupEl!;
 
         deleteBtn.forEach(btn => {
             btn.addEventListener('click', e => {
-                deletePopup.classList.remove('invisible-delete');
+                deletePopup.classList.remove('invisible-delete-todo');
                 handleDeleteBtn(e);
             });
         });
     };
 
     function handleDeleteBtn(e: Event) {
-        const deletePopupEl = document.querySelector('.popup-delete');
+        const deletePopupEl = document.querySelector('.popup-delete-todo');
         const deletePopup: Element = deletePopupEl!;
         const deleteConfirmEl = document.querySelector('.');
         const deleteConfirm: Element = deleteConfirmEl!;
-        const deleteCloseEl = document.querySelector('.delete-close');
+        const deleteCloseEl = document.querySelector('.delete-todo-close');
         const deleteClose: Element = deleteCloseEl!;
 
         deleteConfirm.addEventListener('click', () => {
             manageData.deleteTodo(e, todos, listContainer);
-            deletePopup.classList.add('invisible-delete');
+            deletePopup.classList.add('invisible-delete-todo');
         });
 
-        deleteClose.addEventListener('click', () => deletePopup.classList.add('invisible-delete'));
+        deleteClose.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));
     };
 
     return { loadPage };
