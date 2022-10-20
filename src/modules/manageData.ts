@@ -135,6 +135,7 @@ export default (function manageData() {
     function manageTodosRender(todos: ProjectsObject, e?: Event) {
         if (e) {
             const project = (e.target as Element).textContent!;
+
             if (project === 'All') {
                 setSelectedProject('all');
                 displayData.renderAllTodos(todos);
@@ -147,6 +148,7 @@ export default (function manageData() {
             } else {
                 setSelectedProject(project);
                 let projectLength = todos[project].length;
+                
                 todos[project].forEach(todo => {
                     if (todo.checked) {
                         projectLength--;

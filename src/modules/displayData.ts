@@ -628,10 +628,11 @@ export default (function displayData() {
                     notesDueDate.textContent = `${month} ${day}, ${year}`;
                     notesPriority.textContent = todos[project][item].priority[0].toUpperCase() + todos[project][item].priority.slice(1);
                     notesDetails.textContent = todos[project][item].details;
+
+                    notesCard.classList.remove('invisible-notes');
                 }
             }
         }
-        notesCard.classList.remove('invisible-notes');
     };
 
     function renderEditPopup(e: Event, todos: ProjectsObject) {
@@ -708,10 +709,11 @@ export default (function displayData() {
                         editHighLabel.classList.remove('high');
                         editHighLabel.classList.add('high-checked');
                     } 
+
+                    editCard.classList.remove('invisible-edit');
                 }
             }
         }
-        editCard.classList.remove('invisible-edit');
     };
 
     return {
