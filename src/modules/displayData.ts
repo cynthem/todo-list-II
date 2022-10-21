@@ -13,7 +13,7 @@ export default (function displayData() {
         renderProjectList(todos);
     };
 
-    function renderHighlightedFilters() {
+    function renderHighlightedCategory() {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
         const projectEl = document.querySelectorAll('.project-name');
@@ -666,7 +666,7 @@ export default (function displayData() {
 
     return {
         loadContent,
-        renderHighlightedFilters,
+        renderHighlightedCategory,
         renderFilterList,
         renderProjectList,
         renderAddNewPopup,
