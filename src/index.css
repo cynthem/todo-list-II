@@ -796,6 +796,30 @@ textarea {
 .delete-todo-container {
     width: 500px;
     height: 300px;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 60px 10px 10px;
+}
+
+.delete-todo-confirm-btn,
+.delete-todo-cancel-btn {
+    width: 160px;
+    border: none;
+    outline: none;
+    background-color: #542344;
+    color: #EBF5EE;
+    font-size: 1.3rem;
+    padding: 8px 23px 7px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.delete-todo-confirm-btn {
+    margin-top: 60px;
+}
+
+.delete-todo-cancel-btn {
+    margin-top: 30px;
 }
 
 
