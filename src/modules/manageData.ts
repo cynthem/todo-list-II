@@ -57,7 +57,7 @@ export default (function manageData() {
         storeTodos(todos);
     };
 
-    function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
+    function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked: boolean = false) {
         const todoItem: TodoObject = {
             title,
             details,
