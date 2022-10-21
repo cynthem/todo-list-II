@@ -370,7 +370,9 @@ export default (function displayData() {
     };
 
     function renderWeekTodos(todos: ProjectsObject) {
-        /* listContainer.innerHTML = '';
+        listContainer.innerHTML = '';
+        
+        /* 
 
         for (const project in todos) {
             
