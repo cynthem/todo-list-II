@@ -13,11 +13,13 @@ export default (function displayData() {
         renderProjectList(todos);
     };
 
-    function renderHighlightedFilters(projectName: string) {
+    function renderHighlightedFilters() {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
         const projectEl = document.querySelectorAll('.project-name');
         const projectBtns: NodeListOf<Element> = projectEl!;
+
+        const projectName = manageData.getSelectedProject();
 
         filterBtns.forEach(btn => {
             btn.classList.remove('clicked');
