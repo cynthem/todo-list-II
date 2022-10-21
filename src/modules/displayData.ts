@@ -668,7 +668,7 @@ export default (function displayData() {
     };
 
     return {
-        reloadContent,
+        loadContent,
         renderHighlightedFilters,
         renderFilterCounts,
         renderProjectList,
