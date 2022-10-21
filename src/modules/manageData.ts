@@ -6,7 +6,6 @@ export default (function manageData() {
 
     function setSelectedProject(currentProject: string) {
         selectedProject = currentProject;
-        displayData.renderHighlightedCategory();
     };
 
     function getSelectedProject() {

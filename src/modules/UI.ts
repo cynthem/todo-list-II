@@ -4,41 +4,8 @@ import { todos } from './todoList';
 
 export default (function UI() {
 
-    function loadPage() {
-        loadDashboard();
-        loadTodoList();
-    };
-
-    function loadDashboard() {
-        toggleDashboard();
-        loadFilters();
-        loadProjects();
-    };
-
-    function toggleDashboard() {
-        const dashboardEl = document.querySelector('.main-dashboard');
-        const dashboard: Element = dashboardEl!;
-        const hamburgerEl = document.querySelector('.fa-bars');
-        const hamburgerMenu: Element = hamburgerEl!;
-
-        hamburgerMenu.addEventListener('click', () => (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden');
-    };
-
-    function loadFilters() {
-        displayData.renderHighlightedFilters('all');
-        displayData.renderFilterCounts(todos);
-        toggleFilters();
-    };
-
     function toggleFilters() {
-        const filterEl = document.querySelectorAll('.filters-btn');
-        const filterBtns: NodeListOf<Element> = filterEl!;
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', e => {
-                const project = (e.target as Element).textContent!;
-                manageData.manageTodosRender(project);
-            });
-        });
+        
     };
 
     function loadProjects() {
@@ -492,6 +459,4 @@ export default (function UI() {
 
         deleteCancel.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));
     };
-
-    return { loadPage };
 })();
