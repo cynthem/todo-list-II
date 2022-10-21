@@ -87,7 +87,7 @@ export default (function manageData() {
 
     function checkOffTodo(index: number, projectName: string, todos: ProjectsObject) {
         todos[projectName][index].checked = !todos[projectName][index].checked;
-        storeTodos(todos);
+        updateTodos(todos);
     };
 
     function editTodo(index: number, projectName: string, e: Event, todos: ProjectsObject) {
