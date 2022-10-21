@@ -796,6 +796,7 @@ textarea {
 .delete-todo-container {
     width: 500px;
     height: 300px;
+    text-align: center;
     align-items: center;
     font-size: 1.5rem;
     padding: 60px 10px 10px;
@@ -1177,6 +1178,23 @@ textarea {
     }
     .edit-details-textarea {
         font-size: 0.8rem;
+    }
+    .delete-todo-container {
+        width: 270px;
+        height: 270px;
+        font-size: 1.2rem;
+        padding: 50px 10px 10px;
+    }
+    .delete-todo-confirm-btn,
+    .delete-todo-cancel-btn {
+        width: 140px;
+        font-size: 1.1rem;
+    }
+    .delete-todo-confirm-btn {
+        margin-top: 40px;
+    }
+    .delete-todo-cancel-btn {
+        margin-top: 25px;
     }
     .empty-project-container {
         width: 350px;
