@@ -7,7 +7,7 @@ export default (function displayData() {
     const listContainerEl = document.querySelector('.main-list');
     const listContainer: Element = listContainerEl!;
 
-    function reloadContent(todos: ProjectsObject) {
+    function loadContent(todos: ProjectsObject) {
         manageData.manageTodosRender(todos);
         renderFilterCounts(todos);
         renderProjectList(todos);
