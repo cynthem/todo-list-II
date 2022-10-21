@@ -166,7 +166,7 @@ export default (function manageData() {
             } else if (project === 'Today') {
                 setSelectedProject('today');
                 displayData.renderTodayTodos(todos);
-            } else if (project === 'This week') {
+            } else if (project === 'This Week') {
                 setSelectedProject('week');
                 displayData.renderWeekTodos(todos);
             } else {
