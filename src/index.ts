@@ -134,7 +134,7 @@ filterBtns.forEach(btn => {
         } else {
             projectName = 'week';
         }
-        
+
         manageData.setSelectedProject(todos, projectName);
     });
 });
@@ -157,7 +157,7 @@ emptyDeleteBtn.addEventListener('click', () => {
 });
 
 // Popup: Add Todo to Empty Project
-addTodoForm.addEventListener('submit', e => {
+addNewForm.addEventListener('submit', e => {
     manageData.addProjectTodo(e, todos);
     addTodoPopup.classList.add('invisible-add-new-todo');
     addNewForm.reset();
