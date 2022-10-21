@@ -40,7 +40,22 @@ export default (function manageData() {
         storeTodos(todos);
     };
 
-    function addProjectTodo(e: Event, todos: ProjectsObject) {};
+    function addProjectTodo(e: Event, todos: ProjectsObject) {
+        e.preventDefault();
+
+        const todoTitle = (document.querySelector('.add-new-todo-input') as HTMLInputElement).value;
+        const todoDetails = (document.querySelector('.add-new-todo-textarea') as HTMLTextAreaElement).value;
+        const todoDate = (document.querySelector('.add-new-date-input') as HTMLInputElement).value;
+        const todoPriority = (document.querySelector('[name="new-priority"]:checked') as HTMLInputElement).value;
+        const todoProject = getSelectedProject();
+        const todoDay = todoDate.slice(5, 10);
+        const todoYear = todoDate.slice(0, 4);
+        const todoDueDate = `${todoDay}-${todoYear}`;
+
+        const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
+        todos[todoProject].push(newTodo);
+        storeTodos(todos);
+    };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked = false) {
         const todoItem: TodoObject = {

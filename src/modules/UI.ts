@@ -94,7 +94,7 @@ export default (function UI() {
         const addHighLabel: Element = addHighLabelEl!;
 
         addTodoForm.addEventListener('submit', e => {
-            manageData.addTodo(e, todos);
+            manageData.addProjectTodo(e, todos);
             addTodoPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
             addDate.removeAttribute('value');
