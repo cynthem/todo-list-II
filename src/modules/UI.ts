@@ -74,11 +74,9 @@ export default (function UI() {
     };
 
     function handleAddTodoForm() {
-        const addTodoPopupEl = document.querySelector('.popup-add-new');
+        const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
         const addTodoPopup: Element = addTodoPopupEl!;
-        const addTodoDeleteEl = document.querySelector('#add-exit');
-        const addTodoDelete: Element = addTodoDeleteEl!;
-        const addTodoFormEl = <HTMLFormElement>document.querySelector('.add-todo-form');
+        const addTodoFormEl = <HTMLFormElement>document.querySelector('.add-new-todo-form');
         const addTodoForm: HTMLFormElement = addTodoFormEl!;
         const addDateEl = document.getElementById('new-date');
         const addDate: Element = addDateEl!;
