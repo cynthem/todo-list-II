@@ -78,13 +78,15 @@ export default (function UI() {
         const addTodoPopup: Element = addTodoPopupEl!;
         const addTodoFormEl = <HTMLFormElement>document.querySelector('.add-new-todo-form');
         const addTodoForm: HTMLFormElement = addTodoFormEl!;
+        const addTodoDeleteEl = document.querySelector('.add-new-delete-project');
+        const addTodoDelete: Element = addTodoDeleteEl!;
         const addDateEl = <HTMLInputElement>document.querySelector('.add-new-date-input');
         const addDate: HTMLInputElement = addDateEl!;
-        const addLowPriorityEl = <HTMLInputElement>document.getElementById('new-low');
+        const addLowPriorityEl = <HTMLInputElement>document.getElementById('new-todo-low');
         const addLowPriority: HTMLInputElement = addLowPriorityEl!;
-        const addMediumPriorityEl = <HTMLInputElement>document.getElementById('new-medium');
+        const addMediumPriorityEl = <HTMLInputElement>document.getElementById('new-todo-medium');
         const addMediumPriority: HTMLInputElement = addMediumPriorityEl!;
-        const addHighPriorityEl = <HTMLInputElement>document.getElementById('new-high');
+        const addHighPriorityEl = <HTMLInputElement>document.getElementById('new-todo-high');
         const addHighPriority: HTMLInputElement = addHighPriorityEl!;
         const addLowLabelEl = <HTMLLabelElement>document.querySelector('.low');
         const addLowLabel: HTMLLabelElement = addLowLabelEl!;
@@ -102,7 +104,7 @@ export default (function UI() {
 
         addTodoDelete.addEventListener('click', () => {
             manageData.deleteProject(todos);
-            addTodoPopup.classList.add('invisible-add-new');
+            addTodoPopup.classList.add('invisible-add-new-todo');
             addTodoForm.reset();
             addDate.removeAttribute('value');
         });

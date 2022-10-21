@@ -180,7 +180,7 @@ export default (function displayData() {
 
         addProjectName.textContent = project;
         addDate.setAttribute('value', currentDay);
-        addTodoPopup.classList.remove('invisible-add-new');
+        addTodoPopup.classList.remove('invisible-add-new-todo');
     };
 
     function renderAllTodos(todos: ProjectsObject) {
