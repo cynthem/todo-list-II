@@ -465,5 +465,5 @@ export default (function UI() {
         deleteCancel.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));
     };
 
-    return { loadPage };
+    return { };
 })();

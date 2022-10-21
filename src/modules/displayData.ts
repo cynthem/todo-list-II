@@ -13,7 +13,7 @@ export default (function displayData() {
         renderProjectList(todos);
     };
 
-    function renderHighlightedFilters(arg: (Event | string)) {
+    function renderHighlightedFilters(projectName: string) {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
         const projectEl = document.querySelectorAll('.project-name');
@@ -27,26 +27,21 @@ export default (function displayData() {
             item.classList.remove('clicked');
         });
 
-        if (arg instanceof Event) {
-            (arg.target as Element).classList.add('clicked');
-
-        } else if (typeof arg === 'string') {
-            filterBtns.forEach(btn => {
-                if (arg === 'all' && btn.classList.contains('all-btn')) {
-                    btn.classList.add('clicked');
-                } else if (arg === 'today' && btn.classList.contains('today-btn')) {
-                    btn.classList.add('clicked');
-                } else if (arg === 'week' && btn.classList.contains('week-btn')) {
-                    btn.classList.add('clicked');
-                }
-            });
-        
-            projectBtns.forEach(btn => {
-                if (btn.textContent === arg) {
-                    btn.classList.add('clicked');
-                }
-            });
-        }
+        filterBtns.forEach(btn => {
+            if (projectName === 'all' && btn.classList.contains('all-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'today' && btn.classList.contains('today-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'week' && btn.classList.contains('week-btn')) {
+                btn.classList.add('clicked');
+            }
+        });
+    
+        projectBtns.forEach(btn => {
+            if (btn.textContent === projectName) {
+                btn.classList.add('clicked');
+            }
+        });
     };
 
     function renderFilterCounts(todos: ProjectsObject) {
