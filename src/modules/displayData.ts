@@ -174,6 +174,9 @@ export default (function displayData() {
         const addTodoPopup: Element = addTodoPopupEl!;
         const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
         const addDate: HTMLInputElement = addDateEl!;
+
+        addDate.setAttribute('value', currentDay);
+        addTodoPopup.classList.remove('invisible-add-new');
     };
 
     function renderAllTodos(todos: ProjectsObject) {

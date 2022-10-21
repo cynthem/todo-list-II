@@ -1,7 +1,6 @@
 import displayData from './displayData';
 import manageData from './manageData';
 import { todos } from './todoList';
-import { currentDay } from '../util/dates';
 
 export default (function UI() {
 
@@ -62,15 +61,9 @@ export default (function UI() {
         const emptyAddBtn: Element = emptyAddBtnEl!;
         const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
         const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
-        const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
-        const addTodoPopup: Element = addTodoPopupEl!;
-        const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
-        const addDate: HTMLInputElement = addDateEl!;
 
         emptyAddBtn.addEventListener('click', () => {
             displayData.renderAddTodoPopup();
-            addDate.setAttribute('value', currentDay);
-            addTodoPopup.classList.remove('invisible-add-new');
             handleAddTodoForm();
         });
 
