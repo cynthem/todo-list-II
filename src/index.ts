@@ -4,6 +4,7 @@ import { todos } from './modules/todoList';
 import './index.css';
 
 function initialLoad() {
+    
     displayData.renderHighlightedFilters('all');
     displayData.renderFilterCounts(todos);
     displayData.renderProjectList(todos);

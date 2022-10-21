@@ -34,7 +34,10 @@ export default (function UI() {
         const filterEl = document.querySelectorAll('.filters-btn');
         const filterBtns: NodeListOf<Element> = filterEl!;
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', e => manageData.manageTodosRender(todos, e));
+            btn.addEventListener('click', e => {
+                const project = (e.target as Element).textContent!;
+                manageData.manageTodosRender(project);
+            });
         });
     };
 
