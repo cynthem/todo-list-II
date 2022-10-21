@@ -6,6 +6,7 @@ export default (function manageData() {
 
     function setSelectedProject(currentProject: string) {
         selectedProject = currentProject;
+        displayData.renderHighlightedCategory();
     };
 
     function getSelectedProject() {
@@ -155,43 +156,26 @@ export default (function manageData() {
         displayData.loadContent(todos);
     };
 
-    function manageTodosRender(todos: ProjectsObject, e?: Event) {
-        if (e) {
-            const project = (e.target as Element).textContent!;
+    function manageTodosRender(todos: ProjectsObject) {
+        const project = getSelectedProject();
 
-            if (project === 'All') {
-                setSelectedProject('all');
-                displayData.renderAllTodos(todos);
-            } else if (project === 'Today') {
-                setSelectedProject('today');
-                displayData.renderTodayTodos(todos);
-            } else if (project === 'This Week') {
-                setSelectedProject('week');
-                displayData.renderWeekTodos(todos);
-            } else {
-                setSelectedProject(project);
-                let projectLength = todos[project].length;
+        if (project === 'all') {
+            displayData.renderAllTodos(todos);
+        } else if (project === 'today') {
+            displayData.renderTodayTodos(todos);
+        } else if (project === 'week') {
+            displayData.renderWeekTodos(todos);
+        } else {
+            let projectLength = todos[project].length;
 
-                todos[project].forEach(todo => {
-                    if (todo.checked) {
-                        projectLength--;
-                    }
-                });
-
-                if (projectLength < 1) {
-                    displayData.renderEmptyProjectPopup();
-                } else {
-                    displayData.renderProjectTodos(todos);
+            todos[project].forEach(todo => {
+                if (todo.checked) {
+                    projectLength--;
                 }
-            }
+            });
 
-        } else if (!e) {
-            if (getSelectedProject() === 'all') {
-                displayData.renderAllTodos(todos);
-            } else if (getSelectedProject() === 'today') {
-                displayData.renderTodayTodos(todos);
-            } else if (getSelectedProject() === 'week') {
-                displayData.renderWeekTodos(todos);
+            if (projectLength < 1) {
+                displayData.renderEmptyProjectPopup();
             } else {
                 displayData.renderProjectTodos(todos);
             }

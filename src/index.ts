@@ -13,7 +13,7 @@ const filterBtns: NodeListOf<Element> = filterEl!;
         
 
 function initialLoad(todos: ProjectsObject) {
-    displayData.renderHighlightedCategory();
+    manageData.setSelectedProject('all');
     displayData.renderFilterList(todos);
     displayData.renderProjectList(todos);
     displayData.renderAllTodos(todos);
