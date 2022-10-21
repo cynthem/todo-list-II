@@ -618,14 +618,12 @@ input[type="submit"] {
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Add-Todo Form */
 .add-todo-form {
     display: grid;
     grid-template: 70% 20% / 57% 40%;
     column-gap: 3%;
     row-gap: 10%;
-    padding: 0 2% 0 5%;
-    transform: scale(1);
-    transition: all .3s;
 }
 
 .add-todo-text {
@@ -634,14 +632,18 @@ input[type="submit"] {
     row-gap: 10%;
 }
 
-input[type="text"],
-textarea {
+.add-todo-input,
+.add-todo-textarea {
     font-family: 'Overpass', serif;
     font-size: 1.1rem;
     background-color: #EBF5EE;
     border: none;
     outline: none;
     overflow: scroll;
+}
+
+.add-todo-input {
+    align-self: flex-start;
 }
 
 .add-todo-textarea {
@@ -669,6 +671,7 @@ textarea {
     align-self: center;
 }
 
+/* Add-Todo Form */
 .add-project-form {
     grid-template-rows: 70% 20%;
     row-gap: 10%;
@@ -677,6 +680,12 @@ textarea {
 
 #add-project {
     width: 60%;
+    font-family: 'Overpass', serif;
+    font-size: 1.1rem;
+    background-color: #EBF5EE;
+    border: none;
+    outline: none;
+    overflow: scroll;
 }
 
 .add-project-submit {
