@@ -434,6 +434,8 @@ button {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+    transform: scale(1);
+    transition: all 0.3s;
 }
 
 .add-new-close,
