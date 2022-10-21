@@ -430,8 +430,7 @@ button {
 
 .add-new-close,
 .notes-close,
-.edit-close,
-.empty-project-close {
+.edit-close {
     display: flex;
     justify-content: flex-end;
     padding: 22px 18px 0 0;
@@ -440,8 +439,7 @@ button {
 
 .add-new-close > .fa-xmark,
 .notes-close > .fa-xmark,
-.edit-close > .fa-xmark,
-.empty-project-close > .fa-xmark {
+.edit-close > .fa-xmark {
     height: 100%;
     color: #542344;
     cursor: pointer;
@@ -1073,8 +1071,7 @@ textarea {
     }
     .add-new-close,
     .notes-close,
-    .edit-close,
-    .empty-project-close {
+    .edit-close {
         padding: 20px 16px 0 0;
         font-size: 0.8rem;
     }
@@ -1193,8 +1190,7 @@ textarea {
     }
     .add-new-close,
     .notes-close,
-    .edit-close,
-    .empty-project-close {
+    .edit-close {
         padding: 18px 14px 0 0;
     }
     .add-date-label,
