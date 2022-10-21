@@ -153,7 +153,7 @@ export default (function manageData() {
 
     function storeTodos(todos: ProjectsObject) {
         localStorage.setItem('todos', JSON.stringify(todos));
-        displayData.reloadContent(todos);
+        displayData.loadContent(todos);
     };
 
     function manageTodosRender(todos: ProjectsObject, e?: Event) {
