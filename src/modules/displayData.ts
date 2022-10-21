@@ -1,5 +1,6 @@
 import manageData from "./manageData";
 import { ProjectsObject } from "../util/types";
+import { currentDay } from '../util/dates';
 import { format } from 'date-fns';
 
 export default (function displayData() {
@@ -147,6 +148,16 @@ export default (function displayData() {
         };
     };
 
+    function renderAddNewPopup() {
+        const addNewPopupEl = document.querySelector('.popup-add-new');
+        const addNewPopup: Element = addNewPopupEl!;
+        const addDateEl = <HTMLInputElement>document.getElementById('new-date');
+        const addDate: HTMLInputElement = addDateEl!;
+
+        addDate.setAttribute('value', currentDay);
+        addNewPopup.classList.remove('invisible-add-new');
+    };
+
     function renderEmptyProjectPopup() {
         const emptyPopupEl = document.querySelector('.popup-empty-project');
         const emptyPopup: Element = emptyPopupEl!;
@@ -158,7 +169,12 @@ export default (function displayData() {
         emptyPopup.classList.remove('invisible-empty-project');
     };
 
-    function renderAddTodoPopup() {};
+    function renderAddTodoPopup() {
+        const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
+        const addTodoPopup: Element = addTodoPopupEl!;
+        const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
+        const addDate: HTMLInputElement = addDateEl!;
+    };
 
     function renderAllTodos(todos: ProjectsObject) {
         listContainer.innerHTML = '';
@@ -708,6 +724,7 @@ export default (function displayData() {
         renderHighlightedFilters,
         renderFilterCounts,
         renderProjectList,
+        renderAddNewPopup,
         renderEmptyProjectPopup,
         renderAddTodoPopup,
         renderAllTodos,

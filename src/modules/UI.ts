@@ -165,14 +165,8 @@ export default (function UI() {
     function toggleAddBtn() {
         const addNewEl = document.querySelector('.projects-btn');
         const addNewBtn: Element = addNewEl!;
-        const addNewPopupEl = document.querySelector('.popup-add-new');
-        const addNewPopup: Element = addNewPopupEl!;
-        const addDateEl = <HTMLInputElement>document.getElementById('new-date');
-        const addDate: HTMLInputElement = addDateEl!;
-
         addNewBtn.addEventListener('click', () => {
-            addDate.setAttribute('value', currentDay);
-            addNewPopup.classList.remove('invisible-add-new');
+            displayData.renderAddNewPopup();
             handleAddForm();
         });
     };
