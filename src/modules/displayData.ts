@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 
 export default (function displayData() {
     const listContainerEl = document.querySelector('.main-list');
-    const listContainer: Element = listContainerEl!;
+    const listContainer: Element = listContainerEl!
 
     function renderFilterList(todos: ProjectsObject) {
         let allUncheckedTodos = 0;
