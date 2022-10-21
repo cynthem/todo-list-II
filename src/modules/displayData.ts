@@ -576,6 +576,14 @@ export default (function displayData() {
                     item = Number(itemGrandparent.dataset.index);
                     project = itemGrandparent.dataset.project!;
 
+                    if (project === 'all') {
+                        project = 'All';
+                    } else if (project === 'today') {
+                        project = 'Today';
+                    } else if (project === 'week') {
+                        project = 'This Week';
+                    }
+
                     const day = format(new Date(todos[project][item].dueDate), 'do');
                     const month = format(new Date(todos[project][item].dueDate), 'MMM');
                     const year = format(new Date(todos[project][item].dueDate), 'yyyy');
