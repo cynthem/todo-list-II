@@ -525,8 +525,25 @@ export default (function displayData() {
         });
     };
 
-    function renderCheckedTodo(arg: (Element | Event), todos?: ProjectsObject) {
-        if (arg instanceof Element) {
+    function renderCheckedTodo(/*arg: (Element | Event), todos?: ProjectsObject*/ todoContainer: Element) {
+        const todoItems = todoContainer.children;
+        const itemsLeft = todoItems[0];
+        const itemsRight = todoItems[1];
+        const checkbox = itemsLeft.children[0];
+        const itemTitle = itemsLeft.children[1];
+        const itemNotes = itemsRight.children[0];
+        const itemDate = itemsRight.children[1];
+        const itemEdit = itemsRight.children[2]; 
+    
+        checkbox.classList.remove('fa-square');
+        checkbox.classList.add('fa-square-check');
+        itemTitle.classList.toggle('selected');
+        itemTitle.classList.toggle('strike');
+        itemNotes.classList.toggle('done');
+        itemDate.classList.toggle('selected');
+        itemEdit.classList.toggle('selected');
+        
+        /*if (arg instanceof Element) {
             const todoItems = arg.children;
             const itemsLeft = todoItems[0];
             const itemsRight = todoItems[1];
@@ -571,7 +588,7 @@ export default (function displayData() {
             const project: string = checkedTodo!.dataset.project!;
 
             manageData.checkOffTodo(index, project, todos!);
-        }
+        }*/
     };
 
     function renderNotesPopup(e: Event, todos: ProjectsObject) {
