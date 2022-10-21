@@ -82,7 +82,7 @@ export default (function manageData() {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-        storeTodos(todos);
+        updateTodos(todos);
     };
 
     function checkOffTodo(index: number, projectName: string, todos: ProjectsObject) {
