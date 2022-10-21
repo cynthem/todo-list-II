@@ -158,6 +158,8 @@ export default (function displayData() {
         emptyPopup.classList.remove('invisible-empty-project');
     };
 
+    function renderAddTodoPopup() {};
+
     function renderAllTodos(todos: ProjectsObject) {
         listContainer.innerHTML = '';
 
@@ -707,6 +709,7 @@ export default (function displayData() {
         renderFilterCounts,
         renderProjectList,
         renderEmptyProjectPopup,
+        renderAddTodoPopup,
         renderAllTodos,
         renderTodayTodos,
         renderWeekTodos,

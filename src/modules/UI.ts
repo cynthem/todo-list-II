@@ -68,6 +68,7 @@ export default (function UI() {
         const addDate: HTMLInputElement = addDateEl!;
 
         emptyAddBtn.addEventListener('click', () => {
+            displayData.renderAddTodoPopup();
             addDate.setAttribute('value', currentDay);
             addTodoPopup.classList.remove('invisible-add-new');
             handleAddTodoForm();
