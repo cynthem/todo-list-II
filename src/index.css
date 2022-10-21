@@ -823,6 +823,16 @@ textarea {
     margin-top: 30px;
 }
 
+.delete-todo-confirm-btn:hover,
+.delete-todo-cancel-btn:hover {
+    transform: scale(1.1);
+}
+
+.delete-todo-confirm-btn:active,
+.delete-todo-cancel-btn:active {
+    transform: translate(-1px, 1px);
+}
+
 
 /* POP-UP: EMPTY PROJECT */
 
