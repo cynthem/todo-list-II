@@ -141,9 +141,7 @@ filterBtns.forEach(btn => {
 
 projectBtns.forEach(btn => {
     btn.addEventListener('click', e => {
-        console.log('hello')
         const projectName = (e.target as Element).textContent!;
-        console.log(projectName)
         manageData.setSelectedProject(todos, projectName);
     });
 });
