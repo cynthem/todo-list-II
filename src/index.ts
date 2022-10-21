@@ -13,15 +13,14 @@ const filterBtns: NodeListOf<Element> = filterEl!;
         
 
 function initialLoad(todos: ProjectsObject) {
-    manageData.setSelectedProject('all');
+    manageData.setSelectedProject(todos, 'all');
     displayData.renderFilterList(todos);
     displayData.renderProjectList(todos);
     displayData.renderAllTodos(todos);
 };
 
 function categoryReload(todos: ProjectsObject, projectName: string) {
-    manageData.setSelectedProject(projectName);
-    
+    manageData.setSelectedProject(todos, projectName);
 };
 
 function updateReload() {};

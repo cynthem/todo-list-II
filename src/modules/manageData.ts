@@ -4,8 +4,9 @@ import { TodoObject, ProjectsObject } from "../util/types";
 export default (function manageData() {
     let selectedProject = 'all';
 
-    function setSelectedProject(currentProject: string) {
+    function setSelectedProject(todos: ProjectsObject, currentProject: string) {
         selectedProject = currentProject;
+        manageTodosRender(todos);
         displayData.renderHighlightedCategory();
     };
 
@@ -36,7 +37,7 @@ export default (function manageData() {
 
     function deleteProject(todos: ProjectsObject) {
         delete todos[getSelectedProject()];
-        setSelectedProject('all');
+        setSelectedProject(todos, 'all');
         storeTodos(todos);
     };
 
