@@ -669,14 +669,14 @@ export default (function displayData() {
         renderHighlightedCategory,
         renderFilterList,
         renderProjectList,
-        renderAddNewPopup,
-        renderEmptyProjectPopup,
-        renderAddTodoPopup,
         renderAllTodos,
         renderTodayTodos,
         renderWeekTodos,
         renderProjectTodos,
         renderCheckedTodo,
+        renderAddNewPopup,
+        renderEmptyProjectPopup,
+        renderAddTodoPopup,
         renderNotesPopup,
         renderEditPopup
     };
