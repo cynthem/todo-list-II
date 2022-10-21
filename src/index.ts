@@ -24,14 +24,10 @@ const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
         
 
 function initialLoad(todos: ProjectsObject) {
-    displayData.renderHighlightedCategory();
     displayData.renderFilterList(todos);
     displayData.renderProjectList(todos);
+    displayData.renderHighlightedCategory();
     displayData.renderAllTodos(todos);
-};
-
-function categoryReload(todos: ProjectsObject, projectName: string) {
-    manageData.setSelectedProject(todos, projectName);
 };
 
 function updateReload() {};
@@ -46,14 +42,14 @@ hamburgerMenu.addEventListener('click', () => {
 filterBtns.forEach(btn => {
     btn.addEventListener('click', e => {
         const projectName = (e.target as Element).textContent!;
-        categoryReload(todos, projectName);
+        manageData.setSelectedProject(todos, projectName);
     });
 });
 
 projectBtns.forEach(btn => {
     btn.addEventListener('click', e => {
         const projectName = (e.target as Element).textContent!;
-        categoryReload(todos, projectName);
+        manageData.setSelectedProject(todos, projectName);
     });
 });
 

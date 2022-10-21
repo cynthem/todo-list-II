@@ -6,8 +6,7 @@ export default (function manageData() {
 
     function setSelectedProject(todos: ProjectsObject, currentProject: string) {
         selectedProject = currentProject;
-        manageTodosRender(todos);
-        displayData.renderHighlightedCategory();
+        updateTodos(todos);
     };
 
     function getSelectedProject() {
@@ -38,7 +37,7 @@ export default (function manageData() {
     function deleteProject(todos: ProjectsObject) {
         delete todos[getSelectedProject()];
         setSelectedProject(todos, 'all');
-        storeTodos(todos);
+        updateTodos(todos);
     };
 
     function addProjectTodo(e: Event, todos: ProjectsObject) {
@@ -152,14 +151,18 @@ export default (function manageData() {
         }
     };
 
-    function storeTodos(todos: ProjectsObject) {
+    function updateTodos(todos: ProjectsObject) {
         localStorage.setItem('todos', JSON.stringify(todos));
-        displayData.loadContent(todos);
+        manageRerender(todos);
     };
 
-    function manageTodosRender(todos: ProjectsObject) {
-        const project = getSelectedProject();
+    function manageRerender(todos: ProjectsObject) {
+        displayData.renderHighlightedCategory();
+        displayData.renderFilterList(todos);
+        displayData.renderProjectList(todos);
 
+        const project = getSelectedProject();
+        
         if (project === 'all') {
             displayData.renderAllTodos(todos);
         } else if (project === 'today') {
@@ -194,7 +197,7 @@ export default (function manageData() {
         checkOffTodo,
         editTodo,
         deleteTodo,
-        storeTodos,
-        manageTodosRender
+        updateTodos,
+        manageRerender
     };
 })();
