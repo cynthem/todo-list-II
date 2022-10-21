@@ -99,8 +99,14 @@ const editMediumLabel: Element = editMediumLabelEl!;
 const editHighLabelEl = document.getElementById('edit-high-label');
 const editHighLabel: Element = editHighLabelEl!;
 // Popup: Delete Todo
-        
-
+const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
+const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
+const deletePopupEl = document.querySelector('.popup-delete-todo');
+const deletePopup: Element = deletePopupEl!;
+const deleteConfirmEl = document.querySelector('.delete-todo-confirm-btn');
+const deleteConfirm: Element = deleteConfirmEl!;
+const deleteCancelEl = document.querySelector('.delete-todo-cancel-btn');
+const deleteCancel: Element = deleteCancelEl!;
 
 function initialLoad(todos: ProjectsObject) {
     displayData.renderFilterList(todos);
@@ -346,11 +352,11 @@ notesBtn.forEach(btn => {
     notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
 }); 
 
-// Popup: Edit Todo       
+// Popup: Edit Todo      
 editBtn.forEach(btn => {
     btn.addEventListener('click', e => {
-        let item: number;
-        let project: string;
+        let editItem: number;
+        let editProject: string; 
         const target = e.target;
 
         if (target instanceof HTMLElement) {
@@ -358,9 +364,15 @@ editBtn.forEach(btn => {
             if (itemParent instanceof HTMLElement) {
                 const itemGrandparent = itemParent.parentElement;
                 if (itemGrandparent instanceof HTMLElement) {
-                    item = Number(itemGrandparent.dataset.index);
-                    project = itemGrandparent.dataset.project!;
-                    displayData.renderEditPopup(item, project, todos);
+                    editItem = Number(itemGrandparent.dataset.index);
+                    editProject = itemGrandparent.dataset.project!;
+
+                    displayData.renderEditPopup(editItem, editProject, todos);
+
+                    editSubmit.addEventListener('submit', e => {
+                        editCard.classList.add('invisible-edit');
+                        manageData.editTodo(editItem, editProject, e, todos);
+                    });
                 }
             }
         }
@@ -368,11 +380,6 @@ editBtn.forEach(btn => {
 });
 
 editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
-        
-editSubmit.addEventListener('submit', e => {
-    editCard.classList.add('invisible-edit');
-    manageData.editTodo(index, projectName, e, todos);
-});
 
 editLowPriority.addEventListener('click', () => {
     if (editLowLabel.classList.contains('low')) {
@@ -418,3 +425,17 @@ editHighPriority.addEventListener('click', () => {
         editHighLabel.classList.add('high-checked');
     }
 });
+
+// Popup: Delete Todo
+deleteBtn.forEach(btn => {
+    btn.addEventListener('click', e => {
+        deletePopup.classList.remove('invisible-delete-todo');
+        
+        deleteConfirm.addEventListener('click', () => {
+            manageData.deleteTodo(e, todos);
+            deletePopup.classList.add('invisible-delete-todo');
+        });
+    });
+});
+
+deleteCancel.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));

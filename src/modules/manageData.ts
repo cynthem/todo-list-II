@@ -103,7 +103,7 @@ export default (function manageData() {
         todos[projectName][index].dueDate = todoDueDate;
         todos[projectName][index].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
         
-        storeTodos(todos);
+        updateTodos(todos);
 
         /*let item: number;
         let project: string;
