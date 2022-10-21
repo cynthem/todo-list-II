@@ -547,6 +547,8 @@ export default (function displayData() {
         } else if (arg instanceof Event) {
             const checkedTodo = (arg.target as Element).parentElement!.parentElement;
             const checkbox = (arg.target as Element);
+            console.log(`checkedTodo: ${checkedTodo}`)
+            console.log(`checkbox: ${checkbox}`)
 
             checkbox.classList.toggle('fa-square');
             checkbox.classList.toggle('fa-square-check');

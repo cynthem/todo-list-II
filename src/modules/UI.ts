@@ -300,10 +300,26 @@ export default (function UI() {
     };
 
     function toggleCheckbox() {
-        const checkboxEl = document.querySelectorAll('fa-square');
+        const checkboxEl = document.querySelectorAll('.fa-square');
         const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
         checkboxIcon.forEach(box => {
-            box.addEventListener('click', e => displayData.renderCheckedTodo(e, todos));
+            box.addEventListener('click', e => {
+                let item: number;
+                let project: string;
+                const target = e.target;
+
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+                            manageData.checkOffTodo(item, project, todos);
+                        }
+                    }
+                }
+            });
         });
     };
 
