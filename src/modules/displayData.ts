@@ -7,45 +7,6 @@ export default (function displayData() {
     const listContainerEl = document.querySelector('.main-list');
     const listContainer: Element = listContainerEl!;
 
-    function loadContent(todos: ProjectsObject) {
-        manageData.manageTodosRender(todos);
-        renderFilterList(todos);
-        renderProjectList(todos);
-    };
-
-    function renderHighlightedCategory() {
-        const filterEl = document.querySelectorAll('.filters-btn');
-        const filterBtns: NodeListOf<Element> = filterEl!;
-        const projectEl = document.querySelectorAll('.project-name');
-        const projectBtns: NodeListOf<Element> = projectEl!;
-
-        const projectName = manageData.getSelectedProject();
-
-        filterBtns.forEach(btn => {
-            btn.classList.remove('clicked');
-        });
-
-        projectBtns.forEach(item => {
-            item.classList.remove('clicked');
-        });
-
-        filterBtns.forEach(btn => {
-            if (projectName === 'all' && btn.classList.contains('all-btn')) {
-                btn.classList.add('clicked');
-            } else if (projectName === 'today' && btn.classList.contains('today-btn')) {
-                btn.classList.add('clicked');
-            } else if (projectName === 'week' && btn.classList.contains('week-btn')) {
-                btn.classList.add('clicked');
-            }
-        });
-    
-        projectBtns.forEach(btn => {
-            if (btn.textContent === projectName) {
-                btn.classList.add('clicked');
-            }
-        });
-    };
-
     function renderFilterList(todos: ProjectsObject) {
         let allUncheckedTodos = 0;
         let todayUncheckedTodos = 0;
@@ -143,6 +104,39 @@ export default (function displayData() {
             projectItem.appendChild(projectCounter);
             projectContainer.appendChild(projectItem);
         };
+    };
+
+    function renderHighlightedCategory() {
+        const filterEl = document.querySelectorAll('.filters-btn');
+        const filterBtns: NodeListOf<Element> = filterEl!;
+        const projectEl = document.querySelectorAll('.project-name');
+        const projectBtns: NodeListOf<Element> = projectEl!;
+
+        const projectName = manageData.getSelectedProject();
+
+        filterBtns.forEach(btn => {
+            btn.classList.remove('clicked');
+        });
+
+        projectBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        filterBtns.forEach(btn => {
+            if (projectName === 'all' && btn.classList.contains('all-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'today' && btn.classList.contains('today-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'week' && btn.classList.contains('week-btn')) {
+                btn.classList.add('clicked');
+            }
+        });
+    
+        projectBtns.forEach(btn => {
+            if (btn.textContent === projectName) {
+                btn.classList.add('clicked');
+            }
+        });
     };
 
     function renderAllTodos(todos: ProjectsObject) {
@@ -665,10 +659,9 @@ export default (function displayData() {
     };
 
     return {
-        loadContent,
-        renderHighlightedCategory,
         renderFilterList,
         renderProjectList,
+        renderHighlightedCategory,
         renderAllTodos,
         renderTodayTodos,
         renderWeekTodos,

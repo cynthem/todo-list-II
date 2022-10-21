@@ -4,43 +4,8 @@ import { todos } from './todoList';
 
 export default (function UI() {
 
-    function toggleFilters() {
-        
-    };
-
-    function loadProjects() {
-        displayData.renderProjectList(todos);
-        toggleProjects();
-        toggleAddBtn();
-    };
-
-    function toggleProjects() {
-        const projectEl = document.querySelectorAll('.project-name');
-        const projectTitle: NodeListOf<Element> = projectEl!;
-
-        projectTitle.forEach(project => {
-            project.addEventListener('click', e => manageData.manageTodosRender(todos, e));
-            handleEmptyProject();
-        });
-    };
-
     function handleEmptyProject() {
-        const emptyPopupEl = document.querySelector('.popup-empty-project');
-        const emptyPopup: Element = emptyPopupEl!;
-        const emptyAddBtnEl = document.querySelector('.empty-project-add-btn');
-        const emptyAddBtn: Element = emptyAddBtnEl!;
-        const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
-        const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
-
-        emptyAddBtn.addEventListener('click', () => {
-            displayData.renderAddTodoPopup();
-            handleAddTodoForm();
-        });
-
-        emptyDeleteBtn.addEventListener('click', () => {
-            manageData.deleteProject(todos);
-            emptyPopup.classList.add('invisible-empty-project');
-        });
+        
     };
 
     function handleAddTodoForm() {
