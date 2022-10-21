@@ -375,7 +375,8 @@ button {
 .popup-notes,
 .popup-edit,
 .popup-delete-todo,
-.popup-empty-project {
+.popup-empty-project,
+.popup-add-new-todo {
     z-index: 2;
     position: fixed;
     top: 0;
@@ -404,7 +405,8 @@ button {
     .popup-notes,
     .popup-edit,
     .popup-delete-todo,
-    .popup-empty-project {
+    .popup-empty-project,
+    .popup-add-new-todo {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         background-color: rgba(0, 0, 0, 0.3);
@@ -415,7 +417,8 @@ button {
 .invisible-notes,
 .invisible-edit,
 .invisible-delete-todo,
-.invisible-empty-project {
+.invisible-empty-project,
+.invisible-add-new-todo {
     visibility: hidden;
     opacity: 0;
 }
@@ -424,7 +427,8 @@ button {
 .notes-container,
 .edit-container,
 .delete-todo-container,
-.empty-project-container {
+.empty-project-container,
+.add-new-todo-container {
     background-color: #EBF5EE;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
@@ -459,13 +463,16 @@ button {
 
 .add-date-label,
 .edit-date-label,
+.add-new-date-label,
 .add-priority-header,
-.edit-priority-header {
+.edit-priority-header,
+.add-new-priority-header {
     font-size: 1.2rem;
 }
 
 .add-date-input,
-.edit-date-input {
+.edit-date-input,
+.add-new-date-input {
     width: 150px;
     padding: 3% 6%;
     font-size: 0.9rem;
@@ -476,7 +483,8 @@ button {
 }
 
 .add-priority-radios,
-.edit-priority-radios {
+.edit-priority-radios,
+.add-new-priority-radios {
     display: flex;
     width: 200px;
     justify-content: space-between;
@@ -892,6 +900,56 @@ textarea {
 .empty-project-delete-btn:active {
     box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
+
+
+/* POP-UP: ADD NEW TODO TO EMPTY PROJECT */
+
+.add-new-todo-container {
+    width: 650px;
+    height: 400px;
+}
+
+.add-new-todo-form {
+    display: grid;
+    grid-template: 70% 20% / 57% 40%;
+    column-gap: 3%;
+    row-gap: 10%;
+    padding: 0 2% 0 5%;
+    transform: scale(1);
+    transition: all .3s;
+}
+
+.add-new-todo-text {
+    display: grid;
+    grid-template-rows: 15% 75%;
+    row-gap: 10%;
+}
+
+.add-new-todo-textarea {
+    font-size: 0.9rem;
+    resize: none;
+}
+
+.add-new-todo-details {
+    display: grid;
+    grid-template-rows: 40% 40%;
+    row-gap: 20%;
+}
+
+.add-new-todo-date,
+.add-new-todo-priority {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+    align-items: center;
+}
+
+.add-new-btns {
+    grid-column: span 2;
+    text-align: center;
+    align-self: center;
+}
+
 
 
 /* TABLET STYLES */
