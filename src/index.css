@@ -911,6 +911,7 @@ textarea {
 
 .add-new-todo-form {
     display: grid;
+    height: 100%;
     grid-template: 70% 20% / 57% 40%;
     column-gap: 3%;
     row-gap: 10%;
