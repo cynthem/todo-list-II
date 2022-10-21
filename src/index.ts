@@ -124,7 +124,17 @@ hamburgerMenu.addEventListener('click', () => {
 // Dashboard buttons
 filterBtns.forEach(btn => {
     btn.addEventListener('click', e => {
-        const projectName = (e.target as Element).textContent!;
+        let projectName: string;
+        projectName = (e.target as Element).textContent!;
+
+        if (projectName === 'All') {
+            projectName = 'all';
+        } else if (projectName === 'Today') {
+            projectName = 'today';
+        } else {
+            projectName = 'week';
+        }
+        
         manageData.setSelectedProject(todos, projectName);
     });
 });
