@@ -4,6 +4,15 @@ import { todos } from './modules/todoList';
 import { ProjectsObject } from './util/types';
 import './index.css';
 
+function initialLoad(todos: ProjectsObject) {
+    displayData.renderFilterList(todos);
+    displayData.renderProjectList(todos);
+    displayData.renderHighlightedCategory();
+    displayData.renderAllTodos(todos);
+};
+
+initialLoad(todos);
+
 // Dashboard 
 const dashboardEl = document.querySelector('.main-dashboard');
 const dashboard: Element = dashboardEl!;
@@ -108,15 +117,6 @@ const deleteConfirm: Element = deleteConfirmEl!;
 const deleteCancelEl = document.querySelector('.delete-todo-cancel-btn');
 const deleteCancel: Element = deleteCancelEl!;
 
-function initialLoad(todos: ProjectsObject) {
-    displayData.renderFilterList(todos);
-    displayData.renderProjectList(todos);
-    displayData.renderHighlightedCategory();
-    displayData.renderAllTodos(todos);
-};
-
-initialLoad(todos);
-
 hamburgerMenu.addEventListener('click', () => {
     (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
 });
@@ -141,7 +141,9 @@ filterBtns.forEach(btn => {
 
 projectBtns.forEach(btn => {
     btn.addEventListener('click', e => {
+        console.log('hello')
         const projectName = (e.target as Element).textContent!;
+        console.log(projectName)
         manageData.setSelectedProject(todos, projectName);
     });
 });
