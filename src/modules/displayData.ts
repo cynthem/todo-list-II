@@ -525,7 +525,7 @@ export default (function displayData() {
         });
     };
 
-    function renderCheckedTodo(/*arg: (Element | Event), todos?: ProjectsObject*/ todoContainer: Element) {
+    function renderCheckedTodo(todoContainer: Element) {
         const todoItems = todoContainer.children;
         const itemsLeft = todoItems[0];
         const itemsRight = todoItems[1];
@@ -542,53 +542,6 @@ export default (function displayData() {
         itemNotes.classList.toggle('done');
         itemDate.classList.toggle('selected');
         itemEdit.classList.toggle('selected');
-        
-        /*if (arg instanceof Element) {
-            const todoItems = arg.children;
-            const itemsLeft = todoItems[0];
-            const itemsRight = todoItems[1];
-            const checkbox = itemsLeft.children[0];
-            const itemTitle = itemsLeft.children[1];
-            const itemNotes = itemsRight.children[0];
-            const itemDate = itemsRight.children[1];
-            const itemEdit = itemsRight.children[2]; 
-        
-            checkbox.classList.remove('fa-square');
-            checkbox.classList.add('fa-square-check');
-            itemTitle.classList.toggle('selected');
-            itemTitle.classList.toggle('strike');
-            itemNotes.classList.toggle('done');
-            itemDate.classList.toggle('selected');
-            itemEdit.classList.toggle('selected');
-
-        } else if (arg instanceof Event) {
-            const checkedTodo = (arg.target as Element).parentElement!.parentElement;
-            const checkbox = (arg.target as Element);
-            console.log(`checkedTodo: ${checkedTodo}`)
-            console.log(`checkbox: ${checkbox}`)
-
-            checkbox.classList.toggle('fa-square');
-            checkbox.classList.toggle('fa-square-check');
-
-            const todoItems = checkedTodo!.children;
-            const itemsLeft = todoItems[0];
-            const itemsRight = todoItems[1];
-            const itemTitle = itemsLeft.children[1];
-            const itemNotes = itemsRight.children[0];
-            const itemDate = itemsRight.children[1];
-            const itemEdit = itemsRight.children[2];
-
-            itemTitle.classList.toggle('selected');
-            itemTitle.classList.toggle('strike');
-            itemNotes.classList.toggle('done');
-            itemDate.classList.toggle('selected');
-            itemEdit.classList.toggle('selected');
-            
-            const index: number = Number(checkedTodo!.dataset.index);
-            const project: string = checkedTodo!.dataset.project!;
-
-            manageData.checkOffTodo(index, project, todos!);
-        }*/
     };
 
     function renderNotesPopup(e: Event, todos: ProjectsObject) {
