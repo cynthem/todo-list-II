@@ -145,41 +145,6 @@ export default (function displayData() {
         };
     };
 
-    function renderAddNewPopup() {
-        const addNewPopupEl = document.querySelector('.popup-add-new');
-        const addNewPopup: Element = addNewPopupEl!;
-        const addDateEl = <HTMLInputElement>document.getElementById('new-date');
-        const addDate: HTMLInputElement = addDateEl!;
-
-        addDate.setAttribute('value', currentDay);
-        addNewPopup.classList.remove('invisible-add-new');
-    };
-
-    function renderEmptyProjectPopup() {
-        const emptyPopupEl = document.querySelector('.popup-empty-project');
-        const emptyPopup: Element = emptyPopupEl!;
-        const emptyNameEl = document.querySelector('.empty-project-name');
-        const emptyName: Element = emptyNameEl!;
-
-        emptyName.innerHTML = '';
-        emptyName.textContent = manageData.getSelectedProject();
-        emptyPopup.classList.remove('invisible-empty-project');
-    };
-
-    function renderAddTodoPopup() {
-        const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
-        const addTodoPopup: Element = addTodoPopupEl!;
-        const addProjectEl = document.querySelector('.add-new-todo-project');
-        const addProjectName: Element = addProjectEl!;
-        const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
-        const addDate: HTMLInputElement = addDateEl!;
-        const project = manageData.getSelectedProject();
-
-        addProjectName.textContent = project;
-        addDate.setAttribute('value', currentDay);
-        addTodoPopup.classList.remove('invisible-add-new-todo');
-    };
-
     function renderAllTodos(todos: ProjectsObject) {
         listContainer.innerHTML = '';
 
@@ -539,6 +504,41 @@ export default (function displayData() {
         itemNotes.classList.toggle('done');
         itemDate.classList.toggle('selected');
         itemEdit.classList.toggle('selected');
+    };
+
+    function renderAddNewPopup() {
+        const addNewPopupEl = document.querySelector('.popup-add-new');
+        const addNewPopup: Element = addNewPopupEl!;
+        const addDateEl = <HTMLInputElement>document.getElementById('new-date');
+        const addDate: HTMLInputElement = addDateEl!;
+
+        addDate.setAttribute('value', currentDay);
+        addNewPopup.classList.remove('invisible-add-new');
+    };
+
+    function renderEmptyProjectPopup() {
+        const emptyPopupEl = document.querySelector('.popup-empty-project');
+        const emptyPopup: Element = emptyPopupEl!;
+        const emptyNameEl = document.querySelector('.empty-project-name');
+        const emptyName: Element = emptyNameEl!;
+
+        emptyName.innerHTML = '';
+        emptyName.textContent = manageData.getSelectedProject();
+        emptyPopup.classList.remove('invisible-empty-project');
+    };
+
+    function renderAddTodoPopup() {
+        const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
+        const addTodoPopup: Element = addTodoPopupEl!;
+        const addProjectEl = document.querySelector('.add-new-todo-project');
+        const addProjectName: Element = addProjectEl!;
+        const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
+        const addDate: HTMLInputElement = addDateEl!;
+        const project = manageData.getSelectedProject();
+
+        addProjectName.textContent = project;
+        addDate.setAttribute('value', currentDay);
+        addTodoPopup.classList.remove('invisible-add-new-todo');
     };
 
     function renderNotesPopup(e: Event, todos: ProjectsObject) {
