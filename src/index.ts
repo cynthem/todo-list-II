@@ -13,6 +13,10 @@ function initialLoad(todos: ProjectsObject) {
 
 initialLoad(todos);
 
+export function reload() {
+
+};
+
 // Dashboard 
 const dashboardEl = document.querySelector('.main-dashboard');
 const dashboard: Element = dashboardEl!;
