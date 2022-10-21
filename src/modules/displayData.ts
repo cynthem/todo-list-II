@@ -9,7 +9,7 @@ export default (function displayData() {
 
     function loadContent(todos: ProjectsObject) {
         manageData.manageTodosRender(todos);
-        renderFilterCounts(todos);
+        renderFilterList(todos);
         renderProjectList(todos);
     };
 
@@ -46,7 +46,7 @@ export default (function displayData() {
         });
     };
 
-    function renderFilterCounts(todos: ProjectsObject) {
+    function renderFilterList(todos: ProjectsObject) {
         let allUncheckedTodos = 0;
         let todayUncheckedTodos = 0;
         let weekUncheckedTodos = 0;
@@ -667,7 +667,7 @@ export default (function displayData() {
     return {
         loadContent,
         renderHighlightedFilters,
-        renderFilterCounts,
+        renderFilterList,
         renderProjectList,
         renderAddNewPopup,
         renderEmptyProjectPopup,
