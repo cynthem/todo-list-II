@@ -907,6 +907,14 @@ textarea {
 .add-new-todo-container {
     width: 650px;
     height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-new-todo-header {
+    font-family: 'Fraunces', serif;
+    color: #542344;
+    font-size: 2.3rem;
 }
 
 .add-new-todo-form {
