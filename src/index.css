@@ -374,6 +374,7 @@ button {
 .popup-add-new,
 .popup-notes,
 .popup-edit,
+.popup-delete-todo,
 .popup-empty-project {
     z-index: 2;
     position: fixed;
@@ -402,6 +403,7 @@ button {
     .popup-add-new,
     .popup-notes,
     .popup-edit,
+    .popup-delete-todo,
     .popup-empty-project {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
@@ -412,6 +414,7 @@ button {
 .invisible-add-new,
 .invisible-notes,
 .invisible-edit,
+.invisible-delete-todo,
 .invisible-empty-project {
     visibility: hidden;
     opacity: 0;
@@ -420,6 +423,7 @@ button {
 .add-new-container,
 .notes-container,
 .edit-container,
+.delete-todo-container,
 .empty-project-container {
     background-color: #EBF5EE;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
@@ -784,6 +788,14 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+/* POP-UP: DELETE TODO */
+
+.delete-todo-container {
+    width: 500px;
+    height: 300px;
 }
 
 
