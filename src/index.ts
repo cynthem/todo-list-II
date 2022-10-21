@@ -13,8 +13,8 @@ function initialLoad(todos: ProjectsObject) {
 
 initialLoad(todos);
 
-export function reload() {
-
+export function reload(todos: ProjectsObject) {
+    manageData.manageRerender(todos);
 };
 
 // Dashboard 

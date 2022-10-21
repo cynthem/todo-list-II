@@ -1,4 +1,5 @@
 import displayData from "./displayData";
+import { reload } from '../index';
 import { TodoObject, ProjectsObject } from "../util/types";
 
 export default (function manageData() {
@@ -152,7 +153,7 @@ export default (function manageData() {
 
     function updateTodos(todos: ProjectsObject) {
         localStorage.setItem('todos', JSON.stringify(todos));
-        manageRerender(todos);
+        reload(todos);
     };
 
     function manageRerender(todos: ProjectsObject) {
