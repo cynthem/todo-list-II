@@ -576,24 +576,25 @@ export default (function displayData() {
                     item = Number(itemGrandparent.dataset.index);
                     project = itemGrandparent.dataset.project!;
 
-                    if (project === 'all') {
-                        project = 'All';
-                    } else if (project === 'today') {
-                        project = 'Today';
-                    } else if (project === 'week') {
-                        project = 'This Week';
-                    }
-
                     const day = format(new Date(todos[project][item].dueDate), 'do');
                     const month = format(new Date(todos[project][item].dueDate), 'MMM');
                     const year = format(new Date(todos[project][item].dueDate), 'yyyy');
 
                     notesTitle.textContent = todos[project][item].title;
-                    notesProject.textContent = todos[project][item].project;
                     notesDueDate.textContent = `${month} ${day}, ${year}`;
                     notesPriority.textContent = todos[project][item].priority[0].toUpperCase() + todos[project][item].priority.slice(1);
                     notesDetails.textContent = todos[project][item].details;
 
+                    if (project === 'all') {
+                        notesProject.textContent = 'All';
+                    } else if (project === 'today') {
+                        notesProject.textContent = 'Today';
+                    } else if (project === 'week') {
+                        notesProject.textContent = 'This Week';
+                    } else {
+                        notesProject.textContent = todos[project][item].project;
+                    }
+                    
                     notesCard.classList.remove('invisible-notes');
                 }
             }
