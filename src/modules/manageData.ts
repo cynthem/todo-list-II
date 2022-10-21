@@ -46,7 +46,7 @@ export default (function manageData() {
         const todoTitle = (document.querySelector('.add-new-todo-input') as HTMLInputElement).value;
         const todoDetails = (document.querySelector('.add-new-todo-textarea') as HTMLTextAreaElement).value;
         const todoDate = (document.querySelector('.add-new-date-input') as HTMLInputElement).value;
-        const todoPriority = (document.querySelector('[name="new-priority"]:checked') as HTMLInputElement).value;
+        const todoPriority = (document.querySelector('[name="new-todo-priority"]:checked') as HTMLInputElement).value;
         const todoProject = getSelectedProject();
         const todoDay = todoDate.slice(5, 10);
         const todoYear = todoDate.slice(0, 4);
