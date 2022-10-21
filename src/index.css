@@ -1092,12 +1092,15 @@ textarea {
     }
     .add-date-label,
     .edit-date-label,
+    .add-new-date-label,
     .add-priority-header,
-    .edit-priority-header {
+    .edit-priority-header,
+    .add-new-priority-header {
         font-size: 1rem;
     }
     .add-priority-radios,
-    .edit-priority-radios {
+    .edit-priority-radios,
+    .add-new-priority-radios {
         width: 170px;
     }
     input[type="radio"] {
@@ -1106,7 +1109,8 @@ textarea {
     .priority-label {
         font-size: 0.8rem;
     }
-    .add-new-container {
+    .add-new-container,
+    .add-new-todo-container {
         width: 550px;
         height: 350px;
     }
@@ -1114,12 +1118,16 @@ textarea {
         font-size: 1.8rem;
     }
     .add-todo-btn,
-    .add-project-btn {
+    .add-project-btn,
+    .add-new-todo-header {
         font-size: 1.4rem;
     }
     input[type="submit"] {
         font-size: 1.1rem;
         padding: 8px 23px 7px;
+    }
+    .add-new-delete-project {
+        font-size: 1.1rem;
     }
     .notes-container {
         width: 550px;
@@ -1230,17 +1238,21 @@ textarea {
     }
     .add-date-label,
     .edit-date-label,
+    .add-new-date-label,
     .add-priority-header,
-    .edit-priority-header {
+    .edit-priority-header,
+    .add-new-priority-header {
         font-size: 0.8rem;
     }
     .add-date-input,
-    .edit-date-input {
+    .edit-date-input,
+    .add-new-date-input {
         width: 110px;
         font-size: 0.7rem;
     }
     .add-priority-radios,
-    .edit-priority-radios {
+    .edit-priority-radios,
+    .add-new-priority-radios {
         width: 110px;
     }
     input[type="radio"] {
@@ -1250,9 +1262,13 @@ textarea {
         font-size: 0.6rem;
         padding: 3px 4px 2px;
     }
-    .add-new-container {
+    .add-new-container{
         width: 350px;
         height: 250px;
+    }
+    .add-new-todo-container {
+        width: 350px;
+        height: 300px;
     }
     .add-new-content {
         row-gap: 8%;
@@ -1262,22 +1278,33 @@ textarea {
         font-size: 1.4rem;
     }
     .add-todo-btn,
-    .add-project-btn {
+    .add-project-btn,
+    .add-new-todo-header {
         font-size: 1rem;
     }
-    .add-todo-form {
+    .add-todo-form,
+    .add-new-todo-form {
         grid-template: 70% 20% / 53% 44%;
         padding: 0 2%;
     }
-    input[type="text"] {
+    input[type="text"],
+    .add-new-todo-input {
         font-size: 0.8rem;
     }
-    .add-todo-textarea {
+    .add-todo-textarea,
+    .add-new-todo-textarea {
         font-size: 0.7rem;
     }
     input[type="submit"] {
         font-size: 0.9rem;
         padding: 6px 18px 5px;
+    }
+    .add-new-delete-project {
+        font-size: 0.9rem;
+        padding: 6px 18px 3px;
+    }
+    .add-new-btns-text {
+        font-size: 1rem;
     }
     .notes-container {
         width: 350px;
@@ -1365,17 +1392,21 @@ textarea {
     }
     .add-date-label,
     .edit-date-label,
+    .add-new-date-label,
     .add-priority-header,
-    .edit-priority-header {
+    .edit-priority-header,
+    .add-new-priority-header {
         font-size: 0.7rem;
     }
     .add-date-input,
-    .edit-date-input {
+    .edit-date-input,
+    .add-new-date-input {
         width: 94px;
         font-size: 0.6rem;
     }
     .add-priority-radios,
-    .edit-priority-radios {
+    .edit-priority-radios,
+    .add-new-priority-radios {
         width: 90px;
     }
     input[type="radio"] {
@@ -1394,6 +1425,10 @@ textarea {
         width: 270px;
         height: auto;
     }
+    .add-new-todo-container {
+        width: 270px;
+        height: 300px;
+    }
     .add-new-header {
         font-size: 1.1rem;
     }
@@ -1404,19 +1439,30 @@ textarea {
         gap: 10%;
     }
     .add-todo-btn,
-    .add-project-btn {
+    .add-project-btn,
+    .add-new-todo-header {
         font-size: 0.9rem;
     }
-    input[type="text"] {
+    input[type="text"],
+    .add-new-todo-input {
         font-size: 0.6rem;
     }
-    .add-todo-textarea {
+    .add-todo-textarea,
+    .add-new-todo-textarea {
         font-size: 0.5rem;
     }
-    .add-todo-priority {
+    .add-todo-priority,
+    .add-new-todo-priority {
         gap: 0;
     }
     input[type="submit"] {
+        font-size: 0.8rem;
+    }
+    .add-new-todo-btns > input[type="submit"],
+    .add-new-delete-project {
+        font-size: 0.6rem;
+    }
+    .add-new-btns-text {
         font-size: 0.8rem;
     }
     .notes-header {
