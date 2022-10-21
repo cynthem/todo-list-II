@@ -29,7 +29,7 @@ export default (function manageData() {
                 return;
             } else {
                 todos[newProject] = [];
-                storeTodos(todos);
+                updateTodos(todos);
             }
         }
     };
@@ -144,7 +144,7 @@ export default (function manageData() {
                     item = Number(itemGrandparent.dataset.index);
                     project = itemGrandparent.dataset.project!;
                     todos[project].splice(item, 1);
-                    storeTodos(todos);
+                    updateTodos(todos);
                 }
             }
         }
