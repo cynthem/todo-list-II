@@ -172,9 +172,13 @@ export default (function displayData() {
     function renderAddTodoPopup() {
         const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
         const addTodoPopup: Element = addTodoPopupEl!;
+        const addProjectEl = document.querySelector('.add-new-todo-project');
+        const addProjectName: Element = addProjectEl!;
         const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
         const addDate: HTMLInputElement = addDateEl!;
+        const project = manageData.getSelectedProject();
 
+        addProjectName.textContent = project;
         addDate.setAttribute('value', currentDay);
         addTodoPopup.classList.remove('invisible-add-new');
     };
