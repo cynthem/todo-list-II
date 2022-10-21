@@ -37,7 +37,6 @@ export default (function manageData() {
     function deleteProject(todos: ProjectsObject) {
         delete todos[getSelectedProject()];
         setSelectedProject(todos, 'all');
-        updateTodos(todos);
     };
 
     function addProjectTodo(e: Event, todos: ProjectsObject) {
@@ -54,7 +53,7 @@ export default (function manageData() {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-        storeTodos(todos);
+        updateTodos(todos);
     };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked: boolean = false) {
@@ -157,17 +156,22 @@ export default (function manageData() {
     };
 
     function manageRerender(todos: ProjectsObject) {
-        displayData.renderHighlightedCategory();
-        displayData.renderFilterList(todos);
-        displayData.renderProjectList(todos);
-
         const project = getSelectedProject();
-        
+
         if (project === 'all') {
+            displayData.renderFilterList(todos);
+            displayData.renderProjectList(todos);
+            displayData.renderHighlightedCategory();
             displayData.renderAllTodos(todos);
         } else if (project === 'today') {
+            displayData.renderFilterList(todos);
+            displayData.renderProjectList(todos);
+            displayData.renderHighlightedCategory();
             displayData.renderTodayTodos(todos);
         } else if (project === 'week') {
+            displayData.renderFilterList(todos);
+            displayData.renderProjectList(todos);
+            displayData.renderHighlightedCategory();
             displayData.renderWeekTodos(todos);
         } else {
             let projectLength = todos[project].length;
@@ -179,8 +183,12 @@ export default (function manageData() {
             });
 
             if (projectLength < 1) {
+                displayData.renderHighlightedCategory();
                 displayData.renderEmptyProjectPopup();
             } else {
+                displayData.renderFilterList(todos);
+                displayData.renderProjectList(todos);
+                displayData.renderHighlightedCategory();
                 displayData.renderProjectTodos(todos);
             }
         }
