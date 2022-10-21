@@ -501,68 +501,60 @@ export default (function displayData() {
     };
 
     function renderProjectTodos(todos: ProjectsObject) {
-        /* const todoList = todos[manageData.getSelectedProject()];
-        
         listContainer.innerHTML = '';
+
+        const todoList = todos[manageData.getSelectedProject()];
 
         if (todoList.length === 0) {
             return;
         }
 
         todoList.forEach((todo, i) => {
+            const dateObject = new Date(todo.dueDate);
+            const month = format(dateObject, 'MMM');
+            const day = format(dateObject, 'do');
 
-            if (!todo.checked) {
+            const todoItem = document.createElement('div');
+            const itemLeft = document.createElement('div');
+            const itemRight = document.createElement('div');
+            const checkboxIcon = document.createElement('i');
+            const itemName = document.createElement('p');
+            const notesBtn = document.createElement('button');
+            const dateText = document.createElement('p');
+            const editIcon = document.createElement('i');
+            const deleteIcon = document.createElement('i');
 
-                const todoItem = document.createElement('div');
-                todoItem.classList.add('list-item');
-                todoItem.classList.add(`${todo.priority}-priority`);
-                todoItem.setAttribute('data-index', i);
-                todoItem.setAttribute('data-project', `${todo.project}`);
+            todoItem.classList.add('list-item');
+            todoItem.classList.add(`${todo.priority}-priority`);
+            todoItem.setAttribute('data-index', `${i}`);
+            todoItem.setAttribute('data-project', `${todo.project}`);
+            itemLeft.classList.add('item-left');
+            itemRight.classList.add('item-right');
+            checkboxIcon.classList.add('fa-regular', 'fa-square');
+            itemName.classList.add('item-description');
+            itemName.textContent = todo.title;
+            notesBtn.classList.add('item-notes');
+            notesBtn.textContent = 'NOTES';
+            dateText.classList.add('item-date');
+            dateText.textContent = `${month} ${day}`;
+            editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+            deleteIcon.classList.add('fa-solid', 'fa-trash-can');
 
-                const itemLeft = document.createElement('div');
-                itemLeft.classList.add('item-left');
+            itemLeft.appendChild(checkboxIcon);
+            itemLeft.appendChild(itemName);
+            itemRight.appendChild(notesBtn);
+            itemRight.appendChild(dateText);
+            itemRight.appendChild(editIcon);
+            itemRight.appendChild(deleteIcon);
+            todoItem.appendChild(itemLeft);
+            todoItem.appendChild(itemRight);
 
-                const checkboxIcon = document.createElement('i');
-                checkboxIcon.classList.add('fa-regular', 'fa-square');
-                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+            if (todo.checked) {
+                renderCheckedTodo(todoItem);
+            };
 
-                const itemName = document.createElement('p');
-                itemName.classList.add('item-description');
-                itemName.textContent = todo.title;
-                itemLeft.appendChild(checkboxIcon);
-                itemLeft.appendChild(itemName);
-
-                const itemRight = document.createElement('div');
-                itemRight.classList.add('item-right');
-
-                const notesBtn = document.createElement('button');
-                notesBtn.classList.add('item-notes');
-                notesBtn.textContent = 'NOTES';
-                notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
-
-                const dateText = document.createElement('p');
-                dateText.classList.add('item-date');
-                const dateObject = new Date(todo.dueDate);
-                const month = format(dateObject, 'MMM');
-                const day = format(dateObject, 'do');
-                dateText.textContent = `${month} ${day}`;
-
-                const editIcon = document.createElement('i');
-                editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
-          
-                const deleteIcon = document.createElement('i');
-                deleteIcon.classList.add('fa-solid', 'fa-trash-can');
-                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-                itemRight.appendChild(notesBtn);
-                itemRight.appendChild(dateText);
-                itemRight.appendChild(editIcon);
-                itemRight.appendChild(deleteIcon);
-                todoItem.appendChild(itemLeft);
-                todoItem.appendChild(itemRight);
-                listContainer.appendChild(todoItem);
-            }
-        }); */
+            listContainer.appendChild(todoItem);
+        });
     };
 
     function renderCheckedTodo(arg: (Element | Event), todos?: ProjectsObject) {
