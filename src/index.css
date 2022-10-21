@@ -909,12 +909,16 @@ textarea {
     height: 400px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    padding: 20px 10px;
 }
 
 .add-new-todo-header {
     font-family: 'Fraunces', serif;
     color: #542344;
-    font-size: 2.3rem;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 0 10px;
 }
 
 .add-new-todo-form {
@@ -932,6 +936,16 @@ textarea {
     display: grid;
     grid-template-rows: 15% 75%;
     row-gap: 10%;
+}
+
+.add-new-todo-input,
+.add-new-todo-textarea {
+    font-family: 'Overpass', serif;
+    font-size: 1.1rem;
+    background-color: #EBF5EE;
+    border: none;
+    outline: none;
+    overflow: scroll;
 }
 
 .add-new-todo-textarea {
@@ -953,10 +967,27 @@ textarea {
     align-items: center;
 }
 
-.add-new-btns {
+.add-new-todo-btns {
     grid-column: span 2;
-    text-align: center;
-    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.add-new-btns-text {
+    font-size: 1.3rem;
+}
+
+.add-new-delete-project {
+    border: none;
+    outline: none;
+    background-color: #542344;
+    color: #EBF5EE;
+    font-size: 1.3rem;
+    padding: 8px 23px 4.5px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 
