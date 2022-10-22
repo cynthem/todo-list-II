@@ -861,11 +861,11 @@ export default (function displayData() {
         const addMediumPriority: HTMLInputElement = addMediumPriorityEl!;
         const addHighPriorityEl = <HTMLInputElement>document.getElementById('new-high');
         const addHighPriority: HTMLInputElement = addHighPriorityEl!;
-        const addLowLabelEl = <HTMLLabelElement>document.querySelector('.low');
+        const addLowLabelEl = <HTMLLabelElement>document.querySelector('.add-priority-label');
         const addLowLabel: HTMLLabelElement = addLowLabelEl!;
-        const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.medium');
+        const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.add-priority-label');
         const addMediumLabel: HTMLLabelElement = addMediumLabelEl!;
-        const addHighLabelEl = <HTMLLabelElement>document.querySelector('.high');
+        const addHighLabelEl = <HTMLLabelElement>document.querySelector('.add-priority-label');
         const addHighLabel: HTMLLabelElement = addHighLabelEl!;
 
         if (addLowLabel.classList.contains('low-checked')) {
