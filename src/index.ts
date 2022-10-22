@@ -24,8 +24,6 @@ const hamburgerEl = document.querySelector('.fa-bars');
 const hamburgerMenu: Element = hamburgerEl!;
 const filterEl = document.querySelectorAll('.filters-btn');
 const filterBtns: NodeListOf<Element> = filterEl!;
-const projectEl = document.querySelectorAll('.project-name');
-const projectBtns: NodeListOf<Element> = projectEl!;
 // Popup: Empty Project
 const emptyPopupEl = document.querySelector('.popup-empty-project');
 const emptyPopup: Element = emptyPopupEl!;
@@ -139,13 +137,6 @@ filterBtns.forEach(btn => {
             projectName = 'week';
         }
 
-        manageData.setSelectedProject(todos, projectName);
-    });
-});
-
-projectBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
-        const projectName = (e.target as Element).textContent!;
         manageData.setSelectedProject(todos, projectName);
     });
 });

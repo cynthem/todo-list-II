@@ -93,13 +93,19 @@ export default (function displayData() {
             });
 
             const projectItem = document.createElement('div');
-            projectItem.classList.add('project-item');
             const projectTitle = document.createElement('button');
-            projectTitle.classList.add('project-name');
-            projectTitle.textContent = project;
             const projectCounter = document.createElement('p');
+
+            projectItem.classList.add('project-item');
             projectCounter.classList.add('project-counter');
             projectCounter.textContent = `${uncheckedTodos}`;
+            projectTitle.classList.add('project-name');
+            projectTitle.textContent = project;
+            projectTitle.addEventListener('click', e => {
+                const projectName = (e.target as Element).textContent!;
+                manageData.setSelectedProject(todos, projectName);
+            });
+            
             projectItem.appendChild(projectTitle);
             projectItem.appendChild(projectCounter);
             projectContainer.appendChild(projectItem);
