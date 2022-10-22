@@ -6,7 +6,7 @@ export default (function manageData() {
 
     function setSelectedProject(todos: ProjectsObject, currentProject: string, listContainer: Element) {
         selectedProject = currentProject;
-        updateTodos(todos, listContainer);
+        updateTodos(todos, listContainer, false);
     };
 
     function getSelectedProject() {
@@ -29,7 +29,7 @@ export default (function manageData() {
                 return;
             } else {
                 todos[newProject] = [];
-                updateTodos(todos, listContainer);
+                updateTodos(todos, listContainer, false);
             }
         }
     };
@@ -53,7 +53,7 @@ export default (function manageData() {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-        updateTodos(todos, listContainer);
+        updateTodos(todos, listContainer, false);
     };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked: boolean = false) {
@@ -82,12 +82,17 @@ export default (function manageData() {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-        updateTodos(todos, listContainer);
+        updateTodos(todos, listContainer, false);
     };
 
     function checkOffTodo(index: number, projectName: string, todos: ProjectsObject, listContainer: Element, projectTodo: boolean) {
         todos[projectName][index].checked = !todos[projectName][index].checked;
-        updateTodos(todos, listContainer);
+
+        if (projectTodo) {
+            updateTodos(todos, listContainer, true);
+        } else {
+            updateTodos(todos, listContainer, false);
+        }
     };
 
     function editTodo(index: number, projectName: string, e: Event, todos: ProjectsObject, listContainer: Element) {
@@ -103,22 +108,27 @@ export default (function manageData() {
         todos[projectName][index].dueDate = todoDueDate;
         todos[projectName][index].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
         
-        updateTodos(todos, listContainer);
+        updateTodos(todos, listContainer, false);
     };
 
     function deleteTodo(index: number, projectName: string, todos: ProjectsObject, listContainer: Element) {
         todos[projectName].splice(index, 1);
-        updateTodos(todos, listContainer);
+        updateTodos(todos, listContainer, false);
     };
 
-    function updateTodos(todos: ProjectsObject, listContainer: Element) {
+    function updateTodos(todos: ProjectsObject, listContainer: Element, projectTodo: boolean) {
         localStorage.setItem('todos', JSON.stringify(todos));
-        manageRerender(todos, listContainer);
+
+        if (projectTodo) {
+            manageEmptyRerender(todos, listContainer);
+        } else {
+            manageRerender(todos, listContainer);
+        }
     };
 
     function manageRerender(todos: ProjectsObject, listContainer: Element) {
         const project = getSelectedProject();
-        console.log(todos)
+        
         if (project === 'all') {
             displayData.renderFilterList(todos);
             displayData.renderProjectList(todos, listContainer);
@@ -155,6 +165,8 @@ export default (function manageData() {
         }
     };
 
+    function manageEmptyRerender(todos: ProjectsObject, listContainer: Element) {};
+
     return {
         setSelectedProject,
         getSelectedProject,
@@ -167,6 +179,7 @@ export default (function manageData() {
         editTodo,
         deleteTodo,
         updateTodos,
-        manageRerender
+        manageRerender,
+        manageEmptyRerender
     };
 })();
