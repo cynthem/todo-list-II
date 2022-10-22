@@ -180,6 +180,24 @@ export default (function displayData() {
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
 
+                checkboxIcon.addEventListener('click', e => {
+                    let item: number;
+                    let project: string;
+                    const target = e.target;
+            
+                    if (target instanceof HTMLElement) {
+                        const itemParent = target.parentElement;
+                        if (itemParent instanceof HTMLElement) {
+                            const itemGrandparent = itemParent.parentElement;
+                            if (itemGrandparent instanceof HTMLElement) {
+                                item = Number(itemGrandparent.dataset.index);
+                                project = itemGrandparent.dataset.project!;
+                                manageData.checkOffTodo(item, project, todos);
+                            }
+                        }
+                    }
+                });
+
                 itemLeft.appendChild(checkboxIcon);
                 itemLeft.appendChild(itemName);
                 itemRight.appendChild(notesBtn);
@@ -190,7 +208,7 @@ export default (function displayData() {
                 todoItem.appendChild(itemRight);
 
                 if (todo.checked) {
-                    renderCheckedTodo(todoItem);
+                    renderCheckedTodo(todos, todoItem);
                 };
 
                 listContainer.appendChild(todoItem);
@@ -487,7 +505,7 @@ export default (function displayData() {
         });
     };
 
-    function renderCheckedTodo(todoContainer: Element) {
+    function renderCheckedTodo(todos: ProjectsObject, todoContainer: Element) {
         const todoItems = todoContainer.children;
         const itemsLeft = todoItems[0];
         const itemsRight = todoItems[1];
@@ -504,6 +522,24 @@ export default (function displayData() {
         itemNotes.classList.toggle('done');
         itemDate.classList.toggle('selected');
         itemEdit.classList.toggle('selected');
+
+        checkbox.addEventListener('click', e => {
+            let item: number;
+            let project: string;
+            const target = e.target;
+    
+            if (target instanceof HTMLElement) {
+                const itemParent = target.parentElement;
+                if (itemParent instanceof HTMLElement) {
+                    const itemGrandparent = itemParent.parentElement;
+                    if (itemGrandparent instanceof HTMLElement) {
+                        item = Number(itemGrandparent.dataset.index);
+                        project = itemGrandparent.dataset.project!;
+                        manageData.checkOffTodo(item, project, todos);
+                    }
+                }
+            }
+        });
     };
 
     function renderAddNewPopup(todos: ProjectsObject) {
