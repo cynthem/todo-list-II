@@ -736,8 +736,8 @@ export default (function displayData() {
             todoItem.classList.add(`${todo.priority}-priority`);
             todoItem.setAttribute('data-index', `${i}`);
             todoItem.setAttribute('data-project', `${todo.project}`);
-            itemLeft.classList.add('item-left');
-            itemRight.classList.add('item-right');
+            itemLeft.classList.add('list-item-left');
+            itemRight.classList.add('list-item-right');
             checkboxIcon.classList.add('fa-regular', 'fa-square');
             itemName.classList.add('item-description');
             itemName.textContent = todo.title;
