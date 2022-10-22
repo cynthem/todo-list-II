@@ -13,42 +13,14 @@ function initialLoad(todos: ProjectsObject) {
 
 initialLoad(todos);
 
-// Dashboard 
 const dashboardEl = document.querySelector('.main-dashboard');
 const dashboard: Element = dashboardEl!;
 const hamburgerEl = document.querySelector('.fa-bars');
 const hamburgerMenu: Element = hamburgerEl!;
 const filterEl = document.querySelectorAll('.filters-btn');
 const filterBtns: NodeListOf<Element> = filterEl!;
-// Popup: Add New
 const addNewEl = document.querySelector('.projects-btn');
 const addNewBtn: Element = addNewEl!;
-const addNewPopupEl = document.querySelector('.popup-add-new');
-const addNewPopup: Element = addNewPopupEl!;
-const addNewCloseEl = document.querySelector('#add-exit');
-const addNewClose: Element = addNewCloseEl!;
-const addTodoFormEl = <HTMLFormElement>document.querySelector('.add-todo-form');
-const addTodoForm: HTMLFormElement = addTodoFormEl!;
-const addProjectFormEl = <HTMLFormElement>document.querySelector('.add-project-form');
-const addProjectForm: HTMLFormElement = addProjectFormEl!;
-const addTodoBtnEl = document.querySelector('.add-todo-btn');
-const addTodoBtn: Element = addTodoBtnEl!;
-const addProjectBtnEl = document.querySelector('.add-project-btn');
-const addProjectBtn: Element = addProjectBtnEl!;
-const addDateEl = <HTMLInputElement>document.getElementById('new-date');
-const addDate: HTMLInputElement = addDateEl!;
-const addLowPriorityEl = <HTMLInputElement>document.getElementById('new-low');
-const addLowPriority: HTMLInputElement = addLowPriorityEl!;
-const addMediumPriorityEl = <HTMLInputElement>document.getElementById('new-medium');
-const addMediumPriority: HTMLInputElement = addMediumPriorityEl!;
-const addHighPriorityEl = <HTMLInputElement>document.getElementById('new-high');
-const addHighPriority: HTMLInputElement = addHighPriorityEl!;
-const addLowLabelEl = <HTMLLabelElement>document.querySelector('.low');
-const addLowLabel: HTMLLabelElement = addLowLabelEl!;
-const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.medium');
-const addMediumLabel: HTMLLabelElement = addMediumLabelEl!;
-const addHighLabelEl = <HTMLLabelElement>document.querySelector('.high');
-const addHighLabel: HTMLLabelElement = addHighLabelEl!;
 // Todo Item Checkbox
 const checkboxEl = document.querySelectorAll('.fa-square');
 const checkboxIcon: NodeListOf<Element> = checkboxEl!; 
@@ -92,11 +64,12 @@ const deleteConfirm: Element = deleteConfirmEl!;
 const deleteCancelEl = document.querySelector('.delete-todo-cancel-btn');
 const deleteCancel: Element = deleteCancelEl!;
 
-// Dashboard 
+// Dashboard toggle
 hamburgerMenu.addEventListener('click', () => {
     (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
 });
 
+// Filter buttons
 filterBtns.forEach(btn => {
     btn.addEventListener('click', e => {
         let projectName: string;
@@ -114,9 +87,9 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Popup: Add New Todo     
+// Add-New Button    
 addNewBtn.addEventListener('click', () => {
-    displayData.renderAddNewPopup();
+    displayData.renderAddNewPopup(todos);
 });
 
 // Todo Item Checkbox
