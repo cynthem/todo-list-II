@@ -838,24 +838,6 @@ export default (function displayData() {
         itemNotes.classList.toggle('done');
         itemDate.classList.toggle('selected');
         itemEdit.classList.toggle('selected');
-
-        checkbox.addEventListener('click', e => {
-            let item: number;
-            let project: string;
-            const target = e.target;
-    
-            if (target instanceof HTMLElement) {
-                const itemParent = target.parentElement;
-                if (itemParent instanceof HTMLElement) {
-                    const itemGrandparent = itemParent.parentElement;
-                    if (itemGrandparent instanceof HTMLElement) {
-                        item = Number(itemGrandparent.dataset.index);
-                        project = itemGrandparent.dataset.project!;
-                        manageData.checkOffTodo(item, project, todos, listContainer);
-                    }
-                }
-            }
-        });
     };
 
     function renderAddNewPopup(todos: ProjectsObject, listContainer: Element) {
