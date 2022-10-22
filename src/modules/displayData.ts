@@ -1024,11 +1024,11 @@ export default (function displayData() {
         const addNewMediumPriority: HTMLInputElement = addNewMediumPriorityEl!;
         const addNewHighPriorityEl = <HTMLInputElement>document.getElementById('new-todo-high');
         const addNewHighPriority: HTMLInputElement = addNewHighPriorityEl!;
-        const addLowLabelEl = <HTMLLabelElement>document.querySelector('.low-new');
+        const addLowLabelEl = <HTMLLabelElement>document.querySelector('.new-priority-label');
         const addLowLabel: HTMLLabelElement = addLowLabelEl!;
-        const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.medium-new');
+        const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.new-priority-label');
         const addMediumLabel: HTMLLabelElement = addMediumLabelEl!;
-        const addHighLabelEl = <HTMLLabelElement>document.querySelector('.high-new');
+        const addHighLabelEl = <HTMLLabelElement>document.querySelector('.new-priority-label');
         const addHighLabel: HTMLLabelElement = addHighLabelEl!;
         
         const project = manageData.getSelectedProject();
