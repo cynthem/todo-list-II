@@ -506,14 +506,130 @@ export default (function displayData() {
         itemEdit.classList.toggle('selected');
     };
 
-    function renderAddNewPopup() {
+    function renderAddNewPopup(todos: ProjectsObject) {
         const addNewPopupEl = document.querySelector('.popup-add-new');
         const addNewPopup: Element = addNewPopupEl!;
+        const addNewCloseEl = document.querySelector('#add-exit');
+        const addNewClose: Element = addNewCloseEl!;
+        const addTodoFormEl = <HTMLFormElement>document.querySelector('.add-todo-form');
+        const addTodoForm: HTMLFormElement = addTodoFormEl!;
+        const addProjectFormEl = <HTMLFormElement>document.querySelector('.add-project-form');
+        const addProjectForm: HTMLFormElement = addProjectFormEl!;
+        const addTodoBtnEl = document.querySelector('.add-todo-btn');
+        const addTodoBtn: Element = addTodoBtnEl!;
+        const addProjectBtnEl = document.querySelector('.add-project-btn');
+        const addProjectBtn: Element = addProjectBtnEl!;
         const addDateEl = <HTMLInputElement>document.getElementById('new-date');
         const addDate: HTMLInputElement = addDateEl!;
+        const addLowPriorityEl = <HTMLInputElement>document.getElementById('new-low');
+        const addLowPriority: HTMLInputElement = addLowPriorityEl!;
+        const addMediumPriorityEl = <HTMLInputElement>document.getElementById('new-medium');
+        const addMediumPriority: HTMLInputElement = addMediumPriorityEl!;
+        const addHighPriorityEl = <HTMLInputElement>document.getElementById('new-high');
+        const addHighPriority: HTMLInputElement = addHighPriorityEl!;
+        const addLowLabelEl = <HTMLLabelElement>document.querySelector('.low');
+        const addLowLabel: HTMLLabelElement = addLowLabelEl!;
+        const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.medium');
+        const addMediumLabel: HTMLLabelElement = addMediumLabelEl!;
+        const addHighLabelEl = <HTMLLabelElement>document.querySelector('.high');
+        const addHighLabel: HTMLLabelElement = addHighLabelEl!;
 
         addDate.setAttribute('value', currentDay);
         addNewPopup.classList.remove('invisible-add-new');
+
+        addNewClose.addEventListener('click', () => {
+            addNewPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addTodoForm.style.display = 'grid';
+            addProjectForm.reset();
+            addProjectForm.style.display = 'none';
+            addTodoBtn.classList.add('clicked');
+            addProjectBtn.classList.remove('clicked');
+            addDate.removeAttribute('value');
+        });
+        
+        addTodoBtn.addEventListener('click', () => {
+            addTodoBtn.classList.add('clicked');
+            addTodoForm.style.display = 'grid';
+            addProjectBtn.classList.remove('clicked');
+            addProjectForm.style.display = 'none';
+        });
+        
+        addProjectBtn.addEventListener('click', () => {
+            addProjectBtn.classList.add('clicked');
+            addProjectForm.style.display = 'grid';
+            addTodoBtn.classList.remove('clicked');
+            addTodoForm.style.display = 'none';
+        });
+        
+        addTodoForm.addEventListener('submit', e => {
+            manageData.addTodo(e, todos);
+            addNewPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addTodoForm.style.display = 'grid';
+            addProjectForm.reset();
+            addProjectForm.style.display = 'none';
+            addTodoBtn.classList.add('clicked');
+            addProjectBtn.classList.remove('clicked');
+            addDate.removeAttribute('value');
+        });
+        
+        addProjectForm.addEventListener('submit', e => {
+            manageData.addProject(e, todos);
+            addNewPopup.classList.add('invisible-add-new');
+            addTodoForm.reset();
+            addTodoForm.style.display = 'grid';
+            addProjectForm.reset();
+            addProjectForm.style.display = 'none';
+            addTodoBtn.classList.add('clicked');
+            addProjectBtn.classList.remove('clicked');
+            addDate.removeAttribute('value');
+        });
+        
+        addLowPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low')) {
+                addLowLabel.classList.remove('low');
+                addLowLabel.classList.add('low-checked');
+            }
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
+            }
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
+            }
+        });
+        
+        addMediumPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
+            }
+            if (addMediumLabel.classList.contains('medium')) {
+                addMediumLabel.classList.remove('medium');
+                addMediumLabel.classList.add('medium-checked');
+            }
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
+            }
+        });
+        
+        addHighPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
+            }
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
+            }
+            if (addHighLabel.classList.contains('high')) {
+                addHighLabel.classList.remove('high');
+                addHighLabel.classList.add('high-checked');
+            }
+        });
     };
 
     function renderEmptyProjectPopup(todos: ProjectsObject) {

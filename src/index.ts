@@ -20,7 +20,7 @@ const hamburgerEl = document.querySelector('.fa-bars');
 const hamburgerMenu: Element = hamburgerEl!;
 const filterEl = document.querySelectorAll('.filters-btn');
 const filterBtns: NodeListOf<Element> = filterEl!;
-// Popup: Add New Todo or Project
+// Popup: Add New
 const addNewEl = document.querySelector('.projects-btn');
 const addNewBtn: Element = addNewEl!;
 const addNewPopupEl = document.querySelector('.popup-add-new');
@@ -43,7 +43,6 @@ const addMediumPriorityEl = <HTMLInputElement>document.getElementById('new-mediu
 const addMediumPriority: HTMLInputElement = addMediumPriorityEl!;
 const addHighPriorityEl = <HTMLInputElement>document.getElementById('new-high');
 const addHighPriority: HTMLInputElement = addHighPriorityEl!;
-// Priority labels for both add forms
 const addLowLabelEl = <HTMLLabelElement>document.querySelector('.low');
 const addLowLabel: HTMLLabelElement = addLowLabelEl!;
 const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.medium');
@@ -115,103 +114,9 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Popup: Add New Todo or Project      
+// Popup: Add New Todo     
 addNewBtn.addEventListener('click', () => {
     displayData.renderAddNewPopup();
-});
-
-addNewClose.addEventListener('click', () => {
-    addNewPopup.classList.add('invisible-add-new');
-    addTodoForm.reset();
-    addTodoForm.style.display = 'grid';
-    addProjectForm.reset();
-    addProjectForm.style.display = 'none';
-    addTodoBtn.classList.add('clicked');
-    addProjectBtn.classList.remove('clicked');
-    addDate.removeAttribute('value');
-});
-
-addTodoBtn.addEventListener('click', () => {
-    addTodoBtn.classList.add('clicked');
-    addTodoForm.style.display = 'grid';
-    addProjectBtn.classList.remove('clicked');
-    addProjectForm.style.display = 'none';
-});
-
-addProjectBtn.addEventListener('click', () => {
-    addProjectBtn.classList.add('clicked');
-    addProjectForm.style.display = 'grid';
-    addTodoBtn.classList.remove('clicked');
-    addTodoForm.style.display = 'none';
-});
-
-addTodoForm.addEventListener('submit', e => {
-    manageData.addTodo(e, todos);
-    addNewPopup.classList.add('invisible-add-new');
-    addTodoForm.reset();
-    addTodoForm.style.display = 'grid';
-    addProjectForm.reset();
-    addProjectForm.style.display = 'none';
-    addTodoBtn.classList.add('clicked');
-    addProjectBtn.classList.remove('clicked');
-    addDate.removeAttribute('value');
-});
-
-addProjectForm.addEventListener('submit', e => {
-    manageData.addProject(e, todos);
-    addNewPopup.classList.add('invisible-add-new');
-    addTodoForm.reset();
-    addTodoForm.style.display = 'grid';
-    addProjectForm.reset();
-    addProjectForm.style.display = 'none';
-    addTodoBtn.classList.add('clicked');
-    addProjectBtn.classList.remove('clicked');
-    addDate.removeAttribute('value');
-});
-
-addLowPriority.addEventListener('click', () => {
-    if (addLowLabel.classList.contains('low')) {
-        addLowLabel.classList.remove('low');
-        addLowLabel.classList.add('low-checked');
-    }
-    if (addMediumLabel.classList.contains('medium-checked')) {
-        addMediumLabel.classList.remove('medium-checked');
-        addMediumLabel.classList.add('medium');
-    }
-    if (addHighLabel.classList.contains('high-checked')) {
-        addHighLabel.classList.remove('high-checked');
-        addHighLabel.classList.add('high');
-    }
-});
-
-addMediumPriority.addEventListener('click', () => {
-    if (addLowLabel.classList.contains('low-checked')) {
-        addLowLabel.classList.remove('low-checked');
-        addLowLabel.classList.add('low');
-    }
-    if (addMediumLabel.classList.contains('medium')) {
-        addMediumLabel.classList.remove('medium');
-        addMediumLabel.classList.add('medium-checked');
-    }
-    if (addHighLabel.classList.contains('high-checked')) {
-        addHighLabel.classList.remove('high-checked');
-        addHighLabel.classList.add('high');
-    }
-});
-
-addHighPriority.addEventListener('click', () => {
-    if (addLowLabel.classList.contains('low-checked')) {
-        addLowLabel.classList.remove('low-checked');
-        addLowLabel.classList.add('low');
-    }
-    if (addMediumLabel.classList.contains('medium-checked')) {
-        addMediumLabel.classList.remove('medium-checked');
-        addMediumLabel.classList.add('medium');
-    }
-    if (addHighLabel.classList.contains('high')) {
-        addHighLabel.classList.remove('high');
-        addHighLabel.classList.add('high-checked');
-    }
 });
 
 // Todo Item Checkbox
