@@ -85,7 +85,7 @@ export default (function manageData() {
         updateTodos(todos, listContainer);
     };
 
-    function checkOffTodo(index: number, projectName: string, todos: ProjectsObject, listContainer: Element) {
+    function checkOffTodo(index: number, projectName: string, todos: ProjectsObject, listContainer: Element, projectTodo: boolean) {
         todos[projectName][index].checked = !todos[projectName][index].checked;
         updateTodos(todos, listContainer);
     };
@@ -104,31 +104,6 @@ export default (function manageData() {
         todos[projectName][index].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
         
         updateTodos(todos, listContainer);
-
-        /*let item: number;
-        let project: string;
-        const target = e.target;
-
-        if (target instanceof HTMLElement) {
-            const itemChild = target.firstElementChild;
-            if (itemChild instanceof HTMLElement) {
-                const itemGrandchild = itemChild.children[0];
-                if (itemGrandchild instanceof HTMLElement) {
-                    const itemGreatGrand = itemGrandchild.children[0];
-                    if (itemGreatGrand instanceof HTMLElement) {
-                        item = Number(itemGreatGrand.dataset.index);
-                        project = itemGreatGrand.dataset.project!;
-
-                        todos[project][item].title = (document.querySelector('.edit-title-textarea') as HTMLTextAreaElement).value;
-                        todos[project][item].details = (document.querySelector('.edit-details-textarea') as HTMLTextAreaElement).value;
-                        todos[project][item].dueDate = todoDueDate;
-                        todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
-                        
-                        storeTodos(todos);
-                    }
-                }
-            }
-        }*/
     };
 
     function deleteTodo(index: number, projectName: string, todos: ProjectsObject, listContainer: Element) {
@@ -143,7 +118,7 @@ export default (function manageData() {
 
     function manageRerender(todos: ProjectsObject, listContainer: Element) {
         const project = getSelectedProject();
-
+        console.log(todos)
         if (project === 'all') {
             displayData.renderFilterList(todos);
             displayData.renderProjectList(todos, listContainer);

@@ -205,7 +205,7 @@ export default (function displayData() {
                             if (itemGrandparent instanceof HTMLElement) {
                                 item = Number(itemGrandparent.dataset.index);
                                 project = itemGrandparent.dataset.project!;
-                                manageData.checkOffTodo(item, project, todos, listContainer);
+                                manageData.checkOffTodo(item, project, todos, listContainer, false);
                             }
                         }
                     }
@@ -323,7 +323,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         item = Number(itemGrandparent.dataset.index);
                                         project = itemGrandparent.dataset.project!;
-                                        manageData.checkOffTodo(item, project, todos, listContainer);
+                                        manageData.checkOffTodo(item, project, todos, listContainer, false);
                                     }
                                 }
                             }
@@ -435,7 +435,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            manageData.checkOffTodo(item, project, todos, listContainer);
+                            manageData.checkOffTodo(item, project, todos, listContainer, false);
                         }
                     }
                 }
@@ -550,7 +550,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         item = Number(itemGrandparent.dataset.index);
                                         project = itemGrandparent.dataset.project!;
-                                        manageData.checkOffTodo(item, project, todos, listContainer);
+                                        manageData.checkOffTodo(item, project, todos, listContainer, false);
                                     }
                                 }
                             }
@@ -662,7 +662,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            manageData.checkOffTodo(item, project, todos, listContainer);
+                            manageData.checkOffTodo(item, project, todos, listContainer, false);
                         }
                     }
                 }
@@ -712,7 +712,7 @@ export default (function displayData() {
         listContainer.innerHTML = '';
 
         const todoList = todos[manageData.getSelectedProject()];
-
+       
         if (todoList.length === 0) {
             return;
         }
@@ -775,7 +775,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            manageData.checkOffTodo(item, project, todos, listContainer);
+                            manageData.checkOffTodo(item, project, todos, listContainer, true);
                         }
                     }
                 }
