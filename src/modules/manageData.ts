@@ -132,22 +132,8 @@ export default (function manageData() {
     };
 
     function deleteTodo(index: number, projectName: string, todos: ProjectsObject) {
-        let item: number;
-        let project: string;
-        const target = e.target;
-
-        if (target instanceof HTMLElement) {
-            const itemParent = target.parentElement;
-            if (itemParent instanceof HTMLElement) {
-                const itemGrandparent = itemParent.parentElement;
-                if (itemGrandparent instanceof HTMLElement) {
-                    item = Number(itemGrandparent.dataset.index);
-                    project = itemGrandparent.dataset.project!;
-                    todos[project].splice(item, 1);
-                    updateTodos(todos);
-                }
-            }
-        }
+        todos[projectName].splice(index, 1);
+        updateTodos(todos);
     };
 
     function updateTodos(todos: ProjectsObject) {
