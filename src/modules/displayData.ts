@@ -8,10 +8,6 @@ export default (function displayData() {
     const listContainer: Element = listContainerEl!
 
     function renderFilterList(todos: ProjectsObject) {
-        let allUncheckedTodos = 0;
-        let todayUncheckedTodos = 0;
-        let weekUncheckedTodos = 0;
-
         const allTodosEl = document.querySelector('.all');
         const allTodosCount: Element = allTodosEl!;
         const todayTodosEl = document.querySelector('.today');
@@ -24,6 +20,10 @@ export default (function displayData() {
         delete todayTodos.today;
         delete weekTodos.week;
         const today = new Date();
+
+        let allUncheckedTodos = 0;
+        let todayUncheckedTodos = 0;
+        let weekUncheckedTodos = 0;
 
         todayUncheckedTodos = todos.today.reduce((total, value) => {
             return total + Number(!value.checked);
