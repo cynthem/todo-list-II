@@ -503,7 +503,8 @@ input[type="radio"] {
     opacity: 0;
 }
 
-.priority-label {
+.add-priority-label,
+.new-priority-label {
     display: inline-block;
     font-size: 0.9rem;
     padding: 5px 10px 2px;
@@ -593,7 +594,8 @@ input[type="radio"] {
 
 .add-todo-btn:hover,
 .add-project-btn:hover,
-.priority-label:hover,
+.add-priority-label:hover,
+.new-priority-label:hover,
 input[type="submit"]:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -605,7 +607,8 @@ input[type="date"]:hover {
 
 .add-todo-btn:active,
 .add-project-btn:active,
-.priority-label:active,
+.add-priority-label:active,
+.new-priority-label:active,
 input[type="submit"]:active {
     transform: translate(-1px, 1px);
 }
@@ -1120,7 +1123,8 @@ input[type="submit"] {
     input[type="radio"] {
         left: 2rem;
     }
-    .priority-label {
+    .add-priority-label,
+    .new-priority-label {
         font-size: 0.8rem;
     }
     .add-new-container,
@@ -1272,7 +1276,8 @@ input[type="submit"] {
     input[type="radio"] {
         left: 1.4rem;
     }
-    .priority-label {
+    .add-priority-label,
+    .new-priority-label {
         font-size: 0.6rem;
         padding: 3px 4px 2px;
     }
@@ -1426,7 +1431,8 @@ input[type="submit"] {
     input[type="radio"] {
         left: 1rem;
     }
-    .priority-label {
+    .add-priority-label,
+    .new-priority-label {
         padding: 2px 4px 1px;
     }
     .add-new-container,
