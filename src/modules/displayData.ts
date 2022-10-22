@@ -180,6 +180,21 @@ export default (function displayData() {
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
 
+                itemLeft.appendChild(checkboxIcon);
+                itemLeft.appendChild(itemName);
+                itemRight.appendChild(notesBtn);
+                itemRight.appendChild(dateText);
+                itemRight.appendChild(editIcon);
+                itemRight.appendChild(deleteIcon);
+                todoItem.appendChild(itemLeft);
+                todoItem.appendChild(itemRight);
+
+                if (todo.checked) {
+                    renderCheckedTodo(todos, todoItem);
+                };
+
+                listContainer.appendChild(todoItem);
+
                 checkboxIcon.addEventListener('click', e => {
                     let item: number;
                     let project: string;
@@ -200,20 +215,23 @@ export default (function displayData() {
 
                 notesBtn.addEventListener('click', e => renderNotesPopup(e, todos));
 
-                itemLeft.appendChild(checkboxIcon);
-                itemLeft.appendChild(itemName);
-                itemRight.appendChild(notesBtn);
-                itemRight.appendChild(dateText);
-                itemRight.appendChild(editIcon);
-                itemRight.appendChild(deleteIcon);
-                todoItem.appendChild(itemLeft);
-                todoItem.appendChild(itemRight);
-
-                if (todo.checked) {
-                    renderCheckedTodo(todos, todoItem);
-                };
-
-                listContainer.appendChild(todoItem);
+                editIcon.addEventListener('click', e => {
+                    let editItem: number;
+                    let editProject: string; 
+                    const target = e.target;
+            
+                    if (target instanceof HTMLElement) {
+                        const itemParent = target.parentElement;
+                        if (itemParent instanceof HTMLElement) {
+                            const itemGrandparent = itemParent.parentElement;
+                            if (itemGrandparent instanceof HTMLElement) {
+                                editItem = Number(itemGrandparent.dataset.index);
+                                editProject = itemGrandparent.dataset.project!;
+                                renderEditPopup(editItem, editProject, todos);
+                            }
+                        }
+                    }
+                });
             });
         }
     };
@@ -849,6 +867,8 @@ export default (function displayData() {
     function renderEditPopup(index: number, projectName: string, todos: ProjectsObject) {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
+        const editCloseEl = document.querySelector('.edit-close');
+        const editClose: Element = editCloseEl!;
         const editTitleEl = document.querySelector('.edit-title-textarea');
         const editTitle: Element = editTitleEl!;
         const editDetailsEl = document.querySelector('.edit-details-textarea');
@@ -867,6 +887,8 @@ export default (function displayData() {
         const editMediumLabel: Element = editMediumLabelEl!;
         const editHighLabelEl = document.getElementById('edit-high-label');
         const editHighLabel: Element = editHighLabelEl!;
+        const editSubmitEl = document.querySelector('.edit-form');
+        const editSubmit: Element = editSubmitEl!;
 
         editTitle.innerHTML = '';
         editDetails.innerHTML = '';
@@ -910,6 +932,58 @@ export default (function displayData() {
         } 
 
         editCard.classList.remove('invisible-edit');
+
+        editClose.addEventListener('click', () => editCard.classList.add('invisible-edit'));
+
+        editSubmit.addEventListener('submit', e => {
+            editCard.classList.add('invisible-edit');
+            manageData.editTodo(index, projectName, e, todos);
+        });
+
+        editLowPriority.addEventListener('click', () => {
+            if (editLowLabel.classList.contains('low')) {
+                editLowLabel.classList.remove('low');
+                editLowLabel.classList.add('low-checked');
+            }
+            if (editMediumLabel.classList.contains('medium-checked')) {
+                editMediumLabel.classList.remove('medium-checked');
+                editMediumLabel.classList.add('medium');
+            }
+            if (editHighLabel.classList.contains('high-checked')) {
+                editHighLabel.classList.remove('high-checked');
+                editHighLabel.classList.add('high');
+            }
+        });
+        
+        editMediumPriority.addEventListener('click', () => {
+            if (editLowLabel.classList.contains('low-checked')) {
+                editLowLabel.classList.remove('low-checked');
+                editLowLabel.classList.add('low');
+            }
+            if (editMediumLabel.classList.contains('medium')) {
+                editMediumLabel.classList.remove('medium');
+                editMediumLabel.classList.add('medium-checked');
+            }
+            if (editHighLabel.classList.contains('high-checked')) {
+                editHighLabel.classList.remove('high-checked');
+                editHighLabel.classList.add('high');
+            }
+        });
+        
+        editHighPriority.addEventListener('click', () => {
+            if (editLowLabel.classList.contains('low-checked')) {
+                editLowLabel.classList.remove('low-checked');
+                editLowLabel.classList.add('low');
+            }
+            if (editMediumLabel.classList.contains('medium-checked')) {
+                editMediumLabel.classList.remove('medium-checked');
+                editMediumLabel.classList.add('medium');
+            }
+            if (editHighLabel.classList.contains('high')) {
+                editHighLabel.classList.remove('high');
+                editHighLabel.classList.add('high-checked');
+            }
+        });
     };
 
     return {
