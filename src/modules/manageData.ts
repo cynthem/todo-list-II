@@ -1,5 +1,4 @@
 import displayData from "./displayData";
-import { reload } from '../index';
 import { TodoObject, ProjectsObject } from "../util/types";
 
 export default (function manageData() {
