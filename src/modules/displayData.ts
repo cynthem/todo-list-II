@@ -1075,8 +1075,8 @@ export default (function displayData() {
                 addLowLabel.classList.remove('low-checked');
                 addLowLabel.classList.add('low-new');
             }
-            if (addMediumLabel.classList.contains('medium')) {
-                addMediumLabel.classList.remove('medium');
+            if (addMediumLabel.classList.contains('medium-new')) {
+                addMediumLabel.classList.remove('medium-new');
                 addMediumLabel.classList.add('medium-checked');
             }
             if (addHighLabel.classList.contains('high-checked')) {
