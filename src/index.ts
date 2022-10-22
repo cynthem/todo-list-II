@@ -31,8 +31,7 @@ const notesBtnEl = document.querySelectorAll('.item-notes');
 const notesBtn: NodeListOf<Element> = notesBtnEl!;
 const notesEl = document.querySelector('.popup-notes');
 const notesCard: Element = notesEl!;
-const notesCloseEl = document.querySelector('.notes-close');
-const notesClose: Element = notesCloseEl!;
+
 // Popup: Edit Todo
 const editBtnEl = document.querySelectorAll('.fa-pen-to-square');
 const editBtn: NodeListOf<Element> = editBtnEl!;
@@ -92,16 +91,9 @@ addNewBtn.addEventListener('click', () => {
     displayData.renderAddNewPopup(todos);
 });
 
-// Todo Item Checkbox
-
-
-uncheckboxIcon.forEach(box => {
-    
-});
-
 // Popup: Notes
 notesBtn.forEach(btn => {
-    btn.addEventListener('click', e => displayData.renderNotesPopup(e, todos));
+    notesBtn.addEventListener('click', e => displayData.renderNotesPopup(e, todos));
     notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
 }); 
 

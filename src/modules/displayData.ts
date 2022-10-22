@@ -198,6 +198,8 @@ export default (function displayData() {
                     }
                 });
 
+                notesBtn.addEventListener('click', e => renderNotesPopup(e, todos));
+
                 itemLeft.appendChild(checkboxIcon);
                 itemLeft.appendChild(itemName);
                 itemRight.appendChild(notesBtn);
@@ -786,6 +788,8 @@ export default (function displayData() {
     function renderNotesPopup(e: Event, todos: ProjectsObject) {
         const notesEl = document.querySelector('.popup-notes');
         const notesCard: Element = notesEl!;
+        const notesCloseEl = document.querySelector('.notes-close');
+        const notesClose: Element = notesCloseEl!;
         const notesTitleEl = document.querySelector('.notes-title');
         const notesTitle: Element = notesTitleEl!; 
         const notesProjectEl = document.querySelector('.notes-project');
@@ -835,6 +839,8 @@ export default (function displayData() {
                     }
                     
                     notesCard.classList.remove('invisible-notes');
+
+                    notesClose.addEventListener('click', () => notesCard.classList.add('invisible-notes'));
                 }
             }
         }
