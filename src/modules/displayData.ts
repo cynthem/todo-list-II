@@ -72,7 +72,7 @@ export default (function displayData() {
         weekTodosCount.textContent = `${weekUncheckedTodos}`;
     };
 
-    function renderProjectList(todos: ProjectsObject) {
+    function renderProjectList(todos: ProjectsObject, listContainer: Element) {
         const el1 = document.querySelector('.projects-list');
         const projectContainer: Element = el1!;
         projectContainer.innerHTML = '';
@@ -101,7 +101,7 @@ export default (function displayData() {
             projectTitle.textContent = project;
             projectTitle.addEventListener('click', e => {
                 const projectName = (e.target as Element).textContent!;
-                manageData.setSelectedProject(todos, projectName);
+                manageData.setSelectedProject(todos, projectName, listContainer);
             });
             
             projectItem.appendChild(projectTitle);
@@ -758,7 +758,7 @@ export default (function displayData() {
             todoItem.appendChild(itemRight);
 
             if (todo.checked) {
-                renderCheckedTodo(todos, todoItem);
+                renderCheckedTodo(todos, todoItem, listContainer);
             };
 
             listContainer.appendChild(todoItem);
@@ -775,7 +775,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            manageData.checkOffTodo(item, project, todos);
+                            manageData.checkOffTodo(item, project, todos, listContainer);
                         }
                     }
                 }
@@ -795,7 +795,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             editItem = Number(itemGrandparent.dataset.index);
                             editProject = itemGrandparent.dataset.project!;
-                            renderEditPopup(editItem, editProject, todos);
+                            renderEditPopup(editItem, editProject, todos, listContainer);
                         }
                     }
                 }
@@ -813,7 +813,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            renderDeletePopup(item, project, todos);
+                            renderDeletePopup(item, project, todos, listContainer);
                         }
                     }
                 }
