@@ -308,10 +308,66 @@ export default (function displayData() {
                         todoItem.appendChild(itemRight);
 
                         if (todo.checked) {
-                            renderCheckedTodo(todoItem);
+                            renderCheckedTodo(todos, todoItem);
                         };
 
                         listContainer.appendChild(todoItem);
+
+                        checkboxIcon.addEventListener('click', e => {
+                            let item: number;
+                            let project: string;
+                            const target = e.target;
+                    
+                            if (target instanceof HTMLElement) {
+                                const itemParent = target.parentElement;
+                                if (itemParent instanceof HTMLElement) {
+                                    const itemGrandparent = itemParent.parentElement;
+                                    if (itemGrandparent instanceof HTMLElement) {
+                                        item = Number(itemGrandparent.dataset.index);
+                                        project = itemGrandparent.dataset.project!;
+                                        manageData.checkOffTodo(item, project, todos);
+                                    }
+                                }
+                            }
+                        });
+        
+                        notesBtn.addEventListener('click', e => renderNotesPopup(e, todos));
+        
+                        editIcon.addEventListener('click', e => {
+                            let editItem: number;
+                            let editProject: string; 
+                            const target = e.target;
+                    
+                            if (target instanceof HTMLElement) {
+                                const itemParent = target.parentElement;
+                                if (itemParent instanceof HTMLElement) {
+                                    const itemGrandparent = itemParent.parentElement;
+                                    if (itemGrandparent instanceof HTMLElement) {
+                                        editItem = Number(itemGrandparent.dataset.index);
+                                        editProject = itemGrandparent.dataset.project!;
+                                        renderEditPopup(editItem, editProject, todos);
+                                    }
+                                }
+                            }
+                        });
+        
+                        deleteIcon.addEventListener('click', e => {
+                            let item: number;
+                            let project: string;
+                            const target = e.target;
+                    
+                            if (target instanceof HTMLElement) {
+                                const itemParent = target.parentElement;
+                                if (itemParent instanceof HTMLElement) {
+                                    const itemGrandparent = itemParent.parentElement;
+                                    if (itemGrandparent instanceof HTMLElement) {
+                                        item = Number(itemGrandparent.dataset.index);
+                                        project = itemGrandparent.dataset.project!;
+                                        renderDeletePopup(item, project, todos);
+                                    }
+                                }
+                            }
+                        });
                     }
                 });
             }
@@ -364,10 +420,66 @@ export default (function displayData() {
             todoItem.appendChild(itemRight);
 
             if (todo.checked) {
-                renderCheckedTodo(todoItem);
+                renderCheckedTodo(todos, todoItem);
             };
 
             listContainer.appendChild(todoItem);
+
+            checkboxIcon.addEventListener('click', e => {
+                let item: number;
+                let project: string;
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+                            manageData.checkOffTodo(item, project, todos);
+                        }
+                    }
+                }
+            });
+
+            notesBtn.addEventListener('click', e => renderNotesPopup(e, todos));
+
+            editIcon.addEventListener('click', e => {
+                let editItem: number;
+                let editProject: string; 
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            editItem = Number(itemGrandparent.dataset.index);
+                            editProject = itemGrandparent.dataset.project!;
+                            renderEditPopup(editItem, editProject, todos);
+                        }
+                    }
+                }
+            });
+
+            deleteIcon.addEventListener('click', e => {
+                let item: number;
+                let project: string;
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+                            renderDeletePopup(item, project, todos);
+                        }
+                    }
+                }
+            });
         });
     };
 
@@ -423,10 +535,66 @@ export default (function displayData() {
                         todoItem.appendChild(itemRight);
 
                         if (todo.checked) {
-                            renderCheckedTodo(todoItem);
+                            renderCheckedTodo(todos, todoItem);
                         };
         
                         listContainer.appendChild(todoItem);
+
+                        checkboxIcon.addEventListener('click', e => {
+                            let item: number;
+                            let project: string;
+                            const target = e.target;
+                    
+                            if (target instanceof HTMLElement) {
+                                const itemParent = target.parentElement;
+                                if (itemParent instanceof HTMLElement) {
+                                    const itemGrandparent = itemParent.parentElement;
+                                    if (itemGrandparent instanceof HTMLElement) {
+                                        item = Number(itemGrandparent.dataset.index);
+                                        project = itemGrandparent.dataset.project!;
+                                        manageData.checkOffTodo(item, project, todos);
+                                    }
+                                }
+                            }
+                        });
+        
+                        notesBtn.addEventListener('click', e => renderNotesPopup(e, todos));
+        
+                        editIcon.addEventListener('click', e => {
+                            let editItem: number;
+                            let editProject: string; 
+                            const target = e.target;
+                    
+                            if (target instanceof HTMLElement) {
+                                const itemParent = target.parentElement;
+                                if (itemParent instanceof HTMLElement) {
+                                    const itemGrandparent = itemParent.parentElement;
+                                    if (itemGrandparent instanceof HTMLElement) {
+                                        editItem = Number(itemGrandparent.dataset.index);
+                                        editProject = itemGrandparent.dataset.project!;
+                                        renderEditPopup(editItem, editProject, todos);
+                                    }
+                                }
+                            }
+                        });
+        
+                        deleteIcon.addEventListener('click', e => {
+                            let item: number;
+                            let project: string;
+                            const target = e.target;
+                    
+                            if (target instanceof HTMLElement) {
+                                const itemParent = target.parentElement;
+                                if (itemParent instanceof HTMLElement) {
+                                    const itemGrandparent = itemParent.parentElement;
+                                    if (itemGrandparent instanceof HTMLElement) {
+                                        item = Number(itemGrandparent.dataset.index);
+                                        project = itemGrandparent.dataset.project!;
+                                        renderDeletePopup(item, project, todos);
+                                    }
+                                }
+                            }
+                        });
                     }
                 });
             }
@@ -479,10 +647,66 @@ export default (function displayData() {
             todoItem.appendChild(itemRight);
 
             if (todo.checked) {
-                renderCheckedTodo(todoItem);
+                renderCheckedTodo(todos, todoItem);
             };
 
             listContainer.appendChild(todoItem);
+
+            checkboxIcon.addEventListener('click', e => {
+                let item: number;
+                let project: string;
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+                            manageData.checkOffTodo(item, project, todos);
+                        }
+                    }
+                }
+            });
+
+            notesBtn.addEventListener('click', e => renderNotesPopup(e, todos));
+
+            editIcon.addEventListener('click', e => {
+                let editItem: number;
+                let editProject: string; 
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            editItem = Number(itemGrandparent.dataset.index);
+                            editProject = itemGrandparent.dataset.project!;
+                            renderEditPopup(editItem, editProject, todos);
+                        }
+                    }
+                }
+            });
+
+            deleteIcon.addEventListener('click', e => {
+                let item: number;
+                let project: string;
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+                            renderDeletePopup(item, project, todos);
+                        }
+                    }
+                }
+            });
         });
     };
 
@@ -536,10 +760,66 @@ export default (function displayData() {
             todoItem.appendChild(itemRight);
 
             if (todo.checked) {
-                renderCheckedTodo(todoItem);
+                renderCheckedTodo(todos, todoItem);
             };
 
             listContainer.appendChild(todoItem);
+
+            checkboxIcon.addEventListener('click', e => {
+                let item: number;
+                let project: string;
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+                            manageData.checkOffTodo(item, project, todos);
+                        }
+                    }
+                }
+            });
+
+            notesBtn.addEventListener('click', e => renderNotesPopup(e, todos));
+
+            editIcon.addEventListener('click', e => {
+                let editItem: number;
+                let editProject: string; 
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            editItem = Number(itemGrandparent.dataset.index);
+                            editProject = itemGrandparent.dataset.project!;
+                            renderEditPopup(editItem, editProject, todos);
+                        }
+                    }
+                }
+            });
+
+            deleteIcon.addEventListener('click', e => {
+                let item: number;
+                let project: string;
+                const target = e.target;
+        
+                if (target instanceof HTMLElement) {
+                    const itemParent = target.parentElement;
+                    if (itemParent instanceof HTMLElement) {
+                        const itemGrandparent = itemParent.parentElement;
+                        if (itemGrandparent instanceof HTMLElement) {
+                            item = Number(itemGrandparent.dataset.index);
+                            project = itemGrandparent.dataset.project!;
+                            renderDeletePopup(item, project, todos);
+                        }
+                    }
+                }
+            });
         });
     };
 
