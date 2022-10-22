@@ -4,9 +4,9 @@ import { TodoObject, ProjectsObject } from "../util/types";
 export default (function manageData() {
     let selectedProject = 'all';
 
-    function setSelectedProject(todos: ProjectsObject, currentProject: string) {
+    function setSelectedProject(todos: ProjectsObject, currentProject: string, listContainer: Element) {
         selectedProject = currentProject;
-        updateTodos(todos);
+        updateTodos(todos, listContainer);
     };
 
     function getSelectedProject() {
@@ -136,29 +136,29 @@ export default (function manageData() {
         updateTodos(todos);
     };
 
-    function updateTodos(todos: ProjectsObject) {
+    function updateTodos(todos: ProjectsObject, listContainer: Element) {
         localStorage.setItem('todos', JSON.stringify(todos));
-        manageRerender(todos);
+        manageRerender(todos, listContainer);
     };
 
-    function manageRerender(todos: ProjectsObject) {
+    function manageRerender(todos: ProjectsObject, listContainer: Element) {
         const project = getSelectedProject();
 
         if (project === 'all') {
             displayData.renderFilterList(todos);
             displayData.renderProjectList(todos);
             displayData.renderHighlightedCategory();
-            displayData.renderAllTodos(todos);
+            displayData.renderAllTodos(todos, listContainer);
         } else if (project === 'today') {
             displayData.renderFilterList(todos);
             displayData.renderProjectList(todos);
             displayData.renderHighlightedCategory();
-            displayData.renderTodayTodos(todos);
+            displayData.renderTodayTodos(todos, listContainer);
         } else if (project === 'week') {
             displayData.renderFilterList(todos);
             displayData.renderProjectList(todos);
             displayData.renderHighlightedCategory();
-            displayData.renderWeekTodos(todos);
+            displayData.renderWeekTodos(todos, listContainer);
         } else {
             let projectLength = todos[project].length;
 
@@ -170,12 +170,12 @@ export default (function manageData() {
 
             if (projectLength < 1) {
                 displayData.renderHighlightedCategory();
-                displayData.renderEmptyProjectPopup(todos);
+                displayData.renderEmptyProjectPopup(todos, listContainer);
             } else {
                 displayData.renderFilterList(todos);
                 displayData.renderProjectList(todos);
                 displayData.renderHighlightedCategory();
-                displayData.renderProjectTodos(todos);
+                displayData.renderProjectTodos(todos, listContainer);
             }
         }
     };
