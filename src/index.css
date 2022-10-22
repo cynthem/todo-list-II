@@ -503,7 +503,9 @@ input[type="radio"] {
     opacity: 0;
 }
 
-.add-priority-label,
+.add-priority-label-low,
+.add-priority-label-medium,
+.add-priority-label-high,
 .new-priority-label {
     display: inline-block;
     font-size: 0.9rem;
@@ -594,7 +596,9 @@ input[type="radio"] {
 
 .add-todo-btn:hover,
 .add-project-btn:hover,
-.add-priority-label:hover,
+.add-priority-label-low:hover,
+.add-priority-label-medium:hover,
+.add-priority-label-high:hover,
 .new-priority-label:hover,
 input[type="submit"]:hover {
     cursor: pointer;
@@ -607,7 +611,9 @@ input[type="date"]:hover {
 
 .add-todo-btn:active,
 .add-project-btn:active,
-.add-priority-label:active,
+.add-priority-label-low:active,
+.add-priority-label-medium:active,
+.add-priority-label-high:active,
 .new-priority-label:active,
 input[type="submit"]:active {
     transform: translate(-1px, 1px);
@@ -1123,7 +1129,9 @@ input[type="submit"] {
     input[type="radio"] {
         left: 2rem;
     }
-    .add-priority-label,
+    .add-priority-label-low,
+    .add-priority-label-medium,
+    .add-priority-label-high,
     .new-priority-label {
         font-size: 0.8rem;
     }
@@ -1276,7 +1284,9 @@ input[type="submit"] {
     input[type="radio"] {
         left: 1.4rem;
     }
-    .add-priority-label,
+    .add-priority-label-low,
+    .add-priority-label-medium,
+    .add-priority-label-high,
     .new-priority-label {
         font-size: 0.6rem;
         padding: 3px 4px 2px;
@@ -1431,7 +1441,9 @@ input[type="submit"] {
     input[type="radio"] {
         left: 1rem;
     }
-    .add-priority-label,
+    .add-priority-label-low,
+    .add-priority-label-medium,
+    .add-priority-label-high,
     .new-priority-label {
         padding: 2px 4px 1px;
     }
