@@ -27,10 +27,6 @@ const filterBtns: NodeListOf<Element> = filterEl!;
 // Popup: Empty Project
 const emptyPopupEl = document.querySelector('.popup-empty-project');
 const emptyPopup: Element = emptyPopupEl!;
-const emptyAddBtnEl = document.querySelector('.empty-project-add-btn');
-const emptyAddBtn: Element = emptyAddBtnEl!;
-const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
-const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
 // Popup: Add Todo to Empty Project
 const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
 const addTodoPopup: Element = addTodoPopupEl!;
@@ -119,11 +115,11 @@ const deleteConfirm: Element = deleteConfirmEl!;
 const deleteCancelEl = document.querySelector('.delete-todo-cancel-btn');
 const deleteCancel: Element = deleteCancelEl!;
 
+// Dashboard 
 hamburgerMenu.addEventListener('click', () => {
     (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
 });
 
-// Dashboard buttons
 filterBtns.forEach(btn => {
     btn.addEventListener('click', e => {
         let projectName: string;
@@ -139,16 +135,6 @@ filterBtns.forEach(btn => {
 
         manageData.setSelectedProject(todos, projectName);
     });
-});
-
-// Popup: Empty Project
-emptyAddBtn.addEventListener('click', () => {
-    displayData.renderAddTodoPopup();
-});
-
-emptyDeleteBtn.addEventListener('click', () => {
-    manageData.deleteProject(todos);
-    emptyPopup.classList.add('invisible-empty-project');
 });
 
 // Popup: Add Todo to Empty Project

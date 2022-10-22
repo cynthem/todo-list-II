@@ -153,7 +153,7 @@ export default (function manageData() {
 
     function updateTodos(todos: ProjectsObject) {
         localStorage.setItem('todos', JSON.stringify(todos));
-        reload(todos);
+        manageRerender(todos);
     };
 
     function manageRerender(todos: ProjectsObject) {
@@ -185,7 +185,7 @@ export default (function manageData() {
 
             if (projectLength < 1) {
                 displayData.renderHighlightedCategory();
-                displayData.renderEmptyProjectPopup();
+                displayData.renderEmptyProjectPopup(todos);
             } else {
                 displayData.renderFilterList(todos);
                 displayData.renderProjectList(todos);

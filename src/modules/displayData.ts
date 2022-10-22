@@ -521,9 +521,23 @@ export default (function displayData() {
         const emptyPopup: Element = emptyPopupEl!;
         const emptyNameEl = document.querySelector('.empty-project-name');
         const emptyName: Element = emptyNameEl!;
+        const emptyAddBtnEl = document.querySelector('.empty-project-add-btn');
+        const emptyAddBtn: Element = emptyAddBtnEl!;
+        const emptyDeleteBtnEl = document.querySelector('.empty-project-delete-btn');
+        const emptyDeleteBtn: Element = emptyDeleteBtnEl!;
 
         emptyName.innerHTML = '';
         emptyName.textContent = manageData.getSelectedProject();
+
+        emptyAddBtn.addEventListener('click', () => {
+            renderAddTodoPopup();
+        });
+        
+        emptyDeleteBtn.addEventListener('click', () => {
+            manageData.deleteProject(todos);
+            emptyPopup.classList.add('invisible-empty-project');
+        });
+
         emptyPopup.classList.remove('invisible-empty-project');
     };
 
@@ -534,6 +548,7 @@ export default (function displayData() {
         const addProjectName: Element = addProjectEl!;
         const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
         const addDate: HTMLInputElement = addDateEl!;
+        
         const project = manageData.getSelectedProject();
 
         addProjectName.textContent = project;
