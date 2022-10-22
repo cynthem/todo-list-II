@@ -22,16 +22,6 @@ const filterBtns: NodeListOf<Element> = filterEl!;
 const addNewEl = document.querySelector('.projects-btn');
 const addNewBtn: Element = addNewEl!;
 
-// Popup: Delete Todo
-const deleteBtnEl = document.querySelectorAll('.fa-trash-can');
-const deleteBtn: NodeListOf<Element> = deleteBtnEl!;
-const deletePopupEl = document.querySelector('.popup-delete-todo');
-const deletePopup: Element = deletePopupEl!;
-const deleteConfirmEl = document.querySelector('.delete-todo-confirm-btn');
-const deleteConfirm: Element = deleteConfirmEl!;
-const deleteCancelEl = document.querySelector('.delete-todo-cancel-btn');
-const deleteCancel: Element = deleteCancelEl!;
-
 // Dashboard toggle
 hamburgerMenu.addEventListener('click', () => {
     (<HTMLElement>dashboard).style.visibility = (<HTMLElement>dashboard).style.visibility === 'hidden' ? 'visible' : 'hidden';
@@ -59,17 +49,3 @@ filterBtns.forEach(btn => {
 addNewBtn.addEventListener('click', () => {
     displayData.renderAddNewPopup(todos);
 });
-
-// Popup: Delete Todo
-deleteBtn.forEach(btn => {
-    btn.addEventListener('click', e => {
-        deletePopup.classList.remove('invisible-delete-todo');
-        
-        deleteConfirm.addEventListener('click', () => {
-            manageData.deleteTodo(e, todos);
-            deletePopup.classList.add('invisible-delete-todo');
-        });
-    });
-});
-
-deleteCancel.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));

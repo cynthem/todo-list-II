@@ -232,6 +232,24 @@ export default (function displayData() {
                         }
                     }
                 });
+
+                deleteIcon.addEventListener('click', e => {
+                    let item: number;
+                    let project: string;
+                    const target = e.target;
+            
+                    if (target instanceof HTMLElement) {
+                        const itemParent = target.parentElement;
+                        if (itemParent instanceof HTMLElement) {
+                            const itemGrandparent = itemParent.parentElement;
+                            if (itemGrandparent instanceof HTMLElement) {
+                                item = Number(itemGrandparent.dataset.index);
+                                project = itemGrandparent.dataset.project!;
+                                renderDeletePopup(item, project, todos);
+                            }
+                        }
+                    }
+                });
             });
         }
     };
@@ -986,6 +1004,24 @@ export default (function displayData() {
         });
     };
 
+    function renderDeletePopup(index: number, projectName: string, todos: ProjectsObject) {
+        const deletePopupEl = document.querySelector('.popup-delete-todo');
+        const deletePopup: Element = deletePopupEl!;
+        const deleteConfirmEl = document.querySelector('.delete-todo-confirm-btn');
+        const deleteConfirm: Element = deleteConfirmEl!;
+        const deleteCancelEl = document.querySelector('.delete-todo-cancel-btn');
+        const deleteCancel: Element = deleteCancelEl!;
+
+        deletePopup.classList.remove('invisible-delete-todo');
+                    
+        deleteConfirm.addEventListener('click', () => {
+            manageData.deleteTodo(index, projectName, todos);
+            deletePopup.classList.add('invisible-delete-todo');
+        });
+
+        deleteCancel.addEventListener('click', () => deletePopup.classList.add('invisible-delete-todo'));
+    };
+
     return {
         renderFilterList,
         renderProjectList,
@@ -999,6 +1035,7 @@ export default (function displayData() {
         renderEmptyProjectPopup,
         renderAddTodoPopup,
         renderNotesPopup,
-        renderEditPopup
+        renderEditPopup,
+        renderDeletePopup
     };
 })();
