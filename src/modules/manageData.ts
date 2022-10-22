@@ -146,17 +146,17 @@ export default (function manageData() {
 
         if (project === 'all') {
             displayData.renderFilterList(todos);
-            displayData.renderProjectList(todos);
+            displayData.renderProjectList(todos, listContainer);
             displayData.renderHighlightedCategory();
             displayData.renderAllTodos(todos, listContainer);
         } else if (project === 'today') {
             displayData.renderFilterList(todos);
-            displayData.renderProjectList(todos);
+            displayData.renderProjectList(todos, listContainer);
             displayData.renderHighlightedCategory();
             displayData.renderTodayTodos(todos, listContainer);
         } else if (project === 'week') {
             displayData.renderFilterList(todos);
-            displayData.renderProjectList(todos);
+            displayData.renderProjectList(todos, listContainer);
             displayData.renderHighlightedCategory();
             displayData.renderWeekTodos(todos, listContainer);
         } else {
@@ -173,7 +173,7 @@ export default (function manageData() {
                 displayData.renderEmptyProjectPopup(todos, listContainer);
             } else {
                 displayData.renderFilterList(todos);
-                displayData.renderProjectList(todos);
+                displayData.renderProjectList(todos, listContainer);
                 displayData.renderHighlightedCategory();
                 displayData.renderProjectTodos(todos, listContainer);
             }
