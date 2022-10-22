@@ -13,7 +13,7 @@ export default (function manageData() {
         return selectedProject;
     };
 
-    function addProject(e: Event, todos: ProjectsObject) {
+    function addProject(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
         const newProject = (document.querySelector('#add-project') as HTMLInputElement).value;
@@ -29,17 +29,17 @@ export default (function manageData() {
                 return;
             } else {
                 todos[newProject] = [];
-                updateTodos(todos);
+                updateTodos(todos, listContainer);
             }
         }
     };
 
-    function deleteProject(todos: ProjectsObject) {
+    function deleteProject(todos: ProjectsObject, listContainer: Element) {
         delete todos[getSelectedProject()];
-        setSelectedProject(todos, 'all');
+        setSelectedProject(todos, 'all', listContainer);
     };
 
-    function addProjectTodo(e: Event, todos: ProjectsObject) {
+    function addProjectTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
         const todoTitle = (document.querySelector('.add-new-todo-input') as HTMLInputElement).value;
@@ -53,7 +53,7 @@ export default (function manageData() {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-        updateTodos(todos);
+        updateTodos(todos, listContainer);
     };
 
     function createTodo(title: string, details: string, dueDate: string, priority: string, project: string, checked: boolean = false) {
@@ -68,7 +68,7 @@ export default (function manageData() {
         return todoItem;
     };
 
-    function addTodo(e: Event, todos: ProjectsObject) {
+    function addTodo(e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
         const todoTitle = (document.querySelector('.add-todo-input') as HTMLInputElement).value;
@@ -82,15 +82,15 @@ export default (function manageData() {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-        updateTodos(todos);
+        updateTodos(todos, listContainer);
     };
 
-    function checkOffTodo(index: number, projectName: string, todos: ProjectsObject) {
+    function checkOffTodo(index: number, projectName: string, todos: ProjectsObject, listContainer: Element) {
         todos[projectName][index].checked = !todos[projectName][index].checked;
-        updateTodos(todos);
+        updateTodos(todos, listContainer);
     };
 
-    function editTodo(index: number, projectName: string, e: Event, todos: ProjectsObject) {
+    function editTodo(index: number, projectName: string, e: Event, todos: ProjectsObject, listContainer: Element) {
         e.preventDefault();
 
         const todoDate = (document.querySelector('#edit-date') as HTMLInputElement).value;
@@ -103,7 +103,7 @@ export default (function manageData() {
         todos[projectName][index].dueDate = todoDueDate;
         todos[projectName][index].priority = (document.querySelector('[name="edit-todo-priority"]:checked') as HTMLInputElement).value;
         
-        updateTodos(todos);
+        updateTodos(todos, listContainer);
 
         /*let item: number;
         let project: string;
@@ -131,9 +131,9 @@ export default (function manageData() {
         }*/
     };
 
-    function deleteTodo(index: number, projectName: string, todos: ProjectsObject) {
+    function deleteTodo(index: number, projectName: string, todos: ProjectsObject, listContainer: Element) {
         todos[projectName].splice(index, 1);
-        updateTodos(todos);
+        updateTodos(todos, listContainer);
     };
 
     function updateTodos(todos: ProjectsObject, listContainer: Element) {

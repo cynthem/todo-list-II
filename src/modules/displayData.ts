@@ -143,7 +143,7 @@ export default (function displayData() {
         });
     };
 
-    function renderAllTodos(todos: ProjectsObject) {
+    function renderAllTodos(todos: ProjectsObject, listContainer: Element) {
         listContainer.innerHTML = '';
 
         for (const project in todos) {
@@ -188,7 +188,7 @@ export default (function displayData() {
                 todoItem.appendChild(itemRight);
 
                 if (todo.checked) {
-                    renderCheckedTodo(todos, todoItem);
+                    renderCheckedTodo(todos, todoItem, listContainer);
                 };
 
                 listContainer.appendChild(todoItem);
@@ -205,7 +205,7 @@ export default (function displayData() {
                             if (itemGrandparent instanceof HTMLElement) {
                                 item = Number(itemGrandparent.dataset.index);
                                 project = itemGrandparent.dataset.project!;
-                                manageData.checkOffTodo(item, project, todos);
+                                manageData.checkOffTodo(item, project, todos, listContainer);
                             }
                         }
                     }
@@ -225,7 +225,7 @@ export default (function displayData() {
                             if (itemGrandparent instanceof HTMLElement) {
                                 editItem = Number(itemGrandparent.dataset.index);
                                 editProject = itemGrandparent.dataset.project!;
-                                renderEditPopup(editItem, editProject, todos);
+                                renderEditPopup(editItem, editProject, todos, listContainer);
                             }
                         }
                     }
@@ -243,7 +243,7 @@ export default (function displayData() {
                             if (itemGrandparent instanceof HTMLElement) {
                                 item = Number(itemGrandparent.dataset.index);
                                 project = itemGrandparent.dataset.project!;
-                                renderDeletePopup(item, project, todos);
+                                renderDeletePopup(item, project, todos, listContainer);
                             }
                         }
                     }
@@ -252,7 +252,7 @@ export default (function displayData() {
         }
     };
 
-    function renderTodayTodos(todos: ProjectsObject) {
+    function renderTodayTodos(todos: ProjectsObject, listContainer: Element) {
         listContainer.innerHTML = '';
 
         for (const project in todos) {
@@ -306,7 +306,7 @@ export default (function displayData() {
                         todoItem.appendChild(itemRight);
 
                         if (todo.checked) {
-                            renderCheckedTodo(todos, todoItem);
+                            renderCheckedTodo(todos, todoItem, listContainer);
                         };
 
                         listContainer.appendChild(todoItem);
@@ -323,7 +323,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         item = Number(itemGrandparent.dataset.index);
                                         project = itemGrandparent.dataset.project!;
-                                        manageData.checkOffTodo(item, project, todos);
+                                        manageData.checkOffTodo(item, project, todos, listContainer);
                                     }
                                 }
                             }
@@ -343,7 +343,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         editItem = Number(itemGrandparent.dataset.index);
                                         editProject = itemGrandparent.dataset.project!;
-                                        renderEditPopup(editItem, editProject, todos);
+                                        renderEditPopup(editItem, editProject, todos, listContainer);
                                     }
                                 }
                             }
@@ -361,7 +361,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         item = Number(itemGrandparent.dataset.index);
                                         project = itemGrandparent.dataset.project!;
-                                        renderDeletePopup(item, project, todos);
+                                        renderDeletePopup(item, project, todos, listContainer);
                                     }
                                 }
                             }
@@ -418,7 +418,7 @@ export default (function displayData() {
             todoItem.appendChild(itemRight);
 
             if (todo.checked) {
-                renderCheckedTodo(todos, todoItem);
+                renderCheckedTodo(todos, todoItem, listContainer);
             };
 
             listContainer.appendChild(todoItem);
@@ -435,7 +435,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            manageData.checkOffTodo(item, project, todos);
+                            manageData.checkOffTodo(item, project, todos, listContainer);
                         }
                     }
                 }
@@ -455,7 +455,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             editItem = Number(itemGrandparent.dataset.index);
                             editProject = itemGrandparent.dataset.project!;
-                            renderEditPopup(editItem, editProject, todos);
+                            renderEditPopup(editItem, editProject, todos, listContainer);
                         }
                     }
                 }
@@ -473,7 +473,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            renderDeletePopup(item, project, todos);
+                            renderDeletePopup(item, project, todos, listContainer);
                         }
                     }
                 }
@@ -481,7 +481,7 @@ export default (function displayData() {
         });
     };
 
-    function renderWeekTodos(todos: ProjectsObject) {
+    function renderWeekTodos(todos: ProjectsObject, listContainer: Element) {
         listContainer.innerHTML = '';
 
         for (const project in todos) {
@@ -533,7 +533,7 @@ export default (function displayData() {
                         todoItem.appendChild(itemRight);
 
                         if (todo.checked) {
-                            renderCheckedTodo(todos, todoItem);
+                            renderCheckedTodo(todos, todoItem, listContainer);
                         };
         
                         listContainer.appendChild(todoItem);
@@ -550,7 +550,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         item = Number(itemGrandparent.dataset.index);
                                         project = itemGrandparent.dataset.project!;
-                                        manageData.checkOffTodo(item, project, todos);
+                                        manageData.checkOffTodo(item, project, todos, listContainer);
                                     }
                                 }
                             }
@@ -570,7 +570,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         editItem = Number(itemGrandparent.dataset.index);
                                         editProject = itemGrandparent.dataset.project!;
-                                        renderEditPopup(editItem, editProject, todos);
+                                        renderEditPopup(editItem, editProject, todos, listContainer);
                                     }
                                 }
                             }
@@ -588,7 +588,7 @@ export default (function displayData() {
                                     if (itemGrandparent instanceof HTMLElement) {
                                         item = Number(itemGrandparent.dataset.index);
                                         project = itemGrandparent.dataset.project!;
-                                        renderDeletePopup(item, project, todos);
+                                        renderDeletePopup(item, project, todos, listContainer);
                                     }
                                 }
                             }
@@ -645,7 +645,7 @@ export default (function displayData() {
             todoItem.appendChild(itemRight);
 
             if (todo.checked) {
-                renderCheckedTodo(todos, todoItem);
+                renderCheckedTodo(todos, todoItem, listContainer);
             };
 
             listContainer.appendChild(todoItem);
@@ -662,7 +662,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            manageData.checkOffTodo(item, project, todos);
+                            manageData.checkOffTodo(item, project, todos, listContainer);
                         }
                     }
                 }
@@ -682,7 +682,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             editItem = Number(itemGrandparent.dataset.index);
                             editProject = itemGrandparent.dataset.project!;
-                            renderEditPopup(editItem, editProject, todos);
+                            renderEditPopup(editItem, editProject, todos, listContainer);
                         }
                     }
                 }
@@ -700,7 +700,7 @@ export default (function displayData() {
                         if (itemGrandparent instanceof HTMLElement) {
                             item = Number(itemGrandparent.dataset.index);
                             project = itemGrandparent.dataset.project!;
-                            renderDeletePopup(item, project, todos);
+                            renderDeletePopup(item, project, todos, listContainer);
                         }
                     }
                 }
@@ -708,7 +708,7 @@ export default (function displayData() {
         });
     };
 
-    function renderProjectTodos(todos: ProjectsObject) {
+    function renderProjectTodos(todos: ProjectsObject, listContainer: Element) {
         listContainer.innerHTML = '';
 
         const todoList = todos[manageData.getSelectedProject()];
@@ -821,7 +821,7 @@ export default (function displayData() {
         });
     };
 
-    function renderCheckedTodo(todos: ProjectsObject, todoContainer: Element) {
+    function renderCheckedTodo(todos: ProjectsObject, todoContainer: Element, listContainer: Element) {
         const todoItems = todoContainer.children;
         const itemsLeft = todoItems[0];
         const itemsRight = todoItems[1];
@@ -851,14 +851,14 @@ export default (function displayData() {
                     if (itemGrandparent instanceof HTMLElement) {
                         item = Number(itemGrandparent.dataset.index);
                         project = itemGrandparent.dataset.project!;
-                        manageData.checkOffTodo(item, project, todos);
+                        manageData.checkOffTodo(item, project, todos, listContainer);
                     }
                 }
             }
         });
     };
 
-    function renderAddNewPopup(todos: ProjectsObject) {
+    function renderAddNewPopup(todos: ProjectsObject, listContainer: Element) {
         const addNewPopupEl = document.querySelector('.popup-add-new');
         const addNewPopup: Element = addNewPopupEl!;
         const addNewCloseEl = document.querySelector('#add-exit');
@@ -915,7 +915,7 @@ export default (function displayData() {
         });
         
         addTodoForm.addEventListener('submit', e => {
-            manageData.addTodo(e, todos);
+            manageData.addTodo(e, todos, listContainer);
             addNewPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
             addTodoForm.style.display = 'grid';
@@ -927,7 +927,7 @@ export default (function displayData() {
         });
         
         addProjectForm.addEventListener('submit', e => {
-            manageData.addProject(e, todos);
+            manageData.addProject(e, todos, listContainer);
             addNewPopup.classList.add('invisible-add-new');
             addTodoForm.reset();
             addTodoForm.style.display = 'grid';
@@ -984,7 +984,7 @@ export default (function displayData() {
         });
     };
 
-    function renderEmptyProjectPopup(todos: ProjectsObject) {
+    function renderEmptyProjectPopup(todos: ProjectsObject, listContainer: Element) {
         const emptyPopupEl = document.querySelector('.popup-empty-project');
         const emptyPopup: Element = emptyPopupEl!;
         const emptyNameEl = document.querySelector('.empty-project-name');
@@ -998,19 +998,19 @@ export default (function displayData() {
         emptyName.textContent = manageData.getSelectedProject();
 
         emptyAddBtn.addEventListener('click', () => {
-            renderAddTodoPopup(todos);
+            renderAddTodoPopup(todos, listContainer);
             emptyPopup.classList.add('invisible-empty-project');
         });
         
         emptyDeleteBtn.addEventListener('click', () => {
-            manageData.deleteProject(todos);
+            manageData.deleteProject(todos, listContainer);
             emptyPopup.classList.add('invisible-empty-project');
         });
 
         emptyPopup.classList.remove('invisible-empty-project');
     };
 
-    function renderAddTodoPopup(todos: ProjectsObject) {
+    function renderAddTodoPopup(todos: ProjectsObject, listContainer: Element) {
         const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
         const addTodoPopup: Element = addTodoPopupEl!;
         const addProjectEl = document.querySelector('.add-new-todo-project');
@@ -1041,14 +1041,14 @@ export default (function displayData() {
         addTodoPopup.classList.remove('invisible-add-new-todo');
 
         addNewForm.addEventListener('submit', e => {
-            manageData.addProjectTodo(e, todos);
+            manageData.addProjectTodo(e, todos, listContainer);
             addTodoPopup.classList.add('invisible-add-new-todo');
             addNewForm.reset();
             addDate.removeAttribute('value');
         });
         
         addTodoDelete.addEventListener('click', () => {
-            manageData.deleteProject(todos);
+            manageData.deleteProject(todos, listContainer);
             addTodoPopup.classList.add('invisible-add-new-todo');
             addNewForm.reset();
             addDate.removeAttribute('value');
@@ -1161,7 +1161,7 @@ export default (function displayData() {
         }
     };
 
-    function renderEditPopup(index: number, projectName: string, todos: ProjectsObject) {
+    function renderEditPopup(index: number, projectName: string, todos: ProjectsObject, listContainer: Element) {
         const editEl = document.querySelector('.popup-edit');
         const editCard: Element = editEl!;
         const editCloseEl = document.querySelector('.edit-close');
@@ -1234,7 +1234,7 @@ export default (function displayData() {
 
         editSubmit.addEventListener('submit', e => {
             editCard.classList.add('invisible-edit');
-            manageData.editTodo(index, projectName, e, todos);
+            manageData.editTodo(index, projectName, e, todos, listContainer);
         });
 
         editLowPriority.addEventListener('click', () => {
@@ -1283,7 +1283,7 @@ export default (function displayData() {
         });
     };
 
-    function renderDeletePopup(index: number, projectName: string, todos: ProjectsObject) {
+    function renderDeletePopup(index: number, projectName: string, todos: ProjectsObject, listContainer: Element) {
         const deletePopupEl = document.querySelector('.popup-delete-todo');
         const deletePopup: Element = deletePopupEl!;
         const deleteConfirmEl = document.querySelector('.delete-todo-confirm-btn');
@@ -1294,7 +1294,7 @@ export default (function displayData() {
         deletePopup.classList.remove('invisible-delete-todo');
                     
         deleteConfirm.addEventListener('click', () => {
-            manageData.deleteTodo(index, projectName, todos);
+            manageData.deleteTodo(index, projectName, todos, listContainer);
             deletePopup.classList.add('invisible-delete-todo');
         });
 
