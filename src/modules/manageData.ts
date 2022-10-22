@@ -165,7 +165,12 @@ export default (function manageData() {
         }
     };
 
-    function manageEmptyRerender(todos: ProjectsObject, listContainer: Element) {};
+    function manageEmptyRerender(todos: ProjectsObject, listContainer: Element) {
+        displayData.renderFilterList(todos);
+        displayData.renderProjectList(todos, listContainer);
+        displayData.renderHighlightedCategory();
+        displayData.renderProjectTodos(todos, listContainer);
+    };
 
     return {
         setSelectedProject,
