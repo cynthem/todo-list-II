@@ -13,10 +13,6 @@ function initialLoad(todos: ProjectsObject) {
 
 initialLoad(todos);
 
-export function reload(todos: ProjectsObject) {
-    manageData.manageRerender(todos);
-};
-
 // Dashboard 
 const dashboardEl = document.querySelector('.main-dashboard');
 const dashboard: Element = dashboardEl!;
