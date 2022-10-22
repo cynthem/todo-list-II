@@ -1056,24 +1056,24 @@ export default (function displayData() {
         });
 
         addNewLowPriority.addEventListener('click', () => {
-            if (addLowLabel.classList.contains('low')) {
-                addLowLabel.classList.remove('low');
+            if (addLowLabel.classList.contains('low-new')) {
+                addLowLabel.classList.remove('low-new');
                 addLowLabel.classList.add('low-checked');
             }
             if (addMediumLabel.classList.contains('medium-checked')) {
                 addMediumLabel.classList.remove('medium-checked');
-                addMediumLabel.classList.add('medium');
+                addMediumLabel.classList.add('medium-new');
             }
             if (addHighLabel.classList.contains('high-checked')) {
                 addHighLabel.classList.remove('high-checked');
-                addHighLabel.classList.add('high');
+                addHighLabel.classList.add('high-new');
             }
         });
         
         addNewMediumPriority.addEventListener('click', () => {
             if (addLowLabel.classList.contains('low-checked')) {
                 addLowLabel.classList.remove('low-checked');
-                addLowLabel.classList.add('low');
+                addLowLabel.classList.add('low-new');
             }
             if (addMediumLabel.classList.contains('medium')) {
                 addMediumLabel.classList.remove('medium');
@@ -1081,21 +1081,21 @@ export default (function displayData() {
             }
             if (addHighLabel.classList.contains('high-checked')) {
                 addHighLabel.classList.remove('high-checked');
-                addHighLabel.classList.add('high');
+                addHighLabel.classList.add('high-new');
             }
         });
         
         addNewHighPriority.addEventListener('click', () => {
             if (addLowLabel.classList.contains('low-checked')) {
                 addLowLabel.classList.remove('low-checked');
-                addLowLabel.classList.add('low');
+                addLowLabel.classList.add('low-new');
             }
             if (addMediumLabel.classList.contains('medium-checked')) {
                 addMediumLabel.classList.remove('medium-checked');
-                addMediumLabel.classList.add('medium');
+                addMediumLabel.classList.add('medium-new');
             }
-            if (addHighLabel.classList.contains('high')) {
-                addHighLabel.classList.remove('high');
+            if (addHighLabel.classList.contains('high-new')) {
+                addHighLabel.classList.remove('high-new');
                 addHighLabel.classList.add('high-checked');
             }
         });
