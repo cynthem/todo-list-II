@@ -131,7 +131,7 @@ export default (function manageData() {
         }*/
     };
 
-    function deleteTodo(e: Event, todos: ProjectsObject) {
+    function deleteTodo(index: number, projectName: string, todos: ProjectsObject) {
         let item: number;
         let project: string;
         const target = e.target;
