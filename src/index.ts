@@ -17,7 +17,7 @@ const addNewBtn: Element = addNewEl!;
 
 function initialLoad(todos: ProjectsObject) {
     displayData.renderFilterList(todos);
-    displayData.renderProjectList(todos);
+    displayData.renderProjectList(todos, listContainer);
     displayData.renderHighlightedCategory();
     displayData.renderAllTodos(todos, listContainer);
 };
