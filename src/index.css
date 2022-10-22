@@ -511,17 +511,20 @@ input[type="radio"] {
     background-color: #EBF5EE;
 }
 
-.low {
+.low,
+.low-new {
     border: 1px solid #c4a9bb;
     color: #c4a9bb;
 }
 
-.medium {
+.medium,
+.medium-new {
     border: 1px solid #99728c;
     color: #99728c;
 }
 
-.high {
+.high,
+.high-new {
     border: 1px solid #542344;
     color: #542344;
 }
