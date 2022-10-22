@@ -503,6 +503,7 @@ input[type="radio"] {
     opacity: 0;
 }
 
+.priority-label,
 .add-priority-label-low,
 .add-priority-label-medium,
 .add-priority-label-high,
@@ -596,6 +597,7 @@ input[type="radio"] {
 
 .add-todo-btn:hover,
 .add-project-btn:hover,
+.priority-label:hover,
 .add-priority-label-low:hover,
 .add-priority-label-medium:hover,
 .add-priority-label-high:hover,
@@ -611,6 +613,7 @@ input[type="date"]:hover {
 
 .add-todo-btn:active,
 .add-project-btn:active,
+.priority-label:active,
 .add-priority-label-low:active,
 .add-priority-label-medium:active,
 .add-priority-label-high:active,
@@ -1129,6 +1132,7 @@ input[type="submit"] {
     input[type="radio"] {
         left: 2rem;
     }
+    .priority-label,
     .add-priority-label-low,
     .add-priority-label-medium,
     .add-priority-label-high,
@@ -1284,6 +1288,7 @@ input[type="submit"] {
     input[type="radio"] {
         left: 1.4rem;
     }
+    .priority-label,
     .add-priority-label-low,
     .add-priority-label-medium,
     .add-priority-label-high,
@@ -1441,6 +1446,7 @@ input[type="submit"] {
     input[type="radio"] {
         left: 1rem;
     }
+    .priority-label,
     .add-priority-label-low,
     .add-priority-label-medium,
     .add-priority-label-high,
