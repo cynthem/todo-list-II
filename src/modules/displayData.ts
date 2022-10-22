@@ -868,6 +868,21 @@ export default (function displayData() {
         const addHighLabelEl = <HTMLLabelElement>document.querySelector('.high');
         const addHighLabel: HTMLLabelElement = addHighLabelEl!;
 
+        if (addLowLabel.classList.contains('low-checked')) {
+            addLowLabel.classList.remove('low-checked');
+            addLowLabel.classList.add('low');
+        }
+
+        if (addMediumLabel.classList.contains('medium-checked')) {
+            addMediumLabel.classList.remove('medium-checked');
+            addMediumLabel.classList.add('medium');
+        }
+
+        if (addHighLabel.classList.contains('high-checked')) {
+            addHighLabel.classList.remove('high-checked');
+            addHighLabel.classList.add('high');
+        }
+
         addDate.setAttribute('value', currentDay);
         addNewPopup.classList.remove('invisible-add-new');
 
@@ -934,7 +949,7 @@ export default (function displayData() {
                 addHighLabel.classList.add('high');
             }
         });
-        
+
         addMediumPriority.addEventListener('click', () => {
             if (addLowLabel.classList.contains('low-checked')) {
                 addLowLabel.classList.remove('low-checked');
@@ -1017,6 +1032,21 @@ export default (function displayData() {
         const addHighLabel: HTMLLabelElement = addHighLabelEl!;
         
         const project = manageData.getSelectedProject();
+
+        if (addLowLabel.classList.contains('low-checked')) {
+            addLowLabel.classList.remove('low-checked');
+            addLowLabel.classList.add('low-new');
+        }
+
+        if (addMediumLabel.classList.contains('medium-checked')) {
+            addMediumLabel.classList.remove('medium-checked');
+            addMediumLabel.classList.add('medium-new');
+        }
+
+        if (addHighLabel.classList.contains('high-checked')) {
+            addHighLabel.classList.remove('high-checked');
+            addHighLabel.classList.add('high-new');
+        }
 
         addProjectName.textContent = project;
         addDate.setAttribute('value', currentDay);
