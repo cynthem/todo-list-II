@@ -1001,6 +1001,7 @@ export default (function displayData() {
 
         emptyAddBtn.addEventListener('click', () => {
             renderAddTodoPopup(todos);
+            emptyPopup.classList.add('invisible-empty-project');
         });
         
         emptyDeleteBtn.addEventListener('click', () => {
