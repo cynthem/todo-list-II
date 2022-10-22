@@ -516,7 +516,7 @@ export default (function displayData() {
         addNewPopup.classList.remove('invisible-add-new');
     };
 
-    function renderEmptyProjectPopup() {
+    function renderEmptyProjectPopup(todos: ProjectsObject) {
         const emptyPopupEl = document.querySelector('.popup-empty-project');
         const emptyPopup: Element = emptyPopupEl!;
         const emptyNameEl = document.querySelector('.empty-project-name');
@@ -530,7 +530,7 @@ export default (function displayData() {
         emptyName.textContent = manageData.getSelectedProject();
 
         emptyAddBtn.addEventListener('click', () => {
-            renderAddTodoPopup();
+            renderAddTodoPopup(todos);
         });
         
         emptyDeleteBtn.addEventListener('click', () => {
@@ -541,19 +541,94 @@ export default (function displayData() {
         emptyPopup.classList.remove('invisible-empty-project');
     };
 
-    function renderAddTodoPopup() {
+    function renderAddTodoPopup(todos: ProjectsObject) {
         const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
         const addTodoPopup: Element = addTodoPopupEl!;
         const addProjectEl = document.querySelector('.add-new-todo-project');
         const addProjectName: Element = addProjectEl!;
+        const addNewFormEl = <HTMLFormElement>document.querySelector('.add-new-todo-form');
+        const addNewForm: HTMLFormElement = addNewFormEl!;
         const addDateEl = <HTMLInputElement>document.getElementById('new-todo-date');
         const addDate: HTMLInputElement = addDateEl!;
+        const addTodoDeleteEl = document.querySelector('.add-new-delete-project');
+        const addTodoDelete: Element = addTodoDeleteEl!;
+        const addNewLowPriorityEl = <HTMLInputElement>document.getElementById('new-todo-low');
+        const addNewLowPriority: HTMLInputElement = addNewLowPriorityEl!;
+        const addNewMediumPriorityEl = <HTMLInputElement>document.getElementById('new-todo-medium');
+        const addNewMediumPriority: HTMLInputElement = addNewMediumPriorityEl!;
+        const addNewHighPriorityEl = <HTMLInputElement>document.getElementById('new-todo-high');
+        const addNewHighPriority: HTMLInputElement = addNewHighPriorityEl!;
+        const addLowLabelEl = <HTMLLabelElement>document.querySelector('.low');
+        const addLowLabel: HTMLLabelElement = addLowLabelEl!;
+        const addMediumLabelEl = <HTMLLabelElement>document.querySelector('.medium');
+        const addMediumLabel: HTMLLabelElement = addMediumLabelEl!;
+        const addHighLabelEl = <HTMLLabelElement>document.querySelector('.high');
+        const addHighLabel: HTMLLabelElement = addHighLabelEl!;
         
         const project = manageData.getSelectedProject();
 
         addProjectName.textContent = project;
         addDate.setAttribute('value', currentDay);
         addTodoPopup.classList.remove('invisible-add-new-todo');
+
+        addNewForm.addEventListener('submit', e => {
+            manageData.addProjectTodo(e, todos);
+            addTodoPopup.classList.add('invisible-add-new-todo');
+            addNewForm.reset();
+            addDate.removeAttribute('value');
+        });
+        
+        addTodoDelete.addEventListener('click', () => {
+            manageData.deleteProject(todos);
+            addTodoPopup.classList.add('invisible-add-new-todo');
+            addNewForm.reset();
+            addDate.removeAttribute('value');
+        });
+
+        addNewLowPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low')) {
+                addLowLabel.classList.remove('low');
+                addLowLabel.classList.add('low-checked');
+            }
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
+            }
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
+            }
+        });
+        
+        addNewMediumPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
+            }
+            if (addMediumLabel.classList.contains('medium')) {
+                addMediumLabel.classList.remove('medium');
+                addMediumLabel.classList.add('medium-checked');
+            }
+            if (addHighLabel.classList.contains('high-checked')) {
+                addHighLabel.classList.remove('high-checked');
+                addHighLabel.classList.add('high');
+            }
+        });
+        
+        addNewHighPriority.addEventListener('click', () => {
+            if (addLowLabel.classList.contains('low-checked')) {
+                addLowLabel.classList.remove('low-checked');
+                addLowLabel.classList.add('low');
+            }
+            if (addMediumLabel.classList.contains('medium-checked')) {
+                addMediumLabel.classList.remove('medium-checked');
+                addMediumLabel.classList.add('medium');
+            }
+            if (addHighLabel.classList.contains('high')) {
+                addHighLabel.classList.remove('high');
+                addHighLabel.classList.add('high-checked');
+            }
+        });
     };
 
     function renderNotesPopup(e: Event, todos: ProjectsObject) {

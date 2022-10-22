@@ -20,24 +20,6 @@ const hamburgerEl = document.querySelector('.fa-bars');
 const hamburgerMenu: Element = hamburgerEl!;
 const filterEl = document.querySelectorAll('.filters-btn');
 const filterBtns: NodeListOf<Element> = filterEl!;
-// Popup: Empty Project
-const emptyPopupEl = document.querySelector('.popup-empty-project');
-const emptyPopup: Element = emptyPopupEl!;
-// Popup: Add Todo to Empty Project
-const addTodoPopupEl = document.querySelector('.popup-add-new-todo');
-const addTodoPopup: Element = addTodoPopupEl!;
-const addNewFormEl = <HTMLFormElement>document.querySelector('.add-new-todo-form');
-const addNewForm: HTMLFormElement = addNewFormEl!;
-const addTodoDeleteEl = document.querySelector('.add-new-delete-project');
-const addTodoDelete: Element = addTodoDeleteEl!;
-const addNewDateEl = <HTMLInputElement>document.querySelector('.add-new-date-input');
-const addNewDate: HTMLInputElement = addNewDateEl!;
-const addNewLowPriorityEl = <HTMLInputElement>document.getElementById('new-todo-low');
-const addNewLowPriority: HTMLInputElement = addNewLowPriorityEl!;
-const addNewMediumPriorityEl = <HTMLInputElement>document.getElementById('new-todo-medium');
-const addNewMediumPriority: HTMLInputElement = addNewMediumPriorityEl!;
-const addNewHighPriorityEl = <HTMLInputElement>document.getElementById('new-todo-high');
-const addNewHighPriority: HTMLInputElement = addNewHighPriorityEl!;
 // Popup: Add New Todo or Project
 const addNewEl = document.querySelector('.projects-btn');
 const addNewBtn: Element = addNewEl!;
@@ -131,66 +113,6 @@ filterBtns.forEach(btn => {
 
         manageData.setSelectedProject(todos, projectName);
     });
-});
-
-// Popup: Add Todo to Empty Project
-addNewForm.addEventListener('submit', e => {
-    manageData.addProjectTodo(e, todos);
-    addTodoPopup.classList.add('invisible-add-new-todo');
-    addNewForm.reset();
-    addNewDate.removeAttribute('value');
-});
-
-addTodoDelete.addEventListener('click', () => {
-    manageData.deleteProject(todos);
-    addTodoPopup.classList.add('invisible-add-new-todo');
-    addNewForm.reset();
-    addNewDate.removeAttribute('value');
-});
-
-addNewLowPriority.addEventListener('click', () => {
-    if (addLowLabel.classList.contains('low')) {
-        addLowLabel.classList.remove('low');
-        addLowLabel.classList.add('low-checked');
-    }
-    if (addMediumLabel.classList.contains('medium-checked')) {
-        addMediumLabel.classList.remove('medium-checked');
-        addMediumLabel.classList.add('medium');
-    }
-    if (addHighLabel.classList.contains('high-checked')) {
-        addHighLabel.classList.remove('high-checked');
-        addHighLabel.classList.add('high');
-    }
-});
-
-addNewMediumPriority.addEventListener('click', () => {
-    if (addLowLabel.classList.contains('low-checked')) {
-        addLowLabel.classList.remove('low-checked');
-        addLowLabel.classList.add('low');
-    }
-    if (addMediumLabel.classList.contains('medium')) {
-        addMediumLabel.classList.remove('medium');
-        addMediumLabel.classList.add('medium-checked');
-    }
-    if (addHighLabel.classList.contains('high-checked')) {
-        addHighLabel.classList.remove('high-checked');
-        addHighLabel.classList.add('high');
-    }
-});
-
-addNewHighPriority.addEventListener('click', () => {
-    if (addLowLabel.classList.contains('low-checked')) {
-        addLowLabel.classList.remove('low-checked');
-        addLowLabel.classList.add('low');
-    }
-    if (addMediumLabel.classList.contains('medium-checked')) {
-        addMediumLabel.classList.remove('medium-checked');
-        addMediumLabel.classList.add('medium');
-    }
-    if (addHighLabel.classList.contains('high')) {
-        addHighLabel.classList.remove('high');
-        addHighLabel.classList.add('high-checked');
-    }
 });
 
 // Popup: Add New Todo or Project      
