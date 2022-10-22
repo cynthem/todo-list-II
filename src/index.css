@@ -507,7 +507,9 @@ input[type="radio"] {
 .add-priority-label-low,
 .add-priority-label-medium,
 .add-priority-label-high,
-.new-priority-label {
+.new-priority-label-low,
+.new-priority-label-medium,
+.new-priority-label-high {
     display: inline-block;
     font-size: 0.9rem;
     padding: 5px 10px 2px;
@@ -601,7 +603,9 @@ input[type="radio"] {
 .add-priority-label-low:hover,
 .add-priority-label-medium:hover,
 .add-priority-label-high:hover,
-.new-priority-label:hover,
+.new-priority-label-low:hover,
+.new-priority-label-medium:hover,
+.new-priority-label-high:hover
 input[type="submit"]:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -617,7 +621,9 @@ input[type="date"]:hover {
 .add-priority-label-low:active,
 .add-priority-label-medium:active,
 .add-priority-label-high:active,
-.new-priority-label:active,
+.new-priority-label-low:active,
+.new-priority-label-medium:active,
+.new-priority-label-high:active
 input[type="submit"]:active {
     transform: translate(-1px, 1px);
 }
@@ -1136,7 +1142,9 @@ input[type="submit"] {
     .add-priority-label-low,
     .add-priority-label-medium,
     .add-priority-label-high,
-    .new-priority-label {
+    .new-priority-label-low,
+    .new-priority-label-medium,
+    .new-priority-label-high {
         font-size: 0.8rem;
     }
     .add-new-container,
@@ -1292,7 +1300,9 @@ input[type="submit"] {
     .add-priority-label-low,
     .add-priority-label-medium,
     .add-priority-label-high,
-    .new-priority-label {
+    .new-priority-label-low,
+    .new-priority-label-medium,
+    .new-priority-label-high {
         font-size: 0.6rem;
         padding: 3px 4px 2px;
     }
@@ -1450,7 +1460,9 @@ input[type="submit"] {
     .add-priority-label-low,
     .add-priority-label-medium,
     .add-priority-label-high,
-    .new-priority-label {
+    .new-priority-label-low,
+    .new-priority-label-medium,
+    .new-priority-label-high {
         padding: 2px 4px 1px;
     }
     .add-new-container,
