@@ -4,15 +4,8 @@ import { todos } from './modules/todoList';
 import { ProjectsObject } from './util/types';
 import './index.css';
 
-function initialLoad(todos: ProjectsObject) {
-    displayData.renderFilterList(todos);
-    displayData.renderProjectList(todos);
-    displayData.renderHighlightedCategory();
-    displayData.renderAllTodos(todos);
-};
-
-initialLoad(todos);
-
+const listContainerEl = document.querySelector('.main-list');
+const listContainer: Element = listContainerEl!
 const dashboardEl = document.querySelector('.main-dashboard');
 const dashboard: Element = dashboardEl!;
 const hamburgerEl = document.querySelector('.fa-bars');
@@ -21,6 +14,15 @@ const filterEl = document.querySelectorAll('.filters-btn');
 const filterBtns: NodeListOf<Element> = filterEl!;
 const addNewEl = document.querySelector('.projects-btn');
 const addNewBtn: Element = addNewEl!;
+
+function initialLoad(todos: ProjectsObject) {
+    displayData.renderFilterList(todos);
+    displayData.renderProjectList(todos);
+    displayData.renderHighlightedCategory();
+    displayData.renderAllTodos(todos, listContainer);
+};
+
+initialLoad(todos);
 
 // Dashboard toggle
 hamburgerMenu.addEventListener('click', () => {
@@ -41,11 +43,11 @@ filterBtns.forEach(btn => {
             projectName = 'week';
         }
 
-        manageData.setSelectedProject(todos, projectName);
+        manageData.setSelectedProject(todos, projectName, listContainer);
     });
 });
 
 // Add-New Button    
 addNewBtn.addEventListener('click', () => {
-    displayData.renderAddNewPopup(todos);
+    displayData.renderAddNewPopup(todos, listContainer);
 });

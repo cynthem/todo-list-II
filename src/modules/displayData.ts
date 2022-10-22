@@ -4,9 +4,7 @@ import { currentDay } from '../util/dates';
 import { format } from 'date-fns';
 
 export default (function displayData() {
-    const listContainerEl = document.querySelector('.main-list');
-    const listContainer: Element = listContainerEl!
-
+    
     function renderFilterList(todos: ProjectsObject) {
         const allTodosEl = document.querySelector('.all');
         const allTodosCount: Element = allTodosEl!;
