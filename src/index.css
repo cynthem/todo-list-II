@@ -800,9 +800,12 @@ input[type="submit"] {
 }
 
 .edit-details-textarea {
+    font-family: 'Overpass', serif;
+    font-size: 0.9rem;
+    background-color: #EBF5EE;
     border: none;
     outline: none;
-    background-color: #EBF5EE;
+    overflow: scroll;
 }
 
 .edit-title-textarea,
