@@ -1208,8 +1208,13 @@ export default (function displayData() {
         const year = format(dateObject, 'yyyy');
         const currentDay = `${year}-${month}-${day}`;
 
+        if (todos[projectName][index].details === '') {
+            editDetails.textContent = 'Add details here...';
+        } else {
+            editDetails.textContent = todos[projectName][index].details;
+        }
+
         editTitle.textContent = todos[projectName][index].title;
-        editDetails.textContent = todos[projectName][index].details;
         editDueDate.removeAttribute('value');
         editDueDate.setAttribute('value', currentDay);
 
