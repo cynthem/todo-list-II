@@ -13,8 +13,8 @@
 
 
 ## Room for Improvement
-- Improvement to be done 1
-- Improvement to be done 2
+- Improve optimization
+- Switch local storage to a back-end storage solution
 
 
 ## Screenshots
