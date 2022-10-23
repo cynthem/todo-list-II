@@ -793,7 +793,16 @@ input[type="submit"] {
     color: #542344;
     font-size: 1.5rem;
     height: 4rem;
+    border: none;
+    outline: none;
+    background-color: #EBF5EE;
     border-bottom: 1px solid grey;
+}
+
+.edit-details-textarea {
+    border: none;
+    outline: none;
+    background-color: #EBF5EE;
 }
 
 .edit-title-textarea,
@@ -863,11 +872,20 @@ input[type="submit"] {
     margin-top: 30px;
 }
 
+.add-new-submit-btn:hover,
+.add-project-submit-btn:hover,
+.add-todo-submit-btn:hover,
+#submit-edit:hover,
 .delete-todo-confirm-btn:hover,
 .delete-todo-cancel-btn:hover {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
+.add-new-submit-btn:active,
+.add-project-submit-btn:active,
+.add-todo-submit-btn:active,
+#submit-edit:active,
 .delete-todo-confirm-btn:active,
 .delete-todo-cancel-btn:active {
     transform: translate(-1px, 1px);
