@@ -1,7 +1,7 @@
 # To-Doing
 > Live demo [_here_](https://doozles411.github.io/todo-list-II/)
 
-> An updated version of a to-do and project tracking static site. Original can be seen [_here_](https://github.com/doozles411/Todo-list). Replaces JavaScript, used in the first version, with TypeScript in this version, improves several features, and adds two new features. Improvements include reorganizing and refactoring code for more readibility and debugging, adding two new popups: one to confirm to-do deletion to avoid user error, and one that adds a to-do to an empty project or deletes the empty project, and improves responsiveness by changing CSS values from veiwport height/width to rem, better breakpoints are used for mobile/tablet styles, and popup animations are smoother. 
+> An updated version of a to-do and project tracking static site. Original can be seen [_here_](https://github.com/doozles411/Todo-list). Replaces JavaScript, used in the first version, with TypeScript in this version, improves several features, and adds two new features. Improvements include reorganizing and refactoring code for more readibility and debugging, adding two new popups: one to confirm to-do deletion to avoid user error, and one that adds a to-do to an empty project or deletes the empty project, and improves responsiveness by changing CSS values from viewport height/width to rem, better breakpoints are used for mobile/tablet styles, and popup animations are smoother. 
 
 > Features that remain the same include using local storage to store user's data, adding and deleting to-dos and projects, filtering the to-do list by a specific project folder, checking off to-dos, editing to-dos, and more. This project was completed as part of The Odin Project's Full Stack Javascript curriculum.
 
