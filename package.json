@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/doozles411/todo-list-II.git"
+    "url": "git+https://github.com/cynthem/todo-list-II.git"
   },
   "keywords": [
     "todo",
@@ -20,9 +20,9 @@
   "author": "CMP",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/doozles411/todo-list-II/issues"
+    "url": "https://github.com/cynthem/todo-list-II/issues"
   },
-  "homepage": "https://github.com/doozles411/todo-list-II#readme",
+  "homepage": "https://github.com/cynthem/todo-list-II#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
